@@ -97,6 +97,7 @@
             "firstName": "Jan",
             "lastName": "Janssen",
             "email": "JanJanssen@email.com",
+            "profileImage": "url naar een image",
             "following": [
                 {
                     "id": 2
@@ -119,6 +120,11 @@
                 {
                     "id": 1
                 }
+            ],
+            "myLikes": [
+                {
+                    "id": 2
+                }
             ]
         },
         {
@@ -126,6 +132,7 @@
             "firstName": "Henk",
             "lastName": "Henkerson",
             "email": "henkhenkerson@gmail.comm",
+            "profileImage": "url naar een image",
             "following": [
                 {
                     "id": 1
@@ -144,13 +151,19 @@
                     "id": 3
                 }
             ],
-            "mySolutions":[]
+            "mySolutions":[],
+            "myLikes": [
+                {
+                    "id": 2
+                }
+            ]
         },
         {
             "id": 3,
             "firstName": "Hans",
             "lastName": "Worst",
             "email": "hansworst@email.com",
+            "profileImage": "url naar een image",
             "following": [
                 {
                     "id": 4
@@ -166,13 +179,19 @@
                     "id": 2
                 }
             ],
-            "mySolutions": []
+            "mySolutions": [],
+            "myLikes": [
+                {
+                    "id": 2
+                }
+            ]
         },
         {
             "id": 4,
             "firstName": "Peter",
             "lastName": "Pan",
             "email": "peterpan@email.com",
+            "profileImage": "url naar een image",
             "following": [
                 {
                     "id": 3
@@ -188,13 +207,19 @@
                     "id": 5
                 }
             ],
-            "mySolutions": []
+            "mySolutions": [],
+            "myLikes": [
+                {
+                    "id": 2
+                }
+            ]
         },
         {
             "id": 5,
             "firstName": "John",
             "lastName": "Snow",
             "email": "johnsnow@email.com",
+            "profileImage": "url naar een image",
             "following": [],
             "followers": [],
             "myComments": [
@@ -202,7 +227,12 @@
                     "id": 6
                 }
             ],
-            "mySolutions": []
+            "mySolutions": [],
+            "myLikes": [
+                {
+                    "id": 2
+                }
+            ]
         }
     ],
     "AuthUser": [
