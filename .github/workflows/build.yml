@@ -13,7 +13,7 @@ on:
   
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: rtr-app
+  IMAGE_NAME: rtr
   NODE_VERSION: 12.18.3
 
 jobs:
