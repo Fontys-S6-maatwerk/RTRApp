@@ -1,0 +1,235 @@
+{
+    "Solutions": [
+        {
+            "id": 1,
+            "numberOfLikes": 100,
+            "name": "Solution name",
+            "weatherExtremeType": "Hitte",
+            "solutionType": "how-to video",
+            "difficulty": "Easy",
+            "impactGoal": 100000,
+            "SDGType": "Goal 13: Climate Action",
+            "author": "Jan Janssen",
+            "currentImpact": 101,
+            "uploadDate": "27-09-2021",
+            "viewCount": 213,
+            "reactions": [
+                {
+                    "id": 1
+                },
+                {
+                    "id": 2
+                }
+            ],
+            "images": "een of andere url"
+        },
+        {
+            "id": 2,
+            "numberOfLikes": 10,
+            "name": "Solution name2",
+            "weatherExtremeType": "Wateroverlast",
+            "solutionType": "how-to video",
+            "difficulty": "Medium",
+            "impactGoal": 1000000,
+            "SDGType": "Goal 13: Climate Action",
+            "author": "Hans Worst",
+            "currentImpact": 9,
+            "uploadDate": "27-07-2021",
+            "viewCount": 234,
+            "reactions": [
+                {
+                    "id": 3
+                },
+                {
+                    "id": 4
+                },
+                {
+                    "id": 5
+                },
+                {
+                    "id": 6
+                }
+            ],
+            "images": "een of andere url"
+        }
+    ],
+    "Reactions": [
+        {
+            "id" : 1,
+            "content": "The BEST Solution EUW.",
+            "auther": "Henk Henkerson",
+            "solution": 1
+        },
+        {
+            "id": 2,
+            "content": "The WORST Solution EUW.",
+            "author": "Hans Worst",
+            "solution": 1
+        },
+        {
+            "id": 3,
+            "content": "The BEST Solution EUW.",
+            "author": "Henk Henkerson",
+            "solution": 2
+        },
+        {
+            "id": 4,
+            "content": "The WORST Solution EUW.",
+            "author": "Jan Janssen",
+            "solution": 2
+        },
+        {
+            "id": 5,
+            "content": "Very nice",
+            "author": "Peter Pan",
+            "solution": 2
+        },
+        {
+            "id": 6,
+            "content": "It worked great!",
+            "author": "John Snow",
+            "solution": 2
+        }
+    ],
+    "User":[
+        {
+            "id": 1,
+            "firstName": "Jan",
+            "lastName": "Janssen",
+            "email": "JanJanssen@email.com",
+            "following": [
+                {
+                    "id": 2
+                },
+                {
+                    "id": 3
+                }
+            ],
+            "followers": [
+                {
+                    "id": 2
+                }
+            ],
+            "myComments": [
+                {
+                    "id": 4
+                }
+            ],
+            "mySolutions": [
+                {
+                    "id": 1
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "firstName": "Henk",
+            "lastName": "Henkerson",
+            "email": "henkhenkerson@gmail.comm",
+            "following": [
+                {
+                    "id": 1
+                }
+            ],
+            "followers": [
+                {
+                    "id": 1
+                }
+            ],
+            "myComments": [
+                {
+                    "id": 1
+                },
+                {
+                    "id": 3
+                }
+            ],
+            "mySolutions":[]
+        },
+        {
+            "id": 3,
+            "firstName": "Hans",
+            "lastName": "Worst",
+            "email": "hansworst@email.com",
+            "following": [
+                {
+                    "id": 4
+                }
+            ],
+            "followers": [
+                {
+                    "id": 4 
+                }
+            ],
+            "myComments": [
+                {
+                    "id": 2
+                }
+            ],
+            "mySolutions": []
+        },
+        {
+            "id": 4,
+            "firstName": "Peter",
+            "lastName": "Pan",
+            "email": "peterpan@email.com",
+            "following": [
+                {
+                    "id": 3
+                }
+            ],
+            "followers": [
+                {
+                    "id": 3 
+                }
+            ],
+            "myComments": [
+                {
+                    "id": 5
+                }
+            ],
+            "mySolutions": []
+        },
+        {
+            "id": 5,
+            "firstName": "John",
+            "lastName": "Snow",
+            "email": "johnsnow@email.com",
+            "following": [],
+            "followers": [],
+            "myComments": [
+                {
+                    "id": 6
+                }
+            ],
+            "mySolutions": []
+        }
+    ],
+    "AuthUser": [
+        {
+            "id": 1,
+            "email":"hansworst@email.com",
+            "password": "supergoedwachtwoordgehashtendatsoortdingen"
+        },
+        {
+            "id": 2,
+            "email":"janjanssen@email.com",
+            "password": "supergoedwachtwoordgehashtendatsoortdingen"
+        },
+        {
+            "id": 3,
+            "email":"johnsnow@email.com",
+            "password": "supergoedwachtwoordgehashtendatsoortdingen"
+        },
+        {
+            "id": 4,
+            "email":"peterpan@email.com",
+            "password": "supergoedwachtwoordgehashtendatsoortdingen"
+        },
+        {
+            "id": 5,
+            "email":"henkhenkerson@email.com",
+            "password": "supergoedwachtwoordgehashtendatsoortdingen"
+        }
+    ]
+}
