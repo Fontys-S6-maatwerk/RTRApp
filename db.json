@@ -1,0 +1,62 @@
+{
+    "Solutions": [
+        {
+            "id": 1,
+            "numberOfLikes": 100,
+            "name": "Solution name",
+            "weatherExtremeType": "Hitte",
+            "solutionType": "how-to video",
+            "difficulty": "Easy",
+            "impactGoal": 100000,
+            "SDGType": "Goal 13: Climate Action",
+            "author": "Jan Janssen",
+            "currentImpact": 101,
+            "uploadDate": "27-09-2021",
+            "viewCount": 213,
+            "reactions": [
+                {
+                    "id": 1,
+                    "content": "The BEST Solution EUW.",
+                    "author": "Henk Henkerson",
+                    "solution": 1
+                },
+                {
+                    "id": 2,
+                    "content": "The WORST Solution EUW.",
+                    "author": "Hans Worst",
+                    "solution": 1
+                }
+            ],
+            "images": "een of andere url"
+        },
+        {
+            "id": 2,
+            "numberOfLikes": 10,
+            "name": "Solution name2",
+            "weatherExtremeType": "Wateroverlast",
+            "solutionType": "how-to video",
+            "difficulty": "Medium",
+            "impactGoal": 1000000,
+            "SDGType": "Goal 13: Climate Action",
+            "author": "Hans Worst",
+            "currentImpact": 9,
+            "uploadDate": "27-07-2021",
+            "viewCount": 234,
+            "reactions": [
+                {
+                    "id": 3,
+                    "content": "The BEST Solution EUW.",
+                    "author": "Henk Henkerson",
+                    "solution": 2
+                },
+                {
+                    "id": 4,
+                    "content": "The WORST Solution EUW.",
+                    "author": "Jan Janssen",
+                    "solution": 2
+                }
+            ],
+            "images": "een of andere url"
+        }
+    ]
+}
