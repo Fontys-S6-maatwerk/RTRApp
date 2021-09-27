@@ -4,7 +4,9 @@ name: Build and Deploy to Staging area
 
 on:
   push:
-    branches: develop
+    branches: 
+    - develop
+  workflow_dispatch:
   
 env:
   IMAGE: rtr-app
@@ -12,6 +14,7 @@ env:
 
 jobs:
   build:
+    name: deploy to staging
     runs-on: ubuntu-latest
     environment: staging
     
@@ -23,7 +26,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ env.NODE_VERSION}}
-          
+        
       - name: Build
         run: |-
           docker build \
