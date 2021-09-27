@@ -34,5 +34,5 @@ jobs:
         run: |-
           docker build \
           --tag $IMAGE \
-          rtr
+          .
         
