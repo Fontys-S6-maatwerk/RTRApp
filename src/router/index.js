@@ -23,6 +23,12 @@ const routes = [{
         name: 'Solutions',
         component: () =>
             import ('../views/Solutions.vue')
+    },
+    {
+        path: '/solutions/:solutionId',
+        name: 'Solution',
+        component: () =>
+            import ('../views/Solution.vue')
     }
 ]
 
