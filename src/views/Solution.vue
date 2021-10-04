@@ -39,7 +39,7 @@ export default {
 
     },
     mounted(){
-        axios.get("http://localhost:3000/Solutions/" + this.solutionId)
+        axios.get("http://localhost:3001/Solutions/" + this.solutionId)
             .then((response) => { 
                 this.solution = response.data;
             } );
