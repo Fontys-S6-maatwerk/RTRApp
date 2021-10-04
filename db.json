@@ -21,7 +21,24 @@
                     "id": 2
                 }
             ],
-            "images": "een of andere url"
+            "images": "een of andere url",
+            "materials": [
+                {
+                    "content": "Hamer"
+                }
+            ],
+            "steps": [
+                {
+                    "id": 1,
+                    "image": "url",
+                    "content": "Sla met een hamer." 
+                },
+                {
+                    "id": 2,
+                    "image": "url",
+                    "content": "Kijk of het echt vast zit."
+                }
+            ]
         },
         {
             "id": 2,
@@ -50,7 +67,19 @@
                     "id": 6
                 }
             ],
-            "images": "een of andere url"
+            "images": "een of andere url",
+            "materials": [
+                {
+                    "content": "Zandzak"
+                }
+            ],
+            "steps": [
+                {
+                    "id": 1,
+                    "image": "url",
+                    "content": "Leg de zandzak voor de deur" 
+                }
+            ]
         }
     ],
     "Reactions": [
@@ -68,13 +97,13 @@
         },
         {
             "id": 3,
-            "content": "The BEST Solution EUW.",
+            "content": "The very BEST Solution EUW.",
             "author": "Henk Henkerson",
             "solution": 2
         },
         {
             "id": 4,
-            "content": "The WORST Solution EUW.",
+            "content": "The very WORST Solution EUW.",
             "author": "Jan Janssen",
             "solution": 2
         },
