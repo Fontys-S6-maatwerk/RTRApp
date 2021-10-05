@@ -10,7 +10,9 @@
             {{ solution.author }}
           </p>
           <v-spacer></v-spacer>
-          {{ solution.uploadDate }}
+          <p>
+            {{ solution.uploadDate }}
+          </p>
         </v-card-title>
         <v-card-text>
           <v-img src="https://cdn.vuetifyjs.com/images/cards/cooking.png">
@@ -39,6 +41,7 @@
 
 <script>
 import axios from "axios";
+
 export default {
   data() {
     return {
@@ -49,7 +52,7 @@ export default {
     axios
       .get("http://localhost:3000/Solutions")
       .then((response) => (this.solutions = response.data));
-  },
+  }
 };
 </script>
 
