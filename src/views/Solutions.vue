@@ -1,7 +1,7 @@
 <template>
   <v-row no-gutters>
     <v-col v-if="solutions" cols="12">
-      <v-card v-for="solution in solutions" :key="solution.id">
+      <v-card v-for="solution in solutions" :key="solution.id" v-on:click=openSolution(solution.id)>
         <v-card-title>
           <v-avatar>
             <v-img src="https://cdn.vuetifyjs.com/images/cards/cooking.png" />
@@ -50,8 +50,13 @@ export default {
   },
   mounted() {
     axios
-      .get("http://localhost:3000/Solutions")
+      .get("http://localhost:3001/Solutions")
       .then((response) => (this.solutions = response.data));
+  },
+  methods:{
+    openSolution(solutionId){
+      this.$router.push({name: 'Solution', params: {solutionId: solutionId}});
+    }
   }
 };
 </script>
