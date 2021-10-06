@@ -9,16 +9,14 @@
                     <v-card-subtitle>Current impact {{ this.solution.currentImpact }} / {{ this.solution.impactGoal }}</v-card-subtitle>
                 </v-row>
                 <v-img src="https://cdn.vuetifyjs.com/images/cards/cooking.png">
-                    <span class="bottom-left" style="left: 0">
-                        <v-card-title>{{ this.solution.author }}</v-card-title>
-                        <v-card-subtitle>{{ this.solution.uploadDate }}</v-card-subtitle>
-                        <v-card-text>{{ this.solution.weatherExtremeType }} </v-card-text>
-                    </span>
                 </v-img>
+                <v-card-title>{{ this.solution.author }}</v-card-title>
+                <v-card-subtitle class="text-left">{{ this.solution.weatherExtremeType }} </v-card-subtitle>
                 <v-card-text>
                     <v-row class="justify-space-between">
-                        <v-card-subtitle> {{ this.solution.numberOfLikes }} Likes </v-card-subtitle>
-                        <v-card-subtitle> Viewcount {{this.solution.viewCount}}</v-card-subtitle>
+                        <v-card-subtitle>{{ this.solution.numberOfLikes }} Likes</v-card-subtitle>
+                        <v-card-subtitle>{{ this.solution.uploadDate }}</v-card-subtitle>
+                        <v-card-subtitle>Viewcount {{this.solution.viewCount}}</v-card-subtitle>
                     </v-row>
                 </v-card-text>
             </v-card>
