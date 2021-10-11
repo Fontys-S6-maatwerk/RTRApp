@@ -16,6 +16,12 @@ const routes = [{
       component: I18nHome
     },
     {
+        path: '/profile/:author',
+        name: 'Profile',
+        component: () => 
+            import('../views/Profile.vue')
+    },
+    {
         path: '/about',
         name: 'About',
         // route level code-splitting
