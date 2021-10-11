@@ -10,13 +10,20 @@
                 </v-row>
                 <v-img src="https://cdn.vuetifyjs.com/images/cards/cooking.png">
                 </v-img>
-                <v-card-title>{{ this.solution.author }}</v-card-title>
+                <router-link :to="{ name: 'Profile', params: { author: this.solution.author}}">
+                    <v-card-title>
+                        <v-avatar class="mr-2">
+                            <v-img src="https://cdn.vuetifyjs.com/images/cards/cooking.png"></v-img>
+                        </v-avatar>
+                        {{ this.solution.author }}
+                    </v-card-title>
+                </router-link>
                 <v-card-subtitle class="text-left">{{ this.solution.weatherExtremeType }} </v-card-subtitle>
                 <v-card-text>
                     <v-row class="justify-space-between">
                         <v-card-subtitle>{{ this.solution.numberOfLikes }} Likes</v-card-subtitle>
                         <v-card-subtitle>{{ this.solution.uploadDate }}</v-card-subtitle>
-                        <v-card-subtitle>Viewcount {{this.solution.viewCount}}</v-card-subtitle>
+                        <v-card-subtitle> Viewcount {{this.solution.viewCount}}</v-card-subtitle>
                     </v-row>
                 </v-card-text>
             </v-card>
@@ -95,9 +102,4 @@ export default {
 </script>
 
 <style>
-.bottom-left{
-    color:white;
-    position: absolute;
-    bottom: 0;
-}
 </style>
