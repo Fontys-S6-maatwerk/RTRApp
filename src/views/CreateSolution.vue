@@ -1,11 +1,11 @@
 <template>
-  <v-stepper alt-labels v-model="e1">
+  <v-stepper alt-labels v-model="step">
     <v-stepper-header>
-      <v-stepper-step :complete="e1 > 1" step="1"> General </v-stepper-step>
+      <v-stepper-step :complete="step > 1" step="1"> General </v-stepper-step>
 
       <v-divider></v-divider>
 
-      <v-stepper-step :complete="e1 > 2" step="2"> Materials </v-stepper-step>
+      <v-stepper-step :complete="step > 2" step="2"> Materials </v-stepper-step>
 
       <v-divider></v-divider>
 
@@ -32,7 +32,7 @@
               required
             ></v-textarea>
 
-            <v-card class="category-list" tile>
+            <v-container class="category-list pa-0">
               <span v-for="i in 20" :key="i">
                 <v-img
                   width="50"
@@ -43,23 +43,55 @@
                 </v-img>
                 <p>Blizzard</p>
               </span>
+            </v-container>
+
+            <v-card outlined color="transparent">
+              <v-container class="d-flex pa-0">
+                <h4>Cover image</h4>
+                <v-row v-if="solution.coverImage" no-gutters justify="end">
+                  <v-icon v-on:click="removeCoverImage()">mdi-close</v-icon>
+                </v-row>
+              </v-container>
+
+              <v-container class="pa-0 mx-0" v-if="!solution.coverImage">
+                <v-btn
+                  @click="$refs.file.click()"
+                  height="50"
+                  class="my-2"
+                  block
+                >
+                  <v-icon left>mdi-upload</v-icon>
+                  Upload Image
+                </v-btn>
+                <input
+                  v-on:change="setCoverImage"
+                  hidden
+                  ref="file"
+                  type="file"
+                  accept="image/*"
+                />
+              </v-container>
+              <v-row v-else no-gutters>
+                <v-img
+                  max-height="200"
+                  class="rounded-sm my-1"
+                  :src="solution.coverImage"
+                >
+                </v-img>
+              </v-row>
             </v-card>
 
-            <v-btn @click="$refs.file.click()" height="50" class="my-2" block>
-              <v-icon left>mdi-upload</v-icon>
-              Upload Image
-            </v-btn>
-            <input hidden ref="file" type="file" accept=".png,.jpg" />
-            <!-- (change)="readURL($event)" -->
-
-            <v-btn height="50" class="my-2" color="primary" block @click="e1++">
+            <v-btn
+              height="50"
+              class="my-2"
+              color="primary"
+              block
+              @click="step++"
+            >
               Next step
             </v-btn>
           </v-card-text>
         </v-card>
-
-        <!-- <v-btn color="primary" @click="e1++"> Continue </v-btn>
-        <v-btn text @click="e1--"> Cancel </v-btn> -->
       </v-stepper-content>
 
       <v-stepper-content step="2">
@@ -110,13 +142,13 @@
               <v-icon left>mdi-plus</v-icon>
               Add Tool
             </v-btn>
-
-            {{ $data }}
+            <!-- {{ $data }} -->
           </v-card-text>
+          <v-card-actions>
+            <v-btn color="primary" @click="step++"> Continue </v-btn>
+            <v-btn text @click="step--"> Cancel </v-btn>
+          </v-card-actions>
         </v-card>
-
-        <v-btn color="primary" @click="e1++"> Continue </v-btn>
-        <v-btn text @click="e1--"> Cancel </v-btn>
       </v-stepper-content>
 
       <v-stepper-content step="3">
@@ -142,11 +174,11 @@
               v-on:submit="addItem($event, 'steps')"
             ></add-step-dialog>
           </v-card-text>
+          <v-card-actions>
+            <v-btn color="primary" @click="logDone()"> Add solution </v-btn>
+            <v-btn text @click="step--"> Cancel </v-btn>
+          </v-card-actions>
         </v-card>
-
-        <!-- @click="e1 = 1" -->
-        <v-btn color="primary" @click="logDone()"> Done </v-btn>
-        <v-btn text @click="e1--"> Cancel </v-btn>
       </v-stepper-content>
     </v-stepper-items>
   </v-stepper>
@@ -159,8 +191,9 @@ export default {
   },
   data() {
     return {
-      e1: 1,
+      step: 1,
       solution: {
+        coverImage: "",
         materials: [],
         tools: [],
         steps: [],
@@ -173,6 +206,19 @@ export default {
     },
     removeItem(index, name) {
       this.solution[name].splice(index, 1);
+    },
+    setCoverImage(e) {
+      let files = e.target.files || e.dataTransfer.files;
+      if (!files) return;
+
+      let file = files[0];
+      if (!file.type.match("image/*")) {
+        return;
+      }
+      this.solution.coverImage = window.URL.createObjectURL(file);
+    },
+    removeCoverImage() {
+      this.solution.coverImage = "";
     },
     logDone() {
       console.log(this.solution);
@@ -190,6 +236,15 @@ export default {
   overflow-x: auto;
   white-space: nowrap;
   display: flex;
+}
+
+.v-card__actions {
+  justify-content: space-between;
+  padding: unset;
+}
+
+.v-card__actions > .v-btn {
+  padding: 0 24px !important;
 }
 
 ::-webkit-scrollbar {
