@@ -6,7 +6,10 @@
             <v-card elevation="1">
                 <v-card-title class="justify-center">{{ this.solution.name }}</v-card-title>
                 <v-row class="justify-center">
-                    <v-card-subtitle>Current impact {{ this.solution.currentImpact }} / {{ this.solution.impactGoal }}</v-card-subtitle>
+                    <v-card-subtitle>
+                        <v-progress-linear height="15" :value="this.percentage">{{this.percentage}}%</v-progress-linear>
+                        Current impact {{ this.solution.currentImpact }} / {{ this.solution.impactGoal }}
+                    </v-card-subtitle>
                 </v-row>
                 <v-img src="https://cdn.vuetifyjs.com/images/cards/cooking.png">
                 </v-img>
@@ -85,7 +88,8 @@ export default {
     data(){
         return{
             solutionId: this.$route.params.solutionId,
-            solution: {}
+            solution: {},
+            percentage: 0
         }
 
     },
@@ -93,10 +97,13 @@ export default {
         axios.get("http://localhost:3001/Solutions/" + this.solutionId)
             .then((response) => { 
                 this.solution = response.data;
+                this.calculateImpactPercentage();
             } );
     },
     methods:{
-
+        calculateImpactPercentage(){
+            this.percentage = Math.floor((this.solution.currentImpact / this.solution.impactGoal) * 100);
+        }
     }
 }
 </script>
