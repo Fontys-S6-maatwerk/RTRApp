@@ -8,25 +8,39 @@
                 <v-row class="justify-center">
                     <v-card-subtitle>
                         <v-progress-linear height="15" :value="this.percentage">{{this.percentage}}%</v-progress-linear>
-                        Current impact {{ this.solution.currentImpact }} / {{ this.solution.impactGoal }}
+                        {{ $t('common.current_impact') }} {{ this.solution.currentImpact }} / {{ this.solution.impactGoal }}
                     </v-card-subtitle>
+
                 </v-row>
                 <v-img src="https://cdn.vuetifyjs.com/images/cards/cooking.png">
                 </v-img>
-                <router-link :to="{ name: 'Profile', params: { author: this.solution.author}}">
-                    <v-card-title>
-                        <v-avatar class="mr-2">
-                            <v-img src="https://cdn.vuetifyjs.com/images/cards/cooking.png"></v-img>
-                        </v-avatar>
-                        {{ this.solution.author }}
-                    </v-card-title>
-                </router-link>
+                <v-row>
+                    <v-col cols="6">
+                        <router-link :to="{ name: 'Profile', params: { author: this.solution.author}}">
+                            <v-card-title>
+                                <v-avatar class="mr-2">
+                                    <v-img src="https://cdn.vuetifyjs.com/images/cards/cooking.png"></v-img>
+                                </v-avatar>
+                                {{ this.solution.author }}
+                            </v-card-title>
+                        </router-link>
+                    </v-col>
+                        
+                    <v-col cols="6">
+                        <v-container fluid>
+                            <v-card-text> 
+                                <a href="https://sdgs.un.org/goals/goal13" target="_blank">Sustainable Development Goal 13</a>
+                            </v-card-text>
+                        </v-container>
+                    </v-col>
+                </v-row>
+                
                 <v-card-subtitle class="text-left">{{ this.solution.weatherExtremeType }} </v-card-subtitle>
                 <v-card-text>
                     <v-row class="justify-space-between">
-                        <v-card-subtitle>{{ this.solution.numberOfLikes }} Likes</v-card-subtitle>
+                        <v-card-subtitle>{{ this.solution.numberOfLikes }} {{ $t('common.likes') }}</v-card-subtitle>
                         <v-card-subtitle>{{ this.solution.uploadDate }}</v-card-subtitle>
-                        <v-card-subtitle> Viewcount {{this.solution.viewCount}}</v-card-subtitle>
+                        <v-card-subtitle> {{ $t('common.view_count') }} {{this.solution.viewCount}}</v-card-subtitle>
                     </v-row>
                 </v-card-text>
             </v-card>
@@ -35,7 +49,7 @@
             <!-- Materials -->
             <v-card>
                 <v-list>
-                    <v-subheader>Materials</v-subheader>
+                    <v-subheader>{{ $t('common.materials') }}</v-subheader>
                     <v-list-item 
                     v-for="(content, m) in this.solution.materials"
                     :key="m">
@@ -55,7 +69,7 @@
             <!-- Steps -->
             <v-card>
                 <v-list>
-                    <v-subheader>Steps</v-subheader>
+                    <v-subheader>{{ $t('common.steps') }}</v-subheader>
                     <v-list-item
                     v-for="(step, s) in this.solution.steps"
                     :key="s">
@@ -71,7 +85,7 @@
         <v-col cols="12">
             <!-- Reactions -->
             <v-card>
-                <v-card-title class="justify-center">Reactions</v-card-title>
+                <v-card-title class="justify-center">{{ $t('common.comments') }}</v-card-title>
                 <div v-for="reaction in this.solution.reactions" :key="reaction.id">
                     <div>{{reaction.id}}</div>
                 </div>

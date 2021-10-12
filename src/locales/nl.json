@@ -1,6 +1,24 @@
 {
   "message": {
     "hello": "Hallo i18n wereld"
+  },
+
+  "common": {
+    "current_impact": "Huidige impact",
+    "likes": "vind-ik-leuks",
+    "view_count": "keer bekeken",
+    "materials": "Materialen",
+    "steps": "Stappen",
+    "comments": "Reacties"
+  },
+
+  "validation": {
+
+  },
+
+  "glossary": {
+    "impacted": "Beïnvloede",
+    "users": "Gebruikers"
   }
 }
 
