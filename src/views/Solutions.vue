@@ -32,7 +32,7 @@
             <v-img src="https://cdn.vuetifyjs.com/images/cards/cooking.png" />
           </v-avatar>
           <v-spacer></v-spacer>
-          <p>{{ $t( glossary.impacted) }} {{ solution.currentImpact }} {{ $t(glossary.users) }}</p>
+          <p>{{ $t('glossary.impacted') }} {{ solution.currentImpact }} {{ $t('glossary.users') }}</p>
         </v-card-actions>
       </v-card>
     </v-col>
