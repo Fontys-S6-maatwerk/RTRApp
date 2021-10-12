@@ -1,5 +1,22 @@
 {
   "message": {
     "hello": "Hello i18n world"
+  },
+
+  "common": {
+    "current_impact": "Current impact",
+    "likes": "Likes",
+    "view_count": "View count",
+    "materials": "Materials",
+    "steps": "Steps",
+    "comments": "Comments"
+  },
+
+  "validation": {
+
+  },
+
+  "glossary": {
+    
   }
 }

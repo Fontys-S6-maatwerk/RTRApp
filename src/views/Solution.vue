@@ -6,7 +6,7 @@
             <v-card elevation="1">
                 <v-card-title class="justify-center">{{ this.solution.name }}</v-card-title>
                 <v-row class="justify-center">
-                    <v-card-subtitle>Current impact {{ this.solution.currentImpact }} / {{ this.solution.impactGoal }}</v-card-subtitle>
+                    <v-card-subtitle>{{ $t('common.current_impact') }} {{ this.solution.currentImpact }} / {{ this.solution.impactGoal }}</v-card-subtitle>
                 </v-row>
                 <v-img src="https://cdn.vuetifyjs.com/images/cards/cooking.png">
                 </v-img>
@@ -21,9 +21,9 @@
                 <v-card-subtitle class="text-left">{{ this.solution.weatherExtremeType }} </v-card-subtitle>
                 <v-card-text>
                     <v-row class="justify-space-between">
-                        <v-card-subtitle>{{ this.solution.numberOfLikes }} Likes</v-card-subtitle>
+                        <v-card-subtitle>{{ this.solution.numberOfLikes }} {{ $t('common.likes') }}</v-card-subtitle>
                         <v-card-subtitle>{{ this.solution.uploadDate }}</v-card-subtitle>
-                        <v-card-subtitle> Viewcount {{this.solution.viewCount}}</v-card-subtitle>
+                        <v-card-subtitle> {{ $t('common.view_count') }} {{this.solution.viewCount}}</v-card-subtitle>
                     </v-row>
                 </v-card-text>
             </v-card>
@@ -32,7 +32,7 @@
             <!-- Materials -->
             <v-card>
                 <v-list>
-                    <v-subheader>Materials</v-subheader>
+                    <v-subheader>{{ $t('common.materials') }}</v-subheader>
                     <v-list-item 
                     v-for="(content, m) in this.solution.materials"
                     :key="m">
@@ -52,7 +52,7 @@
             <!-- Steps -->
             <v-card>
                 <v-list>
-                    <v-subheader>Steps</v-subheader>
+                    <v-subheader>{{ $t('common.steps') }}</v-subheader>
                     <v-list-item
                     v-for="(step, s) in this.solution.steps"
                     :key="s">
@@ -68,7 +68,7 @@
         <v-col cols="12">
             <!-- Reactions -->
             <v-card>
-                <v-card-title class="justify-center">Reactions</v-card-title>
+                <v-card-title class="justify-center">{{ $t('common.comments') }}</v-card-title>
                 <div v-for="reaction in this.solution.reactions" :key="reaction.id">
                     <div>{{reaction.id}}</div>
                 </div>
