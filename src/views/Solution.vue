@@ -7,7 +7,7 @@
                 <v-card-title class="justify-center">{{ this.solution.name }}</v-card-title>
                 <v-row class="justify-center">
                     <v-card-subtitle>
-                        <v-progress-linear height="15" :value="this.percentage">{{this.percentage}}%</v-progress-linear>
+                        <v-progress-linear color="#037CBC" height="15" :value="this.percentage">{{this.percentage}}%</v-progress-linear>
                         {{ $t('common.current_impact') }} {{ this.solution.currentImpact }} / {{ this.solution.impactGoal }}
                     </v-card-subtitle>
 
