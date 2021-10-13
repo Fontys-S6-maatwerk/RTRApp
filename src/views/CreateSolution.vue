@@ -99,7 +99,7 @@
           <v-card-text class="px-0">
             <v-text-field
               v-for="(material, index) in solution.materials"
-              :key="index"
+              :key="material"
               v-model="solution.materials[index]"
               label="Material name"
               hide-details="auto"
@@ -122,7 +122,7 @@
 
             <v-text-field
               v-for="(tool, index) in solution.tools"
-              :key="index"
+              :key="tool"
               v-model="solution.tools[index]"
               label="Tool name"
               hide-details="auto"
@@ -161,7 +161,7 @@
 
             <v-text-field
               v-for="(step, index) in solution.steps"
-              :key="index"
+              :key="step"
               v-model="solution.steps[index].description"
               hide-details="auto"
               append-icon="mdi-minus"
