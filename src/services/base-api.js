@@ -8,7 +8,7 @@ export default class BaseApi {
 
         let isDevelopment = process.env.NODE_ENV === 'development';
         if (isDevelopment) {
-            const host = new DevHost(5045); //gateway port
+            const host = new DevHost(5000); //gateway port
             this.baseUrl = `http://${host.ip}:${host.port}`;
         }
     }
