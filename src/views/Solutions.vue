@@ -50,7 +50,7 @@ export default {
   },
   mounted() {
     axios
-      .get("http://localhost:3000/Solutions")
+      .get(process.env.VUE_APP_BASE_URL + "/Solutions")
       .then((response) => (this.solutions = response.data));
   },
   methods:{

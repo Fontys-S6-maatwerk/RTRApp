@@ -1,5 +1,4 @@
 import axios from 'axios';
-import DevHost from './dev-host';
 
 export default class BaseApi {
 
@@ -8,8 +7,7 @@ export default class BaseApi {
 
         let isDevelopment = process.env.NODE_ENV === 'development';
         if (isDevelopment) {
-            const host = new DevHost(5000); //gateway port
-            this.baseUrl = `http://${host.ip}:${host.port}`;
+            this.baseURL = process.env.VUE_APP_BASE_URL;
         }
     }
 
