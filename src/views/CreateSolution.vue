@@ -18,6 +18,7 @@
           <v-card-text class="px-0">
             <v-text-field
               label="Title"
+              v-model="solution.title"
               :counter="40"
               outlined
               required
@@ -25,6 +26,7 @@
 
             <v-textarea
               label="Introduction"
+              v-model="solution.introduction"
               :counter="250"
               height="100"
               hint="Type a quick introduction about the solution"
@@ -33,15 +35,18 @@
             ></v-textarea>
 
             <v-container class="category-list pa-0">
-              <span v-for="i in 20" :key="i">
+              <span
+                v-for="(weatherExtreme, index) in computedWeatherExtremes"
+                :key="index"
+              >
                 <v-img
-                  width="50"
-                  height="50"
+                  width="75"
+                  height="75"
                   class="rounded-lg ma-1"
                   src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
                 >
                 </v-img>
-                <p>Blizzard</p>
+                <p>{{ weatherExtreme }}</p>
               </span>
             </v-container>
 
@@ -99,7 +104,7 @@
           <v-card-text class="px-0">
             <v-text-field
               v-for="(material, index) in solution.materials"
-              :key="material"
+              :key="generateKey(material, index)"
               v-model="solution.materials[index]"
               label="Material name"
               hide-details="auto"
@@ -122,7 +127,7 @@
 
             <v-text-field
               v-for="(tool, index) in solution.tools"
-              :key="tool"
+              :key="generateKey(tool, index)"
               v-model="solution.tools[index]"
               label="Tool name"
               hide-details="auto"
@@ -161,7 +166,7 @@
 
             <v-text-field
               v-for="(step, index) in solution.steps"
-              :key="step"
+              :key="generateKey(step, index)"
               v-model="solution.steps[index].description"
               hide-details="auto"
               append-icon="mdi-minus"
@@ -185,20 +190,42 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
+  props: {
+    solutionId: {
+      type: Number,
+      required: false,
+    },
+  },
   components: {
     AddStepDialog: () => import("@/components/AddStepDialog"),
   },
   data() {
     return {
       step: 1,
+      weatherExtremes: [],
       solution: {
+        title: "",
+        introduction: "",
         coverImage: "",
+        weatherExtreme: "",
         materials: [],
         tools: [],
         steps: [],
       },
     };
+  },
+  mounted() {
+    axios
+      .get(process.env.VUE_APP_BASE_URL + "/WeatherExtremes")
+      .then((response) => (this.weatherExtremes = response.data));
+
+    if (this.solutionId) {
+      axios
+        .get(process.env.VUE_APP_BASE_URL + "/Solutions/" + this.solutionId)
+        .then((response) => (this.solution = response.data));
+    }
   },
   methods: {
     addItem(item, name) {
@@ -222,6 +249,17 @@ export default {
     },
     logDone() {
       console.log(this.solution);
+    },
+
+    generateKey(item, index) {
+      return `${item}-${index}`;
+    },
+  },
+  computed: {
+    computedWeatherExtremes() {
+      return this.solution.weatherExtreme
+        ? [this.solution.weatherExtreme]
+        : this.weatherExtremes;
     },
   },
 };

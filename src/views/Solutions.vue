@@ -17,8 +17,8 @@
         <v-card-text class="pb-1">
           <v-img class="rounded-lg" src="https://cdn.vuetifyjs.com/images/cards/cooking.png">
             <span class="solution-overlay pa-1 my-1" style="left: 0">
-              <h3 class="mx-1">{{ solution.name }}</h3>
-              <p class="mx-1 my-0">{{ solution.weatherExtremeType }}</p>
+              <h3 class="mx-1">{{ solution.title }}</h3>
+              <p class="mx-1 my-0">{{ solution.weatherExtreme }}</p>
             </span>
             <span class="solution-overlay pa-1" style="right: 0">
               <v-btn height="50" color="white" outlined>

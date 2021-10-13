@@ -37,10 +37,14 @@ const routes = [{
             import ('../views/Solution.vue')
     },
     {
-        path: '/create-solution',
+        path: '/create-solution/:id?',
         name: 'CreateSolution',
         component: () =>
-            import ('../views/CreateSolution.vue')
+            import ('../views/CreateSolution.vue'),
+        props: (route) => ({
+            solutionId: +route.query.id,
+        }),
+
     }
 ]
 
