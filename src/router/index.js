@@ -11,9 +11,9 @@ const routes = [{
         component: Home
     },
     {
-      path: '/i18n',
-      name: 'I18nHome',
-      component: I18nHome
+        path: '/i18n',
+        name: 'I18nHome',
+        component: I18nHome
     },
     {
         path: '/profile/:author',
@@ -41,6 +41,12 @@ const routes = [{
         name: 'Solution',
         component: () =>
             import ('../views/Solution.vue')
+    },
+    {
+        path: '/create-solution',
+        name: 'CreateSolution',
+        component: () =>
+            import ('../views/CreateSolution.vue')
     }
 ]
 
