@@ -7,9 +7,16 @@
     </div>
     <router-view/>
     </v-app>
+    <Navigation></Navigation>
   </div>
 </template>
-
+<script>
+export default{
+  components: {
+    Navigation: () => import("@/components/Navigation")
+  }
+}
+</script>
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
