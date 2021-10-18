@@ -5,6 +5,18 @@ export default class SolutionContext extends BaseContext {
         super('/Solutions')
     }
 
+    async all() {
+
+        try {
+            let response = await this.axios.get('');
+
+            return response.data;
+
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
     async getById(id) {
 
         try {

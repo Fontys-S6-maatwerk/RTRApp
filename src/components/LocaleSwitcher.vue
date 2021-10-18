@@ -11,6 +11,7 @@
 
 <script>
 export default {
+  // sort locale file entries by keys: https://codeshack.io/json-sorter/
   name: "locale-switcher",
   data () {
     return {

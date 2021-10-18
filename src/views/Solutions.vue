@@ -1,7 +1,12 @@
 <template>
   <v-row no-gutters>
     <v-col v-if="solutions" cols="12">
-      <v-card class="ma-1" v-for="solution in solutions" :key="solution.id" v-on:click=openSolution(solution.id)>
+      <v-card
+        class="ma-1"
+        v-for="solution in solutions"
+        :key="solution.id"
+        v-on:click="openSolution(solution.id)"
+      >
         <v-card-title>
           <v-avatar>
             <v-img src="https://cdn.vuetifyjs.com/images/cards/cooking.png" />
@@ -15,7 +20,10 @@
           </p>
         </v-card-title>
         <v-card-text class="pb-1">
-          <v-img class="rounded-lg" src="https://cdn.vuetifyjs.com/images/cards/cooking.png">
+          <v-img
+            class="rounded-lg"
+            src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
+          >
             <span class="solution-overlay pa-1 my-1" style="left: 0">
               <h3 class="mx-1">{{ solution.title }}</h3>
               <p class="mx-1 my-0">{{ solution.weatherExtreme }}</p>
@@ -32,7 +40,10 @@
             <v-img src="https://cdn.vuetifyjs.com/images/cards/cooking.png" />
           </v-avatar>
           <v-spacer></v-spacer>
-          <p>{{ $t('glossary.impacted') }} {{ solution.currentImpact }} {{ $t('glossary.users') }}</p>
+          <p>
+            {{ $t("glossary.impacted") }} {{ solution.currentImpact }}
+            {{ $t("glossary.users") }}
+          </p>
         </v-card-actions>
       </v-card>
     </v-col>
@@ -40,24 +51,26 @@
 </template>
 
 <script>
-import axios from "axios";
+import SolutionContext from "@/data/solution-context";
 
 export default {
   data() {
     return {
+      solutionContext: new SolutionContext(),
       solutions: [],
     };
   },
   mounted() {
-    axios
-      .get(process.env.VUE_APP_BASE_URL + "/Solutions")
-      .then((response) => (this.solutions = response.data));
+    this.solutionContext.all().then((solutions) => this.solutions = solutions);
   },
-  methods:{
-    openSolution(solutionId){
-      this.$router.push({name: 'Solution', params: {solutionId: solutionId}});
-    }
-  }
+  methods: {
+    openSolution(solutionId) {
+      this.$router.push({
+        name: "Solution",
+        params: { solutionId: solutionId },
+      });
+    },
+  },
 };
 </script>
 

@@ -1,14 +1,11 @@
 <template>
-<v-app-bar flat app bottom>
-  <v-bottom-navigation grow fixed >
-    <v-btn 
-    v-for="item in navItems"
-    :key="item.title"
-    :to="item.path">
-      <v-icon>{{ item.icon }}</v-icon>
-    </v-btn>
-  </v-bottom-navigation>
-</v-app-bar>
+  <v-app-bar flat app bottom>
+    <v-bottom-navigation grow fixed>
+      <v-btn v-for="item in navItems" :key="item.title" :to="item.path">
+        <v-icon>{{ item.icon }}</v-icon>
+      </v-btn>
+    </v-bottom-navigation>
+  </v-app-bar>
 </template>
 
 <script lang="js">
@@ -41,5 +38,4 @@
 </script>
 
 <style>
-
 </style>

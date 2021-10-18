@@ -1,15 +1,21 @@
 <template>
   <v-stepper alt-labels v-model="step">
     <v-stepper-header>
-      <v-stepper-step :complete="step > 1" step="1"> General </v-stepper-step>
+      <v-stepper-step :complete="step > 1" step="1">
+        {{ $t("common.general") }}
+      </v-stepper-step>
 
       <v-divider></v-divider>
 
-      <v-stepper-step :complete="step > 2" step="2"> Materials </v-stepper-step>
+      <v-stepper-step :complete="step > 2" step="2">
+        {{ $t("common.materials") }}
+      </v-stepper-step>
 
       <v-divider></v-divider>
 
-      <v-stepper-step step="3"> Instructions </v-stepper-step>
+      <v-stepper-step step="3">
+        {{ $t("common.instructions") }}
+      </v-stepper-step>
     </v-stepper-header>
 
     <v-stepper-items>
@@ -17,18 +23,18 @@
         <v-card outlined color="transparent">
           <v-card-text class="px-0">
             <v-text-field
-              label="Title"
+              :label="$t('common.title')"
               v-model="solution.title"
               :counter="40"
               outlined
             ></v-text-field>
 
             <v-textarea
-              label="Introduction"
+              :label="$t('common.introduction')"
               v-model="solution.introduction"
               :counter="250"
               height="100"
-              hint="Type a quick introduction about the solution"
+              :hint="$t('common.instructions_hint')"
               outlined
             ></v-textarea>
 
@@ -55,7 +61,7 @@
             </v-container>
             <v-card outlined color="transparent">
               <v-container fluid class="d-flex pa-0">
-                <h4>Cover image</h4>
+                <h4>{{ $t("common.cover_image") }}</h4>
                 <v-row v-if="solution.coverImage" no-gutters justify="end">
                   <v-icon v-on:click="solution.coverImage = ''"
                     >mdi-close</v-icon
@@ -71,7 +77,7 @@
                   block
                 >
                   <v-icon left>mdi-upload</v-icon>
-                  Upload Image
+                  {{ $t("common.upload_image") }}
                 </v-btn>
                 <input
                   v-on:change="setCoverImage"
@@ -98,7 +104,7 @@
               block
               @click="step++"
             >
-              Next step
+              {{ $t("common.next_step") }}
             </v-btn>
           </v-card-text>
         </v-card>
@@ -111,7 +117,7 @@
               v-for="(material, index) in solution.materials"
               :key="generateKey(material, index)"
               v-model="solution.materials[index]"
-              label="Material name"
+              :label="$t('glossary.material')"
               hide-details="auto"
               append-icon="mdi-minus"
               @click:append="removeItem(index, 'materials')"
@@ -127,14 +133,14 @@
               block
             >
               <v-icon left>mdi-plus</v-icon>
-              Add Material
+              {{ $t("common.add_material") }}
             </v-btn>
 
             <v-text-field
               v-for="(tool, index) in solution.tools"
               :key="generateKey(tool, index)"
               v-model="solution.tools[index]"
-              label="Tool name"
+              :label="$t('glossary.tool')"
               hide-details="auto"
               append-icon="mdi-minus"
               @click:append="removeItem(index, 'tools')"
@@ -150,13 +156,15 @@
               block
             >
               <v-icon left>mdi-plus</v-icon>
-              Add Tool
+              {{ $t("common.add_tool") }}
             </v-btn>
             <!-- {{ $data }} -->
           </v-card-text>
           <v-card-actions>
-            <v-btn color="primary" @click="step++"> Continue </v-btn>
-            <v-btn text @click="step--"> Cancel </v-btn>
+            <v-btn color="primary" @click="step++">
+              {{ $t("common.continue") }}
+            </v-btn>
+            <v-btn text @click="step--"> {{ $t("common.cancel") }} </v-btn>
           </v-card-actions>
         </v-card>
       </v-stepper-content>
@@ -165,8 +173,8 @@
         <v-card outlined color="transparent">
           <v-card-text class="px-0">
             <div v-if="!solution.steps.length">
-              <h3>No instructions yet</h3>
-              <p>Add instruction steps for others to recreate your solution</p>
+              <h3>{{ $t("common.no_instructions_yet") }}</h3>
+              <p>{{ $t("common.instructions_description") }}</p>
             </div>
 
             <v-text-field
@@ -188,7 +196,7 @@
             <v-btn color="primary" @click="submit()">
               {{ pageState.submitText }}
             </v-btn>
-            <v-btn text @click="step--"> Cancel </v-btn>
+            <v-btn text @click="step--"> {{ $t("common.cancel") }} </v-btn>
           </v-card-actions>
         </v-card>
       </v-stepper-content>
@@ -227,7 +235,9 @@ export default {
       },
       pageState: {
         editable: !isNaN(this.solutionId),
-        submitText: this.solutionId ? "Update solution" : "Add solution",
+        submitText: this.solutionId
+          ? this.$t("common.update_solution")
+          : this.$t("common.add_solution"),
       },
     };
   },
