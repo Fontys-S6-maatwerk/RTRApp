@@ -7,7 +7,7 @@
             "weatherExtreme": "Hitte",
             "solutionType": "how-to video",
             "difficulty": "Easy",
-            "impactGoal": 100000,
+            "impactGoal": 500,
             "SDGType": "Goal 13: Climate Action",
             "author": "Jan Janssen",
             "currentImpact": 101,
@@ -93,7 +93,8 @@
                     "description": "Description step 2",
                     "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png"
                 }
-            ]
+            ],
+            "image": "een of andere url"
         }
     ],
     "Reactions": [{
@@ -110,13 +111,13 @@
         },
         {
             "id": 3,
-            "content": "The BEST Solution EUW.",
+            "content": "The very BEST Solution EUW.",
             "author": "Henk Henkerson",
             "solution": 2
         },
         {
             "id": 4,
-            "content": "The WORST Solution EUW.",
+            "content": "The very WORST Solution EUW.",
             "author": "Jan Janssen",
             "solution": 2
         },
