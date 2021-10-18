@@ -2,7 +2,7 @@
     "Solutions": [{
             "id": 1,
             "numberOfLikes": 100,
-            "title": "Solution name",
+            "title": "Solution naaammmmmm",
             "introduction": "This solution had a lot of impact on many people",
             "weatherExtreme": "Hitte",
             "solutionType": "how-to video",
@@ -14,8 +14,15 @@
             "uploadDate": "27-09-2021",
             "viewCount": 213,
             "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png",
-            "materials": ["rocks", "paper", "cardboard"],
-            "tools": ["toool 1", "tool 2"],
+            "materials": [
+                "rocks",
+                "paper",
+                "cardboard"
+            ],
+            "tools": [
+                "toool 1",
+                "tool 2"
+            ],
             "steps": [{
                     "description": "step 1",
                     "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png"
@@ -41,8 +48,16 @@
             "uploadDate": "27-07-2021",
             "viewCount": 234,
             "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png",
-            "materials": ["plastic", "wood", "cardboard"],
-            "tools": ["tool 34", "tool 21", "tool 22"],
+            "materials": [
+                "plastic",
+                "wood",
+                "cardboard"
+            ],
+            "tools": [
+                "tool 34",
+                "tool 21",
+                "tool 22"
+            ],
             "steps": [{
                     "description": "step 1",
                     "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png"
@@ -53,6 +68,29 @@
                 },
                 {
                     "description": "step 3",
+                    "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "title": "Solution title 3",
+            "introduction": "This solution has impacted many users and will benefit many other",
+            "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png",
+            "weatherExtreme": "Extreme heat",
+            "materials": [
+                "material 1",
+                "material 2"
+            ],
+            "tools": [
+                "tool 1"
+            ],
+            "steps": [{
+                    "description": "Description to step 1",
+                    "coverImage": ""
+                },
+                {
+                    "description": "Description step 2",
                     "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png"
                 }
             ]
@@ -228,6 +266,18 @@
             "password": "supergoedwachtwoordgehashtendatsoortdingen"
         }
     ],
-    "WeatherExtremes": ["Tornado", "Smog", "Extreme heat", "Wildfire", "Dust storm", "Flood", "Heavy rainfall", "Hail storm", "Drought", "Blizzard"]
-
+    "Weather": {
+        "WeatherExtremes": [
+            "Tornado",
+            "Smog",
+            "Extreme heat",
+            "Wildfire",
+            "Dust storm",
+            "Flood",
+            "Heavy rainfall",
+            "Hail storm",
+            "Drought",
+            "Blizzard"
+        ]
+    }
 }

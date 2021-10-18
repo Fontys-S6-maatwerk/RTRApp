@@ -21,7 +21,6 @@
               v-model="solution.title"
               :counter="40"
               outlined
-              required
             ></v-text-field>
 
             <v-textarea
@@ -31,13 +30,18 @@
               height="100"
               hint="Type a quick introduction about the solution"
               outlined
-              required
             ></v-textarea>
 
-            <v-container class="category-list pa-0">
+            <v-row v-if="solution.weatherExtreme" no-gutters justify="end">
+              <v-icon v-on:click="solution.weatherExtreme = ''"
+                >mdi-close</v-icon
+              >
+            </v-row>
+            <v-container fluid class="category-list pa-0">
               <span
                 v-for="(weatherExtreme, index) in computedWeatherExtremes"
                 :key="index"
+                v-on:click="setWeatherExtreme(weatherExtreme)"
               >
                 <v-img
                   width="75"
@@ -49,16 +53,17 @@
                 <p>{{ weatherExtreme }}</p>
               </span>
             </v-container>
-
             <v-card outlined color="transparent">
-              <v-container class="d-flex pa-0">
+              <v-container fluid class="d-flex pa-0">
                 <h4>Cover image</h4>
                 <v-row v-if="solution.coverImage" no-gutters justify="end">
-                  <v-icon v-on:click="removeCoverImage()">mdi-close</v-icon>
+                  <v-icon v-on:click="solution.coverImage = ''"
+                    >mdi-close</v-icon
+                  >
                 </v-row>
               </v-container>
 
-              <v-container class="pa-0 mx-0" v-if="!solution.coverImage">
+              <v-container class="pa-0" fluid v-if="!solution.coverImage">
                 <v-btn
                   @click="$refs.file.click()"
                   height="50"
@@ -112,8 +117,8 @@
               @click:append="removeItem(index, 'materials')"
               class="my-1"
               outlined
-              required
             ></v-text-field>
+
             <v-btn
               @click="addItem('', 'materials')"
               height="40"
@@ -135,8 +140,8 @@
               @click:append="removeItem(index, 'tools')"
               class="my-1"
               outlined
-              required
             ></v-text-field>
+
             <v-btn
               @click="addItem('', 'tools')"
               height="40"
@@ -180,7 +185,9 @@
             ></add-step-dialog>
           </v-card-text>
           <v-card-actions>
-            <v-btn color="primary" @click="logDone()"> Add solution </v-btn>
+            <v-btn color="primary" @click="submit()">
+              {{ pageState.submitText }}
+            </v-btn>
             <v-btn text @click="step--"> Cancel </v-btn>
           </v-card-actions>
         </v-card>
@@ -190,7 +197,9 @@
 </template>
 
 <script>
-import axios from "axios";
+import WeatherContext from "@/data/weather-context";
+import SolutionContext from "@/data/solution-context";
+
 export default {
   props: {
     solutionId: {
@@ -205,6 +214,8 @@ export default {
     return {
       step: 1,
       weatherExtremes: [],
+      solutionContext: new SolutionContext(),
+      weatherContext: new WeatherContext(),
       solution: {
         title: "",
         introduction: "",
@@ -214,17 +225,22 @@ export default {
         tools: [],
         steps: [],
       },
+      pageState: {
+        editable: !isNaN(this.solutionId),
+        submitText: this.solutionId ? "Update solution" : "Add solution",
+      },
     };
   },
   mounted() {
-    axios
-      .get(process.env.VUE_APP_BASE_URL + "/WeatherExtremes")
-      .then((response) => (this.weatherExtremes = response.data));
+    this.weatherContext.getWeatherExtremes().then((extremes) => {
+      this.weatherExtremes = extremes;
+    });
 
     if (this.solutionId) {
-      axios
-        .get(process.env.VUE_APP_BASE_URL + "/Solutions/" + this.solutionId)
-        .then((response) => (this.solution = response.data));
+      this.solutionContext.getById(this.solutionId).then((solutions) => {
+        //mock returns array with solution
+        this.solution = solutions[0];
+      });
     }
   },
   methods: {
@@ -233,6 +249,9 @@ export default {
     },
     removeItem(index, name) {
       this.solution[name].splice(index, 1);
+    },
+    setWeatherExtreme(weatherExtreme) {
+      this.solution.weatherExtreme = weatherExtreme;
     },
     setCoverImage(e) {
       let files = e.target.files || e.dataTransfer.files;
@@ -244,13 +263,13 @@ export default {
       }
       this.solution.coverImage = window.URL.createObjectURL(file);
     },
-    removeCoverImage() {
-      this.solution.coverImage = "";
+    submit() {
+      if (this.pageState.editable) {
+        this.solutionContext.update(this.solution);
+      } else {
+        this.solutionContext.add(this.solution);
+      }
     },
-    logDone() {
-      console.log(this.solution);
-    },
-
     generateKey(item, index) {
       return `${item}-${index}`;
     },
@@ -274,6 +293,7 @@ export default {
   overflow-x: auto;
   white-space: nowrap;
   display: flex;
+  justify-content: center;
 }
 
 .v-card__actions {

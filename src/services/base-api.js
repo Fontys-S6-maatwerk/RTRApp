@@ -17,7 +17,7 @@ export default class BaseApi {
         }
 
         return axios.create({
-            baseURL: this.baseUrl + this.contextPath,
+            baseURL: this.baseURL + this.contextPath,
             headers: headers,
         });
     }
