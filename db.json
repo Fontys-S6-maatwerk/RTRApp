@@ -1,10 +1,10 @@
 {
-    "Solutions": [
-        {
+    "Solutions": [{
             "id": 1,
             "numberOfLikes": 100,
-            "name": "Solution name",
-            "weatherExtremeType": "Hitte",
+            "title": "Solution naaammmmmm",
+            "introduction": "This solution had a lot of impact on many people",
+            "weatherExtreme": "Hitte",
             "solutionType": "how-to video",
             "difficulty": "Easy",
             "impactGoal": 500,
@@ -13,41 +13,32 @@
             "currentImpact": 101,
             "uploadDate": "27-09-2021",
             "viewCount": 213,
-            "reactions": [
-                {
-                    "id": 1
-                },
-                {
-                    "id": 2
-                }
-            ],
-            "image": "een of andere url",
+            "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png",
             "materials": [
-                {
-                    "content": "Hamer"
-                },
-                {
-                    "content": "1 Spijker"
-                }
+                "rocks",
+                "paper",
+                "cardboard"
             ],
-            "steps": [
-                {
-                    "id": 1,
-                    "image": "url",
-                    "content": "Sla met een hamer." 
+            "tools": [
+                "toool 1",
+                "tool 2"
+            ],
+            "steps": [{
+                    "description": "step 1",
+                    "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png"
                 },
                 {
-                    "id": 2,
-                    "image": "url",
-                    "content": "Kijk of het echt vast zit."
+                    "description": "step 2",
+                    "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png"
                 }
             ]
         },
         {
             "id": 2,
             "numberOfLikes": 10,
-            "name": "Solution name2",
-            "weatherExtremeType": "Wateroverlast",
+            "title": "Solution name2",
+            "introduction": "This solution had a lot of impact on many people",
+            "weatherExtreme": "Wateroverlast",
             "solutionType": "how-to video",
             "difficulty": "Medium",
             "impactGoal": 1000000,
@@ -56,32 +47,54 @@
             "currentImpact": 9,
             "uploadDate": "27-07-2021",
             "viewCount": 234,
-            "reactions": [
-                {
-                    "id": 3
-                },
-                {
-                    "id": 4
-                },
-                {
-                    "id": 5
-                },
-                {
-                    "id": 6
-                }
-            ],
-            "image": "een of andere url",
+            "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png",
             "materials": [
+                "plastic",
+                "wood",
+                "cardboard"
+            ],
+            "tools": [
+                "tool 34",
+                "tool 21",
+                "tool 22"
+            ],
+            "steps": [{
+                    "description": "step 1",
+                    "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png"
+                },
                 {
-                    "content": "Zandzak"
+                    "description": "step 2",
+                    "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png"
+                },
+                {
+                    "description": "step 3",
+                    "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "title": "Solution title 3",
+            "introduction": "This solution has impacted many users and will benefit many other",
+            "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png",
+            "weatherExtreme": "Extreme heat",
+            "materials": [
+                "material 1",
+                "material 2"
+            ],
+            "tools": [
+                "tool 1"
+            ],
+            "steps": [{
+                    "description": "Description to step 1",
+                    "coverImage": ""
+                },
+                {
+                    "description": "Description step 2",
+                    "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png"
                 }
             ],
-            "steps": [
-                {
-                    "id": 1,
-                    "image": "url",
-                    "content": "Leg de zandzak voor de deur" 
-                }
+            "image": "een of andere url"
             ]
         },
         {
@@ -128,9 +141,8 @@
             ]
         }
     ],
-    "Reactions": [
-        {
-            "id" : 1,
+    "Reactions": [{
+            "id": 1,
             "content": "The BEST Solution EUW.",
             "auther": "Henk Henkerson",
             "solution": 1
@@ -166,41 +178,31 @@
             "solution": 2
         }
     ],
-    "User":[
-        {
+    "User": [{
             "id": 1,
             "firstName": "Jan",
             "lastName": "Janssen",
             "email": "JanJanssen@email.com",
             "profileImage": "url naar een image",
-            "following": [
-                {
+            "following": [{
                     "id": 2
                 },
                 {
                     "id": 3
                 }
             ],
-            "followers": [
-                {
-                    "id": 2
-                }
-            ],
-            "myComments": [
-                {
-                    "id": 4
-                }
-            ],
-            "mySolutions": [
-                {
-                    "id": 1
-                }
-            ],
-            "myLikes": [
-                {
-                    "id": 2
-                }
-            ]
+            "followers": [{
+                "id": 2
+            }],
+            "myComments": [{
+                "id": 4
+            }],
+            "mySolutions": [{
+                "id": 1
+            }],
+            "myLikes": [{
+                "id": 2
+            }]
         },
         {
             "id": 2,
@@ -208,30 +210,23 @@
             "lastName": "Henkerson",
             "email": "henkhenkerson@gmail.comm",
             "profileImage": "url naar een image",
-            "following": [
-                {
-                    "id": 1
-                }
-            ],
-            "followers": [
-                {
-                    "id": 1
-                }
-            ],
-            "myComments": [
-                {
+            "following": [{
+                "id": 1
+            }],
+            "followers": [{
+                "id": 1
+            }],
+            "myComments": [{
                     "id": 1
                 },
                 {
                     "id": 3
                 }
             ],
-            "mySolutions":[],
-            "myLikes": [
-                {
-                    "id": 2
-                }
-            ]
+            "mySolutions": [],
+            "myLikes": [{
+                "id": 2
+            }]
         },
         {
             "id": 3,
@@ -239,27 +234,19 @@
             "lastName": "Worst",
             "email": "hansworst@email.com",
             "profileImage": "url naar een image",
-            "following": [
-                {
-                    "id": 4
-                }
-            ],
-            "followers": [
-                {
-                    "id": 4 
-                }
-            ],
-            "myComments": [
-                {
-                    "id": 2
-                }
-            ],
+            "following": [{
+                "id": 4
+            }],
+            "followers": [{
+                "id": 4
+            }],
+            "myComments": [{
+                "id": 2
+            }],
             "mySolutions": [],
-            "myLikes": [
-                {
-                    "id": 2
-                }
-            ]
+            "myLikes": [{
+                "id": 2
+            }]
         },
         {
             "id": 4,
@@ -267,27 +254,19 @@
             "lastName": "Pan",
             "email": "peterpan@email.com",
             "profileImage": "url naar een image",
-            "following": [
-                {
-                    "id": 3
-                }
-            ],
-            "followers": [
-                {
-                    "id": 3 
-                }
-            ],
-            "myComments": [
-                {
-                    "id": 5
-                }
-            ],
+            "following": [{
+                "id": 3
+            }],
+            "followers": [{
+                "id": 3
+            }],
+            "myComments": [{
+                "id": 5
+            }],
             "mySolutions": [],
-            "myLikes": [
-                {
-                    "id": 2
-                }
-            ]
+            "myLikes": [{
+                "id": 2
+            }]
         },
         {
             "id": 5,
@@ -297,44 +276,53 @@
             "profileImage": "url naar een image",
             "following": [],
             "followers": [],
-            "myComments": [
-                {
-                    "id": 6
-                }
-            ],
+            "myComments": [{
+                "id": 6
+            }],
             "mySolutions": [],
-            "myLikes": [
-                {
-                    "id": 2
-                }
-            ]
+            "myLikes": [{
+                "id": 2
+            }]
         }
     ],
-    "AuthUser": [
-        {
+    "AuthUser": [{
             "id": 1,
-            "email":"hansworst@email.com",
+            "email": "hansworst@email.com",
             "password": "supergoedwachtwoordgehashtendatsoortdingen"
         },
         {
             "id": 2,
-            "email":"janjanssen@email.com",
+            "email": "janjanssen@email.com",
             "password": "supergoedwachtwoordgehashtendatsoortdingen"
         },
         {
             "id": 3,
-            "email":"johnsnow@email.com",
+            "email": "johnsnow@email.com",
             "password": "supergoedwachtwoordgehashtendatsoortdingen"
         },
         {
             "id": 4,
-            "email":"peterpan@email.com",
+            "email": "peterpan@email.com",
             "password": "supergoedwachtwoordgehashtendatsoortdingen"
         },
         {
             "id": 5,
-            "email":"henkhenkerson@email.com",
+            "email": "henkhenkerson@email.com",
             "password": "supergoedwachtwoordgehashtendatsoortdingen"
         }
-    ]
+    ],
+    "Weather": {
+        "WeatherExtremes": [
+            "Tornado",
+            "Smog",
+            "Extreme heat",
+            "Wildfire",
+            "Dust storm",
+            "Flood",
+            "Heavy rainfall",
+            "Hail storm",
+            "Drought",
+            "Blizzard"
+        ]
+    }
 }

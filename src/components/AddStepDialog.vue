@@ -3,31 +3,31 @@
     <template v-slot:activator="{ on, attrs }">
       <v-btn height="40" v-bind="attrs" v-on="on" color="primary" block>
         <v-icon left>mdi-plus</v-icon>
-        Add Step
+        {{ $t("common.add_step") }}
       </v-btn>
     </template>
 
     <v-card>
       <v-card-title class="text-h5 text-center">
-        <v-row no-gutters justify="end">Add step</v-row>
+        <v-row no-gutters justify="end">{{ $t("common.add_step") }}</v-row>
         <v-row no-gutters justify="end">
           <v-icon v-on:click="showDialog = false">mdi-close</v-icon>
         </v-row>
       </v-card-title>
 
       <v-card-text class="px-2 pb-2">
-        <h4 class="text-left">Description</h4>
+        <h4 class="text-left">{{ $t('common.description') }}</h4>
         <v-textarea
           v-model="step.description"
           :counter="250"
           height="100"
-          hint="Type a quick introduction about the solution"
+          :hint="$t('common.instructions_hint')"
           outlined
           required
         ></v-textarea>
 
         <v-container class="d-flex pa-0">
-          <h4>Cover image</h4>
+          <h4>{{ $t('common.cover_image') }}</h4>
           <v-row v-if="step.coverImage" no-gutters justify="end">
             <v-icon v-on:click="removeImage()">mdi-close</v-icon>
           </v-row>
@@ -36,7 +36,7 @@
         <v-container v-if="!step.coverImage" class="pa-0">
           <v-btn @click="$refs.file.click()" height="50" class="my-2" block>
             <v-icon left>mdi-upload</v-icon>
-            Upload Image
+            {{ $t("common.upload_image") }}
           </v-btn>
 
           <input
@@ -57,7 +57,7 @@
         </v-row>
 
         <v-btn height="50" color="primary" class="" block @click="submitStep()">
-          Add step
+          {{ $t("common.add_step") }}
         </v-btn>
       </v-card-text>
     </v-card>
