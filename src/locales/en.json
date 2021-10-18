@@ -9,15 +9,21 @@
     "view_count": "View count",
     "materials": "Materials",
     "steps": "Steps",
-    "comments": "Comments"
+    "comments": "Comments",
+    "delete": "Delete",
+    "solution": "Solution",
+    "yes": "Yes",
+    "no": "No"
   },
 
   "validation": {
-
+    "delete_solution": "Are you sure you want to delete the solution"
   },
 
   "glossary": {
     "impacted": "Impacted",
-    "users": "Users"
+    "users": "Users"    ,
+    "my": "My",
+    "solutions": "Solutions"
   }
 }

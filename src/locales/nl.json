@@ -9,16 +9,22 @@
     "view_count": "keer bekeken",
     "materials": "Materialen",
     "steps": "Stappen",
-    "comments": "Reacties"
+    "comments": "Reacties",
+    "delete": "Verwijder",
+    "solution": "Oplossing",
+    "yes": "Ja",
+    "no": "Nee"
   },
 
   "validation": {
-
+    "delete_solution": "Weet u zeker dat u deze oplossing wilt verwijderen"
   },
 
   "glossary": {
     "impacted": "Beïnvloede",
-    "users": "Gebruikers"
+    "users": "Gebruikers",
+    "my": "Mijn",
+    "solutions": "Oplossingen"
   }
 }
 

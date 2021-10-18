@@ -31,11 +31,11 @@
                   </v-btn>
                 </template>
                 <v-card>
-                  <v-card-title>Delete Solution {{solution.name}}</v-card-title>
-                  <v-card-text>Are you sure you want to delete the solution {{solution.name}}?</v-card-text>
+                  <v-card-title>{{ $t('common.delete') }} {{ $t('common.solution') }} {{solution.name}}</v-card-title>
+                  <v-card-text>{{ $t('validation.delete_solution') }} {{solution.name}}?</v-card-text>
                   <v-card-actions>
-                    <v-btn @click="deleteSolutionById(solution.id)" color="green">Yes</v-btn>
-                    <v-btn @click="dialog = false" color="red">No</v-btn>
+                    <v-btn @click="deleteSolutionById(solution.id)" color="green">{{ $t('common.yes') }}</v-btn>
+                    <v-btn @click="dialog = false" color="red">{{ $t('common.no') }}</v-btn>
                   </v-card-actions>
                 </v-card>
               </v-dialog>
