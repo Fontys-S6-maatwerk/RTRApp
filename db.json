@@ -2,9 +2,9 @@
     "Solutions": [{
             "id": 1,
             "numberOfLikes": 100,
-            "title": "Solution naaammmmmm",
+            "name": "Solution naaammmmmm",
             "introduction": "This solution had a lot of impact on many people",
-            "weatherExtreme": "Hitte",
+            "weatherExtremeType": "Hitte",
             "solutionType": "how-to video",
             "difficulty": "Easy",
             "impactGoal": 500,
@@ -36,9 +36,9 @@
         {
             "id": 2,
             "numberOfLikes": 10,
-            "title": "Solution name2",
+            "name": "Solution name2",
             "introduction": "This solution had a lot of impact on many people",
-            "weatherExtreme": "Wateroverlast",
+            "weatherExtremeType": "Wateroverlast",
             "solutionType": "how-to video",
             "difficulty": "Medium",
             "impactGoal": 1000000,
@@ -74,31 +74,6 @@
         },
         {
             "id": 3,
-            "title": "Solution title 3",
-            "introduction": "This solution has impacted many users and will benefit many other",
-            "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png",
-            "weatherExtreme": "Extreme heat",
-            "materials": [
-                "material 1",
-                "material 2"
-            ],
-            "tools": [
-                "tool 1"
-            ],
-            "steps": [{
-                    "description": "Description to step 1",
-                    "coverImage": ""
-                },
-                {
-                    "description": "Description step 2",
-                    "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png"
-                }
-            ],
-            "image": "een of andere url"
-            ]
-        },
-        {
-            "id": 3,
             "numberOfLikes": 19,
             "name": "Andere Solution Name",
             "weatherExtremeType": "Hitte",
@@ -110,6 +85,7 @@
             "currentImpact": 18,
             "uploadDate": "27-09-2021",
             "viewCount": 123,
+            "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png",
             "reactions": [
                 {
                     "id": 1
@@ -120,23 +96,17 @@
             ],
             "image": "een of andere url",
             "materials": [
-                {
-                    "content": "Hamer"
-                },
-                {
-                    "content": "1 Spijker"
-                }
+                "Hamer",
+                "1 Spijker"
             ],
             "steps": [
                 {
-                    "id": 1,
-                    "image": "url",
-                    "content": "Sla met een hamer." 
+                    "coverImage": "url",
+                    "description": "Sla met een hamer." 
                 },
                 {
-                    "id": 2,
-                    "image": "url",
-                    "content": "Kijk of het echt vast zit."
+                    "coverImage": "url",
+                    "description": "Kijk of het echt vast zit."
                 }
             ]
         }

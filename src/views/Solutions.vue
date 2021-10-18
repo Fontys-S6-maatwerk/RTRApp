@@ -5,7 +5,7 @@
 <script>
 import SolutionContext from "@/data/solution-context";
 
-import SolutionsList from "../components/SolutionsList.vue"
+import SolutionsList from "../components/SolutionsList.vue";
 
 export default {
   data() {
@@ -24,10 +24,6 @@ export default {
         params: { solutionId: solutionId },
       });
     },
-  },
-
-  },
-  methods:{
   },
   components: {
     SolutionsList
