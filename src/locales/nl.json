@@ -3,6 +3,10 @@
         "hello": "Hallo i18n wereld"
     },
 
+
+  "validation": {
+    "delete_solution": "Weet u zeker dat u deze oplossing wilt verwijderen"
+  },
     "common": {
         "add_material": "Voeg material toe",
         "add_solution": "Voeg oplossing toe",
@@ -27,17 +31,20 @@
         "title": "Titel",
         "update_solution": "Update oplossing",
         "upload_image": "Afbeelding uploaden",
-        "view_count": "keer bekeken"
-    },
-
-    "validation": {
-
+        "view_count": "keer bekeken",
+        "delete": "Verwijder",
+        "solution": "Oplossing",
+        "yes": "Ja",
+        "no": "Nee"
+      
     },
 
     "glossary": {
         "impacted": "Beïnvloede",
         "users": "Gebruikers",
         "material": "Materiaal",
-        "tool": "Hulpmiddel"
+        "tool": "Hulpmiddel",
+        "my": "Mijn",
+        "solutions": "Oplossingen"
     }
 }

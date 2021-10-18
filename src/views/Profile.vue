@@ -1,6 +1,6 @@
 <template>
 <v-container>
-  <v-card-title class="justify-center">My Solutions</v-card-title>
+  <v-card-title class="justify-center">{{ $t('glossary.my') }} {{ $t('glossary.solutions') }}</v-card-title>
   <SolutionsList :solutions='solutions' :onProfile='true'></SolutionsList>
 </v-container>
 </template>
