@@ -3,18 +3,29 @@
 </template>
 
 <script>
-import axios from "axios";
+import SolutionContext from "@/data/solution-context";
+
 import SolutionsList from "../components/SolutionsList.vue"
+
 export default {
   data() {
     return {
+      solutionContext: new SolutionContext(),
       solutions: [],
     };
   },
   mounted() {
-    axios
-      .get("http://localhost:3001/Solutions")
-      .then((response) => (this.solutions = response.data));
+    this.solutionContext.all().then((solutions) => this.solutions = solutions);
+  },
+  methods: {
+    openSolution(solutionId) {
+      this.$router.push({
+        name: "Solution",
+        params: { solutionId: solutionId },
+      });
+    },
+  },
+
   },
   methods:{
   },

@@ -1,24 +1,43 @@
 {
-  "message": {
-    "hello": "Hallo i18n wereld"
-  },
+    "message": {
+        "hello": "Hallo i18n wereld"
+    },
 
-  "common": {
-    "current_impact": "Huidige impact",
-    "likes": "vind-ik-leuks",
-    "view_count": "keer bekeken",
-    "materials": "Materialen",
-    "steps": "Stappen",
-    "comments": "Reacties"
-  },
+    "common": {
+        "add_material": "Voeg material toe",
+        "add_solution": "Voeg oplossing toe",
+        "add_step": "Voeg stap toe",
+        "add_tool": "Voeg hulpmiddel toe",
+        "cancel": "Annuleer",
+        "comments": "Reacties",
+        "continue": "Doorgaan",
+        "cover_image": "Omslagfoto",
+        "current_impact": "Huidige impact",
+        "description": "Beschrijving",
+        "general": "Generaal",
+        "instructions": "Instructies",
+        "instructions_description": "Voeg instructie stappen toe voor anderen om uw oplossing te kunnen gebruiken",
+        "instructions_hint": "Typ een korte introductie over de oplossing",
+        "introduction": "Introductie",
+        "likes": "vind-ik-leuks",
+        "materials": "Materialen",
+        "next_step": "Volgende stap",
+        "no_instructions_yet": "Nog geen instructies",
+        "steps": "Stappen",
+        "title": "Titel",
+        "update_solution": "Update oplossing",
+        "upload_image": "Afbeelding uploaden",
+        "view_count": "keer bekeken"
+    },
 
-  "validation": {
+    "validation": {
 
-  },
+    },
 
-  "glossary": {
-    "impacted": "Beïnvloede",
-    "users": "Gebruikers"
-  }
+    "glossary": {
+        "impacted": "Beïnvloede",
+        "users": "Gebruikers",
+        "material": "Materiaal",
+        "tool": "Hulpmiddel"
+    }
 }
-
