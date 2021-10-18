@@ -95,6 +95,50 @@
                 }
             ],
             "image": "een of andere url"
+            ]
+        },
+        {
+            "id": 3,
+            "numberOfLikes": 19,
+            "name": "Andere Solution Name",
+            "weatherExtremeType": "Hitte",
+            "solutionType": "how-to video",
+            "difficulty": "Easy",
+            "impactGoal": 100,
+            "SDGType": "Goal 13: Climate Action",
+            "author": "Jan Janssen",
+            "currentImpact": 18,
+            "uploadDate": "27-09-2021",
+            "viewCount": 123,
+            "reactions": [
+                {
+                    "id": 1
+                },
+                {
+                    "id": 2
+                }
+            ],
+            "image": "een of andere url",
+            "materials": [
+                {
+                    "content": "Hamer"
+                },
+                {
+                    "content": "1 Spijker"
+                }
+            ],
+            "steps": [
+                {
+                    "id": 1,
+                    "image": "url",
+                    "content": "Sla met een hamer." 
+                },
+                {
+                    "id": 2,
+                    "image": "url",
+                    "content": "Kijk of het echt vast zit."
+                }
+            ]
         }
     ],
     "Reactions": [{
