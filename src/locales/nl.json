@@ -5,6 +5,7 @@
         "add_step": "Voeg stap toe",
         "add_tool": "Voeg hulpmiddel toe",
         "cancel": "Annuleer",
+        "comment": "Reactie",
         "comments": "Reacties",
         "continue": "Doorgaan",
         "cover_image": "Omslagfoto",
@@ -27,7 +28,8 @@
         "delete": "Verwijder",
         "solution": "Oplossing",
         "yes": "Ja",
-        "no": "Nee"
+        "no": "Nee",
+        "post": "Plaats"
     },
     "glossary": {
         "impacted": "Beïnvloede",

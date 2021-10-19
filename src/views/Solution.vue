@@ -113,7 +113,9 @@
       <v-col cols="12">
         <!-- Reactions -->
         <v-card>
-          <v-card-title class="justify-center">Reactions</v-card-title>
+          <v-card-title class="justify-center">{{
+            $t("common.comments")
+          }}</v-card-title>
 
           <v-card-text>
             <v-row>
@@ -128,11 +130,13 @@
                 <v-row>
                   <v-text-field
                     v-model="comment.text"
-                    label="Comment"
+                    :label="$t('common.comment')"
                   ></v-text-field>
                 </v-row>
                 <v-row class="float-right">
-                  <v-btn v-on:click="post" elevation="2">Post</v-btn>
+                  <v-btn v-on:click="post" elevation="2">{{
+                    $t("common.post")
+                  }}</v-btn>
                 </v-row>
               </v-col>
             </v-row>

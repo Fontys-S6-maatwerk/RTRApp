@@ -5,6 +5,7 @@
         "add_step": "Add step",
         "add_tool": "Add tool",
         "cancel": "Cancel",
+        "comment": "Comment",
         "comments": "Comments",
         "continue": "Continue",
         "cover_image": "Cover image",
@@ -27,7 +28,8 @@
         "delete": "Delete",
         "solution": "Solution",
         "yes": "Yes",
-        "no": "No"
+        "no": "No",
+        "post": "Post"
     },
     "glossary": {
         "impacted": "Impacted",
