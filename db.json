@@ -107,12 +107,46 @@
                     "description": "Kijk of het echt vast zit."
                 }
             ]
+        },
+        {
+            "id": 4,
+            "name": "Bevestig kussen met spijkers",
+            "introduction": "Deze oplossing maakt het mogelijk voor gebruikers om een kussen te kunnen bevestigen met een hamer. ",
+            "coverImage": "",
+            "weatherExtremeType": "",
+            "materials": [
+                "Wood",
+                "Plastic"
+            ],
+            "tools": [
+                "Spijker",
+                "Hamer",
+                "Kussen"
+            ],
+            "steps": [{
+                    "description": "Zet het kussen tegen een muur",
+                    "coverImage": ""
+                },
+                {
+                    "description": "Sla de hamers in het kussen",
+                    "coverImage": ""
+                }
+            ],
+            "numberOfLikes": 122,
+            "solutionType": "how-to video",
+            "difficulty": "medium",
+            "SDGType": "Goal 13: Climate Action",
+            "author": "Jan Janssen",
+            "impactGoal": 2000,
+            "currentImpact": 122,
+            "uploadDate": "10/19/2021",
+            "viewCount": 0
         }
     ],
-    "Reactions": [{
+    "Comments": [{
             "id": 1,
             "content": "The BEST Solution EUW.",
-            "auther": "Henk Henkerson",
+            "author": "Henk Henkerson",
             "solution": 1
         },
         {
