@@ -1,330 +1,404 @@
 {
-    "Solutions": [{
-            "id": 1,
-            "numberOfLikes": 100,
-            "name": "Solution naaammmmmm",
-            "introduction": "This solution had a lot of impact on many people",
-            "weatherExtremeType": "Hitte",
-            "solutionType": "how-to video",
-            "difficulty": "Easy",
-            "impactGoal": 500,
-            "SDGType": "Goal 13: Climate Action",
-            "author": "Jan Janssen",
-            "currentImpact": 101,
-            "uploadDate": "27-09-2021",
-            "viewCount": 213,
-            "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png",
-            "materials": [
-                "rocks",
-                "paper",
-                "cardboard"
-            ],
-            "tools": [
-                "toool 1",
-                "tool 2"
-            ],
-            "steps": [{
-                    "description": "step 1",
-                    "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png"
-                },
-                {
-                    "description": "step 2",
-                    "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png"
-                }
-            ]
+  "Solutions": [
+    {
+      "id": 1,
+      "numberOfLikes": 100,
+      "name": "Solution naaammmmmm",
+      "introduction": "This solution had a lot of impact on many people",
+      "weatherExtremeType": "Hitte",
+      "solutionType": "how-to video",
+      "difficulty": "Easy",
+      "impactGoal": 500,
+      "SDGType": "Goal 13: Climate Action",
+      "author": "Jan Janssen",
+      "currentImpact": 101,
+      "uploadDate": "27-09-2021",
+      "viewCount": 213,
+      "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png",
+      "materials": [
+        "rocks",
+        "paper",
+        "cardboard"
+      ],
+      "tools": [
+        "toool 1",
+        "tool 2"
+      ],
+      "steps": [
+        {
+          "description": "step 1",
+          "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png"
         },
         {
-            "id": 2,
-            "numberOfLikes": 10,
-            "name": "Solution name2",
-            "introduction": "This solution had a lot of impact on many people",
-            "weatherExtremeType": "Wateroverlast",
-            "solutionType": "how-to video",
-            "difficulty": "Medium",
-            "impactGoal": 1000000,
-            "SDGType": "Goal 13: Climate Action",
-            "author": "Hans Worst",
-            "currentImpact": 9,
-            "uploadDate": "27-07-2021",
-            "viewCount": 234,
-            "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png",
-            "materials": [
-                "plastic",
-                "wood",
-                "cardboard"
-            ],
-            "tools": [
-                "tool 34",
-                "tool 21",
-                "tool 22"
-            ],
-            "steps": [{
-                    "description": "step 1",
-                    "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png"
-                },
-                {
-                    "description": "step 2",
-                    "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png"
-                },
-                {
-                    "description": "step 3",
-                    "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png"
-                }
-            ]
-        },
-        {
-            "id": 3,
-            "numberOfLikes": 19,
-            "name": "Andere Solution Name",
-            "weatherExtremeType": "Hitte",
-            "solutionType": "how-to video",
-            "difficulty": "Easy",
-            "impactGoal": 100,
-            "SDGType": "Goal 13: Climate Action",
-            "author": "Jan Janssen",
-            "currentImpact": 18,
-            "uploadDate": "27-09-2021",
-            "viewCount": 123,
-            "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png",
-            "reactions": [{
-                    "id": 1
-                },
-                {
-                    "id": 2
-                }
-            ],
-            "image": "een of andere url",
-            "materials": [
-                "Hamer",
-                "1 Spijker"
-            ],
-            "steps": [{
-                    "coverImage": "url",
-                    "description": "Sla met een hamer."
-                },
-                {
-                    "coverImage": "url",
-                    "description": "Kijk of het echt vast zit."
-                }
-            ]
-        },
-        {
-            "id": 4,
-            "name": "Bevestig kussen met spijkers",
-            "introduction": "Deze oplossing maakt het mogelijk voor gebruikers om een kussen te kunnen bevestigen met een hamer. ",
-            "coverImage": "",
-            "weatherExtremeType": "",
-            "materials": [
-                "Wood",
-                "Plastic"
-            ],
-            "tools": [
-                "Spijker",
-                "Hamer",
-                "Kussen"
-            ],
-            "steps": [{
-                    "description": "Zet het kussen tegen een muur",
-                    "coverImage": ""
-                },
-                {
-                    "description": "Sla de hamers in het kussen",
-                    "coverImage": ""
-                }
-            ],
-            "numberOfLikes": 122,
-            "solutionType": "how-to video",
-            "difficulty": "medium",
-            "SDGType": "Goal 13: Climate Action",
-            "author": "Jan Janssen",
-            "impactGoal": 2000,
-            "currentImpact": 122,
-            "uploadDate": "10/19/2021",
-            "viewCount": 0
+          "description": "step 2",
+          "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png"
         }
-    ],
-    "Comments": [{
-            "id": 1,
-            "content": "The BEST Solution EUW.",
-            "author": "Henk Henkerson",
-            "solution": 1
+      ]
+    },
+    {
+      "id": 2,
+      "numberOfLikes": 10,
+      "name": "Solution name2",
+      "introduction": "This solution had a lot of impact on many people",
+      "weatherExtremeType": "Wateroverlast",
+      "solutionType": "how-to video",
+      "difficulty": "Medium",
+      "impactGoal": 1000000,
+      "SDGType": "Goal 13: Climate Action",
+      "author": "Hans Worst",
+      "currentImpact": 9,
+      "uploadDate": "27-07-2021",
+      "viewCount": 234,
+      "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png",
+      "materials": [
+        "plastic",
+        "wood",
+        "cardboard"
+      ],
+      "tools": [
+        "tool 34",
+        "tool 21",
+        "tool 22"
+      ],
+      "steps": [
+        {
+          "description": "step 1",
+          "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png"
         },
         {
-            "id": 2,
-            "content": "The WORST Solution EUW.",
-            "author": "Hans Worst",
-            "solution": 1
+          "description": "step 2",
+          "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png"
         },
         {
-            "id": 3,
-            "content": "The very BEST Solution EUW.",
-            "author": "Henk Henkerson",
-            "solution": 2
-        },
-        {
-            "id": 4,
-            "content": "The very WORST Solution EUW.",
-            "author": "Jan Janssen",
-            "solution": 2
-        },
-        {
-            "id": 5,
-            "content": "Very nice",
-            "author": "Peter Pan",
-            "solution": 2
-        },
-        {
-            "id": 6,
-            "content": "It worked great!",
-            "author": "John Snow",
-            "solution": 2
+          "description": "step 3",
+          "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png"
         }
-    ],
-    "User": [{
-            "id": 1,
-            "firstName": "Jan",
-            "lastName": "Janssen",
-            "email": "JanJanssen@email.com",
-            "profileImage": "url naar een image",
-            "following": [{
-                    "id": 2
-                },
-                {
-                    "id": 3
-                }
-            ],
-            "followers": [{
-                "id": 2
-            }],
-            "myComments": [{
-                "id": 4
-            }],
-            "mySolutions": [{
-                "id": 1
-            }],
-            "myLikes": [{
-                "id": 2
-            }]
+      ]
+    },
+    {
+      "id": 3,
+      "numberOfLikes": 19,
+      "name": "Andere Solution Name",
+      "weatherExtremeType": "Hitte",
+      "solutionType": "how-to video",
+      "difficulty": "Easy",
+      "impactGoal": 100,
+      "SDGType": "Goal 13: Climate Action",
+      "author": "Jan Janssen",
+      "currentImpact": 18,
+      "uploadDate": "27-09-2021",
+      "viewCount": 123,
+      "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png",
+      "reactions": [
+        {
+          "id": 1
         },
         {
-            "id": 2,
-            "firstName": "Henk",
-            "lastName": "Henkerson",
-            "email": "henkhenkerson@gmail.comm",
-            "profileImage": "url naar een image",
-            "following": [{
-                "id": 1
-            }],
-            "followers": [{
-                "id": 1
-            }],
-            "myComments": [{
-                    "id": 1
-                },
-                {
-                    "id": 3
-                }
-            ],
-            "mySolutions": [],
-            "myLikes": [{
-                "id": 2
-            }]
-        },
-        {
-            "id": 3,
-            "firstName": "Hans",
-            "lastName": "Worst",
-            "email": "hansworst@email.com",
-            "profileImage": "url naar een image",
-            "following": [{
-                "id": 4
-            }],
-            "followers": [{
-                "id": 4
-            }],
-            "myComments": [{
-                "id": 2
-            }],
-            "mySolutions": [],
-            "myLikes": [{
-                "id": 2
-            }]
-        },
-        {
-            "id": 4,
-            "firstName": "Peter",
-            "lastName": "Pan",
-            "email": "peterpan@email.com",
-            "profileImage": "url naar een image",
-            "following": [{
-                "id": 3
-            }],
-            "followers": [{
-                "id": 3
-            }],
-            "myComments": [{
-                "id": 5
-            }],
-            "mySolutions": [],
-            "myLikes": [{
-                "id": 2
-            }]
-        },
-        {
-            "id": 5,
-            "firstName": "John",
-            "lastName": "Snow",
-            "email": "johnsnow@email.com",
-            "profileImage": "url naar een image",
-            "following": [],
-            "followers": [],
-            "myComments": [{
-                "id": 6
-            }],
-            "mySolutions": [],
-            "myLikes": [{
-                "id": 2
-            }]
+          "id": 2
         }
-    ],
-    "AuthUser": [{
-            "id": 1,
-            "email": "hansworst@email.com",
-            "password": "supergoedwachtwoordgehashtendatsoortdingen"
+      ],
+      "image": "een of andere url",
+      "materials": [
+        "Hamer",
+        "1 Spijker"
+      ],
+      "steps": [
+        {
+          "coverImage": "url",
+          "description": "Sla met een hamer."
         },
         {
-            "id": 2,
-            "email": "janjanssen@email.com",
-            "password": "supergoedwachtwoordgehashtendatsoortdingen"
-        },
-        {
-            "id": 3,
-            "email": "johnsnow@email.com",
-            "password": "supergoedwachtwoordgehashtendatsoortdingen"
-        },
-        {
-            "id": 4,
-            "email": "peterpan@email.com",
-            "password": "supergoedwachtwoordgehashtendatsoortdingen"
-        },
-        {
-            "id": 5,
-            "email": "henkhenkerson@email.com",
-            "password": "supergoedwachtwoordgehashtendatsoortdingen"
+          "coverImage": "url",
+          "description": "Kijk of het echt vast zit."
         }
-    ],
-    "Weather": {
-        "WeatherExtremes": [
-            "Tornado",
-            "Smog",
-            "Extreme heat",
-            "Wildfire",
-            "Dust storm",
-            "Flood",
-            "Heavy rainfall",
-            "Hail storm",
-            "Drought",
-            "Blizzard"
-        ]
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Bevestig kussen met spijkers",
+      "introduction": "Deze oplossing maakt het mogelijk voor gebruikers om een kussen te kunnen bevestigen met een hamer. ",
+      "coverImage": "",
+      "weatherExtremeType": "",
+      "materials": [
+        "Wood",
+        "Plastic"
+      ],
+      "tools": [
+        "Spijker",
+        "Hamer",
+        "Kussen"
+      ],
+      "steps": [
+        {
+          "description": "Zet het kussen tegen een muur",
+          "coverImage": ""
+        },
+        {
+          "description": "Sla de hamers in het kussen",
+          "coverImage": ""
+        }
+      ],
+      "numberOfLikes": 122,
+      "solutionType": "how-to video",
+      "difficulty": "medium",
+      "SDGType": "Goal 13: Climate Action",
+      "author": "Jan Janssen",
+      "impactGoal": 2000,
+      "currentImpact": 122,
+      "uploadDate": "10/19/2021",
+      "viewCount": 0
+    },
+    {
+      "name": "Krabben",
+      "introduction": "sneeuw van je auto weghalen ja.",
+      "coverImage": "",
+      "weatherExtremeType": "Hail storm",
+      "materials": [
+        "krabber",
+        "een auto"
+      ],
+      "tools": [
+        "wat is dit ook alweer"
+      ],
+      "steps": [
+        {
+          "description": "pak een krabber vast en schraap de sneeuw ervanaf",
+          "coverImage": "blob:http://localhost:8080/1ca298f5-8293-4226-b94c-9f10f03db4fc"
+        }
+      ],
+      "numberOfLikes": 122,
+      "solutionType": "how-to video",
+      "difficulty": "medium",
+      "SDGType": "Goal 13: Climate Action",
+      "author": "Jan Janssen",
+      "impactGoal": 2000,
+      "currentImpact": 122,
+      "uploadDate": "19-10-2021 13:17:18",
+      "viewCount": 0,
+      "id": 5
     }
+  ],
+  "Comments": [
+    {
+      "id": 1,
+      "content": "The BEST Solution EUW.",
+      "author": "Henk Henkerson",
+      "solution": 1
+    },
+    {
+      "id": 2,
+      "content": "The WORST Solution EUW.",
+      "author": "Hans Worst",
+      "solution": 1
+    },
+    {
+      "id": 3,
+      "content": "The very BEST Solution EUW.",
+      "author": "Henk Henkerson",
+      "solution": 2
+    },
+    {
+      "id": 4,
+      "content": "The very WORST Solution EUW.",
+      "author": "Jan Janssen",
+      "solution": 2
+    },
+    {
+      "id": 5,
+      "content": "Very nice",
+      "author": "Peter Pan",
+      "solution": 2
+    },
+    {
+      "id": 6,
+      "content": "It worked great!",
+      "author": "John Snow",
+      "solution": 2
+    }
+  ],
+  "User": [
+    {
+      "id": 1,
+      "firstName": "Jan",
+      "lastName": "Janssen",
+      "email": "JanJanssen@email.com",
+      "profileImage": "url naar een image",
+      "following": [
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        }
+      ],
+      "followers": [
+        {
+          "id": 2
+        }
+      ],
+      "myComments": [
+        {
+          "id": 4
+        }
+      ],
+      "mySolutions": [
+        {
+          "id": 1
+        }
+      ],
+      "myLikes": [
+        {
+          "id": 2
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "firstName": "Henk",
+      "lastName": "Henkerson",
+      "email": "henkhenkerson@gmail.comm",
+      "profileImage": "url naar een image",
+      "following": [
+        {
+          "id": 1
+        }
+      ],
+      "followers": [
+        {
+          "id": 1
+        }
+      ],
+      "myComments": [
+        {
+          "id": 1
+        },
+        {
+          "id": 3
+        }
+      ],
+      "mySolutions": [],
+      "myLikes": [
+        {
+          "id": 2
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "firstName": "Hans",
+      "lastName": "Worst",
+      "email": "hansworst@email.com",
+      "profileImage": "url naar een image",
+      "following": [
+        {
+          "id": 4
+        }
+      ],
+      "followers": [
+        {
+          "id": 4
+        }
+      ],
+      "myComments": [
+        {
+          "id": 2
+        }
+      ],
+      "mySolutions": [],
+      "myLikes": [
+        {
+          "id": 2
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "firstName": "Peter",
+      "lastName": "Pan",
+      "email": "peterpan@email.com",
+      "profileImage": "url naar een image",
+      "following": [
+        {
+          "id": 3
+        }
+      ],
+      "followers": [
+        {
+          "id": 3
+        }
+      ],
+      "myComments": [
+        {
+          "id": 5
+        }
+      ],
+      "mySolutions": [],
+      "myLikes": [
+        {
+          "id": 2
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "firstName": "John",
+      "lastName": "Snow",
+      "email": "johnsnow@email.com",
+      "profileImage": "url naar een image",
+      "following": [],
+      "followers": [],
+      "myComments": [
+        {
+          "id": 6
+        }
+      ],
+      "mySolutions": [],
+      "myLikes": [
+        {
+          "id": 2
+        }
+      ]
+    }
+  ],
+  "AuthUser": [
+    {
+      "id": 1,
+      "email": "hansworst@email.com",
+      "password": "supergoedwachtwoordgehashtendatsoortdingen"
+    },
+    {
+      "id": 2,
+      "email": "janjanssen@email.com",
+      "password": "supergoedwachtwoordgehashtendatsoortdingen"
+    },
+    {
+      "id": 3,
+      "email": "johnsnow@email.com",
+      "password": "supergoedwachtwoordgehashtendatsoortdingen"
+    },
+    {
+      "id": 4,
+      "email": "peterpan@email.com",
+      "password": "supergoedwachtwoordgehashtendatsoortdingen"
+    },
+    {
+      "id": 5,
+      "email": "henkhenkerson@email.com",
+      "password": "supergoedwachtwoordgehashtendatsoortdingen"
+    }
+  ],
+  "Weather": {
+    "WeatherExtremes": [
+      "Tornado",
+      "Smog",
+      "Extreme heat",
+      "Wildfire",
+      "Dust storm",
+      "Flood",
+      "Heavy rainfall",
+      "Hail storm",
+      "Drought",
+      "Blizzard"
+    ]
+  }
 }

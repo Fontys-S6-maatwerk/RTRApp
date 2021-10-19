@@ -1,7 +1,7 @@
 <template>
 <v-container>
   <v-card-title class="justify-center">{{ $t('glossary.my') }} {{ $t('glossary.solutions') }}</v-card-title>
-  <SolutionsList :solutions='solutions' :onProfile='true'></SolutionsList>
+  <SolutionsList @deleteSolutionById='deleteSolutionById' :solutions='solutions' :onProfile='true'></SolutionsList>
 </v-container>
 </template>
 
@@ -18,14 +18,15 @@
     },
     data () {
       return {
-          solutions: []
+          solutions: [],
       }
     },
     methods: {
         deleteSolutionById(solutionId) {
+          console.log('delete ' + solutionId);
           axios
             .delete('http://localhost:3001/Solutions/' + solutionId)
-            .then(this.dialog = false, this.solutions.splice(this.solutions.indexOf(solutionId), 1));
+            .then(this.solutions.splice(this.solutions.indexOf(solutionId), 1));
         }
     },
     computed: {
