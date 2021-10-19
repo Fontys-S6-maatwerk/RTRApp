@@ -1,13 +1,14 @@
 <template>
-  <SolutionsList :solutions='solutions'></SolutionsList>
+  <SolutionsList :solutions="solutions"></SolutionsList>
 </template>
 
 <script>
 import SolutionContext from "@/data/solution-context";
 
-import SolutionsList from "../components/SolutionsList.vue";
-
 export default {
+  components: {
+    SolutionsList: () => import("@/components/SolutionsList.vue"),
+  },
   data() {
     return {
       solutionContext: new SolutionContext(),
@@ -15,7 +16,9 @@ export default {
     };
   },
   mounted() {
-    this.solutionContext.all().then((solutions) => this.solutions = solutions);
+    this.solutionContext
+      .all()
+      .then((solutions) => (this.solutions = solutions));
   },
   methods: {
     openSolution(solutionId) {
@@ -25,9 +28,6 @@ export default {
       });
     },
   },
-  components: {
-    SolutionsList
-  }
 };
 </script>
 

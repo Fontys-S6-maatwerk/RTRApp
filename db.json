@@ -86,8 +86,7 @@
             "uploadDate": "27-09-2021",
             "viewCount": 123,
             "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png",
-            "reactions": [
-                {
+            "reactions": [{
                     "id": 1
                 },
                 {
@@ -99,10 +98,9 @@
                 "Hamer",
                 "1 Spijker"
             ],
-            "steps": [
-                {
+            "steps": [{
                     "coverImage": "url",
-                    "description": "Sla met een hamer." 
+                    "description": "Sla met een hamer."
                 },
                 {
                     "coverImage": "url",

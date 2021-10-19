@@ -1,46 +1,46 @@
 {
-	"common": {
-		"add_material": "Voeg material toe",
-		"add_solution": "Voeg oplossing toe",
-		"add_step": "Voeg stap toe",
-		"add_tool": "Voeg hulpmiddel toe",
-		"cancel": "Annuleer",
-		"comments": "Reacties",
-		"continue": "Doorgaan",
-		"cover_image": "Omslagfoto",
-		"current_impact": "Huidige impact",
-		"description": "Beschrijving",
-		"general": "Generaal",
-		"instructions": "Instructies",
-		"instructions_description": "Voeg instructie stappen toe voor anderen om uw oplossing te kunnen gebruiken",
-		"instructions_hint": "Typ een korte introductie over de oplossing",
-		"introduction": "Introductie",
-		"likes": "vind-ik-leuks",
-		"materials": "Materialen",
-		"next_step": "Volgende stap",
-		"no_instructions_yet": "Nog geen instructies",
-		"steps": "Stappen",
-		"title": "Titel",
-		"update_solution": "Update oplossing",
-		"upload_image": "Afbeelding uploaden",
-		"view_count": "keer bekeken",
-		"delete": "Verwijder",
-		"solution": "Oplossing",
-		"yes": "Ja",
-		"no": "Nee"
-	},
-	"glossary": {
-		"impacted": "Beïnvloede",
-		"users": "Gebruikers",
-		"material": "Materiaal",
-		"tool": "Hulpmiddel",
-		"my": "Mijn",
-		"solutions": "Oplossingen"
-	},
-	"message": {
-		"hello": "Hallo i18n wereld"
-	},
-	"validation": {
-		"delete_solution": "Weet u zeker dat u deze oplossing wilt verwijderen"
-	}
+    "common": {
+        "add_material": "Voeg material toe",
+        "add_solution": "Voeg oplossing toe",
+        "add_step": "Voeg stap toe",
+        "add_tool": "Voeg hulpmiddel toe",
+        "cancel": "Annuleer",
+        "comments": "Reacties",
+        "continue": "Doorgaan",
+        "cover_image": "Omslagfoto",
+        "current_impact": "Huidige impact",
+        "description": "Beschrijving",
+        "general": "Generaal",
+        "instructions": "Instructies",
+        "instructions_description": "Voeg instructie stappen toe voor anderen om uw oplossing te kunnen gebruiken",
+        "instructions_hint": "Typ een korte introductie over de oplossing",
+        "introduction": "Introductie",
+        "likes": "vind-ik-leuks",
+        "materials": "Materialen",
+        "next_step": "Volgende stap",
+        "no_instructions_yet": "Nog geen instructies",
+        "steps": "Stappen",
+        "name": "Naam",
+        "update_solution": "Update oplossing",
+        "upload_image": "Afbeelding uploaden",
+        "view_count": "keer bekeken",
+        "delete": "Verwijder",
+        "solution": "Oplossing",
+        "yes": "Ja",
+        "no": "Nee"
+    },
+    "glossary": {
+        "impacted": "Beïnvloede",
+        "users": "Gebruikers",
+        "material": "Materiaal",
+        "tool": "Hulpmiddel",
+        "my": "Mijn",
+        "solutions": "Oplossingen"
+    },
+    "message": {
+        "hello": "Hallo i18n wereld"
+    },
+    "validation": {
+        "delete_solution": "Weet u zeker dat u deze oplossing wilt verwijderen"
+    }
 }

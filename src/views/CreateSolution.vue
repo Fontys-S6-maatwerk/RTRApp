@@ -23,8 +23,8 @@
         <v-card outlined color="transparent">
           <v-card-text class="px-0">
             <v-text-field
-              :label="$t('common.title')"
-              v-model="solution.title"
+              :label="$t('common.name')"
+              v-model="solution.name"
               :counter="40"
               outlined
             ></v-text-field>
@@ -38,16 +38,16 @@
               outlined
             ></v-textarea>
 
-            <v-row v-if="solution.weatherExtreme" no-gutters justify="end">
-              <v-icon v-on:click="solution.weatherExtreme = ''"
+            <v-row v-if="solution.weatherExtremeType" no-gutters justify="end">
+              <v-icon v-on:click="solution.weatherExtremeType = ''"
                 >mdi-close</v-icon
               >
             </v-row>
             <v-container fluid class="category-list pa-0">
               <span
-                v-for="(weatherExtreme, index) in computedWeatherExtremes"
+                v-for="(weatherExtremeType, index) in computedWeatherExtremeTypes"
                 :key="index"
-                v-on:click="setWeatherExtreme(weatherExtreme)"
+                v-on:click="setWeatherExtremeType(weatherExtremeType)"
               >
                 <v-img
                   width="75"
@@ -56,7 +56,7 @@
                   src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
                 >
                 </v-img>
-                <p>{{ weatherExtreme }}</p>
+                <p>{{ weatherExtremeType }}</p>
               </span>
             </v-container>
             <v-card outlined color="transparent">
@@ -221,17 +221,27 @@ export default {
   data() {
     return {
       step: 1,
-      weatherExtremes: [],
+      weatherExtremeTypes: [],
       solutionContext: new SolutionContext(),
       weatherContext: new WeatherContext(),
       solution: {
-        title: "",
+        name: "",
         introduction: "",
         coverImage: "",
-        weatherExtreme: "",
+        weatherExtremeType: "",
         materials: [],
         tools: [],
         steps: [],
+        //sample data
+        numberOfLikes: 122,
+        solutionType: 'how-to video',
+        difficulty: 'medium',
+        SDGType: "Goal 13: Climate Action",
+        author: 'Jan Janssen',
+        impactGoal: 2000,
+        currectImpact: 122,
+        uploadDate: new Date().toLocaleString().split(',')[0],
+        viewCount: 0,        
       },
       pageState: {
         editable: !isNaN(this.solutionId),
@@ -243,7 +253,7 @@ export default {
   },
   mounted() {
     this.weatherContext.getWeatherExtremes().then((extremes) => {
-      this.weatherExtremes = extremes;
+      this.weatherExtremeTypes = extremes;
     });
 
     if (this.solutionId) {
@@ -260,8 +270,8 @@ export default {
     removeItem(index, name) {
       this.solution[name].splice(index, 1);
     },
-    setWeatherExtreme(weatherExtreme) {
-      this.solution.weatherExtreme = weatherExtreme;
+    setWeatherExtremeType(weatherExtremeType) {
+      this.solution.weatherExtremeType = weatherExtremeType;
     },
     setCoverImage(e) {
       let files = e.target.files || e.dataTransfer.files;
@@ -285,10 +295,10 @@ export default {
     },
   },
   computed: {
-    computedWeatherExtremes() {
-      return this.solution.weatherExtreme
-        ? [this.solution.weatherExtreme]
-        : this.weatherExtremes;
+    computedWeatherExtremeTypes() {
+      return this.solution.weatherExtremeType
+        ? [this.solution.weatherExtremeType]
+        : this.weatherExtremeTypes;
     },
   },
 };
