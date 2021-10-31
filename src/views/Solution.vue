@@ -1,5 +1,5 @@
 <template>
-<v-container>
+<v-container style="background-color: green">
     <v-row>
         <v-col cols="12">
             <!-- Solution -->
@@ -66,13 +66,9 @@
             </v-card>
         </v-col>
         <v-col cols="12">
-            <!-- Reactions -->
-            <v-card>
-                <v-card-title class="justify-center">Reactions</v-card-title>
-                <div v-for="reaction in this.solution.reactions" :key="reaction.id">
-                    <div>{{reaction.id}}</div>
-                </div>
-                <!-- ?Laat hier elke reactie zien via een eigen view? -->
+          <v-card>
+            <v-card-title class="justify-center">Reactions</v-card-title>
+            <comment-list v-bind:solutionId="solutionId"/>
             </v-card>
         </v-col>
     </v-row>
@@ -81,7 +77,11 @@
 
 <script>
 import axios from 'axios';
+import CommentList from "../components/CommentList";
 export default {
+  components: {
+    CommentList
+  },
     data(){
         return{
             solutionId: this.$route.params.solutionId,

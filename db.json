@@ -89,38 +89,50 @@
         {
             "id" : 1,
             "content": "The BEST Solution EUW.",
-            "auther": "Henk Henkerson",
-            "solution": 1
+            "author": "Henk Henkerson",
+            "solution": 1,
+            "creationDate": "2012-04-23T18:25:43.511Z",
+            "avatar": "https://cdn.vuetifyjs.com/images/cards/cooking.png"
         },
         {
             "id": 2,
             "content": "The WORST Solution EUW.",
             "author": "Hans Worst",
-            "solution": 1
+            "solution": 1,
+            "creationDate": "2012-04-23T18:25:43.511Z",
+            "avatar": "https://cdn.vuetifyjs.com/images/cards/cooking.png"
         },
         {
             "id": 3,
             "content": "The very BEST Solution EUW.",
             "author": "Henk Henkerson",
-            "solution": 2
+            "solution": 2,
+            "creationDate": "2012-04-23T18:25:43.511Z",
+            "avatar": "https://cdn.vuetifyjs.com/images/cards/cooking.png"
         },
         {
             "id": 4,
             "content": "The very WORST Solution EUW.",
             "author": "Jan Janssen",
-            "solution": 2
+            "solution": 2,
+            "creationDate": "2012-04-23T18:25:43.511Z",
+            "avatar": "https://cdn.vuetifyjs.com/images/cards/cooking.png"
         },
         {
             "id": 5,
             "content": "Very nice",
             "author": "Peter Pan",
-            "solution": 2
+            "solution": 2,
+            "creationDate": "2012-04-23T18:25:43.511Z",
+            "avatar": "https://cdn.vuetifyjs.com/images/cards/cooking.png"
         },
         {
             "id": 6,
             "content": "It worked great!",
             "author": "John Snow",
-            "solution": 2
+            "solution": 2,
+            "creationDate": "2012-04-23T18:25:43.511Z",
+            "avatar": "https://cdn.vuetifyjs.com/images/cards/cooking.png"
         }
     ],
     "User":[
