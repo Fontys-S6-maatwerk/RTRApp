@@ -2,45 +2,10 @@
   "Solutions": [
     {
       "id": 1,
-      "numberOfLikes": 100,
-      "name": "Solution naaammmmmm",
-      "introduction": "This solution had a lot of impact on many people",
-      "weatherExtremeType": "Hitte",
-      "solutionType": "how-to video",
-      "difficulty": "Easy",
-      "impactGoal": 500,
-      "SDGType": "Goal 13: Climate Action",
-      "author": "Jan Janssen",
-      "currentImpact": 101,
-      "uploadDate": 1634647211973,
-      "viewCount": 213,
-      "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png",
-      "materials": [
-        "rocks",
-        "paper",
-        "cardboard"
-      ],
-      "tools": [
-        "toool 1",
-        "tool 2"
-      ],
-      "steps": [
-        {
-          "description": "step 1",
-          "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png"
-        },
-        {
-          "description": "step 2",
-          "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png"
-        }
-      ]
-    },
-    {
-      "id": 2,
       "numberOfLikes": 10,
       "name": "Solution name2",
       "introduction": "This solution had a lot of impact on many people",
-      "weatherExtremeType": "Wateroverlast",
+      "weatherExtremeType": "Dust storm",
       "solutionType": "how-to video",
       "difficulty": "Medium",
       "impactGoal": 1000000,
@@ -76,49 +41,11 @@
       ]
     },
     {
-      "id": 3,
-      "numberOfLikes": 19,
-      "name": "Andere Solution Name",
-      "weatherExtremeType": "Hitte",
-      "solutionType": "how-to video",
-      "difficulty": "Easy",
-      "impactGoal": 100,
-      "SDGType": "Goal 13: Climate Action",
-      "author": "Jan Janssen",
-      "currentImpact": 18,
-      "uploadDate": 1634647211973,
-      "viewCount": 123,
-      "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png",
-      "reactions": [
-        {
-          "id": 1
-        },
-        {
-          "id": 2
-        }
-      ],
-      "image": "een of andere url",
-      "materials": [
-        "Hamer",
-        "1 Spijker"
-      ],
-      "steps": [
-        {
-          "coverImage": "url",
-          "description": "Sla met een hamer."
-        },
-        {
-          "coverImage": "url",
-          "description": "Kijk of het echt vast zit."
-        }
-      ]
-    },
-    {
-      "id": 4,
+      "id": 2,
       "name": "Bevestig kussen met spijkers",
       "introduction": "Deze oplossing maakt het mogelijk voor gebruikers om een kussen te kunnen bevestigen met een hamer. ",
       "coverImage": "",
-      "weatherExtremeType": "",
+      "weatherExtremeType": "Flood",
       "materials": [
         "Wood",
         "Plastic"
@@ -147,6 +74,35 @@
       "currentImpact": 122,
       "uploadDate": 1634647211973,
       "viewCount": 0
+    },
+    {
+      "name": "SOlution",
+      "introduction": "hjkhjk",
+      "coverImage": "",
+      "weatherExtremeType": "Wildfire",
+      "materials": [
+        "hjkhjkhj",
+        "hjhjkh"
+      ],
+      "tools": [
+        "ghgjhjg"
+      ],
+      "steps": [
+        {
+          "description": "guyvfhgfhg",
+          "coverImage": ""
+        }
+      ],
+      "numberOfLikes": 122,
+      "solutionType": "how-to video",
+      "difficulty": "medium",
+      "SDGType": "Goal 13: Climate Action",
+      "author": "Jan Janssen",
+      "impactGoal": 2000,
+      "currentImpact": 122,
+      "uploadDate": 1635687629887,
+      "viewCount": 0,
+      "id": 5
     }
   ],
   "Comments": [

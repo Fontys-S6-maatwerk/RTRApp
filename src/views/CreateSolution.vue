@@ -235,6 +235,8 @@ export default {
         materials: [],
         tools: [],
         steps: [],
+        uploadDate: +new Date(),
+        viewCount: 0,
         //sample data
         numberOfLikes: 122,
         solutionType: "how-to video",
@@ -243,8 +245,6 @@ export default {
         author: "Jan Janssen",
         impactGoal: 2000,
         currentImpact: 122,
-        uploadDate: +new Date(),
-        viewCount: 0,
       },
       pageState: {
         editable: !isNaN(this.solutionId),
@@ -285,9 +285,19 @@ export default {
     },
     submit() {
       if (this.pageState.editable) {
-        this.solutionContext.update(this.solution);
+        this.solutionContext.update(this.solution).then((solution) => {
+          this.$router.push({
+            name: "Solution",
+            params: { solutionId: solution.id },
+          });
+        });
       } else {
-        this.solutionContext.add(this.solution);
+        this.solutionContext.add(this.solution).then((solution) => {
+          this.$router.push({
+            name: "Solution",
+            params: { solutionId: solution.id },
+          });
+        });
       }
     },
   },

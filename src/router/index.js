@@ -51,7 +51,7 @@ const routes = [{
         component: () =>
             import ('../views/CreateSolution.vue'),
         props: (route) => ({
-            solutionId: +route.query.id,
+            solutionId: +route.params.id,
         }),
 
     }
