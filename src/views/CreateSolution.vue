@@ -45,7 +45,9 @@
             </v-row>
             <v-container fluid class="category-list pa-0">
               <span
-                v-for="(weatherExtremeType, index) in computedWeatherExtremeTypes"
+                v-for="(
+                  weatherExtremeType, index
+                ) in computedWeatherExtremeTypes"
                 :key="index"
                 v-on:click="setWeatherExtremeType(weatherExtremeType)"
               >
@@ -115,7 +117,7 @@
           <v-card-text class="px-0">
             <v-text-field
               v-for="(material, index) in solution.materials"
-              :key="generateKey(material, index)"
+              :key="generateKey('material', index)"
               v-model="solution.materials[index]"
               :label="$t('glossary.material')"
               hide-details="auto"
@@ -138,7 +140,7 @@
 
             <v-text-field
               v-for="(tool, index) in solution.tools"
-              :key="generateKey(tool, index)"
+              :key="generateKey('tool', index)"
               v-model="solution.tools[index]"
               :label="$t('glossary.tool')"
               hide-details="auto"
@@ -158,6 +160,7 @@
               <v-icon left>mdi-plus</v-icon>
               {{ $t("common.add_tool") }}
             </v-btn>
+
             <!-- {{ $data }} -->
           </v-card-text>
           <v-card-actions>
@@ -179,7 +182,7 @@
 
             <v-text-field
               v-for="(step, index) in solution.steps"
-              :key="generateKey(step, index)"
+              :key="generateKey('step', index)"
               v-model="solution.steps[index].description"
               hide-details="auto"
               append-icon="mdi-minus"
@@ -234,14 +237,14 @@ export default {
         steps: [],
         //sample data
         numberOfLikes: 122,
-        solutionType: 'how-to video',
-        difficulty: 'medium',
+        solutionType: "how-to video",
+        difficulty: "medium",
         SDGType: "Goal 13: Climate Action",
-        author: 'Jan Janssen',
+        author: "Jan Janssen",
         impactGoal: 2000,
-        currectImpact: 122,
-        uploadDate: new Date().toLocaleString().split(',')[0],
-        viewCount: 0,        
+        currentImpact: 122,
+        uploadDate: new Date().toLocaleString().split(",")[0],
+        viewCount: 0,
       },
       pageState: {
         editable: !isNaN(this.solutionId),

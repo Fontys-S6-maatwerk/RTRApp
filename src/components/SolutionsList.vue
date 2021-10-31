@@ -67,12 +67,16 @@
     },
     data () {
       return {
-
+        dialog: false,
       }
     },
     methods: {
       openSolution(solutionId) {
         this.$router.push({name: 'Solution', params: {solutionId: solutionId}});
+      },
+      deleteSolutionById(solutionId) {
+        this.$emit('deleteSolutionById', solutionId);
+        this.dialog = false;
       }
     },
     computed: {
