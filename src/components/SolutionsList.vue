@@ -1,7 +1,7 @@
 <template lang="html">
   <v-row no-gutters>
     <v-col v-if="solutions" cols="12">
-      <v-card class="ma-1" v-for="solution in solutions" :key="solution.id" v-on:click=openSolution(solution.id)>
+      <v-card class="ma-1" v-for="solution in solutions" :key="solution.id" v-on:click="openSolution(solution.id)">
         <v-card-title>
           <v-avatar>
             <v-img src="https://cdn.vuetifyjs.com/images/cards/cooking.png" />
@@ -11,7 +11,7 @@
           </p>
           <v-spacer></v-spacer>
           <p class="ma-1">
-            {{ solution.uploadDate }}
+            {{ $d(solution.uploadDate, "short") }}
           </p>
         </v-card-title>
         <v-card-text class="pb-1">
@@ -24,21 +24,11 @@
               <v-btn height="50" color="white" outlined>
                 <v-icon size="30">mdi-bookmark-outline</v-icon>
               </v-btn>
-              <v-dialog v-model="dialog" v-if="onProfile">
-                <template v-slot:activator="{on, attrs}">
-                  <v-btn v-bind="attrs" v-on="on" outlined color="white" height="50">
-                    <v-icon size="30">mdi-trash-can-outline</v-icon>
-                  </v-btn>
-                </template>
-                <v-card>
-                  <v-card-title>{{ $t('common.delete') }} {{ $t('common.solution') }} {{solution.name}}</v-card-title>
-                  <v-card-text>{{ $t('validation.delete_solution') }} {{solution.name}}?</v-card-text>
-                  <v-card-actions>
-                    <v-btn @click="deleteSolutionById(solution.id)" color="green">{{ $t('common.yes') }}</v-btn>
-                    <v-btn @click="dialog = false" color="red">{{ $t('common.no') }}</v-btn>
-                  </v-card-actions>
-                </v-card>
-              </v-dialog>
+
+              <delete-solution-dialog :solution="solution" :showDialog="dialog" :onProfile="onProfile"
+                  v-on:confirm="deleteSolutionById($event)">
+              </delete-solution-dialog>
+
             </span>
           </v-img>
         </v-card-text>
@@ -55,35 +45,47 @@
 </template>
 
 <script>
+import SolutionContext from "@/data/solution-context";
 
-  export default  {
-    name: 'src-components-solutions-list',
-    props: [
-      'solutions', 
-      'onProfile'
-    ],
-    mounted () {
-
+export default {
+  name: "src-components-solutions-list",
+  props: {
+    solutions: {
+      type: Array,
+      required: true,
     },
-    data () {
-      return {
-
-      }
+    onProfile: {
+      type: Boolean,
+      default: false,
     },
-    methods: {
-      openSolution(solutionId) {
-        this.$router.push({name: 'Solution', params: {solutionId: solutionId}});
-      }
+  },
+  components: {
+    DeleteSolutionDialog: () => import("@/components/dialogs/DeleteSolutionDialog"),
+  },
+  data() {
+    return {
+      solutionContext: new SolutionContext(),
+      dialog: false,
+    };
+  },
+  methods: {
+    openSolution(solutionId) {
+      this.$router.push({
+        name: "Solution",
+        params: { solutionId: solutionId },
+      });
     },
-    computed: {
-
-    }
-}
-
-
+    deleteSolutionById(solutionId) {
+      this.solutionContext.delete(solutionId).then(() => {
+        this.dialog = false;
+        this.solutions.splice(this.solutions.indexOf(solutionId), 1);
+      });
+    },
+  },
+};
 </script>
 
-<style>
+<style scoped>
 .solution-overlay {
   text-align: left;
   color: white;

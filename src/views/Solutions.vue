@@ -1,5 +1,5 @@
 <template>
-  <SolutionsList :solutions="solutions"></SolutionsList>
+  <solutions-list :solutions="solutions"></solutions-list>
 </template>
 
 <script>
@@ -7,7 +7,7 @@ import SolutionContext from "@/data/solution-context";
 
 export default {
   components: {
-    SolutionsList: () => import("@/components/SolutionsList.vue"),
+    SolutionsList: () => import("@/components/SolutionsList.vue")
   },
   data() {
     return {
@@ -16,18 +16,9 @@ export default {
     };
   },
   mounted() {
-    this.solutionContext
-      .all()
-      .then((solutions) => (this.solutions = solutions));
-  },
-  methods: {
-    openSolution(solutionId) {
-      this.$router.push({
-        name: "Solution",
-        params: { solutionId: solutionId },
-      });
-    },
-  },
+    this.solutionContext.all()
+      .then((solutions) => this.solutions = solutions);
+  }
 };
 </script>
 
