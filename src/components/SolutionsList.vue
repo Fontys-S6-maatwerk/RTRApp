@@ -21,12 +21,16 @@
               <p class="mx-1 my-0">{{ solution.weatherExtremeType }}</p>
             </span>
             <span class="solution-overlay pa-1" style="right: 0">
-              <v-btn height="50" color="white" outlined>
+              <v-btn class="mx-1" height="50" color="white" outlined>
                 <v-icon size="30">mdi-bookmark-outline</v-icon>
               </v-btn>
 
-              <delete-solution-dialog :solution="solution" :showDialog="dialog" :onProfile="onProfile"
-                  v-on:confirm="deleteSolutionById($event)">
+              <v-btn class="mx-1" v-on:click="editSolution(solution.id)" v-if="onProfile" height="50" color="white" outlined>
+                <v-icon size="30">mdi-pencil</v-icon>
+              </v-btn>
+
+              <delete-solution-dialog class="mx-1" :solution="solution" :showDialog="dialog" :onProfile="onProfile"
+                  v-on:confirm="deleteSolution($event)">
               </delete-solution-dialog>
 
             </span>
@@ -45,8 +49,6 @@
 </template>
 
 <script>
-import SolutionContext from "@/data/solution-context";
-
 export default {
   name: "src-components-solutions-list",
   props: {
@@ -60,11 +62,11 @@ export default {
     },
   },
   components: {
-    DeleteSolutionDialog: () => import("@/components/dialogs/DeleteSolutionDialog"),
+    DeleteSolutionDialog: () =>
+      import("@/components/dialogs/DeleteSolutionDialog"),
   },
   data() {
     return {
-      solutionContext: new SolutionContext(),
       dialog: false,
     };
   },
@@ -75,11 +77,11 @@ export default {
         params: { solutionId: solutionId },
       });
     },
-    deleteSolutionById(solutionId) {
-      this.solutionContext.delete(solutionId).then(() => {
-        this.dialog = false;
-        this.solutions.splice(this.solutions.indexOf(solutionId), 1);
-      });
+    editSolution(solutionId) {
+      this.$emit("editSolution", solutionId);
+    },
+    deleteSolution(solutionId) {
+      this.$emit("deleteSolution", solutionId);
     },
   },
 };

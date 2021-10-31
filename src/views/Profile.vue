@@ -3,7 +3,12 @@
     <v-card-title class="justify-center"
       >{{ $t("glossary.my") }} {{ $t("glossary.solutions") }}</v-card-title
     >
-    <solutions-list :solutions="solutions" :onProfile="true"></solutions-list>
+    <solutions-list
+      v-on:deleteSolution="deleteSolution($event)"
+      v-on:editSolution="editSolution($event)"
+      :solutions="solutions"
+      :onProfile="true"
+    ></solutions-list>
   </v-container>
 </template>
 
@@ -28,8 +33,22 @@ export default {
     };
   },
   mounted() {
-    this.solutionContext.getByAuthor(this.author)
+    this.solutionContext
+      .getByAuthor(this.author)
       .then((solutions) => (this.solutions = solutions));
+  },
+  methods: {
+    editSolution(solutionId) {
+      this.$router.push({
+        name: "CreateSolution",
+        params: { id: solutionId },
+      });
+    },
+    deleteSolution(solutionId) {
+      this.solutionContext
+        .delete(solutionId)
+        .then(this.solutions.splice(this.solutions.indexOf(solutionId), 1));
+    },
   },
 };
 </script>
