@@ -12,7 +12,7 @@
       "SDGType": "Goal 13: Climate Action",
       "author": "Jan Janssen",
       "currentImpact": 101,
-      "uploadDate": "27-09-2021",
+      "uploadDate": 1634647211973,
       "viewCount": 213,
       "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png",
       "materials": [
@@ -47,7 +47,7 @@
       "SDGType": "Goal 13: Climate Action",
       "author": "Hans Worst",
       "currentImpact": 9,
-      "uploadDate": "27-07-2021",
+      "uploadDate": 1634647211973,
       "viewCount": 234,
       "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png",
       "materials": [
@@ -86,7 +86,7 @@
       "SDGType": "Goal 13: Climate Action",
       "author": "Jan Janssen",
       "currentImpact": 18,
-      "uploadDate": "27-09-2021",
+      "uploadDate": 1634647211973,
       "viewCount": 123,
       "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png",
       "reactions": [
@@ -145,37 +145,8 @@
       "author": "Jan Janssen",
       "impactGoal": 2000,
       "currentImpact": 122,
-      "uploadDate": "10/19/2021",
+      "uploadDate": 1634647211973,
       "viewCount": 0
-    },
-    {
-      "name": "Krabben",
-      "introduction": "sneeuw van je auto weghalen ja.",
-      "coverImage": "",
-      "weatherExtremeType": "Hail storm",
-      "materials": [
-        "krabber",
-        "een auto"
-      ],
-      "tools": [
-        "wat is dit ook alweer"
-      ],
-      "steps": [
-        {
-          "description": "pak een krabber vast en schraap de sneeuw ervanaf",
-          "coverImage": "blob:http://localhost:8080/1ca298f5-8293-4226-b94c-9f10f03db4fc"
-        }
-      ],
-      "numberOfLikes": 122,
-      "solutionType": "how-to video",
-      "difficulty": "medium",
-      "SDGType": "Goal 13: Climate Action",
-      "author": "Jan Janssen",
-      "impactGoal": 2000,
-      "currentImpact": 122,
-      "uploadDate": "19-10-2021 13:17:18",
-      "viewCount": 0,
-      "id": 5
     }
   ],
   "Comments": [
