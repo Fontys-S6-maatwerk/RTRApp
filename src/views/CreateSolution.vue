@@ -38,18 +38,15 @@
               outlined
             ></v-textarea>
 
-            <v-row v-if="solution.weatherExtremeType" no-gutters justify="end">
-              <v-icon v-on:click="solution.weatherExtremeType = ''"
-                >mdi-close</v-icon
-              >
-            </v-row>
             <v-container fluid class="category-list pa-0">
               <span
-                v-for="(
-                  weatherExtremeType, index
-                ) in computedWeatherExtremeTypes"
+                v-for="(weatherExtremeType, index) in weatherExtremeTypes"
                 :key="index"
-                v-on:click="setWeatherExtremeType(weatherExtremeType)"
+                v-on:click="solution.weatherExtremeType = weatherExtremeType"
+                :set="
+                  (isSelected =
+                    solution.weatherExtremeType == weatherExtremeType)
+                "
               >
                 <v-img
                   width="75"
@@ -57,10 +54,20 @@
                   class="rounded-lg ma-1"
                   src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
                 >
+                  <div
+                    v-if="isSelected"
+                    class="fill-height bottom-gradient"
+                  ></div>
                 </v-img>
-                <p>{{ weatherExtremeType }}</p>
+                <div
+                  :class="
+                    isSelected ? 'font-weight-bold' : 'font-weight-medium'
+                  "
+                  v-text="weatherExtremeType"
+                ></div>
               </span>
             </v-container>
+
             <v-card outlined color="transparent">
               <v-container fluid class="d-flex pa-0">
                 <h4>{{ $t("common.cover_image") }}</h4>
@@ -115,17 +122,15 @@
       <v-stepper-content step="2">
         <v-card outlined color="transparent">
           <v-card-text class="px-0">
-            <v-text-field
-              v-for="(material, index) in solution.materials"
-              :key="generateKey('material', index)"
-              v-model="solution.materials[index]"
+            <indexed-text-field
+              :items="solution.materials"
+              itemKey="material"
               :label="$t('glossary.material')"
-              hide-details="auto"
               append-icon="mdi-minus"
-              @click:append="removeItem(index, 'materials')"
-              class="my-1"
-              outlined
-            ></v-text-field>
+              @click:append="removeItem($event, 'materials')"
+              styleClass="my-1"
+            >
+            </indexed-text-field>
 
             <v-btn
               @click="addItem('', 'materials')"
@@ -138,17 +143,15 @@
               {{ $t("common.add_material") }}
             </v-btn>
 
-            <v-text-field
-              v-for="(tool, index) in solution.tools"
-              :key="generateKey('tool', index)"
-              v-model="solution.tools[index]"
+            <indexed-text-field
+              :items="solution.tools"
+              itemKey="tool"
               :label="$t('glossary.tool')"
-              hide-details="auto"
               append-icon="mdi-minus"
-              @click:append="removeItem(index, 'tools')"
-              class="my-1"
-              outlined
-            ></v-text-field>
+              @click:append="removeItem($event, 'tools')"
+              styleClass="my-1"
+            >
+            </indexed-text-field>
 
             <v-btn
               @click="addItem('', 'tools')"
@@ -160,8 +163,6 @@
               <v-icon left>mdi-plus</v-icon>
               {{ $t("common.add_tool") }}
             </v-btn>
-
-            <!-- {{ $data }} -->
           </v-card-text>
           <v-card-actions>
             <v-btn color="primary" @click="step++">
@@ -180,16 +181,14 @@
               <p>{{ $t("common.instructions_description") }}</p>
             </div>
 
-            <v-text-field
-              v-for="(step, index) in solution.steps"
-              :key="generateKey('step', index)"
-              v-model="solution.steps[index].description"
-              hide-details="auto"
+            <indexed-text-field
+              :items="solution.steps.map((x) => x.description)"
+              itemKey="step"
               append-icon="mdi-minus"
-              @click:append="removeItem(index, 'steps')"
-              class="my-1"
-              outlined
-            ></v-text-field>
+              @click:append="removeItem($event, 'steps')"
+              styleClass="my-1"
+            >
+            </indexed-text-field>
 
             <add-step-dialog
               v-on:submit="addItem($event, 'steps')"
@@ -219,7 +218,8 @@ export default {
     },
   },
   components: {
-    AddStepDialog: () => import("@/components/AddStepDialog"),
+    AddStepDialog: () => import("@/components/dialogs/AddStepDialog"),
+    IndexedTextField: () => import("@/components/IndexedTextField"),
   },
   data() {
     return {
@@ -235,6 +235,8 @@ export default {
         materials: [],
         tools: [],
         steps: [],
+        uploadDate: +new Date(),
+        viewCount: 0,
         //sample data
         numberOfLikes: 122,
         solutionType: "how-to video",
@@ -243,8 +245,6 @@ export default {
         author: "Jan Janssen",
         impactGoal: 2000,
         currentImpact: 122,
-        uploadDate: new Date().toLocaleString().split(",")[0],
-        viewCount: 0,
       },
       pageState: {
         editable: !isNaN(this.solutionId),
@@ -273,9 +273,6 @@ export default {
     removeItem(index, name) {
       this.solution[name].splice(index, 1);
     },
-    setWeatherExtremeType(weatherExtremeType) {
-      this.solution.weatherExtremeType = weatherExtremeType;
-    },
     setCoverImage(e) {
       let files = e.target.files || e.dataTransfer.files;
       if (!files) return;
@@ -288,20 +285,20 @@ export default {
     },
     submit() {
       if (this.pageState.editable) {
-        this.solutionContext.update(this.solution);
+        this.solutionContext.update(this.solution).then((solution) => {
+          this.$router.push({
+            name: "Solution",
+            params: { solutionId: solution.id },
+          });
+        });
       } else {
-        this.solutionContext.add(this.solution);
+        this.solutionContext.add(this.solution).then((solution) => {
+          this.$router.push({
+            name: "Solution",
+            params: { solutionId: solution.id },
+          });
+        });
       }
-    },
-    generateKey(item, index) {
-      return `${item}-${index}`;
-    },
-  },
-  computed: {
-    computedWeatherExtremeTypes() {
-      return this.solution.weatherExtremeType
-        ? [this.solution.weatherExtremeType]
-        : this.weatherExtremeTypes;
     },
   },
 };
@@ -326,6 +323,14 @@ export default {
 
 .v-card__actions > .v-btn {
   padding: 0 24px !important;
+}
+
+.bottom-gradient {
+  background-image: linear-gradient(
+    to bottom,
+    rgba(160, 160, 160, 0.4) 0%,
+    transparent 72px
+  );
 }
 
 ::-webkit-scrollbar {

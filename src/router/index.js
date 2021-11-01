@@ -18,8 +18,11 @@ const routes = [{
     {
         path: '/profile/:author',
         name: 'Profile',
-        component: () => 
-            import('../views/Profile.vue')
+        component: () =>
+            import ('../views/Profile.vue'),
+        props: (route) => ({
+            author: route.params.author,
+        }),
     },
     {
         path: '/about',
@@ -48,7 +51,7 @@ const routes = [{
         component: () =>
             import ('../views/CreateSolution.vue'),
         props: (route) => ({
-            solutionId: +route.query.id,
+            solutionId: +route.params.id,
         }),
 
     }

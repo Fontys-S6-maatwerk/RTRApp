@@ -31,6 +31,20 @@ export default class SolutionContext extends BaseContext {
         }
     }
 
+    async getByAuthor(author) {
+
+        try {
+            let response = await this.axios.get('', {
+                params: { author: author }
+            });
+
+            return response.data;
+
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
     async add(solution) {
 
         try {
@@ -47,6 +61,18 @@ export default class SolutionContext extends BaseContext {
 
         try {
             let response = await this.axios.put(`/${solution.id}`, solution);
+
+            return response.data;
+
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    async delete(solutionId) {
+
+        try {
+            let response = await this.axios.delete(`/${solutionId}`);
 
             return response.data;
 

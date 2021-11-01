@@ -5,28 +5,25 @@
         <!-- Solution -->
         <v-card elevation="1">
           <v-card-title class="justify-center">{{
-            this.solution.name
+            solution.name
           }}</v-card-title>
           <v-row class="justify-center">
             <v-card-subtitle>
-              <v-progress-linear
-                color="#037CBC"
-                height="15"
-                :value="this.percentage"
-                >{{ this.percentage }}%</v-progress-linear
+              <v-progress-linear color="#037CBC" height="15" :value="percentage"
+                >{{ percentage }}%</v-progress-linear
               >
               {{ $t("common.current_impact") }}
-              {{ this.solution.currentImpact }} / {{ this.solution.impactGoal }}
+              {{ solution.currentImpact }} / {{ solution.impactGoal }}
             </v-card-subtitle>
           </v-row>
           <v-img src="https://cdn.vuetifyjs.com/images/cards/cooking.png">
           </v-img>
           <v-row>
             <v-col cols="6">
-              <router-link
+              <router-link v-if="solution.author"
                 :to="{
                   name: 'Profile',
-                  params: { author: this.solution.author },
+                  params: { author: solution.author },
                 }"
               >
                 <v-card-title>
@@ -35,7 +32,7 @@
                       src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
                     ></v-img>
                   </v-avatar>
-                  {{ this.solution.author }}
+                  {{ solution.author }}
                 </v-card-title>
               </router-link>
             </v-col>
@@ -52,18 +49,20 @@
           </v-row>
 
           <v-card-subtitle class="text-left"
-            >{{ this.solution.weatherExtremeType }}
+            >{{ solution.weatherExtremeType }}
           </v-card-subtitle>
           <v-card-text>
             <v-row class="justify-space-between">
               <v-card-subtitle
-                >{{ this.solution.numberOfLikes }}
+                >{{ solution.numberOfLikes }}
                 {{ $t("common.likes") }}</v-card-subtitle
               >
-              <v-card-subtitle>{{ this.solution.uploadDate }}</v-card-subtitle>
+              <v-card-subtitle>
+                {{ $d(solution.uploadDate, "long") }}
+              </v-card-subtitle>
               <v-card-subtitle>
                 {{ $t("common.view_count") }}
-                {{ this.solution.viewCount }}</v-card-subtitle
+                {{ solution.viewCount }}</v-card-subtitle
               >
             </v-row>
           </v-card-text>
@@ -74,10 +73,7 @@
         <v-card>
           <v-list>
             <v-subheader>{{ $t("common.materials") }}</v-subheader>
-            <v-list-item
-              v-for="(material, m) in this.solution.materials"
-              :key="m"
-            >
+            <v-list-item v-for="(material, m) in solution.materials" :key="m">
               <v-list-item-content>
                 <v-list-item-icon>
                   <v-icon>mdi-toolbox</v-icon>
@@ -94,7 +90,7 @@
         <v-card>
           <v-list>
             <v-subheader>{{ $t("common.steps") }}</v-subheader>
-            <v-list-item v-for="(step, i) in this.solution.steps" :key="i">
+            <v-list-item v-for="(step, i) in solution.steps" :key="i">
               <v-list-item-content>
                 <v-img
                   max-width="500"
@@ -156,7 +152,7 @@ export default {
   data() {
     return {
       solutionContext: new SolutionContext(),
-      CommentContext: new CommentContext(),
+      commentContext: new CommentContext(),
       solutionId: this.$route.params.solutionId,
       solution: {},
       percentage: 0,
@@ -181,7 +177,7 @@ export default {
       );
     },
     post() {
-      this.CommentContext.postComment(this.comment);
+      this.commentContext.postComment(this.comment);
     },
   },
 };
