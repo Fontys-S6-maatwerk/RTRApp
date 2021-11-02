@@ -107,38 +107,7 @@
       </v-col>
 
       <v-col cols="12">
-        <!-- Reactions -->
-        <v-card>
-          <v-card-title class="justify-center">{{
-            $t("common.comments")
-          }}</v-card-title>
-
-          <v-card-text>
-            <v-row>
-              <v-col cols="3" sm="2">
-                <v-avatar>
-                  <v-img
-                    src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
-                  ></v-img>
-                </v-avatar>
-              </v-col>
-              <v-col class="mb-4 mr-4">
-                <v-row>
-                  <v-text-field
-                    v-model="comment.text"
-                    :label="$t('common.comment')"
-                  ></v-text-field>
-                </v-row>
-                <v-row class="float-right">
-                  <v-btn v-on:click="post" elevation="2">{{
-                    $t("common.post")
-                  }}</v-btn>
-                </v-row>
-              </v-col>
-            </v-row>
-            <!-- ?Laat hier elke reactie zien via een eigen view? -->
-          </v-card-text>
-        </v-card>
+         <CommentSection :solutionId="solutionId"/>
       </v-col>
     </v-row>
   </v-container>
@@ -146,22 +115,16 @@
 
 <script>
 import SolutionContext from "@/data/solution-context";
-import CommentContext from "@/data/comment-context";
+import CommentSection from "../components/comments/CommentSection";
 
 export default {
+  components: {CommentSection},
   data() {
     return {
       solutionContext: new SolutionContext(),
-      commentContext: new CommentContext(),
       solutionId: this.$route.params.solutionId,
       solution: {},
       percentage: 0,
-      comment: {
-        id: "",
-        text: "",
-        solutionId: this.$route.params.solutionId,
-        userId: "",
-      },
     };
   },
   mounted() {
@@ -175,10 +138,7 @@ export default {
       this.percentage = Math.floor(
         (this.solution.currentImpact / this.solution.impactGoal) * 100
       );
-    },
-    post() {
-      this.commentContext.postComment(this.comment);
-    },
+    }
   },
 };
 </script>

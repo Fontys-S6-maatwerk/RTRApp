@@ -1,17 +1,19 @@
 <template lang="html">
-<!--  <v-list min-height="500px">-->
-<!--    <v-list-item v-for="comment in this.comments" v-bind:key="comment.id">-->
-<!--          <comment-view v-bind:comment="comment" />-->
-<!--    </v-list-item>-->
-<!--  </v-list>-->
-
+  <v-list min-height="500px">
+    <v-list-item v-for="comment in this.comments" v-bind:key="comment.id">
+          <CommentView :comment="comment" />
+    </v-list-item>
+  </v-list>
 </template>
 
 <script lang="js">
 import axios from "axios";
+import CommentView from "./CommentView";
+
   export default  {
-    name: 'comment-list',
+    name: 'CommentList',
     components:{
+      CommentView
     },
     props: ['solutionId'],
     data(){
@@ -20,20 +22,12 @@ import axios from "axios";
       }
     },
     mounted(){
-      axios.get("http://localhost:3001/Reactions?solution=" + this.solutionId)
+      axios.get(process.env.VUE_APP_BASE_URL + "/Comments?solution=" + this.solutionId)
           .then((response) => {
-            console.log('gotm')
-            console.log(response.data)
             console.log(response.data.length)
             this.comments = response.data;
           } );
     },
-    methods: {
-
-    },
-    computed: {
-
-    }
 }
 
 
