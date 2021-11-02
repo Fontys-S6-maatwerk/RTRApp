@@ -1,23 +1,60 @@
 <template>
   <v-container>
     <v-app-bar flat app>
-      <v-toolbar>
+      
         <v-toolbar-title>{{$t("glossary.profile")}}</v-toolbar-title>
         <v-spacer></v-spacer>
-        <v-btn icon>
-          <v-icon>mdi-cog</v-icon>
-        </v-btn>
-      </v-toolbar>
+        <div class="text-center">
+          <v-menu offset-y>
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn 
+              icon
+              v-bind="attrs"
+              v-on="on">
+                <v-icon>mdi-cog</v-icon>
+              </v-btn>
+            </template>
+            <v-list>
+              <v-list-item 
+              v-for="(item, index) in settings" 
+              :key="index"
+              link>
+                <v-list-item-title>{{ $t("glossary." + item.title) }}</v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-menu>
+        </div>
     </v-app-bar>
     <v-row>
       <v-col cols="12">
+        <v-card>
+          <v-row justify="space-around">
+            <v-btn text>
+            {{ $t("common.following")}}
+            </v-btn>
+            <v-btn text>
+              {{ $t("common.followers")}}
+            </v-btn>
+            <v-btn text>
+              {{ $t("common.comments")}}
+            </v-btn>
+            <v-btn text>
+              {{ $t("common.likes")}}
+            </v-btn>
+          </v-row>
+        </v-card>
+      </v-col>
+      <v-col cols="12">
+        <v-card-title class="justify-center">
+          {{$t("glossary.details") }}
+        </v-card-title>
         <v-card v-if="userProfile">
-          <v-card-title class="justify-center">
-            {{$t("glossary.details") }}
-          </v-card-title>
-          <p>{{userProfile.firstName}}</p> 
-          <p>{{userProfile.lastName}}</p>
-          <p>{{userProfile.email}}</p>
+          <v-card-text>
+            <v-row class="justify-space-around">
+              <v-card-subtitle>{{userProfile.firstName}} {{userProfile.lastName}}</v-card-subtitle> 
+              <v-card-subtitle>{{userProfile.email}}</v-card-subtitle>
+            </v-row>
+          </v-card-text>
         </v-card>
       </v-col>
       <v-col cols="12">
@@ -56,6 +93,13 @@ export default {
       solutionContext: new SolutionContext(),
       userContext: new UserContext(),
       userProfile: {},
+      settings: [
+        {
+          title: 'delete_account'
+        },
+        {
+          title: 'language'
+        }]
     };
   },
   mounted() {

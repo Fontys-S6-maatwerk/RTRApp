@@ -11,6 +11,8 @@
         "cover_image": "Omslagfoto",
         "current_impact": "Huidige impact",
         "description": "Beschrijving",
+        "followers": "Followers",
+        "following": "Following",
         "general": "Generaal",
         "instructions": "Instructies",
         "instructions_description": "Voeg instructie stappen toe voor anderen om uw oplossing te kunnen gebruiken",
@@ -39,7 +41,9 @@
         "my": "Mijn",
         "solutions": "Oplossingen",
         "details": "Details",
-        "profile": "Profiel"
+        "delete_account": "Verwijder account",
+        "profile": "Profiel",
+        "language": "Taal"
     },
     "message": {
         "hello": "Hallo i18n wereld"
