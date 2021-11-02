@@ -1,37 +1,57 @@
-<template lang="html">
-
-  <section class="src-views-profile">
-    <h1>src-views-profile Component</h1>
-  </section>
-
+<template>
+  <v-container>
+    <v-card-title class="justify-center"
+      >{{ $t("glossary.my") }} {{ $t("glossary.solutions") }}</v-card-title
+    >
+    <solutions-list
+      v-on:deleteSolution="deleteSolution($event)"
+      v-on:editSolution="editSolution($event)"
+      :solutions="solutions"
+      :onProfile="true"
+    ></solutions-list>
+  </v-container>
 </template>
 
-<script lang="js">
+<script>
+import SolutionContext from "@/data/solution-context";
 
-  export default  {
-    name: 'src-views-profile',
-    props: [],
-    mounted () {
-
+export default {
+  name: "src-views-profile",
+  props: {
+    author: {
+      type: String,
+      required: true,
     },
-    data () {
-      return {
-
-      }
+  },
+  components: {
+    SolutionsList: () => import("@/components/SolutionsList.vue"),
+  },
+  data() {
+    return {
+      solutions: [],
+      solutionContext: new SolutionContext(),
+    };
+  },
+  mounted() {
+    this.solutionContext
+      .getByAuthor(this.author)
+      .then((solutions) => (this.solutions = solutions));
+  },
+  methods: {
+    editSolution(solutionId) {
+      this.$router.push({
+        name: "CreateSolution",
+        params: { id: solutionId },
+      });
     },
-    methods: {
-
+    deleteSolution(solutionId) {
+      this.solutionContext
+        .delete(solutionId)
+        .then(this.solutions.splice(this.solutions.indexOf(solutionId), 1));
     },
-    computed: {
-
-    }
-}
-
-
+  },
+};
 </script>
 
-<style scoped lang="scss">
-  .src-views-profile {
-
-  }
+<style>
 </style>
