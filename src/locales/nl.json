@@ -37,7 +37,9 @@
         "material": "Materiaal",
         "tool": "Hulpmiddel",
         "my": "Mijn",
-        "solutions": "Oplossingen"
+        "solutions": "Oplossingen",
+        "details": "Details",
+        "profile": "Profiel"
     },
     "message": {
         "hello": "Hallo i18n wereld"

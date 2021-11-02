@@ -37,7 +37,9 @@
         "my": "My",
         "solutions": "Solutions",
         "tool": "Tool",
-        "material": "Material"
+        "material": "Material",
+        "details": "Details",
+        "profile": "Profile"
     },
     "message": {
         "hello": "Hello i18n world"
