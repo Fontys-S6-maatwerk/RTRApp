@@ -4,27 +4,14 @@
       <v-col
         cols="3"
       >
-        <v-avatar
-          @click="navigateToProfile(comment.author)"
-          size="64"
-        >
-          <img
-            v-if="this.comment.avatar"
-            alt="Avatar"
-            src="https://cdn.vuetifyjs.com/images/john.jpg">
-          <v-icon
-            v-else
-            color="teal"
-            v-text="comment.icon">
-            ></v-icon>
-        </v-avatar>
+        <Avatar :user="author"/>
       </v-col>
       <v-col
           cols="6">
         <v-row no-gutters>
           <v-col>
             <v-container>
-              <strong>{{this.comment.author}}</strong>
+              <strong>{{this.author.firstName}} {{this.author.lastName}}</strong>
             </v-container>
           </v-col>
         </v-row>
@@ -45,24 +32,25 @@
 </template>
 
 <script lang="js">
+  import Avatar from "../Avatar";
+  import UserContext from "../../data/user-context";
 
   export default  {
     name: 'CommentView',
+    components: {Avatar},
     props: ['comment'],
-    mounted () {
-      console.log(this.comment)
-    },
     data () {
       return {
-
+        userContext: new UserContext(),
+        author: {},
       }
     },
-    methods: {
-      navigateToProfile: function(userId){
-          return this.$router.push(`/profile/${userId}`)
-      }
-    },
-}
+    mounted() {
+      this.userContext.getById(this.comment.author).then((user) =>{
+          this.author = user[0];
+      });
+    }
+  }
 
 
 </script>

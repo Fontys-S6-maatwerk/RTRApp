@@ -49,6 +49,8 @@
 </template>
 
 <script>
+import UserContext from "../data/user-context";
+
 export default {
   name: "src-components-solutions-list",
   props: {
@@ -67,6 +69,7 @@ export default {
   },
   data() {
     return {
+      userContext: new UserContext(),
       dialog: false,
     };
   },

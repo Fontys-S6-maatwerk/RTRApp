@@ -20,21 +20,17 @@
           </v-img>
           <v-row>
             <v-col cols="6">
-              <router-link v-if="solution.author"
-                :to="{
-                  name: 'Profile',
-                  params: { author: solution.author },
-                }"
-              >
                 <v-card-title>
-                  <v-avatar class="mr-2">
-                    <v-img
-                      src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
-                    ></v-img>
-                  </v-avatar>
-                  {{ solution.author }}
+                  <Avatar :user="author" />
+                  <router-link
+                      v-if="author.id"
+                      :to="{
+                        name: 'Profile',
+                        params: { userId: author.id },
+                      }">
+                  {{ author.firstName + " " + author.lastName }}
+                  </router-link>
                 </v-card-title>
-              </router-link>
             </v-col>
 
             <v-col cols="6">
@@ -107,7 +103,7 @@
       </v-col>
 
       <v-col cols="12">
-         <CommentSection :solutionId="solutionId"/>
+         <CommentSection :solutionId="solutionId" :userId="1"/>
       </v-col>
     </v-row>
   </v-container>
@@ -116,14 +112,18 @@
 <script>
 import SolutionContext from "@/data/solution-context";
 import CommentSection from "../components/comments/CommentSection";
+import UserContext from "../data/user-context";
+import Avatar from "../components/Avatar";
 
 export default {
-  components: {CommentSection},
+  components: {Avatar, CommentSection},
   data() {
     return {
       solutionContext: new SolutionContext(),
+      userContext: new UserContext(),
       solutionId: this.$route.params.solutionId,
       solution: {},
+      author: {},
       percentage: 0,
     };
   },
@@ -132,6 +132,9 @@ export default {
       this.solution = solutions[0];
       this.calculateImpactPercentage();
     });
+    this.userContext.getById(this.solution.author).then((users) => {
+      this.author = users[0];
+    })
   },
   methods: {
     calculateImpactPercentage() {

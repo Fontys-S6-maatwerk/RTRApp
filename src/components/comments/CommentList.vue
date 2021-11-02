@@ -7,7 +7,6 @@
 </template>
 
 <script lang="js">
-import axios from "axios";
 import CommentView from "./CommentView";
 
   export default  {
@@ -15,26 +14,10 @@ import CommentView from "./CommentView";
     components:{
       CommentView
     },
-    props: ['solutionId'],
-    data(){
-      return{
-        comments: {}
-      }
-    },
-    mounted(){
-      axios.get(process.env.VUE_APP_BASE_URL + "/Comments?solution=" + this.solutionId)
-          .then((response) => {
-            console.log(response.data.length)
-            this.comments = response.data;
-          } );
-    },
+    props: ['comments'],
+    data: ()=>({}),
 }
-
-
 </script>
 
 <style scoped lang="scss">
-  .comment-list {
-
-  }
 </style>

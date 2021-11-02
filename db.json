@@ -10,7 +10,7 @@
       "difficulty": "Medium",
       "impactGoal": 1000000,
       "SDGType": "Goal 13: Climate Action",
-      "author": "Hans Worst",
+      "author": 1,
       "currentImpact": 9,
       "uploadDate": 1634647211973,
       "viewCount": 234,
@@ -69,7 +69,7 @@
       "solutionType": "how-to video",
       "difficulty": "medium",
       "SDGType": "Goal 13: Climate Action",
-      "author": "Jan Janssen",
+      "author": 2,
       "impactGoal": 2000,
       "currentImpact": 122,
       "uploadDate": 1634647211973,
@@ -97,7 +97,7 @@
       "solutionType": "how-to video",
       "difficulty": "medium",
       "SDGType": "Goal 13: Climate Action",
-      "author": "Jan Janssen",
+      "author": 2,
       "impactGoal": 2000,
       "currentImpact": 122,
       "uploadDate": 1635687629887,
@@ -109,53 +109,47 @@
     {
       "id": 1,
       "content": "The BEST Solution EUW.",
-      "author": "Henk Henkerson",
+      "author": 1,
       "solution": 1
     },
     {
       "id": 2,
       "content": "The WORST Solution EUW.",
-      "author": "Hans Worst",
+      "author": 2,
       "solution": 1
     },
     {
       "id": 3,
       "content": "The very BEST Solution EUW.",
-      "author": "Henk Henkerson",
+      "author": 1,
       "solution": 2
     },
     {
       "id": 4,
       "content": "The very WORST Solution EUW.",
-      "author": "Jan Janssen",
+      "author": 3,
       "solution": 2
     },
     {
       "id": 5,
       "content": "Very nice",
-      "author": "Peter Pan",
+      "author": 4,
       "solution": 2
     },
     {
       "id": 6,
       "content": "It worked great!",
-      "author": "John Snow",
+      "author": 5,
       "solution": 2
-    },
-    {
-      "id": 7,
-      "text": "atsefasdfsfs",
-      "solutionId": 1,
-      "userId": ""
     }
   ],
-  "User": [
+  "Users": [
     {
       "id": 1,
       "firstName": "Jan",
       "lastName": "Janssen",
       "email": "JanJanssen@email.com",
-      "profileImage": "url naar een image",
+      "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg",
       "following": [
         {
           "id": 2
@@ -190,7 +184,7 @@
       "firstName": "Henk",
       "lastName": "Henkerson",
       "email": "henkhenkerson@gmail.comm",
-      "profileImage": "url naar een image",
+      "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg",
       "following": [
         {
           "id": 1
@@ -221,7 +215,7 @@
       "firstName": "Hans",
       "lastName": "Worst",
       "email": "hansworst@email.com",
-      "profileImage": "url naar een image",
+      "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg",
       "following": [
         {
           "id": 4
@@ -249,7 +243,7 @@
       "firstName": "Peter",
       "lastName": "Pan",
       "email": "peterpan@email.com",
-      "profileImage": "url naar een image",
+      "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg",
       "following": [
         {
           "id": 3
@@ -277,7 +271,7 @@
       "firstName": "John",
       "lastName": "Snow",
       "email": "johnsnow@email.com",
-      "profileImage": "url naar een image",
+      "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg",
       "following": [],
       "followers": [],
       "myComments": [

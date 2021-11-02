@@ -1,16 +1,12 @@
 <template>
   <v-row>
     <v-col cols="3" sm="2">
-      <v-avatar>
-        <v-img
-            src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
-        ></v-img>
-      </v-avatar>
+      <Avatar :user="user"/>
     </v-col>
     <v-col class="mb-4 mr-4">
       <v-row>
         <v-text-field
-            v-model="comment.text"
+            v-model="comment.content"
             :label="$t('common.comment')"
         ></v-text-field>
       </v-row>
@@ -25,22 +21,26 @@
 
 <script>
 import CommentContext from "../../data/comment-context";
+import Avatar from "../Avatar";
 
 export default {
   name: "CommentCreate",
+  components: {Avatar},
+  props: ["user"], //current user
   data() {
     return {
       commentContext: new CommentContext(),
       comment: {
         id: "",
-        text: "",
-        solutionId: this.$route.params.solutionId,
-        userId: "",
+        content: "",
+        solution: this.$route.params.solutionId,
+        author: "",
       },
     }
   },
   methods: {
     post() {
+      this.comment.author = this.user.id;
       this.commentContext.postComment(this.comment);
     },
   }
