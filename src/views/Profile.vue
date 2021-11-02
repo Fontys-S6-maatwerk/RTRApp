@@ -78,12 +78,7 @@ import UserContext from "@/data/user-context";
 
 export default {
   name: "src-views-profile",
-  props: {
-    author: {
-      type: String,
-      required: true,
-    },
-  },
+  props: ['userId'],
   components: {
     SolutionsList: () => import("@/components/SolutionsList.vue"),
   },
@@ -104,7 +99,7 @@ export default {
   },
   mounted() {
     this.solutionContext
-      .getByAuthor(this.author)
+      .getByAuthor(this.userId)
       .then((solutions) => (this.solutions = solutions));
     // De ID veranderen naar de userID van het geselecteerde profiel
     this.userContext
