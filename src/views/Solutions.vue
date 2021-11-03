@@ -1,26 +1,27 @@
 <template>
-  <solutions-list :solutions="solutions"></solutions-list>
+  <solutions-list :solutions="solution.items"></solutions-list>
 </template>
 
 <script>
-import SolutionContext from "@/data/solution-context";
+import { mapState, mapActions } from "vuex";
 
 export default {
   components: {
-    SolutionsList: () => import("@/components/SolutionsList.vue")
+    SolutionsList: () => import("@/components/SolutionsList.vue"),
   },
-  data() {
-    return {
-      solutionContext: new SolutionContext(),
-      solutions: [],
-    };
+  created() {
+    this.fetchFeedSolutions({
+      id: 1,
+      sortBy: "test",
+      ascending: true,
+      sectionNumber: 1,
+    });
   },
-  mounted() {
-    this.solutionContext.all()
-      .then((solutions) => this.solutions = solutions);
-  }
+  computed: {
+    ...mapState(["solution"]),
+  },
+  methods: {
+    ...mapActions("solution", ["fetchFeedSolutions"]),
+  },
 };
 </script>
-
-<style>
-</style>
