@@ -1,7 +1,7 @@
 <template>
   <v-card class="ma-1">
     <v-card-text
-      :class="`pa-2 ${
+      :class="`px-2 ${
         $vuetify.breakpoint.smAndUp ? 'd-flex justify-space-between' : ''
       }`"
     >
@@ -9,10 +9,10 @@
         class="pa-1"
         v-for="sorter in sorters"
         :key="sorter.name"
-        :prepend-inner-icon="sorterIcon(sorter.name)"
+        :prepend-inner-icon="sorter.items[sorter.selected].icon"
         :menu-props="{ bottom: true, offsetY: true }"
         :label="sorter.name"
-        :items="sorterItems(sorter.name)"
+        :items="sorter.items"
         item-text="text"
         hide-details
         return-object
@@ -95,18 +95,10 @@ export default {
     };
   },
   methods: {
-    sorterItems(sort) {
-      return this.sorters.find((x) => x.name === sort).items;
-    },
-    sorterIcon(sort) {
-      let sorter = this.sorters.find((x) => x.name === sort);
-
-      return sorter.items[sorter.selected].icon;
-    },
     filter(item) {
       //search for icon instead of text because of duplicate asc and desc text
       let sorter = this.sorters.find((x) =>
-        x.items.map((x) => x.icon).includes(item.icon)
+        x.items.find((x) => x.icon === item.icon)
       );
 
       sorter.selected = sorter.items.indexOf(item);
