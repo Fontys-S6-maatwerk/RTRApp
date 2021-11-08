@@ -22,12 +22,14 @@
               </v-textarea>
             </v-col>
             <v-col cols="6">
-              <v-select
-              v-model="selectedWeatherExtreme"
-              :items="weatherExtremeTypes"
-              return-object
-              label="Weather extreme types">
-              </v-select>
+              <v-card class="ma-1 px-2">
+                <v-select
+                v-model="selectedWeatherExtreme"
+                :items="weatherExtremeTypes"
+                return-object
+                label="Weather extreme types">
+                </v-select>
+              </v-card>
             </v-col>
             <v-col cols="6">
               <solution-sorter 
