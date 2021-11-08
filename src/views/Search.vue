@@ -22,16 +22,12 @@
               </v-textarea>
             </v-col>
             <v-col cols="6">
-              <v-card class="ma-1 px-2">
-                <v-card-text class="justify-space-between">
-                  <v-btn
-                    v-for="extreme in weatherExtremeTypes"
-                    :key="extreme"
-                    @click="selectWeatherExtreme(extreme)">
-                    {{ extreme }}
-                  </v-btn>
-                </v-card-text>
-              </v-card>
+              <v-select
+              v-model="selectedWeatherExtreme"
+              :items="weatherExtremeTypes"
+              return-object
+              label="Weather extreme types">
+              </v-select>
             </v-col>
             <v-col cols="6">
               <solution-sorter 
@@ -82,6 +78,7 @@
     },
     methods: {
       sendMessage() {
+        this.solutions = [];
         // this.solutionContext.search(
         // this.searchMessage,
         // this.sectionNumber,
@@ -107,10 +104,6 @@
       selectSortBy(sort) {
         this.selectedSortBy = sort;
         console.log('select sort: ' + this.selectedSortBy);
-      },
-      selectWeatherExtreme(extreme) {
-        this.selectedWeatherExtreme = extreme;
-        console.log('select extreme: ' + this.selectedWeatherExtreme);
       }
     },
     computed: {
