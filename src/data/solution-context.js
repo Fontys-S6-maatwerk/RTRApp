@@ -5,6 +5,26 @@ export default class SolutionContext extends BaseContext {
         super('/Solutions')
     }
 
+    async sort(userId, pageNumber, pageSize, sortBy) {
+
+        try {
+            let response = await this.axios.get('', {
+                params: {
+                    id: userId,
+                    pageNumber: pageNumber,
+                    pageSize: pageSize,
+                    sortBy: sortBy
+                }
+            });
+
+            return response.data;
+
+        } catch (error) {
+            console.error(error);
+        }
+
+    }
+
     async all() {
 
         try {

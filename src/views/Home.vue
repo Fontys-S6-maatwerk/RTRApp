@@ -1,7 +1,7 @@
 <template>
   <v-container fluid class="pa-0">
-    <solution-sorter></solution-sorter>
-  <solutions-list :solutions="solutions"></solutions-list>
+    <solution-sorter v-on:sort="sort($event)"></solution-sorter>
+    <solutions-list :solutions="solutions"></solutions-list>
   </v-container>
 </template>
 
@@ -11,7 +11,7 @@ import SolutionContext from "@/data/solution-context";
 export default {
   components: {
     SolutionSorter: () => import("@/components/SolutionSorter"),
-    SolutionsList: () => import("@/components/SolutionsList")
+    SolutionsList: () => import("@/components/SolutionsList"),
   },
   data() {
     return {
@@ -20,9 +20,17 @@ export default {
     };
   },
   mounted() {
-    this.solutionContext.all()
-      .then((solutions) => this.solutions = solutions);
-  }
+    this.solutionContext
+      .all()
+      .then((solutions) => (this.solutions = solutions));
+  },
+  methods: {
+    sort(sortBy) {
+      this.solutionContext
+        .sort(1, 0, 20, sortBy)
+        .then((solutions) => (this.solutions = solutions));
+    },
+  },
 };
 </script>
 

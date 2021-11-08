@@ -1,13 +1,19 @@
 <template>
   <v-card class="ma-1 px-2">
     <v-card-text class="px-2 d-flex justify-space-between">
-      <v-btn
-        v-for="sorter in sorters[0].items"
-        :key="sorter.name"
-        @click="filter(sorter)"
-      >
-        <v-icon>{{ sorter.icon }}</v-icon>
-      </v-btn>
+      <v-tooltip v-for="(item, index) in items" :key="index" bottom>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn
+            :elevation="index == selected ? '6' : '1'"
+            v-on="on"
+            v-bind="attrs"
+            @click="filter(item)"
+          >
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-btn>
+        </template>
+        {{ item.name }}
+      </v-tooltip>
     </v-card-text>
   </v-card>
 </template>
@@ -16,39 +22,30 @@
 export default {
   data() {
     return {
-      sorters: [
+      selected: -1,
+      items: [
         {
-          name: "Type",
-          selected: -1,
-          items: [
-            {
-              name: "Impact",
-              icon: "mdi-earth",
-            },
-            {
-              name: "Likes",
-              icon: "mdi-thumb-up-outline",
-            },
-
-            {
-              name: "UploadDate",
-              icon: "mdi-sort-calendar-ascending",
-            },
-            {
-              name: "Views",
-              icon: "mdi-sort-numeric-ascending",
-            },
-          ],
+          name: "Impact",
+          icon: "mdi-earth",
         },
-        
+        {
+          name: "Likes",
+          icon: "mdi-thumb-up-outline",
+        },
+        {
+          name: "UploadDate",
+          icon: "mdi-sort-calendar-ascending",
+        },
+        {
+          name: "Views",
+          icon: "mdi-sort-numeric-ascending",
+        },
       ],
     };
   },
   methods: {
     filter(item) {
-      let sorter = this.sorters.find((x) => x.items.includes(item));
-
-      sorter.selected = sorter.items.indexOf(item);
+      this.selected = this.items.indexOf(item);
 
       this.$emit("sort", item.name);
     },
