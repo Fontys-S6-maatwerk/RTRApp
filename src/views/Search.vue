@@ -21,8 +21,12 @@
 
               </v-textarea>
             </v-col>
-            <v-col cols="12">
+            <v-col cols="6">
               
+            </v-col>
+            <v-col cols="6">
+              <solution-sorter 
+              v-on:sort="selectSortBy($event)"></solution-sorter>
             </v-col>
           </v-row>
         </v-container>
@@ -47,6 +51,7 @@
     props: [],
     components: {
       SolutionsList: () => import("@/components/SolutionsList.vue"),
+      SolutionSorter: () => import("@/components/SolutionSorter.vue"),
     },
     mounted () {
       this.weatherContext.getWeatherExtremes().then((extremes) => {
@@ -60,11 +65,8 @@
         sectionNumber: 1,
         sectionSize: 20,
         weatherExtremeTypes: [],
-        sortByTypes: [],
         selectedWeatherExtreme: '',
-        solutionType: '',
         selectedSortBy: '',
-        ascending: 'true',
         solutionContext: new SolutionContext(),
         weatherContext: new WeatherContext()
       }
@@ -72,18 +74,21 @@
     methods: {
       sendMessage() {
         this.solutions = this.solutionContext.search(
-        this.searchMessage, 
-        this.sectionNumber, 
-        this.sectionSize, 
-        this.selectedWeatherExtreme, 
-        this.solutionType, 
-        this.selectedSortBy, 
-        this.ascending);
+        this.searchMessage,
+        this.sectionNumber,
+        this.sectionSize,
+        this.selectedWeatherExtreme,
+        this.solutionType,
+        this.selectedSortBy);
 
         this.clearMessage();
       },
       clearMessage() {
         this.searchMessage = '';
+      },
+      selectSortBy(sort) {
+        this.selectedSortBy = sort;
+        console.log('select: ' + this.selectedSortBy);
       }
     },
     computed: {

@@ -81,7 +81,7 @@ export default class SolutionContext extends BaseContext {
         }
     }
     
-    async search(query, sectionNumber, sectionSize, weatherExtremeType, solutionType, sortBy, ascending) {
+    async search(query, sectionNumber, sectionSize, weatherExtremeType, sortBy) {
         try {
             let response = await this.axios.get('', {
                 params: { 
@@ -89,14 +89,13 @@ export default class SolutionContext extends BaseContext {
                     sectionNumber: sectionNumber,
                     sectionSize: sectionSize,
                     weatherExtremeType: weatherExtremeType,
-                    solutionType: solutionType,
-                    sortBy: sortBy,
-                    ascending: ascending
+                    solutionType: 'how-to',
+                    sortBy: sortBy
                 }
             });
 
             return response.data;
-            
+
         } catch (error) {
             console.error(error);
         }
