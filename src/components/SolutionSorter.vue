@@ -8,32 +8,6 @@
       >
         <v-icon>{{ sorter.icon }}</v-icon>
       </v-btn>
-
-      <!-- <v-select
-        class="pa-1"
-        prepend-inner-icon="mdi-magnify"
-        :menu-props="{ bottom: true, offsetY: true }"
-        :label="sorters[1].name"
-        :items="sorters[1].items"
-        item-text="name"
-        return-object
-        hide-details
-        @change="filter"
-      >
-        <template v-slot:item="{ item }">
-          <v-icon class="mr-2">{{ item.icon }}</v-icon>
-          {{ item.name }}
-      
-        </template>
-
-        <template v-slot:append-item @click="removeSelectedExtreme()">
-          <v-divider></v-divider>
-          <v-list-item>
-              <v-icon class="mr-2"> mdi-minus </v-icon>
-                Clear
-          </v-list-item>
-        </template>
-      </v-select> -->
     </v-card-text>
   </v-card>
 </template>
@@ -66,54 +40,15 @@ export default {
             },
           ],
         },
-        // {
-        //   name: "Weather extreme",
-        //   selected: -1,
-        //   items: [
-        //     {
-        //       name: "Tornado",
-        //       icon: "mdi-weather-tornado",
-        //     },
-        //     {
-        //       name: "Smog",
-        //       icon: "mdi-smog",
-        //     },
-        //     {
-        //       name: "Flood",
-        //       icon: "mdi-home-flood",
-        //     },
-        //     {
-        //       name: "Wildfire",
-        //       icon: "mdi-fire",
-        //     },
-        //   ],
-        // },
+        
       ],
     };
   },
   methods: {
-  //   removeSelectedExtreme() {
-  //     this.sorters.find(x => x.name = "Weather extreme").selected = -1;
-  // },
     filter(item) {
       let sorter = this.sorters.find((x) => x.items.includes(item));
 
-      //search for icon instead of text because of duplicate asc and desc text
-      // let sorter = this.sorters.find((x) =>
-      //   x.items.find((x) => x.icon === item.icon)
-      // );
-
-
-     sorter.selected = sorter.items.indexOf(item);
-      
-      // let sorters = this.sorters.map((x) => {
-      //   return {
-      //     name: x.name,
-      //     sort: x.items[x.selected].text,
-      //   };
-      // });
-
-      // console.log(item.name);
+      sorter.selected = sorter.items.indexOf(item);
 
       this.$emit("sort", item.name);
     },
