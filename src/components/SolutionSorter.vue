@@ -3,7 +3,12 @@
     <v-card-text class="px-2 d-flex justify-space-between">
       <v-tooltip v-for="(item, index) in items" :key="index" bottom>
         <template v-slot:activator="{ on, attrs }">
-          <v-btn v-on="on" v-bind="attrs" @click="filter(item)">
+          <v-btn
+            :elevation="index == selected ? '6' : '1'"
+            v-on="on"
+            v-bind="attrs"
+            @click="filter(item)"
+          >
             <v-icon>{{ item.icon }}</v-icon>
           </v-btn>
         </template>
@@ -17,6 +22,7 @@
 export default {
   data() {
     return {
+      selected: -1,
       items: [
         {
           name: "Impact",
@@ -39,6 +45,8 @@ export default {
   },
   methods: {
     filter(item) {
+      this.selected = this.items.indexOf(item);
+
       this.$emit("sort", item.name);
     },
   },

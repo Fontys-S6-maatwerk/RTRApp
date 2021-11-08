@@ -5,14 +5,16 @@ export default class SolutionContext extends BaseContext {
         super('/Solutions')
     }
 
-    async sort(userId, sectionNumber, sectionSize, sortBy) {
+    async sort(userId, pageNumber, pageSize, sortBy) {
 
         try {
             let response = await this.axios.get('', {
-                id: userId,
-                sectionNumber: sectionNumber,
-                sectionSize: sectionSize,
-                sortBy: sortBy
+                params: {
+                    id: userId,
+                    pageNumber: pageNumber,
+                    pageSize: pageSize,
+                    sortBy: sortBy
+                }
             });
 
             return response.data;
