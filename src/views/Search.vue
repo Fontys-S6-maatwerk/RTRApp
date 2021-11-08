@@ -40,7 +40,8 @@
 </template>
 
 <script>
-  import SolutionContext from "@/data/solution-context"
+  import SolutionContext from "@/data/solution-context";
+  import WeatherContext from "@/data/weather-context";
   export default  {
     name: 'src-views-search',
     props: [],
@@ -48,17 +49,37 @@
       SolutionsList: () => import("@/components/SolutionsList.vue"),
     },
     mounted () {
-
+      this.weatherContext.getWeatherExtremes().then((extremes) => {
+        this.weatherExtremeTypes = extremes;
+      });
     },
     data () {
       return {
         searchMessage: '',
         solutions: [],
-        solutionContext: new SolutionContext()
+        sectionNumber: 1,
+        sectionSize: 20,
+        weatherExtremeTypes: [],
+        sortByTypes: [],
+        selectedWeatherExtreme: '',
+        solutionType: '',
+        selectedSortBy: '',
+        ascending: 'true',
+        solutionContext: new SolutionContext(),
+        weatherContext: new WeatherContext()
       }
     },
     methods: {
       sendMessage() {
+        this.solutions = this.solutionContext.search(
+        this.searchMessage, 
+        this.sectionNumber, 
+        this.sectionSize, 
+        this.selectedWeatherExtreme, 
+        this.solutionType, 
+        this.selectedSortBy, 
+        this.ascending);
+
         this.clearMessage();
       },
       clearMessage() {

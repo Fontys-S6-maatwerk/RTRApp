@@ -80,4 +80,25 @@ export default class SolutionContext extends BaseContext {
             console.error(error);
         }
     }
+    
+    async search(query, sectionNumber, sectionSize, weatherExtremeType, solutionType, sortBy, ascending) {
+        try {
+            let response = await this.axios.get('', {
+                params: { 
+                    query: query,
+                    sectionNumber: sectionNumber,
+                    sectionSize: sectionSize,
+                    weatherExtremeType: weatherExtremeType,
+                    solutionType: solutionType,
+                    sortBy: sortBy,
+                    ascending: ascending
+                }
+            });
+
+            return response.data;
+            
+        } catch (error) {
+            console.error(error);
+        }
+    }
 }
