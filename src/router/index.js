@@ -10,12 +10,12 @@ const routes = [{
             import ("../views/I18nHome")
     },
     {
-        path: '/profile/:author',
+        path: '/profile/:userId',
         name: 'Profile',
         component: () =>
             import ('../views/Profile.vue'),
         props: (route) => ({
-            author: route.params.author,
+            userId: route.params.userId,
         }),
     },
     {

@@ -11,6 +11,8 @@
         "cover_image": "Cover image",
         "current_impact": "Current impact",
         "description": "Description",
+        "followers": "Followers",
+        "following": "Following",
         "general": "General",
         "instructions": "Instructions",
         "instructions_description": "Add instruction steps for others to recreate your solution",
@@ -37,7 +39,11 @@
         "my": "My",
         "solutions": "Solutions",
         "tool": "Tool",
-        "material": "Material"
+        "material": "Material",
+        "details": "Details",
+        "delete_account": "Delete account",
+        "profile": "Profile",
+        "language": "Language"
     },
     "message": {
         "hello": "Hello i18n world"
