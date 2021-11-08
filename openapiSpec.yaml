@@ -38,14 +38,14 @@ paths:
                     description: if present search for this query
                     schema: 
                         type: string
-                -   name: sectionNumber
+                -   name: pageNumber
                     in: query
-                    description: pagination number of section to retrieve
+                    description: pagination number of page to retrieve
                     schema:
                         type: integer
                         minimum: 0
                         default: 0
-                -   name: sectionSize
+                -   name: pageSize
                     in: query
                     schema:
                         type: integer
@@ -64,10 +64,6 @@ paths:
                     in: query
                     schema:
                         type: string
-                -   name: ascending
-                    in: query
-                    schema:
-                        type: boolean
             responses:
                 '200':
                     description: A page of solutions
@@ -255,14 +251,14 @@ paths:
                     schema:
                         type: string
                         format: guid
-                -   name: sectionNumber
+                -   name: pageNumber
                     in: query
-                    description: pagination number of section to retrieve
+                    description: pagination number of page to retrieve
                     schema:
                         type: integer
                         minimum: 0
                         default: 0
-                -   name: sectionSize
+                -   name: pageSize
                     in: query
                     schema:
                         type: integer
@@ -296,14 +292,14 @@ paths:
                     schema:
                         type: string
                         format: guid
-                -   name: sectionNumber
+                -   name: pageNumber
                     in: query
-                    description: pagination number of section to retrieve
+                    description: pagination number of page to retrieve
                     schema:
                         type: integer
                         minimum: 0
                         default: 0
-                -   name: sectionSize
+                -   name: pageSize
                     in: query
                     schema:
                         type: integer
@@ -337,14 +333,14 @@ paths:
                     schema:
                         type: string
                         format: guid
-                -   name: sectionNumber
+                -   name: pageNumber
                     in: query
-                    description: pagination number of section to retrieve
+                    description: pagination number of page to retrieve
                     schema:
                         type: integer
                         minimum: 0
                         default: 0
-                -   name: sectionSize
+                -   name: pageSize
                     in: query
                     schema:
                         type: integer
@@ -355,10 +351,6 @@ paths:
                     in: query
                     schema:
                         type: string
-                -   name: ascending
-                    in: query
-                    schema:
-                        type: boolean
             responses:
                 '200':
                     description: A page of solutions
@@ -372,7 +364,125 @@ paths:
                     description: User with specified id was not found
                 default:
                     description: Unexpected error
-                
+    /comments:
+        post:
+            operationId: createComment
+            tags:
+                - Comment
+            summary: creates a new comment
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/Comment'
+            responses:
+                '201':
+                    description: Comment created succesfully
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Comment'
+                '400':
+                    description: Not a valid request
+                default:
+                    description: Unexpected error
+    '/comments/{id}':
+        put:
+            operationId: updateComment
+            tags:
+                - Comment
+            summary: update a comment with the specified id
+            parameters:
+                -   name: id
+                    in: path
+                    required: true
+                    description: the id of the specified comment
+                    schema:
+                        type: string
+                        format: guid
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/Comment'
+            responses:
+                '200':
+                    description: Comment updated succesfully
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Comment'
+                '400':
+                    description: Not a valid request
+                '404':
+                    description: Comment with the specified id not found
+                default:
+                    description: Unexpected error
+        delete:
+            operationId: deleteComment
+            tags: 
+                - Comment
+            summary: delete a comment with the specified id
+            parameters:
+                -   name: id
+                    in: path
+                    required: true
+                    description: the id of the specified comment
+                    schema:
+                        type: string
+                        format: guid
+            responses:
+                '204':
+                    description: Comment deleted succesfully
+                '400':
+                    description: Not a valid request
+                '404':
+                    description: Solution with the specified id not found
+                default:
+                    description: Unexpected error
+    '/comments/solutions/{solutionId}':
+        get:
+            operationId: getCommentsBySolution
+            tags:
+                - Comment
+            summary: retrieves a paginated list of comments belonging to a solution with the specified id 
+            parameters:
+                -   name: solutionId
+                    in: path
+                    required: true
+                    description: the id of the specified comment
+                    schema:
+                        type: string
+                        format: guid
+                -   name: pageNumber
+                    in: query
+                    description: pagination number of page to retrieve
+                    schema:
+                        type: integer
+                        minimum: 0
+                        default: 0
+                -   name: pageSize
+                    in: query
+                    schema:
+                        type: integer
+                        minimum: 1
+                        maximum: 50
+                        default: 20
+            responses:
+                '200':
+                    description: A page of comments
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/CommentPageResponse'
+                '400':
+                    description: Not a valid request
+                '404':
+                    description: Solution with specified id was not found
+                default:
+                    description: Unexpected error
 components:
     schemas:
         Solution:
@@ -436,6 +546,33 @@ components:
                     type: integer
                 totalElements:
                     type: integer
+        Comment:
+            type: object
+            properties:	
+                id: 
+                    type: string
+                    format: guid
+                content:
+                    type: string
+                userId: 
+                    type: string
+                    format: guid
+                solutionId:
+                    type: string
+                    format: guid
+        CommentPageResponse:
+            type: object
+            properties:
+                items:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/Comment'
+                totalPages: 
+                    type: integer
+                totalElements:
+                    type: integer
 tags:
     - name: Solution
       description: Everything with solutions
+    - name: Comment
+      description: Everything with Comments
