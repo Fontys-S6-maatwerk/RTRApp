@@ -26,9 +26,9 @@
                 <v-card-text class="justify-space-between">
                   <v-btn
                     v-for="extreme in weatherExtremeTypes"
-                    :key="extreme.name"
+                    :key="extreme"
                     @click="selectWeatherExtreme(extreme)">
-                    <v-icon>{{ extreme.icon }}</v-icon>
+                    {{ extreme }}
                   </v-btn>
                 </v-card-text>
               </v-card>

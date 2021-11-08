@@ -104,7 +104,7 @@ export default class SolutionContext extends BaseContext {
         try {
             let response = await this.axios.get('', {
                 params: { 
-                    query: query,
+                    name: query,
                     weatherExtremeType: weatherExtremeType
                 }
             });
