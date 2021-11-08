@@ -22,7 +22,16 @@
               </v-textarea>
             </v-col>
             <v-col cols="6">
-              
+              <v-card class="ma-1 px-2">
+                <v-card-text class="justify-space-between">
+                  <v-btn
+                    v-for="extreme in weatherExtremeTypes"
+                    :key="extreme.name"
+                    @click="selectWeatherExtreme(extreme)">
+                    <v-icon>{{ extreme.icon }}</v-icon>
+                  </v-btn>
+                </v-card-text>
+              </v-card>
             </v-col>
             <v-col cols="6">
               <solution-sorter 
@@ -73,22 +82,35 @@
     },
     methods: {
       sendMessage() {
-        this.solutions = this.solutionContext.search(
-        this.searchMessage,
-        this.sectionNumber,
-        this.sectionSize,
-        this.selectedWeatherExtreme,
-        this.solutionType,
-        this.selectedSortBy);
-
+        // this.solutionContext.search(
+        // this.searchMessage,
+        // this.sectionNumber,
+        // this.sectionSize,
+        // this.selectedWeatherExtreme,
+        // this.solutionType,
+        // this.selectedSortBy).then((solutions) => {
+        //   this.solutions = solutions;
+        // });
+        this.solutionContext.search(
+          this.searchMessage,
+          this.selectedWeatherExtreme
+        ).then((solutions) => {
+          this.solutions = solutions;
+        });
         this.clearMessage();
       },
       clearMessage() {
         this.searchMessage = '';
+        this.selectedWeatherExtreme = '';
+        this.selectedSortBy = '';
       },
       selectSortBy(sort) {
         this.selectedSortBy = sort;
-        console.log('select: ' + this.selectedSortBy);
+        console.log('select sort: ' + this.selectedSortBy);
+      },
+      selectWeatherExtreme(extreme) {
+        this.selectedWeatherExtreme = extreme;
+        console.log('select extreme: ' + this.selectedWeatherExtreme);
       }
     },
     computed: {

@@ -81,16 +81,31 @@ export default class SolutionContext extends BaseContext {
         }
     }
     
-    async search(query, sectionNumber, sectionSize, weatherExtremeType, sortBy) {
+    // async search(query, sectionNumber, sectionSize, weatherExtremeType, sortBy) {
+    //     try {
+    //         let response = await this.axios.get('', {
+    //             params: { 
+    //                 query: query,
+    //                 sectionNumber: sectionNumber,
+    //                 sectionSize: sectionSize,
+    //                 weatherExtremeType: weatherExtremeType,
+    //                 solutionType: 'how-to',
+    //                 sortBy: sortBy
+    //             }
+    //         });
+
+    //         return response.data;
+
+    //     } catch (error) {
+    //         console.error(error);
+    //     }
+    // }
+    async search(query, weatherExtremeType) {
         try {
             let response = await this.axios.get('', {
                 params: { 
                     query: query,
-                    sectionNumber: sectionNumber,
-                    sectionSize: sectionSize,
-                    weatherExtremeType: weatherExtremeType,
-                    solutionType: 'how-to',
-                    sortBy: sortBy
+                    weatherExtremeType: weatherExtremeType
                 }
             });
 
