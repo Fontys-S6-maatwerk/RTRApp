@@ -1,9 +1,14 @@
 <template>
   <v-card class="ma-1 px-2">
     <v-card-text class="px-2 d-flex justify-space-between">
-      <v-btn v-for="(item, index) in items" :key="index" @click="filter(item)">
-        <v-icon>{{ item.icon }}</v-icon>
-      </v-btn>
+      <v-tooltip v-for="(item, index) in items" :key="index" bottom>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn v-on="on" v-bind="attrs" @click="filter(item)">
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-btn>
+        </template>
+        {{ item.name }}
+      </v-tooltip>
     </v-card-text>
   </v-card>
 </template>
