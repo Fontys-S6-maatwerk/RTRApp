@@ -129,7 +129,10 @@ export default {
   },
   created() {
     this.fetchSolution(this.id);
-    this.fetchSolutionComments(this.id);
+    this.fetchSolutionComments({
+      solutionId: this.id,
+      pageNumber: 1,
+    });
   },
   components: {
     Avatar,

@@ -45,7 +45,7 @@ export default {
       };
     },
     post() {
-      this.comment.author = this.user.id;
+      this.comment.author = this.user.currentUser.id;
       this.createComment(this.comment);
       this.createFreshComment();
     },

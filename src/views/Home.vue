@@ -15,7 +15,7 @@ export default {
   },
   created() {
     this.fetchFeedSolutions({
-      userId: 1,
+      userId: this.user.currentUser.id,
       sortBy: null,
       pageNumber: 1,
     });
@@ -23,7 +23,7 @@ export default {
   methods: {
     sort(sortBy) {
       this.fetchFeedSolutions({
-        userId: 1,
+        userId: this.user.currentUser.id,
         sortBy: sortBy,
         pageNumber: 1,
       });
@@ -31,7 +31,7 @@ export default {
     ...mapActions("solution", ["fetchFeedSolutions"]),
   },
   computed: {
-    ...mapState(["solution"]),
+    ...mapState(["solution", "user"]),
   },
 };
 </script>
