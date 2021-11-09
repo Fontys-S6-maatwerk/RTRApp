@@ -101,13 +101,13 @@ export default class SolutionContext extends BaseContext {
         }
     }
     
-    // async search(query, sectionNumber, sectionSize, weatherExtremeType, sortBy) {
+    // async search(query, pageNumber, pageSize, weatherExtremeType, sortBy) {
     //     try {
     //         let response = await this.axios.get('', {
     //             params: { 
     //                 query: query,
-    //                 sectionNumber: sectionNumber,
-    //                 sectionSize: sectionSize,
+    //                 pageNumber: pageNumber,
+    //                 pageSize: pageSize,
     //                 weatherExtremeType: weatherExtremeType,
     //                 solutionType: 'how-to',
     //                 sortBy: sortBy
