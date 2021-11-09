@@ -7,6 +7,7 @@ export const state = {
     id: "49b8e447-b3b5-413e-950d-fd63ac50aac5",
     firstname: "Test",
     lastname: "User",
+    profileImage: "https://cdn.vuetifyjs.com/images/john.jpg",
     email: "test.user@gmail.com",
   },
   user: {},

@@ -1,60 +1,41 @@
 <template lang="html">
   <v-container fluid>
     <v-row>
-      <v-col
-        cols="3"
-      >
-        <Avatar :user="author"/>
+      <v-col cols="3">
+        <Avatar :user="this.comment.user" />
       </v-col>
-      <v-col
-          cols="6">
+      <v-col cols="6">
         <v-row no-gutters>
           <v-col>
             <v-container>
-              <strong>{{this.author.firstName}} {{this.author.lastName}}</strong>
+              <strong>
+                {{ this.comment.user.firstName }}
+                {{ this.comment.user.lastName }}
+              </strong>
             </v-container>
           </v-col>
         </v-row>
         <v-row no-gutters>
           <v-container>
             <v-layout>
-            {{this.comment.content}}
+              {{ this.comment.content }}
             </v-layout>
           </v-container>
         </v-row>
       </v-col>
-      <v-col
-        cols="3">
-        <span>{{this.comment.creationDate | formatDate("HH:MM")}}</span>
+      <v-col cols="3">
+        <span>{{ this.comment.creationDate | formatDate("HH:MM") }}</span>
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script lang="js">
-  import Avatar from "../Avatar";
-  import UserContext from "../../data/user-context";
+import Avatar from "../Avatar";
 
-  export default  {
-    name: 'CommentView',
-    components: {Avatar},
-    props: ['comment'],
-    data () {
-      return {
-        userContext: new UserContext(),
-        author: {},
-      }
-    },
-    mounted() {
-      this.userContext.getById(this.comment.author).then((user) =>{
-          this.author = user[0];
-      });
-    }
-  }
-
-
+export default  {
+  name: 'CommentView',
+  components: {Avatar},
+  props: ['comment'],
+}
 </script>
-
-<style scoped lang="scss">
-
-</style>

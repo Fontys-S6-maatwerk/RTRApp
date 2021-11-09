@@ -129,6 +129,7 @@ export default {
   },
   created() {
     this.fetchSolution(this.id);
+    this.fetchSolutionComments(this.id);
   },
   components: {
     Avatar,
@@ -139,6 +140,7 @@ export default {
   },
   methods: {
     ...mapActions("solution", ["fetchSolution"]),
+    ...mapActions("comment", ["fetchSolutionComments"]),
     calculateImpactPercentage() {
       return Math.floor(
         (this.solution.solution.currentImpact /

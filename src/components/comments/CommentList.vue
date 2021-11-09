@@ -1,23 +1,22 @@
 <template lang="html">
   <v-list min-height="500px">
-    <v-list-item v-for="comment in this.comments" v-bind:key="comment.id">
-          <CommentView :comment="comment" />
+    <v-list-item v-for="comment in comment.items" v-bind:key="comment.id">
+      <CommentView :comment="comment" />
     </v-list-item>
   </v-list>
 </template>
 
 <script lang="js">
 import CommentView from "./CommentView";
+import { mapState } from "vuex";
 
   export default  {
     name: 'CommentList',
     components:{
       CommentView
     },
-    props: ['comments'],
-    data: ()=>({}),
+    computed: {
+      ...mapState(["comment"])
+    }
 }
 </script>
-
-<style scoped lang="scss">
-</style>
