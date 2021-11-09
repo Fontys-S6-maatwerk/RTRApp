@@ -210,29 +210,34 @@
         </v-card>
       </v-stepper-content>
       <v-stepper-content step="4">
-        <v-card outlined color="transparent">
-          <v-card-text class="px-0">
-            <v-card-title class="justify-center">{{ $t('common.impact_question')}}</v-card-title>
-            <v-text-field type="number"
-            :rules="[rules.required, rules.minValue]"
-            min="0"
-            outlined
-            :label="$t('common.impact_goal')"
-            v-model="solution.impactGoal"></v-text-field>
-            <v-text-field type="number"
-            :rules="[rules.required, rules.minValue, rules.compare]"
-            min="0"
-            outlined
-            :label="$t('common.current_impact')"
-            v-model="solution.currentImpact"></v-text-field>            
-          </v-card-text>
-          <v-card-actions>
-            <v-btn color="primary" @click="submit()">
-                {{ pageState.submitText }}
-            </v-btn>
-            <v-btn text @click="step--">{{ $t("common.back") }}</v-btn>
-          </v-card-actions>
-        </v-card>
+        <v-form ref="form" v-model="valid">
+          <v-card outlined color="transparent">
+            <v-card-text class="px-0">
+              <v-card-title class="justify-center">{{ $t('common.impact_question')}}</v-card-title>
+              <v-text-field type="number"
+              :rules="impactGoalRules"
+              min="0"
+              outlined
+              required
+              :label="$t('common.impact_goal')"
+              v-model="impactGoal"></v-text-field>
+              <v-text-field type="number"
+              :rules="currentImpactRules"
+              min="0"
+              outlined
+              required
+              :label="$t('common.current_impact')"
+              v-model="solution.currentImpact"></v-text-field>            
+            </v-card-text>
+            <v-card-actions>
+              <v-btn :disabled="!valid" color="primary" @click="submit()">
+                  {{ pageState.submitText }}
+              </v-btn>
+              <v-btn text @click="step--">{{ $t("common.back") }}</v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-form>
+        
       </v-stepper-content>
     </v-stepper-items>
   </v-stepper>
@@ -255,16 +260,21 @@ export default {
   },
   data() {
     return {
-      step: 1,
+      valid: false,
+      step: 4,
       weatherExtremeTypes: [],
       solutionContext: new SolutionContext(),
       weatherContext: new WeatherContext(),
-      rules: {
-        minValue: value => value >= 0 || this.$t("validation.minimum_value") + " 0" ,
-        required: value => !!value || this.$t("validation.required"),
-        compare: value => this.solution.impactGoal >= value || this.$t("validation.impact_goal_greater_than_current_impact")
-
-      },
+      impactGoalRules: [
+        value => value >= 0 || this.$t("validation.minimum_value") + " 1" ,
+        value => !!value || this.$t("validation.required"),
+      ],
+      currentImpactRules: [
+        v => v >= 0 || this.$t("validation.minimum_value") + " 0" ,
+        v => !!v || this.$t("validation.required"),
+        v => v < (parseInt(this.impactGoal)) || this.$t("validation.impact_goal_greater_than_current_impact"),
+      ],
+      impactGoal: 0,
       solution: {
         name: "",
         introduction: "",
@@ -305,6 +315,9 @@ export default {
     }
   },
   methods: {
+    validate(){
+      this.$refs.form.validate();
+    },
     addItem(item, name) {
       this.solution[name].push(item);
     },
@@ -322,6 +335,7 @@ export default {
       this.solution.coverImage = window.URL.createObjectURL(file);
     },
     submit() {
+      this.solution.impactGoal = this.impactGoal;
       if (this.pageState.editable) {
         this.solutionContext.update(this.solution).then((solution) => {
           this.$router.push({
@@ -339,6 +353,9 @@ export default {
       }
     },
   },
+  watch: {
+    impactGoal: 'validate'
+  }
 };
 </script>
 
