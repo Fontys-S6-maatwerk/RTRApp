@@ -23,7 +23,10 @@ export default {
         { title: "Search", path: "/search", icon: "mdi-magnify" },
         {
           title: "Profile",
-          path: { name: "Profile", params: { id: 1 } },
+          path: {
+            name: "Profile",
+            params: { id: "67101394-9459-4eed-a979-7dd838bd8635" },
+          },
           icon: "mdi-account-circle",
         },
       ],

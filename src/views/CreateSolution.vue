@@ -46,7 +46,7 @@
 
             <v-container fluid class="category-list pa-0">
               <span
-                v-for="(weatherExtremeType, index) in weatherExtremeTypes"
+                v-for="(weatherExtremeType, index) in weather.weatherExtremes"
                 :key="index"
                 v-on:click="solution.weatherExtremeType = weatherExtremeType"
                 :set="
@@ -251,6 +251,7 @@
 <script>
 import WeatherContext from "@/data/weather-context";
 import SolutionContext from "@/data/solution-context";
+import { mapActions, mapState } from "vuex";
 
 export default {
   props: {
@@ -267,7 +268,6 @@ export default {
     return {
       valid: false,
       step: 1,
-      weatherExtremeTypes: [],
       solutionContext: new SolutionContext(),
       weatherContext: new WeatherContext(),
       impactGoalRules: [
@@ -309,10 +309,11 @@ export default {
       },
     };
   },
+  computed: {
+    ...mapState(["weather"]),
+  },
   mounted() {
-    this.weatherContext.getWeatherExtremes().then((extremes) => {
-      this.weatherExtremeTypes = extremes;
-    });
+    this.fetchWeatherExtremes();
 
     if (this.solutionId) {
       this.solutionContext.getById(this.solutionId).then((solutions) => {
@@ -322,6 +323,7 @@ export default {
     }
   },
   methods: {
+    ...mapActions("weather", ["fetchWeatherExtremes"]),
     validate() {
       this.$refs.form.validate();
     },

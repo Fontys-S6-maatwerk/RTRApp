@@ -10,12 +10,12 @@
       "difficulty": "Medium",
       "impactGoal": 80,
       "SDGType": "Goal 13: Climate Action",
-      "userId": 1,
+      "userId": "38eb41ae-8bcb-4b94-ac8e-7bae209efc7e",
       "user": {
-        "id": 1,
-        "firstName": "Jan",
-        "lastName": "Janssen",
-        "email": "JanJanssen@email.com",
+        "id": "38eb41ae-8bcb-4b94-ac8e-7bae209efc7e",
+        "firstName": "John",
+        "lastName": "Snow",
+        "email": "johnsnow@email.com",
         "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg"
       },
       "currentImpact": 9,
@@ -76,9 +76,9 @@
       "solutionType": "how-to video",
       "difficulty": "medium",
       "SDGType": "Goal 13: Climate Action",
-      "userId": 2,
+      "userId": "61dd5018-93f2-420f-8211-34c1766f2d54",
       "user": {
-        "id": 2,
+        "id": "61dd5018-93f2-420f-8211-34c1766f2d54",
         "firstName": "Jan",
         "lastName": "Janssen",
         "email": "JanJanssen@email.com",
@@ -111,9 +111,9 @@
       "solutionType": "how-to video",
       "difficulty": "medium",
       "SDGType": "Goal 13: Climate Action",
-      "userId": 2,
+      "userId": "61dd5018-93f2-420f-8211-34c1766f2d54",
       "user": {
-        "id": 2,
+        "id": "61dd5018-93f2-420f-8211-34c1766f2d54",
         "firstName": "Jan",
         "lastName": "Janssen",
         "email": "JanJanssen@email.com",
@@ -122,7 +122,7 @@
       "impactGoal": 2000,
       "currentImpact": 122,
       "uploadDate": 1635687629887,
-      "viewCount": 0,
+      "viewCount": 5483,
       "id": "65491819-a5c0-4ba0-b542-0c77cec07a5e"
     }
   ],
@@ -130,43 +130,43 @@
     {
       "id": 1,
       "content": "The BEST Solution EUW.",
-      "author": 1,
+      "author": "61dd5018-93f2-420f-8211-34c1766f2d54",
       "solution": "f68e3854-c01c-4306-9bae-8c5f10139fc0"
     },
     {
       "id": 2,
       "content": "The WORST Solution EUW.",
-      "author": 2,
+      "author": "38eb41ae-8bcb-4b94-ac8e-7bae209efc7e",
       "solution": "f68e3854-c01c-4306-9bae-8c5f10139fc0"
     },
     {
       "id": 3,
       "content": "The very BEST Solution EUW.",
-      "author": 1,
+      "author": "61dd5018-93f2-420f-8211-34c1766f2d54",
       "solution": "5de9a4a0-5861-437c-bd77-42288e527754"
     },
     {
       "id": 4,
       "content": "The very WORST Solution EUW.",
-      "author": 3,
+      "author": "67101394-9459-4eed-a979-7dd838bd8635",
       "solution": "5de9a4a0-5861-437c-bd77-42288e527754"
     },
     {
       "id": 5,
       "content": "Very nice",
-      "author": 4,
+      "author": "38eb41ae-8bcb-4b94-ac8e-7bae209efc7e",
       "solution": "5de9a4a0-5861-437c-bd77-42288e527754"
     },
     {
       "id": 6,
       "content": "It worked great!",
-      "author": 5,
+      "author": "67101394-9459-4eed-a979-7dd838bd8635",
       "solution": "5de9a4a0-5861-437c-bd77-42288e527754"
     }
   ],
   "Users": [
     {
-      "id": 1,
+      "id": "61dd5018-93f2-420f-8211-34c1766f2d54",
       "firstName": "Jan",
       "lastName": "Janssen",
       "email": "JanJanssen@email.com",
@@ -201,7 +201,7 @@
       ]
     },
     {
-      "id": 2,
+      "id": "67101394-9459-4eed-a979-7dd838bd8635",
       "firstName": "Henk",
       "lastName": "Henkerson",
       "email": "henkhenkerson@gmail.comm",
@@ -232,7 +232,7 @@
       ]
     },
     {
-      "id": 3,
+      "id": "0de136f7-5d0b-4243-b6af-599e4cb56877",
       "firstName": "Hans",
       "lastName": "Worst",
       "email": "hansworst@email.com",
@@ -260,7 +260,7 @@
       ]
     },
     {
-      "id": 4,
+      "id": "31fa2467-6a74-483f-9886-8eb5d47c8eba",
       "firstName": "Peter",
       "lastName": "Pan",
       "email": "peterpan@email.com",
@@ -288,7 +288,7 @@
       ]
     },
     {
-      "id": 5,
+      "id": "38eb41ae-8bcb-4b94-ac8e-7bae209efc7e",
       "firstName": "John",
       "lastName": "Snow",
       "email": "johnsnow@email.com",
