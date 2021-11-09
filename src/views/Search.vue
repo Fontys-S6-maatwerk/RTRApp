@@ -69,8 +69,8 @@
       return {
         searchMessage: '',
         solutions: [],
-        sectionNumber: 1,
-        sectionSize: 20,
+        pageNumber: 1,
+        pageSize: 20,
         weatherExtremeTypes: [],
         selectedWeatherExtreme: '',
         selectedSortBy: '',
@@ -83,8 +83,8 @@
         this.solutions = [];
         // this.solutionContext.search(
         // this.searchMessage,
-        // this.sectionNumber,
-        // this.sectionSize,
+        // this.pageNumber,
+        // this.pageSize,
         // this.selectedWeatherExtreme,
         // this.solutionType,
         // this.selectedSortBy).then((solutions) => {
