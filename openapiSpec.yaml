@@ -722,6 +722,8 @@ components:
                     $ref: '#/components/schemas/User'
                 currentImpact:
                     type: integer
+                numberOfLikes:
+                    type: integer
                 uploadDate: 
                     type: integer
                 viewCount:
