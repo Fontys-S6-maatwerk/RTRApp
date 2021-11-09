@@ -13,8 +13,14 @@
 
       <v-divider></v-divider>
 
-      <v-stepper-step step="3">
+      <v-stepper-step :complete="step > 3" step="3">
         {{ $t("common.instructions") }}
+      </v-stepper-step>
+
+      <v-divider></v-divider>
+
+      <v-stepper-step step="4">
+        {{ $t("common.impact")}}
       </v-stepper-step>
     </v-stepper-header>
 
@@ -195,10 +201,36 @@
             ></add-step-dialog>
           </v-card-text>
           <v-card-actions>
-            <v-btn color="primary" @click="submit()">
-              {{ pageState.submitText }}
+            <v-btn color="primary" @click="step++">
+              {{ $t("common.continue") }}
             </v-btn>
+            
             <v-btn text @click="step--"> {{ $t("common.cancel") }} </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-stepper-content>
+      <v-stepper-content step="4">
+        <v-card outlined color="transparent">
+          <v-card-text class="px-0">
+            <v-card-title class="justify-center">{{ $t('common.impact_question')}}</v-card-title>
+            <v-text-field type="number"
+            :rules="[rules.required, rules.minValue]"
+            min="0"
+            outlined
+            :label="$t('common.impact_goal')"
+            v-model="solution.impactGoal"></v-text-field>
+            <v-text-field type="number"
+            :rules="[rules.required, rules.minValue, rules.compare]"
+            min="0"
+            outlined
+            :label="$t('common.current_impact')"
+            v-model="solution.currentImpact"></v-text-field>            
+          </v-card-text>
+          <v-card-actions>
+            <v-btn color="primary" @click="submit()">
+                {{ pageState.submitText }}
+            </v-btn>
+            <v-btn text @click="step--">{{ $t("common.back") }}</v-btn>
           </v-card-actions>
         </v-card>
       </v-stepper-content>
@@ -223,10 +255,16 @@ export default {
   },
   data() {
     return {
-      step: 1,
+      step: 4,
       weatherExtremeTypes: [],
       solutionContext: new SolutionContext(),
       weatherContext: new WeatherContext(),
+      rules: {
+        minValue: value => value >= 0 || this.$t("validation.minimum_value") + " 0" ,
+        required: value => !!value || this.$t("validation.required"),
+        compare: value => this.solution.impactGoal >= value || this.$t("validation.impact_goal_greater_than_current_impact")
+
+      },
       solution: {
         name: "",
         introduction: "",
@@ -237,14 +275,14 @@ export default {
         steps: [],
         uploadDate: +new Date(),
         viewCount: 0,
+        impactGoal: 0,
+        currentImpact: 0,
         //sample data
         numberOfLikes: 122,
         solutionType: "how-to video",
         difficulty: "medium",
         SDGType: "Goal 13: Climate Action",
         author: "Jan Janssen",
-        impactGoal: 2000,
-        currentImpact: 122,
       },
       pageState: {
         editable: !isNaN(this.solutionId),
