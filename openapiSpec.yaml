@@ -724,6 +724,8 @@ components:
                     type: integer
                 numberOfLikes:
                     type: integer
+                isLiked:
+                    type: boolean
                 uploadDate: 
                     type: integer
                 viewCount:
