@@ -20,7 +20,6 @@ export const mutations = {
 
 export const actions = {
   fetchFeedSolutions({ state, commit }, { userId, sortBy, pageNumber }) {
-    console.log(userId, sortBy, pageNumber);
     SolutionService.getFeedSolutions(userId, sortBy, pageNumber, state.pageSize)
       .then((response) => {
         commit("SET_FEED_SOLUTIONS", response);

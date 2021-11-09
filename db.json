@@ -335,18 +335,16 @@
       "password": "supergoedwachtwoordgehashtendatsoortdingen"
     }
   ],
-  "Weather": {
-    "WeatherExtremes": [
-      "Tornado",
-      "Smog",
-      "Extreme heat",
-      "Wildfire",
-      "Dust storm",
-      "Flood",
-      "Heavy rainfall",
-      "Hail storm",
-      "Drought",
-      "Blizzard"
-    ]
-  }
+  "Weather": [
+    "Tornado",
+    "Smog",
+    "Extreme heat",
+    "Wildfire",
+    "Dust storm",
+    "Flood",
+    "Heavy rainfall",
+    "Hail storm",
+    "Drought",
+    "Blizzard"
+  ]
 }
