@@ -255,7 +255,7 @@ export default {
   },
   data() {
     return {
-      step: 4,
+      step: 1,
       weatherExtremeTypes: [],
       solutionContext: new SolutionContext(),
       weatherContext: new WeatherContext(),
