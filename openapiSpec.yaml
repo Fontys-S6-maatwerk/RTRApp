@@ -31,7 +31,7 @@ paths:
             operationId: getSolutions
             tags:
                 - Solution
-            summary: get a list of solutions
+            summary: get a list of solutions (with nested users)
             parameters:
                 -   name: q
                     in: query
@@ -80,7 +80,7 @@ paths:
             operationId: getSolution
             tags:
                 - Solution
-            summary: get a solution with the specified id
+            summary: get a solution with the specified  (with nested users)
             parameters:
                 -   name: id
                     in: path
@@ -179,7 +179,7 @@ paths:
                 default:
                     description: Unexpected error
     /solutions/{id}/likes/{userId}:
-        put:
+        post:
             operationId: likeSolution
             tags:
                 - Solution
@@ -203,7 +203,7 @@ paths:
                 '204':
                     description: Solution liked succesfully
                 '400':
-                    description: Not a valid request
+                    description: Not a valid request ids incorrect or already liked
                 '404':
                     description: Solution with the specified id not found
                 default:
@@ -242,7 +242,7 @@ paths:
             operationId: getUserSolutions
             tags:
                 - Solution
-            summary: get a list of solutions belonging to the user with specified id
+            summary: get a list of solutions belonging to the user with specified id (with nested users)
             parameters:
                 -   name: id
                     in: path
@@ -283,7 +283,7 @@ paths:
             operationId: getLikedSolutions
             tags:
                 - Solution
-            summary: Get a list of solutions liked by the user with the specified id 
+            summary: Get a list of solutions liked by the user with the specified id (with nested users)
             parameters:
                 -   name: id
                     in: path
@@ -324,7 +324,7 @@ paths:
             operationId: getFeedSolutions
             tags:
                 - Solution
-            summary: Get a list of solutions posted by people and topics the user with the specified id follows 
+            summary: Get a list of solutions posted by people and topics the user with the specified id follows (with nested users) 
             parameters:
                 -   name: id
                     in: path
@@ -447,7 +447,7 @@ paths:
             operationId: getCommentsBySolution
             tags:
                 - Comment
-            summary: retrieves a paginated list of comments belonging to a solution with the specified id 
+            summary: retrieves a paginated list of comments belonging to a solution with the specified id  (with nested users)
             parameters:
                 -   name: solutionId
                     in: path
@@ -489,7 +489,7 @@ paths:
             operationId: register
             tags:
                 - Authentication
-            summary: register a new user
+            summary: register a new user (creates a new user object)
             requestBody:
                 required: true
                 content:
@@ -500,9 +500,9 @@ paths:
                 '201':
                     description: User registered succesfully
                     content:
-                        application/json:
+                        text/plain:
                             schema:
-                                $ref: '#/components/schemas/User'
+                                type: string
                 '400':
                     description: Not a valid request
                 default:
@@ -523,9 +523,9 @@ paths:
                 '201':
                     description: User registered succesfully
                     content:
-                        application/json:
+                        text/plain:
                             schema:
-                                $ref: '#/components/schemas/User'
+                                type: string
                 '400':
                     description: Not a valid request
                 default:
@@ -718,6 +718,8 @@ components:
                 userId:
                     type: string
                     format: guid
+                user:
+                    $ref: '#/components/schemas/User'
                 currentImpact:
                     type: integer
                 uploadDate: 
@@ -758,7 +760,7 @@ components:
                     type: integer
         Comment:
             type: object
-            properties:	
+            properties:  
                 id: 
                     type: string
                     format: guid
@@ -767,6 +769,8 @@ components:
                 userId: 
                     type: string
                     format: guid
+                user:
+                    $ref: '#/components/schemas/User'
                 solutionId:
                     type: string
                     format: guid
@@ -793,6 +797,8 @@ components:
                     type: string
                 profileImage:
                     type: string
+                isFollowed:
+                    type: boolean
         WeatherExtremeList:
             type: object
             properties:
@@ -811,10 +817,12 @@ components:
                     format: guid
 tags:
     - name: Solution
-      description: Everything with solutions
+      description: Everything with maintaining solutions
     - name: Comment
-      description: Everything with Comments
+      description: Everything with maintaining comments
     - name: Authentication
       description: Everything with Authentication
     - name: User
-      description: Everything with Users
+      description: Everything with maintaining Users
+    - name: Follower
+      description: Everything with Following users and topics
