@@ -7,7 +7,7 @@
             <v-row>
               <v-col cols="12">
                 <v-textarea
-                  v-model="searchMessage"
+                  v-model="query"
                   label="Search"
                   auto-grow
                   rows="1"
@@ -16,7 +16,7 @@
                   :append-outer-icon="'mdi-send'"
                   :prepend-icon="'mdi-magnify'"
                   single-line
-                  @click:append-outer="sendMessage"
+                  @click:append-outer="search"
                   @click:clear="clearMessage"
                 >
                 </v-textarea>
@@ -43,19 +43,16 @@
       </v-col>
 
       <v-col cols="12">
-        <solutions-list :solutions="solutions"> </solutions-list>
+        <solutions-list :solutions="solution.searchSolutions"> </solutions-list>
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
-import SolutionContext from "@/data/solution-context";
-import WeatherContext from "@/data/weather-context";
 import { mapActions, mapState } from "vuex";
 export default {
   name: "src-views-search",
-  props: [],
   components: {
     SolutionsList: () => import("@/components/SolutionsList.vue"),
     SolutionSorter: () => import("@/components/SolutionSorter.vue"),
@@ -64,52 +61,38 @@ export default {
     this.fetchWeatherExtremes();
   },
   computed: {
-    ...mapState(["weather"]),
+    ...mapState(["weather", "solution"]),
   },
   data() {
     return {
-      searchMessage: "",
+      query: "",
       solutions: [],
-      sectionNumber: 1,
+      pageNumber: 1,
       sectionSize: 20,
-      weatherExtremeTypes: ["test"],
       selectedWeatherExtreme: "",
       selectedSortBy: "",
-      solutionContext: new SolutionContext(),
-      weatherContext: new WeatherContext(),
     };
   },
   methods: {
     ...mapActions("weather", ["fetchWeatherExtremes"]),
-    sendMessage() {
-      this.solutions = [];
-      // this.solutionContext.search(
-      // this.searchMessage,
-      // this.sectionNumber,
-      // this.sectionSize,
-      // this.selectedWeatherExtreme,
-      // this.solutionType,
-      // this.selectedSortBy).then((solutions) => {
-      //   this.solutions = solutions;
-      // });
-      this.solutionContext
-        .search(this.searchMessage, this.selectedWeatherExtreme)
-        .then((solutions) => {
-          this.solutions = solutions;
-        });
+    ...mapActions("solution", ["fetchSearchSolutions"]),
+    search() {
+      this.fetchSearchSolutions({
+        query: this.query,
+        pageNumber: this.pageNumber,
+        weatherExtreme: this.selectedWeatherExtreme,
+        sortBy: this.selectedSortBy,
+      });
       this.clearMessage();
     },
     clearMessage() {
-      this.searchMessage = "";
+      this.query = "";
       this.selectedWeatherExtreme = "";
       this.selectedSortBy = "";
     },
     selectSortBy(sort) {
       this.selectedSortBy = sort;
-      console.log("select sort: " + this.selectedSortBy);
     },
   },
 };
 </script>
-
-<style></style>

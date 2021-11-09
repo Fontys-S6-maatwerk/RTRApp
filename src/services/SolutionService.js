@@ -11,7 +11,7 @@ const apiClient = axios.create({
 
 export default {
   async getFeedSolutions(userId, sortBy, pageNumber, pageSize) {
-    console.log(userId, sortBy, pageNumber, pageSize);
+    console.log("TEMP API CALL FEED: ", userId, sortBy, pageNumber, pageSize);
     return await apiClient.get("/Solutions").then((response) => response.data);
   },
   async getSolutionById(id) {
@@ -26,7 +26,14 @@ export default {
     pageNumber,
     pageSize
   ) {
-    console.log(query, weatherExtremeType, sortBy, pageNumber, pageSize);
+    console.log(
+      "TEMP API CALL SEARCH: ",
+      query,
+      weatherExtremeType,
+      sortBy,
+      pageNumber,
+      pageSize
+    );
     return await apiClient.get("/Solutions").then((response) => response.data);
   },
 };

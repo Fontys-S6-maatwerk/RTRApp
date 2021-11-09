@@ -13,6 +13,9 @@ export const mutations = {
   SET_FEED_SOLUTIONS(state, solutions) {
     state.feedSolutions = solutions;
   },
+  SET_SEARCH_SOLUTIONS(state, solutions) {
+    state.searchSolutions = solutions;
+  },
   SET_SOLUTION(state, solution) {
     state.solution = solution;
   },
@@ -30,11 +33,11 @@ export const actions = {
   },
   fetchSearchSolutions(
     { state, commit },
-    { query, pageNumber, weatherExtremeType, sortBy }
+    { query, pageNumber, weatherExtreme, sortBy }
   ) {
     SolutionService.getSearchSolutions(
       query,
-      weatherExtremeType,
+      weatherExtreme,
       sortBy,
       pageNumber,
       state.pageSize
