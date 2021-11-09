@@ -4,6 +4,7 @@
         "add_solution": "Voeg oplossing toe",
         "add_step": "Voeg stap toe",
         "add_tool": "Voeg hulpmiddel toe",
+        "back": "Terug",
         "cancel": "Annuleer",
         "comment": "Reactie",
         "comments": "Reacties",
@@ -14,12 +15,15 @@
         "followers": "Volgers",
         "following": "Volgend",
         "general": "Generaal",
+        "impact": "Impact",
+        "impact_goal": "Impact doel",
+        "impact_question": "Hoeveel mensen wilt u beïnvloeden met uw oplossing?",
         "instructions": "Instructies",
         "instructions_description": "Voeg instructie stappen toe voor anderen om uw oplossing te kunnen gebruiken",
         "instructions_hint": "Typ een korte introductie over de oplossing",
         "introduction": "Introductie",
         "likes": "vind-ik-leuks",
-        "materials": "Materialen",
+        "materials": "Materialen", 
         "next_step": "Volgende stap",
         "no_instructions_yet": "Nog geen instructies",
         "steps": "Stappen",
@@ -49,6 +53,9 @@
         "hello": "Hallo i18n wereld"
     },
     "validation": {
-        "delete_solution": "Weet u zeker dat u deze oplossing wilt verwijderen"
+        "delete_solution": "Weet u zeker dat u deze oplossing wilt verwijderen",
+        "required": "Vereist",
+        "impact_goal_greater_than_current_impact": "Het impact doel moet groter zijn dan de huidige impact",
+        "minimum_value": "Minimale waarde is"
     }
 }

@@ -4,6 +4,7 @@
         "add_solution": "Add solution",
         "add_step": "Add step",
         "add_tool": "Add tool",
+        "back": "Back",
         "cancel": "Cancel",
         "comment": "Comment",
         "comments": "Comments",
@@ -14,6 +15,9 @@
         "followers": "Followers",
         "following": "Following",
         "general": "General",
+        "impact": "Impact",
+        "impact_goal": "Impact goal",
+        "impact_question": "How many people do you want to influence with your solution?",
         "instructions": "Instructions",
         "instructions_description": "Add instruction steps for others to recreate your solution",
         "instructions_hint": "Type a quick introduction about the solution",
@@ -49,6 +53,9 @@
         "hello": "Hello i18n world"
     },
     "validation": {
-        "delete_solution": "Are you sure you want to delete the solution"
+        "delete_solution": "Are you sure you want to delete the solution",
+        "impact_goal_greater_than_current_impact": "Impact goal must be greater than the current impact",
+        "required": "Required",
+        "minimum_value": "Minimum value is"
     }
 }
