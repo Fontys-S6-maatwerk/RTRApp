@@ -3,56 +3,57 @@ import SolutionService from "@/services/SolutionService.js";
 export const namespaced = true;
 
 export const state = {
-  items: [],
+  feedSolutions: [],
+  searchSolutions: [],
   solution: {},
-  sectionSize: 20,
+  pageSize: 20,
 };
 
 export const mutations = {
-  SET_SOLUTIONS(state, solutions) {
-    state.items = solutions;
+  SET_FEED_SOLUTIONS(state, solutions) {
+    state.feedSolutions = solutions;
+  },
+  SET_SOLUTION(state, solution) {
+    state.solution = solution;
   },
 };
 
 export const actions = {
-  fetchFeedSolutions(
-    { state, commit },
-    { id, sortBy, ascending, sectionNumber }
-  ) {
-    SolutionService.getFeedSolutions(
-      id,
-      sortBy,
-      ascending,
-      sectionNumber,
-      state.sectionSize
-    )
+  fetchFeedSolutions({ state, commit }, { userId, sortBy, pageNumber }) {
+    console.log(userId, sortBy, pageNumber);
+    SolutionService.getFeedSolutions(userId, sortBy, pageNumber, state.pageSize)
       .then((response) => {
-        commit("SET_SOLUTIONS", response);
+        commit("SET_FEED_SOLUTIONS", response);
       })
       .catch((error) => {
         console.log(error);
       });
   },
-  fetchSolution({ commit, getters }, id) {
-    var solution = getters.getSolutionById(id);
-    console.log("cwen")
-    if (solution) {
-      console.log("yay")
-      commit("SET_SOLUTION", solution);
-    } else {
-      SolutionService.getSolutionById(id)
-        .then((response) => {
-          commit("SET_SOLUTION", response);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
+  fetchSearchSolutions(
+    { state, commit },
+    { query, pageNumber, weatherExtremeType, sortBy }
+  ) {
+    SolutionService.getSearchSolutions(
+      query,
+      weatherExtremeType,
+      sortBy,
+      pageNumber,
+      state.pageSize
+    )
+      .then((response) => {
+        commit("SET_SEARCH_SOLUTIONS", response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   },
-};
-
-export const getters = {
-  getSolutionById: (state) => (id) => {
-    return state.items.find((solution) => solution.id === id);
+  fetchSolution({ commit }, id) {
+    SolutionService.getSolutionById(id)
+      .then((response) => {
+        commit("SET_SOLUTION", response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   },
 };

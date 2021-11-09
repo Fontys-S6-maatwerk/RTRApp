@@ -10,19 +10,23 @@ const apiClient = axios.create({
 });
 
 export default {
-  async getFeedSolutions(
-    userId,
-    sortBy,
-    ascending,
-    sectionNumber,
-    sectionSize
-  ) {
-    console.log(userId, sortBy, ascending, sectionNumber, sectionSize);
+  async getFeedSolutions(userId, sortBy, pageNumber, pageSize) {
+    console.log(userId, sortBy, pageNumber, pageSize);
     return await apiClient.get("/Solutions").then((response) => response.data);
   },
   async getSolutionById(id) {
     return await apiClient
       .get("/Solutions/" + id)
       .then((response) => response.data);
+  },
+  async getSearchSolutions(
+    query,
+    weatherExtremeType,
+    sortBy,
+    pageNumber,
+    pageSize
+  ) {
+    console.log(query, weatherExtremeType, sortBy, pageNumber, pageSize);
+    return await apiClient.get("/Solutions").then((response) => response.data);
   },
 };

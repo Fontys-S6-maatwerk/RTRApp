@@ -1,16 +1,23 @@
 {
   "Solutions": [
     {
-      "id": 1,
+      "id": "f68e3854-c01c-4306-9bae-8c5f10139fc0",
       "numberOfLikes": 10,
       "name": "Solution name2",
       "introduction": "This solution had a lot of impact on many people",
       "weatherExtremeType": "Dust storm",
       "solutionType": "how-to video",
       "difficulty": "Medium",
-      "impactGoal": 1000000,
+      "impactGoal": 80,
       "SDGType": "Goal 13: Climate Action",
-      "author": 1,
+      "userId": 1,
+      "user": {
+        "id": 1,
+        "firstName": "Jan",
+        "lastName": "Janssen",
+        "email": "JanJanssen@email.com",
+        "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg"
+      },
       "currentImpact": 9,
       "uploadDate": 1634647211973,
       "viewCount": 234,
@@ -41,7 +48,7 @@
       ]
     },
     {
-      "id": 2,
+      "id": "5de9a4a0-5861-437c-bd77-42288e527754",
       "name": "Bevestig kussen met spijkers",
       "introduction": "Deze oplossing maakt het mogelijk voor gebruikers om een kussen te kunnen bevestigen met een hamer. ",
       "coverImage": "",
@@ -69,9 +76,16 @@
       "solutionType": "how-to video",
       "difficulty": "medium",
       "SDGType": "Goal 13: Climate Action",
-      "author": 2,
+      "userId": 2,
+      "user": {
+        "id": 2,
+        "firstName": "Jan",
+        "lastName": "Janssen",
+        "email": "JanJanssen@email.com",
+        "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg"
+      },
       "impactGoal": 2000,
-      "currentImpact": 122,
+      "currentImpact": 500,
       "uploadDate": 1634647211973,
       "viewCount": 0
     },
@@ -97,12 +111,19 @@
       "solutionType": "how-to video",
       "difficulty": "medium",
       "SDGType": "Goal 13: Climate Action",
-      "author": 2,
+      "userId": 2,
+      "user": {
+        "id": 2,
+        "firstName": "Jan",
+        "lastName": "Janssen",
+        "email": "JanJanssen@email.com",
+        "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg"
+      },
       "impactGoal": 2000,
       "currentImpact": 122,
       "uploadDate": 1635687629887,
       "viewCount": 0,
-      "id": 5
+      "id": "65491819-a5c0-4ba0-b542-0c77cec07a5e"
     }
   ],
   "Comments": [
@@ -110,37 +131,37 @@
       "id": 1,
       "content": "The BEST Solution EUW.",
       "author": 1,
-      "solution": 1
+      "solution": "f68e3854-c01c-4306-9bae-8c5f10139fc0"
     },
     {
       "id": 2,
       "content": "The WORST Solution EUW.",
       "author": 2,
-      "solution": 1
+      "solution": "f68e3854-c01c-4306-9bae-8c5f10139fc0"
     },
     {
       "id": 3,
       "content": "The very BEST Solution EUW.",
       "author": 1,
-      "solution": 2
+      "solution": "5de9a4a0-5861-437c-bd77-42288e527754"
     },
     {
       "id": 4,
       "content": "The very WORST Solution EUW.",
       "author": 3,
-      "solution": 2
+      "solution": "5de9a4a0-5861-437c-bd77-42288e527754"
     },
     {
       "id": 5,
       "content": "Very nice",
       "author": 4,
-      "solution": 2
+      "solution": "5de9a4a0-5861-437c-bd77-42288e527754"
     },
     {
       "id": 6,
       "content": "It worked great!",
       "author": 5,
-      "solution": 2
+      "solution": "5de9a4a0-5861-437c-bd77-42288e527754"
     }
   ],
   "Users": [

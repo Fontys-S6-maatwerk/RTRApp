@@ -1,7 +1,7 @@
 openapi: 3.0.2
 info:
     title: RTR app
-    description:  The intended API calls for our QCode applications are shown in this page
+    description:  The intended API calls for the RTR app
     version: 1.0.0
 paths:
     /solutions:

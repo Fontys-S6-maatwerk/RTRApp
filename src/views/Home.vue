@@ -1,38 +1,37 @@
 <template>
   <v-container fluid class="pa-0">
     <solution-sorter v-on:sort="sort($event)"></solution-sorter>
-    <solutions-list :solutions="solutions"></solutions-list>
+    <solutions-list :solutions="solution.feedSolutions"></solutions-list>
   </v-container>
 </template>
 
 <script>
-import SolutionContext from "@/data/solution-context";
+import { mapState, mapActions } from "vuex";
 
 export default {
   components: {
     SolutionSorter: () => import("@/components/SolutionSorter"),
-    SolutionsList: () => import("@/components/SolutionsList"),
+    SolutionsList: () => import("@/components/SolutionsList.vue"),
   },
-  data() {
-    return {
-      solutionContext: new SolutionContext(),
-      solutions: [],
-    };
-  },
-  mounted() {
-    this.solutionContext
-      .all()
-      .then((solutions) => (this.solutions = solutions));
+  created() {
+    this.fetchFeedSolutions({
+      userId: 1,
+      sortBy: null,
+      pageNumber: 1,
+    });
   },
   methods: {
     sort(sortBy) {
-      this.solutionContext
-        .sort(1, 0, 20, sortBy)
-        .then((solutions) => (this.solutions = solutions));
+      this.fetchFeedSolutions({
+        userId: 1,
+        sortBy: sortBy,
+        pageNumber: 1,
+      });
     },
+    ...mapActions("solution", ["fetchFeedSolutions"]),
+  },
+  computed: {
+    ...mapState(["solution"]),
   },
 };
 </script>
-
-<style>
-</style>
