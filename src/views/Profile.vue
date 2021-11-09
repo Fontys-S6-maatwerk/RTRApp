@@ -46,14 +46,14 @@
         <v-card-title class="justify-center">
           {{ $t("glossary.details") }}
         </v-card-title>
-        <v-card v-if="userProfile">
+        <v-card>
           <v-card-text>
             <v-row class="justify-space-around">
               <v-card-subtitle
-                >{{ userProfile.firstName }}
-                {{ userProfile.lastName }}</v-card-subtitle
+                >{{ user.user.firstName }}
+                {{ user.user.lastName }}</v-card-subtitle
               >
-              <v-card-subtitle>{{ userProfile.email }}</v-card-subtitle>
+              <v-card-subtitle>{{ user.user.email }}</v-card-subtitle>
             </v-row>
           </v-card-text>
         </v-card>
@@ -65,7 +65,7 @@
         <solutions-list
           v-on:deleteSolution="deleteSolution($event)"
           v-on:editSolution="editSolution($event)"
-          :solutions="solutions"
+          :solutions="solution.userSolutions"
           :onProfile="true"
         ></solutions-list>
       </v-col>
@@ -75,8 +75,7 @@
 
 <script>
 import SolutionContext from "@/data/solution-context";
-import UserContext from "@/data/user-context";
-import { mapActions } from "vuex";
+import { mapActions, mapState } from "vuex";
 
 export default {
   name: "src-views-profile",
@@ -89,10 +88,7 @@ export default {
   },
   data() {
     return {
-      solutions: [],
       solutionContext: new SolutionContext(),
-      userContext: new UserContext(),
-      userProfile: {},
       settings: [
         {
           title: "delete_account",
@@ -102,7 +98,13 @@ export default {
   },
   mounted() {
     this.fetchUser(this.id);
-    this.fetchUserSolutions(this.id);
+    this.fetchUserSolutions({
+      id: this.id,
+      pageNumber: 1,
+    });
+  },
+  computed: {
+    ...mapState(["user", "solution"]),
   },
   methods: {
     ...mapActions("user", ["fetchUser"]),

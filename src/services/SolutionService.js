@@ -36,4 +36,8 @@ export default {
     );
     return await apiClient.get("/Solutions").then((response) => response.data);
   },
+  async getUserSolutions(userId, pageNumber, pageSize) {
+    console.log("TEMP API CALL USER SOL: ", userId, pageNumber, pageSize);
+    return await apiClient.get("/Solutions").then((response) => response.data);
+  },
 };

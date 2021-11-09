@@ -5,6 +5,7 @@ export const namespaced = true;
 export const state = {
   feedSolutions: [],
   searchSolutions: [],
+  userSolutions: [],
   solution: {},
   pageSize: 20,
 };
@@ -15,6 +16,9 @@ export const mutations = {
   },
   SET_SEARCH_SOLUTIONS(state, solutions) {
     state.searchSolutions = solutions;
+  },
+  SET_USER_SOLUTIONS(state, solutions) {
+    state.userSolutions = solutions;
   },
   SET_SOLUTION(state, solution) {
     state.solution = solution;
@@ -44,6 +48,15 @@ export const actions = {
     )
       .then((response) => {
         commit("SET_SEARCH_SOLUTIONS", response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
+  fetchUserSolutions({ commit }, { id, pageNumber }) {
+    SolutionService.getUserSolutions(id, pageNumber, state.pageSize)
+      .then((response) => {
+        commit("SET_USER_SOLUTIONS", response);
       })
       .catch((error) => {
         console.log(error);
