@@ -5,6 +5,26 @@ export default class SolutionContext extends BaseContext {
         super('/Solutions')
     }
 
+    async sort(userId, pageNumber, pageSize, sortBy) {
+
+        try {
+            let response = await this.axios.get('', {
+                params: {
+                    id: userId,
+                    pageNumber: pageNumber,
+                    pageSize: pageSize,
+                    sortBy: sortBy
+                }
+            });
+
+            return response.data;
+
+        } catch (error) {
+            console.error(error);
+        }
+
+    }
+
     async all() {
 
         try {
@@ -73,6 +93,41 @@ export default class SolutionContext extends BaseContext {
 
         try {
             let response = await this.axios.delete(`/${solutionId}`);
+
+            return response.data;
+
+        } catch (error) {
+            console.error(error);
+        }
+    }
+    
+    // async search(query, sectionNumber, sectionSize, weatherExtremeType, sortBy) {
+    //     try {
+    //         let response = await this.axios.get('', {
+    //             params: { 
+    //                 query: query,
+    //                 sectionNumber: sectionNumber,
+    //                 sectionSize: sectionSize,
+    //                 weatherExtremeType: weatherExtremeType,
+    //                 solutionType: 'how-to',
+    //                 sortBy: sortBy
+    //             }
+    //         });
+
+    //         return response.data;
+
+    //     } catch (error) {
+    //         console.error(error);
+    //     }
+    // }
+    async search(query, weatherExtremeType) {
+        try {
+            let response = await this.axios.get('', {
+                params: { 
+                    name: query,
+                    weatherExtremeType: weatherExtremeType
+                }
+            });
 
             return response.data;
 

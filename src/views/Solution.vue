@@ -20,21 +20,17 @@
           </v-img>
           <v-row>
             <v-col cols="6">
-              <router-link v-if="solution.author"
-                :to="{
-                  name: 'Profile',
-                  params: { author: solution.author },
-                }"
-              >
                 <v-card-title>
-                  <v-avatar class="mr-2">
-                    <v-img
-                      src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
-                    ></v-img>
-                  </v-avatar>
-                  {{ solution.author }}
+                  <Avatar :user="author" />
+                  <router-link
+                      v-if="author.id"
+                      :to="{
+                        name: 'Profile',
+                        params: { userId: author.id },
+                      }">
+                  {{ author.firstName + " " + author.lastName }}
+                  </router-link>
                 </v-card-title>
-              </router-link>
             </v-col>
 
             <v-col cols="6">
@@ -107,38 +103,7 @@
       </v-col>
 
       <v-col cols="12">
-        <!-- Reactions -->
-        <v-card>
-          <v-card-title class="justify-center">{{
-            $t("common.comments")
-          }}</v-card-title>
-
-          <v-card-text>
-            <v-row>
-              <v-col cols="3" sm="2">
-                <v-avatar>
-                  <v-img
-                    src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
-                  ></v-img>
-                </v-avatar>
-              </v-col>
-              <v-col class="mb-4 mr-4">
-                <v-row>
-                  <v-text-field
-                    v-model="comment.text"
-                    :label="$t('common.comment')"
-                  ></v-text-field>
-                </v-row>
-                <v-row class="float-right">
-                  <v-btn v-on:click="post" elevation="2">{{
-                    $t("common.post")
-                  }}</v-btn>
-                </v-row>
-              </v-col>
-            </v-row>
-            <!-- ?Laat hier elke reactie zien via een eigen view? -->
-          </v-card-text>
-        </v-card>
+         <CommentSection :solutionId="solutionId" :userId="1"/>
       </v-col>
     </v-row>
   </v-container>
@@ -146,22 +111,20 @@
 
 <script>
 import SolutionContext from "@/data/solution-context";
-import CommentContext from "@/data/comment-context";
+import CommentSection from "../components/comments/CommentSection";
+import UserContext from "../data/user-context";
+import Avatar from "../components/Avatar";
 
 export default {
+  components: {Avatar, CommentSection},
   data() {
     return {
       solutionContext: new SolutionContext(),
-      commentContext: new CommentContext(),
+      userContext: new UserContext(),
       solutionId: this.$route.params.solutionId,
       solution: {},
+      author: {},
       percentage: 0,
-      comment: {
-        id: "",
-        text: "",
-        solutionId: this.$route.params.solutionId,
-        userId: "",
-      },
     };
   },
   mounted() {
@@ -169,16 +132,16 @@ export default {
       this.solution = solutions[0];
       this.calculateImpactPercentage();
     });
+    this.userContext.getById(this.solution.author).then((users) => {
+      this.author = users[0];
+    })
   },
   methods: {
     calculateImpactPercentage() {
       this.percentage = Math.floor(
         (this.solution.currentImpact / this.solution.impactGoal) * 100
       );
-    },
-    post() {
-      this.commentContext.postComment(this.comment);
-    },
+    }
   },
 };
 </script>

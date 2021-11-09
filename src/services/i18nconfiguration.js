@@ -11,6 +11,19 @@ export function localeMessages() {
     return messages
 }
 
+export function locales() {
+    const locales = require.context('/src/locales', true, /[A-Za-z0-9-_,\s]+\.json$/i)
+    const availableLocales = []
+    locales.keys().forEach(key => {
+        const matched = key.match(/([A-Za-z0-9-_]+)\./i)
+        if (matched && matched.length > 1) {
+            const locale = matched[1]
+            availableLocales.push(locale)
+        }
+    })
+    return availableLocales;
+}
+
 export const dateTimeFormats = {
     'en': {
         short: {

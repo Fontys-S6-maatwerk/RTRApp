@@ -24,4 +24,17 @@ export default class CommentContext extends BaseContext {
       console.error(error);
     }
   }
+
+  async getBySolutionId(solutionId){
+    try {
+      let response = await this.axios.get('', {
+        params: { solution: solutionId }
+      });
+
+      return response.data;
+
+    } catch (error) {
+      console.error(error);
+    }
+  }
 }
