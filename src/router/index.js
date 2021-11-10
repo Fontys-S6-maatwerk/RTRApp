@@ -27,12 +27,10 @@ const routes = [
     component: () => import("../views/Solution.vue"),
   },
   {
-    path: "/create-solution/:id?",
+    path: "/create-solution/:solutionId?",
     name: "CreateSolution",
-    component: () => import("../views/CreateSolution.vue"),
-    props: (route) => ({
-      solutionId: +route.params.id,
-    }),
+    props: true,
+    component: () => import("../views/CreateSolution.vue")
   },
   {
     path: "/search",

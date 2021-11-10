@@ -63,9 +63,32 @@ export const actions = {
       });
   },
   fetchSolution({ commit }, id) {
-    SolutionService.getSolutionById(id)
+    return SolutionService.getSolutionById(id)
       .then((response) => {
         commit("SET_SOLUTION", response);
+        return response;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
+  createSolution({ commit }, solution) {
+    return SolutionService.postSolution(solution)
+      .then((response) => {
+        commit("SET_SOLUTION", response);
+        return response;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
+  updateSolution({ commit }, { id, solution }) {
+    console.log(id);
+    console.log(solution);
+    return SolutionService.putSolution(id, solution)
+      .then((response) => {
+        commit("SET_SOLUTION", response);
+        return response;
       })
       .catch((error) => {
         console.log(error);

@@ -727,7 +727,7 @@ components:
                 isLiked:
                     type: boolean
                 uploadDate: 
-                    type: integer
+                    type: long
                 viewCount:
                     type: integer
                 coverImage:

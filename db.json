@@ -3,12 +3,12 @@
     {
       "id": "f68e3854-c01c-4306-9bae-8c5f10139fc0",
       "numberOfLikes": 10,
-      "name": "Solution name2",
+      "name": "Solution name5000",
       "introduction": "This solution had a lot of impact on many people",
       "weatherExtremeType": "Dust storm",
       "solutionType": "how-to video",
       "difficulty": "Medium",
-      "impactGoal": 80,
+      "impactGoal": "19",
       "SDGType": "Goal 13: Climate Action",
       "userId": "38eb41ae-8bcb-4b94-ac8e-7bae209efc7e",
       "user": {

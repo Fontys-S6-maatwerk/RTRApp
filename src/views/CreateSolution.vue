@@ -249,14 +249,12 @@
 </template>
 
 <script>
-import WeatherContext from "@/data/weather-context";
-import SolutionContext from "@/data/solution-context";
 import { mapActions, mapState } from "vuex";
 
 export default {
   props: {
     solutionId: {
-      type: Number,
+      type: String,
       required: false,
     },
   },
@@ -268,8 +266,6 @@ export default {
     return {
       valid: false,
       step: 1,
-      solutionContext: new SolutionContext(),
-      weatherContext: new WeatherContext(),
       impactGoalRules: [
         (value) => value >= 0 || this.$t("validation.minimum_value") + " 1",
         (value) => !!value || this.$t("validation.required"),
@@ -282,7 +278,36 @@ export default {
           this.$t("validation.impact_goal_greater_than_current_impact"),
       ],
       impactGoal: 0,
-      solution: {
+      solution: this.createFreshSolution(),
+      pageState: {
+        editable: !!this.solutionId,
+        submitText: this.solutionId
+          ? this.$t("common.update_solution")
+          : this.$t("common.add_solution"),
+      },
+    };
+  },
+  computed: {
+    ...mapState(["weather", "user"]),
+  },
+  mounted() {
+    this.fetchWeatherExtremes();
+
+    if (this.solutionId) {
+      this.fetchSolution(this.solutionId).then((response) => {
+        this.solution = response;
+      });
+    }
+  },
+  methods: {
+    ...mapActions("weather", ["fetchWeatherExtremes"]),
+    ...mapActions("solution", [
+      "fetchSolution",
+      "createSolution",
+      "updateSolution",
+    ]),
+    createFreshSolution() {
+      return {
         name: "",
         introduction: "",
         coverImage: "",
@@ -295,35 +320,13 @@ export default {
         impactGoal: 0,
         currentImpact: 0,
         //sample data
-        numberOfLikes: 122,
-        solutionType: "how-to video",
+        numberOfLikes: 0,
+        solutionType: "how-to",
         difficulty: "medium",
         SDGType: "Goal 13: Climate Action",
-        author: "Jan Janssen",
-      },
-      pageState: {
-        editable: !isNaN(this.solutionId),
-        submitText: this.solutionId
-          ? this.$t("common.update_solution")
-          : this.$t("common.add_solution"),
-      },
-    };
-  },
-  computed: {
-    ...mapState(["weather"]),
-  },
-  mounted() {
-    this.fetchWeatherExtremes();
-
-    if (this.solutionId) {
-      this.solutionContext.getById(this.solutionId).then((solutions) => {
-        //mock returns array with solution
-        this.solution = solutions[0];
-      });
-    }
-  },
-  methods: {
-    ...mapActions("weather", ["fetchWeatherExtremes"]),
+        userId: this.$store.state.user.currentUser.id,
+      };
+    },
     validate() {
       this.$refs.form.validate();
     },
@@ -345,18 +348,24 @@ export default {
     },
     submit() {
       this.solution.impactGoal = this.impactGoal;
+
       if (this.pageState.editable) {
-        this.solutionContext.update(this.solution).then((solution) => {
+        console.log("update");
+        this.updateSolution({
+          id: this.solutionId,
+          solution: this.solution,
+        }).then((solution) => {
           this.$router.push({
             name: "Solution",
-            params: { solutionId: solution.id },
+            params: { id: solution.id },
           });
         });
       } else {
-        this.solutionContext.add(this.solution).then((solution) => {
+        console.log("create");
+        this.createSolution(this.solution).then((solution) => {
           this.$router.push({
             name: "Solution",
-            params: { solutionId: solution.id },
+            params: { id: solution.id },
           });
         });
       }

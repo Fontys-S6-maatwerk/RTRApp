@@ -23,10 +23,9 @@
           </v-img>
           <v-row>
             <v-col cols="6">
-              <v-card-title>
+              <v-card-title v-if="solution.solution.user">
                 <Avatar :user="solution.solution.user" />
                 <router-link
-                  v-if="solution.solution.user.id"
                   :to="{
                     name: 'Profile',
                     params: { userId: solution.solution.user.id },
