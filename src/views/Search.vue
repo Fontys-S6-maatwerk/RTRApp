@@ -4,13 +4,14 @@
     <v-col cols="12">
       <v-form>
         <v-container>
-          <v-row>
+          <v-row no-gutters>
             <v-col cols="12">
               <v-textarea
               v-model="searchMessage"
               label="Search"
               auto-grow
               rows="1"
+              style="min-width:210px"
               clearable
               filled
               :append-outer-icon="'mdi-send'"
@@ -21,8 +22,8 @@
 
               </v-textarea>
             </v-col>
-            <v-col cols="6">
-              <v-card class="ma-1 px-2">
+            <v-col>
+              <v-card class="ma-1 px-2" min-width="210px">
                 <v-select
                 v-model="selectedWeatherExtreme"
                 :items="weatherExtremeTypes"
@@ -31,7 +32,7 @@
                 </v-select>
               </v-card>
             </v-col>
-            <v-col cols="6">
+            <v-col>
               <solution-sorter 
               v-on:sort="selectSortBy($event)"></solution-sorter>
             </v-col>
