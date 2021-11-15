@@ -93,9 +93,7 @@
                   max-height="250"
                   src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
                 ></v-img>
-                <v-list-item-title
-                  v-text="step.description"
-                ></v-list-item-title>
+                {{ step.description }}
               </v-list-item-content>
             </v-list-item>
           </v-list>
