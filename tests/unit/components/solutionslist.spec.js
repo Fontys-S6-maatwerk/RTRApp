@@ -5,12 +5,11 @@ import { solutions, $d, $t } from "../../mocks";
 describe("SolutionsList.vue", () => {
 
     it('has created correctly', () => {
-        const props = {
-            solutions: solutions,
-            onProfile: true
-        }
         const wrapper = shallowMount(SolutionsList, {
-            propsData: props,
+            propsData: {
+                solutions: solutions,
+                onProfile: true,
+            },
             mocks: {
                 $d: $d,
                 $t: $t,

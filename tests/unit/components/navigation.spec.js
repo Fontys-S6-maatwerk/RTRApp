@@ -8,6 +8,6 @@ describe("Navigation.vue", () => {
 
         expect(wrapper.text()).toBeDefined();
         expect(wrapper.vm.$data.navItems.length).toBe(4);
-        expect(wrapper.vm.$data.navItems).toContainEqual({ title: 'Home', path: '/solutions', icon: 'mdi-home' });
+        expect(wrapper.vm.$data.navItems).toContainEqual({ title: 'Home', path: '/home', icon: 'mdi-home' });
     })
 })

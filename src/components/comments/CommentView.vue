@@ -32,13 +32,18 @@
 </template>
 
 <script lang="js">
-  import Avatar from "../Avatar";
   import UserContext from "../../data/user-context";
 
   export default  {
     name: 'CommentView',
-    components: {Avatar},
-    props: ['comment'],
+    props: {
+      comment: {
+        type: Object
+      }
+    },
+    components: {
+      Avatar: () => import("../Avatar")
+    },
     data () {
       return {
         userContext: new UserContext(),
@@ -56,5 +61,4 @@
 </script>
 
 <style scoped lang="scss">
-
 </style>

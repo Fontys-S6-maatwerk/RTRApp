@@ -1,19 +1,17 @@
 <template>
   <v-row>
     <v-col cols="3" sm="2">
-      <Avatar :user="user"/>
+      <Avatar :user="user" />
     </v-col>
     <v-col class="mb-4 mr-4">
       <v-row>
         <v-text-field
-            v-model="comment.content"
-            :label="$t('common.comment')"
+          v-model="comment.content"
+          :label="$t('common.comment')"
         ></v-text-field>
       </v-row>
       <v-row class="float-right">
-        <v-btn v-on:click="post" elevation="2">{{
-            $t("common.post")
-          }}</v-btn>
+        <v-btn v-on:click="post" elevation="2">{{ $t("common.post") }}</v-btn>
       </v-row>
     </v-col>
   </v-row>
@@ -21,12 +19,18 @@
 
 <script>
 import CommentContext from "../../data/comment-context";
-import Avatar from "../Avatar";
 
 export default {
   name: "CommentCreate",
-  components: {Avatar},
-  props: ["user"], //current user
+  components: { 
+    Avatar: () => import("../Avatar.vue")
+  },
+  props: {
+    user: {
+      type: Object,
+      required: true
+    },
+  }, //current user
   data() {
     return {
       commentContext: new CommentContext(),
@@ -36,17 +40,16 @@ export default {
         solution: this.$route.params.solutionId,
         author: "",
       },
-    }
+    };
   },
   methods: {
     post() {
       this.comment.author = this.user.id;
       this.commentContext.postComment(this.comment);
     },
-  }
-}
+  },
+};
 </script>
 
 <style scoped>
-
 </style>

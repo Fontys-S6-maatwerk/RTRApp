@@ -18,7 +18,7 @@
     },
     data () {
       return {
-        navItems: [
+        navItems: [ 
           { title: 'Home', path: '/home', icon: 'mdi-home' },
           { title: 'Create solution', path: '/create-solution', icon: 'mdi-plus-circle' },
           { title: 'Search', path: '/search', icon: 'mdi-magnify' },

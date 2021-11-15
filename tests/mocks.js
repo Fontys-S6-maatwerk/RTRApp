@@ -25,6 +25,14 @@ export const solutions = Array.from({ length: 5 }, (_, i) => {
     }
 });
 
+export const $route = (params) => {
+    return {
+        params: {
+            params
+        }
+    }
+};
+
 export const $t = () => {}
 
 export const $d = () => {}

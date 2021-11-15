@@ -21,7 +21,7 @@
           <v-row>
             <v-col cols="6">
                 <v-card-title>
-                  <Avatar :user="author" />
+                  <avatar :user="author" />
                   <router-link
                       v-if="author.id"
                       :to="{
@@ -103,7 +103,7 @@
       </v-col>
 
       <v-col cols="12">
-         <CommentSection :solutionId="solutionId" :userId="1"/>
+         <comment-section :solutionId="solutionId" :userId="1"/>
       </v-col>
     </v-row>
   </v-container>
@@ -111,28 +111,34 @@
 
 <script>
 import SolutionContext from "@/data/solution-context";
-import CommentSection from "../components/comments/CommentSection";
 import UserContext from "../data/user-context";
-import Avatar from "../components/Avatar";
 
 export default {
-  components: {Avatar, CommentSection},
+  props: {
+    solutionId: {
+      type: String,
+      required: true
+    }
+  },
+  components: {
+    Avatar: () => import("@/components/Avatar"), 
+    CommentSection: () => import("@/components/comments/CommentSection")
+  },
   data() {
     return {
       solutionContext: new SolutionContext(),
       userContext: new UserContext(),
-      solutionId: this.$route.params.solutionId,
       solution: {},
       author: {},
       percentage: 0,
     };
   },
-  mounted() {
+  mounted() {    
     this.solutionContext.getById(this.solutionId).then((solutions) => {
       this.solution = solutions[0];
       this.calculateImpactPercentage();
     });
-    this.userContext.getById(this.solution.author).then((users) => {
+    this.userContext.getById(1).then((users) => {
       this.author = users[0];
     })
   },

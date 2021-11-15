@@ -263,7 +263,6 @@ export default {
         minValue: value => value >= 0 || this.$t("validation.minimum_value") + " 0" ,
         required: value => !!value || this.$t("validation.required"),
         compare: value => this.solution.impactGoal >= value || this.$t("validation.impact_goal_greater_than_current_impact")
-
       },
       solution: {
         name: "",

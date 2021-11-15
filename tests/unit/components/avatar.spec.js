@@ -15,5 +15,6 @@ describe("Avatar.vue", () => {
         })
         expect(wrapper.text()).toBeDefined();
         expect(wrapper.vm.$props.user).toEqual(user);
+        expect(wrapper.vm.getInitials()).toEqual(user.firstName.first + user.lastName.first)
     })
 })
