@@ -63,8 +63,6 @@
           {{ $t("glossary.solutions") }}
         </v-card-title>
         <solutions-list
-          v-on:deleteSolution="deleteSolution($event)"
-          v-on:editSolution="editSolution($event)"
           :solutions="solution.userSolutions"
           :onProfile="true"
         ></solutions-list>
@@ -109,20 +107,6 @@ export default {
   methods: {
     ...mapActions("user", ["fetchUser"]),
     ...mapActions("solution", ["fetchUserSolutions"]),
-
-    //TODO: Move to solution card, irrelevant for profile
-    editSolution(solutionId) {
-      this.$router.push({
-        name: "CreateSolution",
-        params: { id: solutionId },
-      });
-    },
-    //TODO: Move to solution card, irrelevant for profile
-    deleteSolution(solutionId) {
-      this.solutionContext
-        .delete(solutionId)
-        .then(this.solutions.splice(this.solutions.indexOf(solutionId), 1));
-    },
   },
 };
 </script>

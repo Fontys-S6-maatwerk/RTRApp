@@ -14,8 +14,12 @@
         {{ $t("validation.delete_solution") }} '{{ solution.name }}' ?
       </v-card-text>
       <v-card-actions>
-        <v-btn @click="confirm()" color="primary">{{ $t("common.yes")}} </v-btn>
-        <v-btn @click="dialog = false" color="error">{{ $t("common.no") }}</v-btn>
+        <v-btn @click="confirm" color="primary"
+          >{{ $t("common.yes") }}
+        </v-btn>
+        <v-btn @click="dialog = false" color="error">{{
+          $t("common.no")
+        }}</v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>
@@ -43,12 +47,12 @@ export default {
     };
   },
   methods: {
-    confirm() {
-      this.$emit("confirm", this.solution.id);
+    confirm(solutionId) {
+      console.log("fwebfuiwbi");
+      this.deleteSolution(solutionId);
     },
   },
 };
 </script>
 
-<style>
-</style>
+<style></style>

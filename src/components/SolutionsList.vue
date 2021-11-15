@@ -49,7 +49,6 @@
                 :solution="solution"
                 :showDialog="dialog"
                 :onProfile="onProfile"
-                v-on:confirm="deleteSolution($event)"
               >
               </delete-solution-dialog>
             </span>
@@ -71,6 +70,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 import UserContext from "../data/user-context";
 
 export default {
@@ -96,6 +96,7 @@ export default {
     };
   },
   methods: {
+    ...mapActions("solution", ["deleteSolution"]),
     openSolution(solutionId) {
       this.$router.push({
         name: "Solution",
@@ -103,10 +104,10 @@ export default {
       });
     },
     editSolution(solutionId) {
-      this.$emit("editSolution", solutionId);
-    },
-    deleteSolution(solutionId) {
-      this.$emit("deleteSolution", solutionId);
+      this.$router.push({
+        name: "CreateSolution",
+        params: { solutionId: solutionId },
+      });
     },
   },
 };

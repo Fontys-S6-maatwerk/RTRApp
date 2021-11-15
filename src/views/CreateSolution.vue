@@ -350,7 +350,6 @@ export default {
       this.solution.impactGoal = this.impactGoal;
 
       if (this.pageState.editable) {
-        console.log("update");
         this.updateSolution({
           id: this.solutionId,
           solution: this.solution,
@@ -361,7 +360,6 @@ export default {
           });
         });
       } else {
-        console.log("create");
         this.createSolution(this.solution).then((solution) => {
           this.$router.push({
             name: "Solution",

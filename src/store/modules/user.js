@@ -17,6 +17,9 @@ export const mutations = {
   SET_USER(state, user) {
     state.user = user;
   },
+  SET_CURRENT_USER(state, user) {
+    state.currentUser = user;
+  },
 };
 
 export const actions = {
