@@ -146,7 +146,13 @@ export default {
     },
     impact(impactNumber) {
       console.log(impactNumber);
-      // this.solutionContext.userImpact(impactNumber);
+      this.solution.currentImpact += Number(impactNumber);
+      // Stuur de solution & current user naar backend
+      // this.solutionContext.userImpact(this.solution, currentUser);
+      this.solutionContext.userImpact(this.solution, this.author)
+      .then(() => {
+        console.log('impact toegevoegd');
+      });
     }
   },
 };
