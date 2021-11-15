@@ -1,5 +1,61 @@
 {
-  "message": {
-    "hello": "Hello i18n world"
-  }
+    "common": {
+        "add_material": "Add material",
+        "add_solution": "Add solution",
+        "add_step": "Add step",
+        "add_tool": "Add tool",
+        "back": "Back",
+        "cancel": "Cancel",
+        "comment": "Comment",
+        "comments": "Comments",
+        "continue": "Continue",
+        "cover_image": "Cover image",
+        "current_impact": "Current impact",
+        "description": "Description",
+        "followers": "Followers",
+        "following": "Following",
+        "general": "General",
+        "impact": "Impact",
+        "impact_goal": "Impact goal",
+        "impact_question": "How many people do you want to influence with your solution?",
+        "instructions": "Instructions",
+        "instructions_description": "Add instruction steps for others to recreate your solution",
+        "instructions_hint": "Type a quick introduction about the solution",
+        "introduction": "Introduction",
+        "likes": "Likes",
+        "materials": "Materials",
+        "next_step": "Next step",
+        "no_instructions_yet": "No instructions yet",
+        "steps": "Steps",
+        "name": "Name",
+        "update_solution": "Update solution",
+        "upload_image": "Upload image",
+        "view_count": "View count",
+        "delete": "Delete",
+        "solution": "Solution",
+        "yes": "Yes",
+        "no": "No",
+        "post": "Post"
+    },
+    "glossary": {
+        "impacted": "Impacted",
+        "users": "Users",
+        "my": "My",
+        "solutions": "Solutions",
+        "tool": "Tool",
+        "material": "Material",
+        "details": "Details",
+        "delete_account": "Delete account",
+        "profile": "Profile",
+        "language": "Language"
+    },
+    "message": {
+        "hello": "Hello i18n world"
+    },
+    "validation": {
+        "delete_solution": "Are you sure you want to delete the solution",
+        "impact_goal_greater_than_current_impact": "Impact goal must be greater than the current impact",
+        "required": "Required",
+        "minimum_value": "Minimum value is"
+    }
 }

@@ -1,15 +1,27 @@
 <template>
   <v-stepper alt-labels v-model="step">
     <v-stepper-header>
-      <v-stepper-step :complete="step > 1" step="1"> General </v-stepper-step>
+      <v-stepper-step :complete="step > 1" step="1">
+        {{ $t("common.general") }}
+      </v-stepper-step>
 
       <v-divider></v-divider>
 
-      <v-stepper-step :complete="step > 2" step="2"> Materials </v-stepper-step>
+      <v-stepper-step :complete="step > 2" step="2">
+        {{ $t("common.materials") }}
+      </v-stepper-step>
 
       <v-divider></v-divider>
 
-      <v-stepper-step step="3"> Instructions </v-stepper-step>
+      <v-stepper-step :complete="step > 3" step="3">
+        {{ $t("common.instructions") }}
+      </v-stepper-step>
+
+      <v-divider></v-divider>
+
+      <v-stepper-step step="4">
+        {{ $t("common.impact")}}
+      </v-stepper-step>
     </v-stepper-header>
 
     <v-stepper-items>
@@ -17,43 +29,62 @@
         <v-card outlined color="transparent">
           <v-card-text class="px-0">
             <v-text-field
-              label="Title"
+              :label="$t('common.name')"
+              v-model="solution.name"
               :counter="40"
               outlined
-              required
             ></v-text-field>
 
             <v-textarea
-              label="Introduction"
+              :label="$t('common.introduction')"
+              v-model="solution.introduction"
               :counter="250"
               height="100"
-              hint="Type a quick introduction about the solution"
+              :hint="$t('common.instructions_hint')"
               outlined
-              required
             ></v-textarea>
 
-            <v-container class="category-list pa-0">
-              <span v-for="i in 20" :key="i">
+            <v-container fluid class="category-list pa-0">
+              <span
+                v-for="(weatherExtremeType, index) in weatherExtremeTypes"
+                :key="index"
+                v-on:click="solution.weatherExtremeType = weatherExtremeType"
+                :set="
+                  (isSelected =
+                    solution.weatherExtremeType == weatherExtremeType)
+                "
+              >
                 <v-img
-                  width="50"
-                  height="50"
+                  width="75"
+                  height="75"
                   class="rounded-lg ma-1"
                   src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
                 >
+                  <div
+                    v-if="isSelected"
+                    class="fill-height bottom-gradient"
+                  ></div>
                 </v-img>
-                <p>Blizzard</p>
+                <div
+                  :class="
+                    isSelected ? 'font-weight-bold' : 'font-weight-medium'
+                  "
+                  v-text="weatherExtremeType"
+                ></div>
               </span>
             </v-container>
 
             <v-card outlined color="transparent">
-              <v-container class="d-flex pa-0">
-                <h4>Cover image</h4>
+              <v-container fluid class="d-flex pa-0">
+                <h4>{{ $t("common.cover_image") }}</h4>
                 <v-row v-if="solution.coverImage" no-gutters justify="end">
-                  <v-icon v-on:click="removeCoverImage()">mdi-close</v-icon>
+                  <v-icon v-on:click="solution.coverImage = ''"
+                    >mdi-close</v-icon
+                  >
                 </v-row>
               </v-container>
 
-              <v-container class="pa-0 mx-0" v-if="!solution.coverImage">
+              <v-container class="pa-0" fluid v-if="!solution.coverImage">
                 <v-btn
                   @click="$refs.file.click()"
                   height="50"
@@ -61,7 +92,7 @@
                   block
                 >
                   <v-icon left>mdi-upload</v-icon>
-                  Upload Image
+                  {{ $t("common.upload_image") }}
                 </v-btn>
                 <input
                   v-on:change="setCoverImage"
@@ -88,7 +119,7 @@
               block
               @click="step++"
             >
-              Next step
+              {{ $t("common.next_step") }}
             </v-btn>
           </v-card-text>
         </v-card>
@@ -97,18 +128,16 @@
       <v-stepper-content step="2">
         <v-card outlined color="transparent">
           <v-card-text class="px-0">
-            <v-text-field
-              v-for="(material, index) in solution.materials"
-              :key="material"
-              v-model="solution.materials[index]"
-              label="Material name"
-              hide-details="auto"
+            <indexed-text-field
+              :items="solution.materials"
+              itemKey="material"
+              :label="$t('glossary.material')"
               append-icon="mdi-minus"
-              @click:append="removeItem(index, 'materials')"
-              class="my-1"
-              outlined
-              required
-            ></v-text-field>
+              @click:append="removeItem($event, 'materials')"
+              styleClass="my-1"
+            >
+            </indexed-text-field>
+
             <v-btn
               @click="addItem('', 'materials')"
               height="40"
@@ -117,21 +146,19 @@
               block
             >
               <v-icon left>mdi-plus</v-icon>
-              Add Material
+              {{ $t("common.add_material") }}
             </v-btn>
 
-            <v-text-field
-              v-for="(tool, index) in solution.tools"
-              :key="tool"
-              v-model="solution.tools[index]"
-              label="Tool name"
-              hide-details="auto"
+            <indexed-text-field
+              :items="solution.tools"
+              itemKey="tool"
+              :label="$t('glossary.tool')"
               append-icon="mdi-minus"
-              @click:append="removeItem(index, 'tools')"
-              class="my-1"
-              outlined
-              required
-            ></v-text-field>
+              @click:append="removeItem($event, 'tools')"
+              styleClass="my-1"
+            >
+            </indexed-text-field>
+
             <v-btn
               @click="addItem('', 'tools')"
               height="40"
@@ -140,13 +167,14 @@
               block
             >
               <v-icon left>mdi-plus</v-icon>
-              Add Tool
+              {{ $t("common.add_tool") }}
             </v-btn>
-            <!-- {{ $data }} -->
           </v-card-text>
           <v-card-actions>
-            <v-btn color="primary" @click="step++"> Continue </v-btn>
-            <v-btn text @click="step--"> Cancel </v-btn>
+            <v-btn color="primary" @click="step++">
+              {{ $t("common.continue") }}
+            </v-btn>
+            <v-btn text @click="step--"> {{ $t("common.cancel") }} </v-btn>
           </v-card-actions>
         </v-card>
       </v-stepper-content>
@@ -155,52 +183,141 @@
         <v-card outlined color="transparent">
           <v-card-text class="px-0">
             <div v-if="!solution.steps.length">
-              <h3>No instructions yet</h3>
-              <p>Add instruction steps for others to recreate your solution</p>
+              <h3>{{ $t("common.no_instructions_yet") }}</h3>
+              <p>{{ $t("common.instructions_description") }}</p>
             </div>
 
-            <v-text-field
-              v-for="(step, index) in solution.steps"
-              :key="step"
-              v-model="solution.steps[index].description"
-              hide-details="auto"
+            <indexed-text-field
+              :items="solution.steps.map((x) => x.description)"
+              itemKey="step"
               append-icon="mdi-minus"
-              @click:append="removeItem(index, 'steps')"
-              class="my-1"
-              outlined
-            ></v-text-field>
+              @click:append="removeItem($event, 'steps')"
+              styleClass="my-1"
+            >
+            </indexed-text-field>
 
             <add-step-dialog
               v-on:submit="addItem($event, 'steps')"
             ></add-step-dialog>
           </v-card-text>
           <v-card-actions>
-            <v-btn color="primary" @click="logDone()"> Add solution </v-btn>
-            <v-btn text @click="step--"> Cancel </v-btn>
+            <v-btn color="primary" @click="step++">
+              {{ $t("common.continue") }}
+            </v-btn>
+            
+            <v-btn text @click="step--"> {{ $t("common.cancel") }} </v-btn>
           </v-card-actions>
         </v-card>
+      </v-stepper-content>
+      <v-stepper-content step="4">
+        <v-form ref="form" v-model="valid">
+          <v-card outlined color="transparent">
+            <v-card-text class="px-0">
+              <v-card-title class="justify-center">{{ $t('common.impact_question')}}</v-card-title>
+              <v-text-field type="number"
+              :rules="impactGoalRules"
+              min="0"
+              outlined
+              required
+              :label="$t('common.impact_goal')"
+              v-model="impactGoal"></v-text-field>
+              <v-text-field type="number"
+              :rules="currentImpactRules"
+              min="0"
+              outlined
+              required
+              :label="$t('common.current_impact')"
+              v-model="solution.currentImpact"></v-text-field>            
+            </v-card-text>
+            <v-card-actions>
+              <v-btn :disabled="!valid" color="primary" @click="submit()">
+                  {{ pageState.submitText }}
+              </v-btn>
+              <v-btn text @click="step--">{{ $t("common.back") }}</v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-form>
+        
       </v-stepper-content>
     </v-stepper-items>
   </v-stepper>
 </template>
 
 <script>
+import WeatherContext from "@/data/weather-context";
+import SolutionContext from "@/data/solution-context";
+
 export default {
+  props: {
+    solutionId: {
+      type: Number,
+      required: false,
+    },
+  },
   components: {
-    AddStepDialog: () => import("@/components/AddStepDialog"),
+    AddStepDialog: () => import("@/components/dialogs/AddStepDialog"),
+    IndexedTextField: () => import("@/components/IndexedTextField"),
   },
   data() {
     return {
-      step: 1,
+      valid: false,
+      step: 4,
+      weatherExtremeTypes: [],
+      solutionContext: new SolutionContext(),
+      weatherContext: new WeatherContext(),
+      impactGoalRules: [
+        value => value >= 0 || this.$t("validation.minimum_value") + " 1" ,
+        value => !!value || this.$t("validation.required"),
+      ],
+      currentImpactRules: [
+        v => v >= 0 || this.$t("validation.minimum_value") + " 0" ,
+        v => !!v || this.$t("validation.required"),
+        v => v < (parseInt(this.impactGoal)) || this.$t("validation.impact_goal_greater_than_current_impact"),
+      ],
+      impactGoal: 0,
       solution: {
+        name: "",
+        introduction: "",
         coverImage: "",
+        weatherExtremeType: "",
         materials: [],
         tools: [],
         steps: [],
+        uploadDate: +new Date(),
+        viewCount: 0,
+        impactGoal: 0,
+        currentImpact: 0,
+        //sample data
+        numberOfLikes: 122,
+        solutionType: "how-to video",
+        difficulty: "medium",
+        SDGType: "Goal 13: Climate Action",
+        author: "Jan Janssen",
+      },
+      pageState: {
+        editable: !isNaN(this.solutionId),
+        submitText: this.solutionId
+          ? this.$t("common.update_solution")
+          : this.$t("common.add_solution"),
       },
     };
   },
+  mounted() {
+    this.weatherContext.getWeatherExtremes().then((extremes) => {
+      this.weatherExtremeTypes = extremes;
+    });
+
+    if (this.solutionId) {
+      this.solutionContext.getById(this.solutionId).then((solutions) => {
+        //mock returns array with solution
+        this.solution = solutions[0];
+      });
+    }
+  },
   methods: {
+    validate(){
+      this.$refs.form.validate();
+    },
     addItem(item, name) {
       this.solution[name].push(item);
     },
@@ -217,13 +334,28 @@ export default {
       }
       this.solution.coverImage = window.URL.createObjectURL(file);
     },
-    removeCoverImage() {
-      this.solution.coverImage = "";
-    },
-    logDone() {
-      console.log(this.solution);
+    submit() {
+      this.solution.impactGoal = this.impactGoal;
+      if (this.pageState.editable) {
+        this.solutionContext.update(this.solution).then((solution) => {
+          this.$router.push({
+            name: "Solution",
+            params: { solutionId: solution.id },
+          });
+        });
+      } else {
+        this.solutionContext.add(this.solution).then((solution) => {
+          this.$router.push({
+            name: "Solution",
+            params: { solutionId: solution.id },
+          });
+        });
+      }
     },
   },
+  watch: {
+    impactGoal: 'validate'
+  }
 };
 </script>
 
@@ -236,6 +368,7 @@ export default {
   overflow-x: auto;
   white-space: nowrap;
   display: flex;
+  justify-content: center;
 }
 
 .v-card__actions {
@@ -245,6 +378,14 @@ export default {
 
 .v-card__actions > .v-btn {
   padding: 0 24px !important;
+}
+
+.bottom-gradient {
+  background-image: linear-gradient(
+    to bottom,
+    rgba(160, 160, 160, 0.4) 0%,
+    transparent 72px
+  );
 }
 
 ::-webkit-scrollbar {
