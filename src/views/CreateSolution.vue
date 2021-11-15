@@ -5,19 +5,19 @@
         {{ $t("common.general") }}
       </v-stepper-step>
 
-      <v-divider></v-divider>
+      <!-- <v-divider></v-divider> -->
 
       <v-stepper-step :complete="step > 2" step="2">
         {{ $t("common.materials") }}
       </v-stepper-step>
 
-      <v-divider></v-divider>
+      <!-- <v-divider></v-divider> -->
 
       <v-stepper-step :complete="step > 3" step="3">
         {{ $t("common.instructions") }}
       </v-stepper-step>
 
-      <v-divider></v-divider>
+      <!-- <v-divider></v-divider> -->
 
       <v-stepper-step step="4">
         {{ $t("common.impact")}}
@@ -261,7 +261,7 @@ export default {
   data() {
     return {
       valid: false,
-      step: 4,
+      step: 1,
       weatherExtremeTypes: [],
       solutionContext: new SolutionContext(),
       weatherContext: new WeatherContext(),
@@ -368,7 +368,6 @@ export default {
   overflow-x: auto;
   white-space: nowrap;
   display: flex;
-  justify-content: center;
 }
 
 .v-card__actions {
