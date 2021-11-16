@@ -1,5 +1,6 @@
 {
     "common": {
+        "add_impact": "Add impact",
         "add_material": "Add material",
         "add_solution": "Add solution",
         "add_step": "Add step",
@@ -8,6 +9,7 @@
         "cancel": "Cancel",
         "comment": "Comment",
         "comments": "Comments",
+        "confirm": "Confirm",
         "continue": "Continue",
         "cover_image": "Cover image",
         "current_impact": "Current impact",

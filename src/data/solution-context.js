@@ -135,4 +135,14 @@ export default class SolutionContext extends BaseContext {
             console.error(error);
         }
     }
+    async userImpact(solution, user) {
+        try {
+            let response = await this.axios.put(`/${solution.id}`, solution);
+
+            return response.data;
+
+        } catch (error) {
+            console.error(error);
+        }
+    }
 }

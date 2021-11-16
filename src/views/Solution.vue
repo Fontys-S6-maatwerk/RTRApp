@@ -62,6 +62,7 @@
               >
             </v-row>
           </v-card-text>
+          <impact-dialog v-on:impact="impact($event)"></impact-dialog>
         </v-card>
       </v-col>
       <v-col cols="6">
@@ -114,7 +115,8 @@ import UserContext from "../data/user-context";
 import Avatar from "../components/Avatar";
 
 export default {
-  components: {Avatar, CommentSection},
+  components: {Avatar, CommentSection,
+  ImpactDialog: () => import("@/components/dialogs/ImpactDialog")},
   data() {
     return {
       solutionContext: new SolutionContext(),
@@ -139,6 +141,18 @@ export default {
       this.percentage = Math.floor(
         (this.solution.currentImpact / this.solution.impactGoal) * 100
       );
+    },
+    impact(impactNumber) {
+      this.solution.currentImpact += Number(impactNumber);
+      // Stuur de solution & current user naar backend
+      // this.solutionContext.userImpact(this.solution, currentUser)
+      // .then(() => {
+      //  this.calculateImpactPercentage();
+      // });
+      this.solutionContext.userImpact(this.solution, this.author)
+      .then(() => {
+        this.calculateImpactPercentage();
+      });
     }
   },
 };
