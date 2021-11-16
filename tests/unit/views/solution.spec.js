@@ -3,7 +3,7 @@ import Solution from "@/views/Solution.vue";
 import SolutionContext from "@/data/solution-context";
 import UserContext from "@/data/user-context";
 import { $t, $d, $route } from "../../mocks";
-// import Vue from "vue";
+import Vue from "vue";
 
 describe("Solution.vue", () => {
     it('is created', async() => {
@@ -22,7 +22,7 @@ describe("Solution.vue", () => {
             }
         });
 
-        // await Vue.nextTick();
+        await Vue.nextTick();
 
         expect(wrapper.text()).toBeDefined();
         expect(wrapper.vm.$props.solutionId).toEqual(id);
