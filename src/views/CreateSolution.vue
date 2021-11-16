@@ -5,19 +5,19 @@
         {{ $t("common.general") }}
       </v-stepper-step>
 
-      <!-- <v-divider></v-divider> -->
+      <v-divider></v-divider>
 
       <v-stepper-step :complete="step > 2" step="2">
         {{ $t("common.materials") }}
       </v-stepper-step>
 
-      <!-- <v-divider></v-divider> -->
+      <v-divider></v-divider>
 
       <v-stepper-step :complete="step > 3" step="3">
         {{ $t("common.instructions") }}
       </v-stepper-step>
 
-      <!-- <v-divider></v-divider> -->
+      <v-divider></v-divider>
 
       <v-stepper-step step="4">
         {{ $t("common.impact")}}
@@ -360,10 +360,6 @@ export default {
 </script>
 
 <style scoped>
-::v-deep .v-stepper__label {
-  display: unset !important;
-}
-
 .category-list {
   overflow-x: auto;
   white-space: nowrap;
