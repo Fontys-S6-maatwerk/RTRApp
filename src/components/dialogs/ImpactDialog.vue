@@ -12,10 +12,13 @@
             <v-card-title>
                 {{ $t("common.add_impact") }}
             </v-card-title>
-            <v-text-field 
-            type="number"
-            v-model="impact">
-            </v-text-field>
+            <v-card-text class="justify-center">
+                <v-text-field 
+                type="number"
+                v-model="impact">
+                </v-text-field>
+            </v-card-text>
+            
             <v-card-actions>
                 <v-btn 
                 @click="confirm()"
