@@ -16,7 +16,21 @@
         </v-card-title>
         <v-card-text class="pb-1">
           <v-img class="rounded-lg" src="https://cdn.vuetifyjs.com/images/cards/cooking.png">
-            
+            <v-col align="right">
+              <v-btn color="white" height="50">
+                <v-icon size="30">mdi-bookmark-outline</v-icon>
+              </v-btn>
+              </v-col>
+              <v-col align="right">
+              <v-btn color="white" v-on:click="editSolution(solution.id)" v-if="onProfile" height="50">
+                <v-icon size="30">mdi-pencil</v-icon>
+              </v-btn>
+              </v-col>
+              <v-col align="right">
+              <delete-solution-dialog :solution="solution" :showDialog="dialog" :onProfile="onProfile"
+                  v-on:confirm="deleteSolution($event)">
+              </delete-solution-dialog>
+            </v-col>
           </v-img>
           <v-card flat>
             <v-card-text class="pa-1 justify-space-between">
@@ -27,19 +41,7 @@
                     <p class="mx-1 my-0">{{ solution.weatherExtremeType }}</p>
                   </span>
                 </v-col>
-                <v-col align="right">
-                  <v-btn class="mx-1" height="50" outlined>
-                    <v-icon size="30">mdi-bookmark-outline</v-icon>
-                  </v-btn>
-                  
-                  <v-btn class="mx-1" v-on:click="editSolution(solution.id)" v-if="onProfile" height="50" outlined>
-                    <v-icon size="30">mdi-pencil</v-icon>
-                  </v-btn>
-
-                  <delete-solution-dialog class="mx-1" :solution="solution" :showDialog="dialog" :onProfile="onProfile"
-                      v-on:confirm="deleteSolution($event)">
-                  </delete-solution-dialog>
-                </v-col>
+                
               </v-row>
             </v-card-text>
           </v-card>
