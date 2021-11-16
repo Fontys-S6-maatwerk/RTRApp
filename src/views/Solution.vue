@@ -149,7 +149,7 @@ export default {
       // .then(() => {
       //  this.calculateImpactPercentage();
       // });
-      this.solutionContext.userImpact(this.solution, this.author)
+      this.solutionContext.userImpact(this.solution)
       .then(() => {
         this.calculateImpactPercentage();
       });
