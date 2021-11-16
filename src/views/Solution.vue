@@ -145,7 +145,6 @@ export default {
       );
     },
     impact(impactNumber) {
-      console.log(impactNumber);
       this.solution.currentImpact += Number(impactNumber);
       // Stuur de solution & current user naar backend
       // this.solutionContext.userImpact(this.solution, currentUser)
