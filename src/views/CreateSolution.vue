@@ -360,15 +360,10 @@ export default {
 </script>
 
 <style scoped>
-::v-deep .v-stepper__label {
-  display: unset !important;
-}
-
 .category-list {
   overflow-x: auto;
   white-space: nowrap;
   display: flex;
-  justify-content: center;
 }
 
 .v-card__actions {
