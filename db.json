@@ -1,53 +1,6 @@
 {
   "Solutions": [
     {
-      "id": "f68e3854-c01c-4306-9bae-8c5f10139fc0",
-      "numberOfLikes": 10,
-      "name": "Solution name5000",
-      "introduction": "This solution had a lot of impact on many people",
-      "weatherExtremeType": "Dust storm",
-      "solutionType": "how-to video",
-      "difficulty": "Medium",
-      "impactGoal": "19",
-      "SDGType": "Goal 13: Climate Action",
-      "userId": "38eb41ae-8bcb-4b94-ac8e-7bae209efc7e",
-      "user": {
-        "id": "38eb41ae-8bcb-4b94-ac8e-7bae209efc7e",
-        "firstName": "John",
-        "lastName": "Snow",
-        "email": "johnsnow@email.com",
-        "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg"
-      },
-      "currentImpact": 9,
-      "uploadDate": 1634647211973,
-      "viewCount": 234,
-      "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png",
-      "materials": [
-        "plastic",
-        "wood",
-        "cardboard"
-      ],
-      "tools": [
-        "tool 34",
-        "tool 21",
-        "tool 22"
-      ],
-      "steps": [
-        {
-          "description": "step 1",
-          "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png"
-        },
-        {
-          "description": "step 2",
-          "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png"
-        },
-        {
-          "description": "step 3",
-          "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png"
-        }
-      ]
-    },
-    {
       "id": "5de9a4a0-5861-437c-bd77-42288e527754",
       "name": "Bevestig kussen met spijkers",
       "introduction": "Deze oplossing maakt het mogelijk voor gebruikers om een kussen te kunnen bevestigen met een hamer. ",

@@ -14,9 +14,7 @@
         {{ $t("validation.delete_solution") }} '{{ solution.name }}' ?
       </v-card-text>
       <v-card-actions>
-        <v-btn @click="confirm" color="primary"
-          >{{ $t("common.yes") }}
-        </v-btn>
+        <v-btn @click="confirm" color="primary">{{ $t("common.yes") }} </v-btn>
         <v-btn @click="dialog = false" color="error">{{
           $t("common.no")
         }}</v-btn>
@@ -26,6 +24,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
   props: {
     solution: {
@@ -47,9 +46,9 @@ export default {
     };
   },
   methods: {
-    confirm(solutionId) {
-      console.log("fwebfuiwbi");
-      this.deleteSolution(solutionId);
+    ...mapActions("solution", ["deleteSolution"]),
+    confirm() {
+      this.deleteSolution(this.solution);
     },
   },
 };

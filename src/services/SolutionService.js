@@ -50,4 +50,7 @@ export default {
       .put("/Solutions/" + id, solution)
       .then((response) => response.data);
   },
+  async deleteSolution(id) {
+    return await apiClient.delete("/solutions/" + id);
+  },
 };

@@ -23,6 +23,10 @@ export const mutations = {
   SET_SOLUTION(state, solution) {
     state.solution = solution;
   },
+  REMOVE_SOLUTION(state, solution) {
+    const index = state.userSolutions.indexOf(solution);
+    state.userSolutions.splice(index, 1);
+  },
 };
 
 export const actions = {
@@ -94,4 +98,15 @@ export const actions = {
         console.log(error);
       });
   },
+  deleteSolution({ commit }, solution) {
+    SolutionService.deleteSolution(solution.id)
+      .then(() => {
+        commit("REMOVE_SOLUTION", solution);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
 };
+
+export const getters = {};
