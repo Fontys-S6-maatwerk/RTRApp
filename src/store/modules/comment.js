@@ -4,7 +4,7 @@ export const namespaced = true;
 
 export const state = {
   items: [],
-  pageSize: 10,
+  pageSize: 5,
 };
 
 export const mutations = {
@@ -18,15 +18,21 @@ export const mutations = {
 
 export const actions = {
   fetchSolutionComments({ commit, state }, { solutionId, pageNumber }) {
-    CommentService.getSolutionComments(solutionId, pageNumber, state.pageSize)
+    return CommentService.getSolutionComments(
+      solutionId,
+      pageNumber,
+      state.pageSize
+    )
       .then((response) => {
-        commit("SET_COMMENTS", response);
+        commit("SET_COMMENTS", response.items);
+        return response;
       })
       .catch((error) => {
         console.log(error);
       });
   },
   createComment({ commit }, comment) {
+    console.log(comment);
     CommentService.postComment(comment)
       .then((response) => {
         commit("ADD_COMMENT", response);

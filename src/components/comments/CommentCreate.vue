@@ -25,6 +25,7 @@ import Avatar from "../Avatar";
 export default {
   name: "CommentCreate",
   components: { Avatar },
+  props: ["solutionId"],
   data() {
     return {
       commentContext: new CommentContext(),
@@ -38,14 +39,13 @@ export default {
     ...mapActions("comment", ["createComment"]),
     createFreshComment() {
       return {
-        id: "",
         content: "",
-        solution: this.$route.params.solutionId,
-        author: "",
+        solutionId: this.solutionId,
+        userId: this.$store.state.user.currentUser.id,
+        creationTime: 0,
       };
     },
     post() {
-      this.comment.author = this.user.currentUser.id;
       this.createComment(this.comment);
       this.createFreshComment();
     },

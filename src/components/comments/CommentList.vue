@@ -1,5 +1,5 @@
 <template lang="html">
-  <v-list min-height="500px">
+  <v-list min-height="100px">
     <v-list-item v-for="comment in comment.items" v-bind:key="comment.id">
       <CommentView :comment="comment" />
     </v-list-item>
@@ -17,6 +17,6 @@ import { mapState } from "vuex";
     },
     computed: {
       ...mapState(["comment"])
-    }
+    },
 }
 </script>
