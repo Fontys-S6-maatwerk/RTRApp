@@ -1,6 +1,6 @@
 <template>
-  <v-card class="ma-1 px-2">
-    <v-card-text class="px-2 d-flex justify-space-between">
+  <v-card class="ma-1 px-2" min-width="80px">
+    <v-card-text class="px-2 justify-space-around d-flex flex-wrap">
       <v-tooltip v-for="(item, index) in items" :key="index" bottom>
         <template v-slot:activator="{ on, attrs }">
           <v-btn

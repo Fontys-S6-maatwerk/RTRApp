@@ -1,5 +1,6 @@
 {
     "common": {
+        "add_impact": "Voeg impact toe",
         "add_material": "Voeg material toe",
         "add_solution": "Voeg oplossing toe",
         "add_step": "Voeg stap toe",
@@ -8,6 +9,7 @@
         "cancel": "Annuleer",
         "comment": "Reactie",
         "comments": "Reacties",
+        "confirm": "Bevestigen",
         "continue": "Doorgaan",
         "cover_image": "Omslagfoto",
         "current_impact": "Huidige impact",
@@ -33,6 +35,7 @@
         "view_count": "keer bekeken",
         "delete": "Verwijder",
         "solution": "Oplossing",
+        "select": "Selecteer",
         "yes": "Ja",
         "no": "Nee",
         "post": "Plaats"

@@ -69,6 +69,7 @@
               >
             </v-row>
           </v-card-text>
+          <impact-dialog v-on:impact="impact($event)"></impact-dialog>
         </v-card>
       </v-col>
       <v-col cols="6">
@@ -101,9 +102,7 @@
                   max-height="250"
                   src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
                 ></v-img>
-                <v-list-item-title
-                  v-text="step.description"
-                ></v-list-item-title>
+                {{ step.description }}
               </v-list-item-content>
             </v-list-item>
           </v-list>
@@ -150,6 +149,18 @@ export default {
           100
       );
     },
+    impact(impactNumber) {
+      this.solution.currentImpact += Number(impactNumber);
+      // Stuur de solution & current user naar backend
+      // this.solutionContext.userImpact(this.solution, currentUser)
+      // .then(() => {
+      //  this.calculateImpactPercentage();
+      // });
+      this.solutionContext.userImpact(this.solution)
+      .then(() => {
+        this.calculateImpactPercentage();
+      });
+    }
   },
 };
 </script>
