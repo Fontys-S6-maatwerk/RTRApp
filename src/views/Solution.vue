@@ -117,6 +117,7 @@
 </template>
 
 <script>
+import ImpactDialog from "@/components/dialogs/ImpactDialog.vue";
 import CommentSection from "../components/comments/CommentSection";
 import Avatar from "../components/Avatar";
 import { mapActions, mapState } from "vuex";
@@ -135,12 +136,13 @@ export default {
   components: {
     Avatar,
     CommentSection,
+    ImpactDialog,
   },
   computed: {
     ...mapState(["solution"]),
   },
   methods: {
-    ...mapActions("solution", ["fetchSolution"]),
+    ...mapActions("solution", ["fetchSolution", "addImpact"]),
     ...mapActions("comment", ["fetchSolutionComments"]),
     calculateImpactPercentage() {
       return Math.floor(
@@ -150,17 +152,19 @@ export default {
       );
     },
     impact(impactNumber) {
-      this.solution.currentImpact += Number(impactNumber);
-      // Stuur de solution & current user naar backend
-      // this.solutionContext.userImpact(this.solution, currentUser)
-      // .then(() => {
-      //  this.calculateImpactPercentage();
-      // });
-      this.solutionContext.userImpact(this.solution)
-      .then(() => {
+      this.addImpact(impactNumber).then(() => {
         this.calculateImpactPercentage();
       });
-    }
+      // this.solution.currentImpact += Number(impactNumber);
+      // // Stuur de solution & current user naar backend
+      // // this.solutionContext.userImpact(this.solution, currentUser)
+      // // .then(() => {
+      // //  this.calculateImpactPercentage();
+      // // });
+      // this.solutionContext.userImpact(this.solution).then(() => {
+      //   this.calculateImpactPercentage();
+      // });
+    },
   },
 };
 </script>
