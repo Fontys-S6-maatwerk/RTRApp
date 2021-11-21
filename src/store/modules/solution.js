@@ -27,6 +27,9 @@ export const mutations = {
     const index = state.userSolutions.indexOf(solution);
     state.userSolutions.splice(index, 1);
   },
+  ADD_IMPACT(state, impact) {
+    state.solution.currentImpact += impact;
+  },
 };
 
 export const actions = {
@@ -102,6 +105,15 @@ export const actions = {
     SolutionService.deleteSolution(solution.id)
       .then(() => {
         commit("REMOVE_SOLUTION", solution);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
+  addImpact({ commit }, { id, impact }) {
+    SolutionService.addImpact(id, impact)
+      .then(() => {
+        commit("ADD_IMPACT", impact);
       })
       .catch((error) => {
         console.log(error);
