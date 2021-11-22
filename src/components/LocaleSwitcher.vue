@@ -1,6 +1,6 @@
 <template>
   <div class="locale-switcher">
-    <v-select v-model="$i18n.locale" :items="languages()" label="Select">
+    <v-select v-model="$i18n.locale" :items="languages()" :label="$t('common.select')">
     </v-select>
   </div>
 </template>
