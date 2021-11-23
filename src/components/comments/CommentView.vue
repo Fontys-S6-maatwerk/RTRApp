@@ -7,7 +7,8 @@
         <avatar :user="author"/>
       </v-col>
       <v-col
-          cols="6">
+          cols="6"
+      >
         <v-row no-gutters class="text-left">
           <v-col>
               <strong>{{author.firstName}} {{author.lastName}}</strong>
@@ -21,7 +22,8 @@
         </v-row>
       </v-col>
       <v-col
-        cols="3">
+        cols="3"
+      >
      
             <v-menu offset-y>
             <template v-slot:activator="{ on, attrs }">
@@ -62,14 +64,13 @@
       }
     },
     mounted() {
-      this.userContext.getById(this.comment.author).then((user) =>{
-          this.author = user[0];
-      });
+      this.userContext.getById(this.comment.author)
+        .then((user) => this.author = user[0]);
     },
     methods: {
       deleteComment(comment) {
         this.commentContext.delete(comment.id)
-        .then(() => this.$emit('delete', comment));
+          .then(() => this.$emit('delete', comment));
       }
     }
   }

@@ -44,7 +44,7 @@ export default {
     post() {
       this.comment.author = this.user.id;
       this.commentContext.postComment(this.comment)
-      .then(this.$emit('add', this.comment))
+        .then(this.$emit('add', this.comment))
     },
   }
 }
