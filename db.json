@@ -119,18 +119,6 @@
       "solution": 1
     },
     {
-      "id": 3,
-      "content": "The very BEST Solution EUW.",
-      "author": 1,
-      "solution": 2
-    },
-    {
-      "id": 4,
-      "content": "The very WORST Solution EUW.",
-      "author": 3,
-      "solution": 2
-    },
-    {
       "id": 5,
       "content": "Very nice",
       "author": 4,
@@ -141,6 +129,18 @@
       "content": "It worked great!",
       "author": 5,
       "solution": 2
+    },
+    {
+      "id": 8,
+      "content": "The very WORST Solution EUW.",
+      "solution": "2",
+      "author": 1
+    },
+    {
+      "id": 9,
+      "content": "The very BEST Solution EUW",
+      "solution": "2",
+      "author": 1
     }
   ],
   "Users": [

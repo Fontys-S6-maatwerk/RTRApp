@@ -1,7 +1,7 @@
 <template>
   <v-row>
     <v-col cols="3" sm="2">
-      <Avatar :user="user"/>
+      <avatar :user="user"/>
     </v-col>
     <v-col class="mb-4 mr-4">
       <v-row>
@@ -21,11 +21,12 @@
 
 <script>
 import CommentContext from "../../data/comment-context";
-import Avatar from "../Avatar";
 
 export default {
   name: "CommentCreate",
-  components: {Avatar},
+  components: {
+    Avatar: () => import('../Avatar')
+  },
   props: ["user"], //current user
   data() {
     return {
@@ -41,7 +42,8 @@ export default {
   methods: {
     post() {
       this.comment.author = this.user.id;
-      this.commentContext.postComment(this.comment);
+      this.commentContext.postComment(this.comment)
+      .then(this.$emit('add', this.comment))
     },
   }
 }
