@@ -5,7 +5,8 @@
         <v-toolbar-title>{{$t("glossary.profile")}}</v-toolbar-title>
         <v-spacer></v-spacer>
         <div class="text-center">
-          <v-menu offset-y>
+          <v-menu offset-y
+            :close-on-content-click="false">
             <template v-slot:activator="{ on, attrs }">
               <v-btn 
               icon
@@ -15,6 +16,9 @@
               </v-btn>
             </template>
             <v-list>
+              <v-list-item>
+                <locale-switcher></locale-switcher>
+              </v-list-item>
               <v-list-item 
               v-for="(item, index) in settings" 
               :key="index"
@@ -81,6 +85,7 @@ export default {
   props: ['userId'],
   components: {
     SolutionsList: () => import("@/components/SolutionsList.vue"),
+    LocaleSwitcher: () => import("@/components/LocaleSwitcher.vue"),
   },
   data() {
     return {
@@ -91,9 +96,6 @@ export default {
       settings: [
         {
           title: 'delete_account'
-        },
-        {
-          title: 'language'
         }]
     };
   },

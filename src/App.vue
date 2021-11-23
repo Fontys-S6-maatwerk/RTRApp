@@ -4,7 +4,7 @@
       <v-main>
         <router-view/>
       </v-main>
-      <Navigation/>
+      <navigation/>
     </v-app>
   </div>
 </template>
