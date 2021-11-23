@@ -4,13 +4,7 @@
       <v-col
         cols="3"
       >
-      <!-- <v-container fill-height fluid> -->
-        <!-- <v-row align="center"  justify="center"> -->
-          <!-- <v-col> -->
-            <avatar :user="author"/>
-          <!-- </v-col> -->
-        <!-- </v-row> -->
-      <!-- </v-container> -->
+        <avatar :user="author"/>
       </v-col>
       <v-col
           cols="6">
@@ -68,9 +62,6 @@
       }
     },
     mounted() {
-      //test
-      this.comment.creationDate = +new Date();
-
       this.userContext.getById(this.comment.author).then((user) =>{
           this.author = user[0];
       });

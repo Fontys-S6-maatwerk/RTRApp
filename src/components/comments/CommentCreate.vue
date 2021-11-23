@@ -36,6 +36,7 @@ export default {
         content: "",
         solution: this.$route.params.solutionId,
         author: "",
+        creationDate: +new Date(),
       },
     }
   },
