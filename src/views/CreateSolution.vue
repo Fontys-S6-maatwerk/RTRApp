@@ -13,8 +13,14 @@
 
       <v-divider></v-divider>
 
-      <v-stepper-step step="3">
+      <v-stepper-step :complete="step > 3" step="3">
         {{ $t("common.instructions") }}
+      </v-stepper-step>
+
+      <v-divider></v-divider>
+
+      <v-stepper-step step="4">
+        {{ $t("common.impact")}}
       </v-stepper-step>
     </v-stepper-header>
 
@@ -195,12 +201,43 @@
             ></add-step-dialog>
           </v-card-text>
           <v-card-actions>
-            <v-btn color="primary" @click="submit()">
-              {{ pageState.submitText }}
+            <v-btn color="primary" @click="step++">
+              {{ $t("common.continue") }}
             </v-btn>
+            
             <v-btn text @click="step--"> {{ $t("common.cancel") }} </v-btn>
           </v-card-actions>
         </v-card>
+      </v-stepper-content>
+      <v-stepper-content step="4">
+        <v-form ref="form" v-model="valid">
+          <v-card outlined color="transparent">
+            <v-card-text class="px-0">
+              <v-card-title class="justify-center">{{ $t('common.impact_question')}}</v-card-title>
+              <v-text-field type="number"
+              :rules="impactGoalRules"
+              min="0"
+              outlined
+              required
+              :label="$t('common.impact_goal')"
+              v-model="impactGoal"></v-text-field>
+              <v-text-field type="number"
+              :rules="currentImpactRules"
+              min="0"
+              outlined
+              required
+              :label="$t('common.current_impact')"
+              v-model="solution.currentImpact"></v-text-field>            
+            </v-card-text>
+            <v-card-actions>
+              <v-btn :disabled="!valid" color="primary" @click="submit()">
+                  {{ pageState.submitText }}
+              </v-btn>
+              <v-btn text @click="step--">{{ $t("common.back") }}</v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-form>
+        
       </v-stepper-content>
     </v-stepper-items>
   </v-stepper>
@@ -223,10 +260,21 @@ export default {
   },
   data() {
     return {
+      valid: false,
       step: 1,
       weatherExtremeTypes: [],
       solutionContext: new SolutionContext(),
       weatherContext: new WeatherContext(),
+      impactGoalRules: [
+        value => value >= 0 || this.$t("validation.minimum_value") + " 1" ,
+        value => !!value || this.$t("validation.required"),
+      ],
+      currentImpactRules: [
+        v => v >= 0 || this.$t("validation.minimum_value") + " 0" ,
+        v => !!v || this.$t("validation.required"),
+        v => v < (parseInt(this.impactGoal)) || this.$t("validation.impact_goal_greater_than_current_impact"),
+      ],
+      impactGoal: 0,
       solution: {
         name: "",
         introduction: "",
@@ -237,14 +285,14 @@ export default {
         steps: [],
         uploadDate: +new Date(),
         viewCount: 0,
+        impactGoal: 0,
+        currentImpact: 0,
         //sample data
         numberOfLikes: 122,
         solutionType: "how-to video",
         difficulty: "medium",
         SDGType: "Goal 13: Climate Action",
         author: "Jan Janssen",
-        impactGoal: 2000,
-        currentImpact: 122,
       },
       pageState: {
         editable: !isNaN(this.solutionId),
@@ -267,6 +315,9 @@ export default {
     }
   },
   methods: {
+    validate(){
+      this.$refs.form.validate();
+    },
     addItem(item, name) {
       this.solution[name].push(item);
     },
@@ -284,6 +335,7 @@ export default {
       this.solution.coverImage = window.URL.createObjectURL(file);
     },
     submit() {
+      this.solution.impactGoal = this.impactGoal;
       if (this.pageState.editable) {
         this.solutionContext.update(this.solution).then((solution) => {
           this.$router.push({
@@ -301,19 +353,17 @@ export default {
       }
     },
   },
+  watch: {
+    impactGoal: 'validate'
+  }
 };
 </script>
 
 <style scoped>
-::v-deep .v-stepper__label {
-  display: unset !important;
-}
-
 .category-list {
   overflow-x: auto;
   white-space: nowrap;
   display: flex;
-  justify-content: center;
 }
 
 .v-card__actions {

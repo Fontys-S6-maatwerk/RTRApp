@@ -8,7 +8,7 @@
   </v-app-bar>
 </template>
 
-<script lang="js">
+<script>
 
   export default  {
     name: "Navigation",
@@ -19,22 +19,14 @@
     data () {
       return {
         navItems: [
-          { title: 'Home', path: '/solutions', icon: 'mdi-home' },
+          { title: 'Home', path: '/home', icon: 'mdi-home' },
           { title: 'Create solution', path: '/create-solution', icon: 'mdi-plus-circle' },
-          { title: 'Search', path: '/search/', icon: 'mdi-magnify' },
-          { title: 'Profile', path: { name: 'Profile', params: { author:'Jan Janssen'} }, icon: 'mdi-account-circle'}
+          { title: 'Search', path: '/search', icon: 'mdi-magnify' },
+          { title: 'Profile', path: { name: 'Profile', params: { userId: 1 } }, icon: 'mdi-account-circle'}
         ]
       }
     },
-    methods: {
-
-    },
-    computed: {
-
-    }
 }
-
-
 </script>
 
 <style>
