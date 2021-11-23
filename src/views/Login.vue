@@ -5,7 +5,7 @@
                 <v-card class="elevation-8">
                     <v-card-title>
                         <v-app-bar dark color="primary">                        
-                            <v-app-bar-title>Login to Solut</v-app-bar-title>
+                            <v-app-bar-title>Solut {{ $t("common.login") }}</v-app-bar-title>
                             <v-spacer></v-spacer>
                             <v-icon>
                               mdi-earth
@@ -21,14 +21,14 @@
                         <v-text-field
                             prepend-icon="mdi-account"
                             name="name"
-                            label="Name"
+                            :label="$t('common.name')"
                             type="text"
                             :rules="nameRules"
                         ></v-text-field>
                         <v-text-field
                             prepend-icon="mdi-lock"
                             name="password"
-                            label="Password"
+                            :label="$t('common.password')"
                             type="password"
                             :rules="passwordRules"
                         ></v-text-field>
@@ -36,7 +36,7 @@
                     </v-card-text>
                     <v-card-actions>
                         <v-spacer></v-spacer>
-                        <v-btn class="px-6" color="primary" @click="submit()">Login</v-btn>
+                        <v-btn class="px-6" color="primary" @click="submit()">{{ $t('common.login') }}</v-btn>
                     </v-card-actions>
                 </v-card>
             </v-flex>
@@ -52,13 +52,13 @@ export default {
             valid: true,
             name: '',
             nameRules: [
-                v => !!v || 'Name is required',
-                v => (v && v.length >= 6 && v.length <= 10) || 'Name must be between 6 and 10 characters',
+                v => !!v || this.$t('validation.required'),
+                v => (v && v.length >= 6 && v.length <= 10) || this.$t('validation.must_be_between_characters', { min: 6, max: 10 } )
             ],
             password: '',
             passwordRules: [
-                v => !!v || 'Password is required',
-                v => /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/.test(v) || 'Password must contain at least 8 characters and has to include 1 number, 1 uppercase and 1 lowercase character',
+                v => !!v || this.$t('validation.required'),
+                v => /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/.test(v) || this.$t('validation.password_requirements', { min: 8 } )
             ],
         }
     },
