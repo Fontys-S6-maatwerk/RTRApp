@@ -1,7 +1,7 @@
 <template lang="html">
   <v-row no-gutters>
     <v-col v-if="solutions" cols="12">
-      <v-card class="ma-1" min-width="250px" v-for="solution in solutions" :key="solution.id" v-on:click="openSolution(solution.id)">
+      <v-card class="ma-1" min-width="250px" v-for="solution in solutions" :key="solution.id" >
         <v-card-title>
           <v-avatar>
             <v-img src="https://cdn.vuetifyjs.com/images/cards/cooking.png" />
@@ -15,12 +15,7 @@
           </p>
         </v-card-title>
         <v-card-text class="pb-1">
-          <v-img class="rounded-lg" src="https://cdn.vuetifyjs.com/images/cards/cooking.png">
-            <v-col align="right">
-              <v-btn color="white" height="50" v-on:click="likeSolution(solution)">
-                <v-icon size="30">mdi-bookmark-outline</v-icon>
-              </v-btn>
-              </v-col>
+          <v-img class="rounded-lg" src="https://cdn.vuetifyjs.com/images/cards/cooking.png" v-on:click="openSolution(solution.id)">
               <v-col align="right">
               <v-btn color="white" v-on:click="editSolution(solution.id)" v-if="onProfile" height="50">
                 <v-icon size="30">mdi-pencil</v-icon>
@@ -35,13 +30,18 @@
           <v-card flat>
             <v-card-text class="pa-1 justify-space-between">
               <v-row>
+              
                 <v-col align="left">
                   <span>
                     <h3 class="mx-1">{{ solution.name }}</h3>
                     <p class="mx-1 my-0">{{ solution.weatherExtremeType }}</p>
                   </span>
                 </v-col>
-                
+                <v-col align="right">
+                  <v-btn color="white" height="50" v-on:click="likeSolution(solution)">
+                    <v-icon size="30">mdi-bookmark-outline</v-icon>
+                  </v-btn>
+                </v-col>                 
               </v-row>
             </v-card-text>
           </v-card>
