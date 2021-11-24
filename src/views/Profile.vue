@@ -68,6 +68,7 @@
         <solutions-list
           v-on:deleteSolution="deleteSolution($event)"
           v-on:editSolution="editSolution($event)"
+          v-on:likeSolution="likeSolution($event)"
           :solutions="solutions"
           :onProfile="true"
         ></solutions-list>
@@ -120,6 +121,11 @@ export default {
         .delete(solutionId)
         .then(this.solutions.splice(this.solutions.indexOf(solutionId), 1));
     },
+    likeSolution(solution) {
+      this.solutionContext
+        .likeSolution(solution)
+        .then(console.log('iets doen yeah confirmationus'));
+    }
   },
 };
 </script>
