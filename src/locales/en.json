@@ -14,6 +14,7 @@
         "cover_image": "Cover image",
         "current_impact": "Current impact",
         "description": "Description",
+        "email": "Email",
         "followers": "Followers",
         "following": "Following",
         "general": "General",
@@ -62,7 +63,7 @@
         "impact_goal_greater_than_current_impact": "Impact goal must be greater than the current impact",
         "required": "Required",
         "minimum_value": "Minimum value is",
-        "must_be_between_characters": "Must be between {min} en {max} characters",
+        "email_valid": "Has to be a valid email",
         "password_requirements": "Password must contain at least {min} characters and has to include 1 number, 1 uppercase and 1 lowercase character"
     }
 }

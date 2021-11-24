@@ -250,30 +250,30 @@
             }]
         }
     ],
-    "AuthUser": [{
+    "Authentication": [{
             "id": 1,
             "email": "hansworst@email.com",
-            "password": "supergoedwachtwoordgehashtendatsoortdingen"
+            "password": "Aa123Bb456"
         },
         {
             "id": 2,
             "email": "janjanssen@email.com",
-            "password": "supergoedwachtwoordgehashtendatsoortdingen"
+            "password": "Aa123Bb456"
         },
         {
             "id": 3,
             "email": "johnsnow@email.com",
-            "password": "supergoedwachtwoordgehashtendatsoortdingen"
+            "password": "Aa123Bb456"
         },
         {
             "id": 4,
             "email": "peterpan@email.com",
-            "password": "supergoedwachtwoordgehashtendatsoortdingen"
+            "password": "Aa123Bb456"
         },
         {
             "id": 5,
             "email": "henkhenkerson@email.com",
-            "password": "supergoedwachtwoordgehashtendatsoortdingen"
+            "password": "Aa123Bb456"
         }
     ],
     "Weather": {

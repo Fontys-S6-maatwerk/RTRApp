@@ -14,6 +14,7 @@
         "cover_image": "Omslagfoto",
         "current_impact": "Huidige impact",
         "description": "Beschrijving",
+        "email": "Email",
         "followers": "Volgers",
         "following": "Volgend",
         "general": "Generaal",
@@ -62,7 +63,7 @@
         "required": "Vereist",
         "impact_goal_greater_than_current_impact": "Het impact doel moet groter zijn dan de huidige impact",
         "minimum_value": "Minimale waarde is",
-        "must_be_between_characters": "Moet zijn tussen de {min} en {max} karakters",
+        "email_valid": "Moet een geldige email zijn",
         "password_requirements": "Wachtwoord moet minimaal {min} karakters bevatten en moet 1 nummer, 1 hoofdletter en 1 kleine letter bevatten"
     }
 }
