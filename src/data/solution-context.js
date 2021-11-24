@@ -145,4 +145,16 @@ export default class SolutionContext extends BaseContext {
             console.error(error);
         }
     }
+
+    async likeSolution(solution) {
+        let userid = 1;
+        solution.likes.push(userid);
+        try {
+            let response = await this.axios.put(`/${solution.id}`, solution);
+
+            return response;
+        } catch(error) {
+            console.error(error);
+        }
+    }
 }

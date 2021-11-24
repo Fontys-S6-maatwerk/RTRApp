@@ -1,7 +1,7 @@
 <template>
   <v-container fluid class="pa-0">
     <solution-sorter v-on:sort="sort($event)"></solution-sorter>
-    <solutions-list :solutions="solutions"></solutions-list>
+    <solutions-list v-on:likeSolution="likeSolution($event)" :solutions="solutions"></solutions-list>
   </v-container>
 </template>
 
@@ -30,6 +30,14 @@ export default {
         .sort(1, 0, 20, sortBy)
         .then((solutions) => (this.solutions = solutions));
     },
+    likeSolution(solution) {
+      this.solutionContext
+        .likeSolution(solution)
+        .then(() => {
+            console.log('iets doen met solution is liked popup?');
+          }
+        );
+    }
   },
 };
 </script>

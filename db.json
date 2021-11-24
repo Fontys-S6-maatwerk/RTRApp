@@ -15,6 +15,9 @@
       "uploadDate": 1634647211973,
       "viewCount": 234,
       "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png",
+      "likes": [
+        1
+      ],
       "materials": [
         "plastic",
         "wood",

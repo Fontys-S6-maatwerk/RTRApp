@@ -17,7 +17,7 @@
         <v-card-text class="pb-1">
           <v-img class="rounded-lg" src="https://cdn.vuetifyjs.com/images/cards/cooking.png">
             <v-col align="right">
-              <v-btn color="white" height="50">
+              <v-btn color="white" height="50" v-on:click="likeSolution(solution)">
                 <v-icon size="30">mdi-bookmark-outline</v-icon>
               </v-btn>
               </v-col>
@@ -97,6 +97,9 @@ export default {
     deleteSolution(solutionId) {
       this.$emit("deleteSolution", solutionId);
     },
+    likeSolution(solutionId) {
+      this.$emit("likeSolution", solutionId);
+    }
   },
 };
 </script>
