@@ -16,6 +16,8 @@
       "viewCount": 234,
       "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png",
       "likes": [
+        1,
+        1,
         1
       ],
       "materials": [
@@ -49,6 +51,9 @@
       "introduction": "Deze oplossing maakt het mogelijk voor gebruikers om een kussen te kunnen bevestigen met een hamer. ",
       "coverImage": "",
       "weatherExtremeType": "Flood",
+      "likes": [
+        1
+      ],
       "materials": [
         "Wood",
         "Plastic"
@@ -95,6 +100,11 @@
           "description": "guyvfhgfhg",
           "coverImage": ""
         }
+      ],
+      "likes": [
+        1,
+        1,
+        1
       ],
       "numberOfLikes": 122,
       "solutionType": "how-to video",
