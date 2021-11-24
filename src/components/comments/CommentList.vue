@@ -1,21 +1,24 @@
 <template lang="html">
   <v-list min-height="500px">
-    <v-list-item v-for="comment in this.comments" v-bind:key="comment.id">
-          <CommentView :comment="comment" />
+    <v-list-item class="px-0" v-for="comment in comments" :key="comment.id">
+      <comment-view :comment="comment" v-on:delete="remove($event)" />
     </v-list-item>
   </v-list>
 </template>
 
 <script lang="js">
-import CommentView from "./CommentView";
 
   export default  {
     name: 'CommentList',
-    components:{
-      CommentView
-    },
     props: ['comments'],
-    data: ()=>({}),
+    components:{
+      CommentView: () => import("./CommentView")
+    },
+    methods: {
+      remove(comment) {
+        this.comments.splice(this.comments.indexOf(comment), 1);
+      }
+    }
 }
 </script>
 
