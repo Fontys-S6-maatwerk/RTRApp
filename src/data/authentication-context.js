@@ -5,12 +5,12 @@ export default class AuthenticationContext extends BaseContext {
         super("/Authentication");
     }
 
-    async login(email, password) {
+    async login(login) {
         try {
             let response = await this.axios.get('', {
                 params: {
-                    email: email,
-                    password: password
+                    email: login.email,
+                    password: login.password
                 }
             });
 
@@ -20,15 +20,16 @@ export default class AuthenticationContext extends BaseContext {
         }
     }
 
-    async all() {
+    async register(register) {
         try {
-            let response = await this.axios.get("");
+            let response = await this.axios.post('', register);
 
             return response.data;
         } catch (error) {
             console.error(error);
         }
     }
+
 
     async delete(accountId) {
         try {
