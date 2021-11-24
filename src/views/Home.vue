@@ -32,11 +32,7 @@ export default {
     },
     likeSolution(solution) {
       this.solutionContext
-        .likeSolution(solution)
-        .then(() => {
-            console.log('iets doen met solution is liked popup?');
-          }
-        );
+        .likeSolution(solution);
     }
   },
 };
