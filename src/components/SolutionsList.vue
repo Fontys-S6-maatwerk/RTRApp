@@ -2,7 +2,7 @@
   <v-row no-gutters>
     <v-col v-if="solutions" cols="12">
       <v-card class="ma-1" min-width="250px" v-for="solution in solutions" :key="solution.id" >
-        <solutions-list-item :onProfile="onProfile" :btnColor="checkLikes(solution)" :solution="solution"
+        <solutions-list-item :onProfile="onProfile" :btnColor="solution.isLiked ? 'green' : 'white'" :solution="solution"
         v-on:likeSolution="likeSolution($event)"
         v-on:deleteSolution="deleteSolution($event)"
         v-on:editSolution="editSolution($event)"></solutions-list-item>
@@ -51,18 +51,6 @@ export default {
     likeSolution(solutionId) {
       this.$emit("likeSolution", solutionId);
     },
-    checkLikes(solution) {
-      let color;
-
-      if (solution.isLiked) {
-        color = 'green';
-      }
-      else {
-        color = 'white';
-      }
-
-      return color;
-    }
   },
   mounted() {
   }
