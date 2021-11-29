@@ -121,7 +121,7 @@ export default {
   },
   components: {
     Avatar: () => import("@/components/Avatar"), 
-    CommentSection: () => import("@/components/comments/CommentSection")
+    CommentSection: () => import("@/components/comments/CommentSection"),
     ImpactDialog: () => import("@/components/dialogs/ImpactDialog")
   },
   data() {
