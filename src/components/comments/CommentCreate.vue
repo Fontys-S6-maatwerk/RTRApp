@@ -26,7 +26,6 @@ export default {
   components: {
     Avatar: () => import('../Avatar')
   },
-  props: ["user"], //current user
   data() {
     return {
       commentContext: new CommentContext(),
