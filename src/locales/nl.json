@@ -30,6 +30,7 @@
         "materials": "Materialen",
         "next_step": "Volgende stap",
         "no_instructions_yet": "Nog geen instructies",
+        "register": "Registreren",
         "steps": "Stappen",
         "name": "Naam",
         "update_solution": "Update oplossing",
@@ -53,7 +54,9 @@
         "details": "Details",
         "delete_account": "Verwijder account",
         "profile": "Profiel",
-        "language": "Taal"
+        "language": "Taal",
+        "firstname": "Voornaam",
+        "lastname": "Achternaam"
     },
     "message": {
         "hello": "Hallo i18n wereld"
@@ -63,7 +66,10 @@
         "required": "Vereist",
         "impact_goal_greater_than_current_impact": "Het impact doel moet groter zijn dan de huidige impact",
         "minimum_value": "Minimale waarde is",
+        "must_be_between_characters": "Moet zijn tussen de {min} en {max} karakters",
         "email_valid": "Moet een geldige email zijn",
-        "password_requirements": "Wachtwoord moet minimaal {min} karakters bevatten en moet 1 nummer, 1 hoofdletter en 1 kleine letter bevatten"
+        "password_requirements": "Wachtwoord moet minimaal {min} karakters bevatten en moet 1 nummer, 1 hoofdletter en 1 kleine letter bevatten",
+        "invalid_credentials": "Ongeldige inloggegevens",
+        "register_failed": "Registratie is momenteel niet mogelijk"
     }
 }

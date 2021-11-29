@@ -1,7 +1,7 @@
 <template>
   <v-container fluid class="pa-0">
     <solution-sorter v-on:sort="sort($event)"></solution-sorter>
-    <solutions-list :solutions="solution.feedSolutions"></solutions-list>
+    <solutions-list v-on:likeSolution="likeSolution($event)" :solutions="solution.feedSolutions"></solutions-list>
   </v-container>
 </template>
 
@@ -32,6 +32,16 @@ export default {
   },
   computed: {
     ...mapState(["solution", "user"]),
+    likeSolution(solution) {
+      if (solution.isLiked) {
+          solution.isLiked = false;
+      } 
+      else if (!solution.isLiked) {
+          solution.isLiked = true;
+      }
+      this.solutionContext
+        .likeSolution(solution);
+    }
   },
 };
 </script>

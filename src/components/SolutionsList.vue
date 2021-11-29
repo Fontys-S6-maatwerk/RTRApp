@@ -57,6 +57,11 @@
             {{ $t("glossary.users") }}
           </p>
         </v-card-actions>
+      <v-card class="ma-1" min-width="250px" v-for="solution in solutions" :key="solution.id" >
+        <solutions-list-item :onProfile="onProfile" :btnColor="solution.isLiked ? 'green' : 'white'" :solution="solution"
+        v-on:likeSolution="likeSolution($event)"
+        v-on:deleteSolution="deleteSolution($event)"
+        v-on:editSolution="editSolution($event)"></solutions-list-item>
       </v-card>
     </v-col>
   </v-row>
@@ -79,13 +84,12 @@ export default {
     },
   },
   components: {
-    DeleteSolutionDialog: () =>
-      import("@/components/dialogs/DeleteSolutionDialog"),
+    SolutionsListItem: () => import("@/components/SolutionsListItem.vue")
   },
   data() {
     return {
       userContext: new UserContext(),
-      dialog: false,
+      dialog: false
     };
   },
   methods: {
@@ -102,7 +106,12 @@ export default {
         params: { solutionId: solutionId },
       });
     },
+    likeSolution(solutionId) {
+      this.$emit("likeSolution", solutionId);
+    },
   },
+  mounted() {
+  }
 };
 </script>
 

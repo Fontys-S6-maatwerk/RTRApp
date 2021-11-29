@@ -64,6 +64,9 @@
         </v-card-title>
         <solutions-list
           :solutions="solution.userSolutions"
+          v-on:deleteSolution="deleteSolution($event)"
+          v-on:editSolution="editSolution($event)"
+          v-on:likeSolution="likeSolution($event)"
           :onProfile="true"
         ></solutions-list>
       </v-col>
@@ -107,6 +110,28 @@ export default {
   methods: {
     ...mapActions("user", ["fetchUser"]),
     ...mapActions("solution", ["fetchUserSolutions"]),
+    editSolution(solutionId) {
+      this.$router.push({
+        name: "CreateSolution",
+        params: { id: solutionId },
+      });
+    },
+    deleteSolution(solutionId) {
+      this.solutionContext
+        .delete(solutionId)
+        .then(this.solutions.splice(this.solutions.indexOf(solutionId), 1));
+    },
+    likeSolution(solution) {
+      if (solution.isLiked) {
+          solution.isLiked = false;
+      } 
+      else if (!solution.isLiked) {
+          solution.isLiked = true;
+      }
+      this.solutionContext
+        .likeSolution(solution)
+        .then(console.log('iets doen yeah confirmationus'));
+    }
   },
 };
 </script>
