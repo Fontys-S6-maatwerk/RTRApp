@@ -15,7 +15,7 @@
               <v-text-field
                 prepend-icon="mdi-email"
                 name="email"
-                v-model="login.email"
+                v-model="email"
                 :label="$t('common.email')"
                 type="email"
                 :rules="emailRules"
@@ -23,15 +23,12 @@
               <v-text-field
                 prepend-icon="mdi-lock"
                 name="password"
-                v-model="login.password"
+                v-model="password"
                 :label="$t('common.password')"
                 type="password"
                 :rules="passwordRules"
               ></v-text-field>
             </v-form>
-            <v-alert type="error" color="red" v-if="error">
-              {{ error }}
-            </v-alert>
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
@@ -53,15 +50,12 @@ export default {
     return {
       authenticationContext: new AuthenticationContext(),
       valid: true,
-      error: "",
-      login: {
-        email: "",
-        password: "",
-      },
+      email: "",
       emailRules: [
         (v) => !!v || this.$t("validation.required"),
         (v) => /.+@.+\..+/.test(v) || this.$t("validation.email_valid"),
       ],
+      password: "",
       passwordRules: [
         (v) => !!v || this.$t("validation.required"),
         (v) =>
@@ -74,13 +68,14 @@ export default {
   methods: {
     validate() {
       if (this.$refs.form.validate()) {
-        this.authenticationContext.login(this.login).then((user) => {
-          //todo: save user in store
-          if (user && user.id) {
+        this.authenticationContext
+          .login(this.email, this.password)
+          .then((user) => {
+              //todo: save user in store (log for no unused-vars)
+            console.log(user);
+
             this.$router.push({ name: "Home" });
-          } 
-          else this.error = this.$t('validation.invalid_credentials');
-        });
+          });
       }
     },
     reset() {

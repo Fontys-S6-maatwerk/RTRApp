@@ -253,36 +253,26 @@
     "Authentication": [{
             "id": 1,
             "email": "hansworst@email.com",
-            "firstname": "hans",
-            "lastname": "worst",
             "password": "Aa123Bb456"
         },
         {
             "id": 2,
             "email": "janjanssen@email.com",
-            "firstname": "jan",
-            "lastname": "janssen",
             "password": "Aa123Bb456"
         },
         {
             "id": 3,
             "email": "johnsnow@email.com",
-            "firstname": "john",
-            "lastname": "snow",
             "password": "Aa123Bb456"
         },
         {
             "id": 4,
             "email": "peterpan@email.com",
-            "firstname": "peter",
-            "lastname": "pan",
             "password": "Aa123Bb456"
         },
         {
             "id": 5,
             "email": "henkhenkerson@email.com",
-            "firstname": "henk",
-            "lastname": "henkerson",
             "password": "Aa123Bb456"
         }
     ],
