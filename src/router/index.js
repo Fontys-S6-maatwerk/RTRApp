@@ -1,7 +1,7 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Vue from "vue";
+import VueRouter from "vue-router";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [{
         path: '/i18n',
@@ -10,7 +10,7 @@ const routes = [{
             import ("../views/I18nHome")
     },
     {
-        path: '/profile/:userId',
+        path: '/profile/:id',
         name: 'Profile',
         component: () =>
             import ('../views/Profile.vue'),
@@ -28,18 +28,18 @@ const routes = [{
             import ( /* webpackChunkName: "about" */ '../views/Home.vue')
     },
     {
-        path: '/solutions/:solutionId',
+        path: '/solutions/:id',
         name: 'Solution',
         component: () =>
             import ('../views/Solution.vue')
     },
     {
-        path: '/create-solution/:id?',
+        path: '/create-solution/:usedId',
         name: 'CreateSolution',
         component: () =>
             import ('../views/CreateSolution.vue'),
         props: (route) => ({
-            solutionId: +route.params.id,
+            solutionId: route.params.userId,
         }),
 
     },
@@ -64,9 +64,9 @@ const routes = [{
 ]
 
 const router = new VueRouter({
-    mode: 'history',
-    base: process.env.BASE_URL,
-    routes
-})
+  mode: "history",
+  base: process.env.BASE_URL,
+  routes,
+});
 
-export default router
+export default router;
