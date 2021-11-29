@@ -82,13 +82,13 @@ export default {
       firstnameRules: [
         (v) => !!v || this.$t("validation.required"),
         (v) =>
-          (v && v.length >= 6 && v.length <= 10) ||
+          (v && v.length >= 3 && v.length <= 10) ||
           this.$t("validation.must_be_between_characters", { min: 6, max: 10 }),
       ],
       lastnameRules: [
         (v) => !!v || this.$t("validation.required"),
         (v) =>
-          (v && v.length >= 6 && v.length <= 10) ||
+          (v && v.length >= 3 && v.length <= 10) ||
           this.$t("validation.must_be_between_characters", { min: 6, max: 10 }),
       ],
       emailRules: [
