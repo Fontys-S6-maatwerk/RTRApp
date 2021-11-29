@@ -109,7 +109,7 @@ export default {
   },
   methods: {
     ...mapActions("user", ["fetchUser"]),
-    ...mapActions("solution", ["fetchUserSolutions"]),
+    ...mapActions("solution", ["fetchUserSolutions", "toggleSolutionLike"]),
     editSolution(solutionId) {
       this.$router.push({
         name: "CreateSolution",
@@ -122,15 +122,17 @@ export default {
         .then(this.solutions.splice(this.solutions.indexOf(solutionId), 1));
     },
     likeSolution(solution) {
-      if (solution.isLiked) {
-          solution.isLiked = false;
-      } 
-      else if (!solution.isLiked) {
-          solution.isLiked = true;
-      }
-      this.solutionContext
-        .likeSolution(solution)
-        .then(console.log('iets doen yeah confirmationus'));
+      // if (solution.isLiked) {
+      //     solution.isLiked = false;
+      // } 
+      // else if (!solution.isLiked) {
+      //     solution.isLiked = true;
+      // }
+      this.toggleSolutionLike(solution);
+
+      // this.solutionContext
+      //   .likeSolution(solution)
+      //   .then(console.log('iets doen yeah confirmationus'));
     }
   },
 };
