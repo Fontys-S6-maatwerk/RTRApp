@@ -14,6 +14,7 @@
         "cover_image": "Cover image",
         "current_impact": "Current impact",
         "description": "Description",
+        "email": "Email",
         "followers": "Followers",
         "following": "Following",
         "general": "General",
@@ -25,9 +26,11 @@
         "instructions_hint": "Type a quick introduction about the solution",
         "introduction": "Introduction",
         "likes": "Likes",
+        "login": "Login",
         "materials": "Materials",
         "next_step": "Next step",
         "no_instructions_yet": "No instructions yet",
+        "register": "Register",
         "steps": "Steps",
         "select": "Select",
         "name": "Name",
@@ -38,7 +41,8 @@
         "solution": "Solution",
         "yes": "Yes",
         "no": "No",
-        "post": "Post"
+        "post": "Post",
+        "password": "Password"
     },
     "glossary": {
         "impacted": "Impacted",
@@ -50,7 +54,9 @@
         "details": "Details",
         "delete_account": "Delete account",
         "profile": "Profile",
-        "language": "Language"
+        "language": "Language",
+        "firstname": "Firstname",
+        "lastname": "Lastname"
     },
     "message": {
         "hello": "Hello i18n world"
@@ -59,6 +65,11 @@
         "delete_solution": "Are you sure you want to delete the solution",
         "impact_goal_greater_than_current_impact": "Impact goal must be greater than the current impact",
         "required": "Required",
-        "minimum_value": "Minimum value is"
+        "minimum_value": "Minimum value is",
+        "must_be_between_characters": "Must be between {min} en {max} characters",
+        "email_valid": "Has to be a valid email",
+        "password_requirements": "Password must contain at least {min} characters and has to include 1 number, 1 uppercase and 1 lowercase character",
+        "invalid_credentials": "Invalid credentials",
+        "register_failed": "Unable to register"
     }
 }
