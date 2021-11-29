@@ -4,7 +4,7 @@ export const namespaced = true;
 
 export const state = {
   items: [],
-  pageSize: 5,
+  pageSize: 3,
 };
 
 export const mutations = {
