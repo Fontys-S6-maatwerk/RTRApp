@@ -293,6 +293,7 @@ export default {
         difficulty: "medium",
         SDGType: "Goal 13: Climate Action",
         author: "Jan Janssen",
+        isLiked: false,
       },
       pageState: {
         editable: !isNaN(this.solutionId),
