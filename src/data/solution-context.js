@@ -147,10 +147,8 @@ export default class SolutionContext extends BaseContext {
     }
 
     async likeSolution(solution) {
-        let userid = 1;
-        solution.likes.push(userid);
         try {
-            let response = await this.axios.put(`/${solution.id}`, solution);
+            let response = await this.axios.patch(`/${solution.id}`, solution);
 
             return response;
         } catch(error) {

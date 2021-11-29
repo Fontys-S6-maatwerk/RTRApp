@@ -31,6 +31,12 @@ export default {
         .then((solutions) => (this.solutions = solutions));
     },
     likeSolution(solution) {
+      if (solution.isLiked) {
+          solution.isLiked = false;
+      } 
+      else if (!solution.isLiked) {
+          solution.isLiked = true;
+      }
       this.solutionContext
         .likeSolution(solution);
     }

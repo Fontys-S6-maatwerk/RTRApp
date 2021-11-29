@@ -52,15 +52,15 @@ export default {
       this.$emit("likeSolution", solutionId);
     },
     checkLikes(solution) {
-      let userid = 1;
       let color;
-      solution.likes.forEach(like => {
-        if(like == userid){
-          color = 'green';
-        } else{
-          color = 'white';
-        }
-      });
+
+      if (solution.isLiked) {
+        color = 'green';
+      }
+      else {
+        color = 'white';
+      }
+
       return color;
     }
   },

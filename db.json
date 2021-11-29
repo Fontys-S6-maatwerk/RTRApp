@@ -15,11 +15,7 @@
       "uploadDate": 1634647211973,
       "viewCount": 234,
       "coverImage": "https://cdn.vuetifyjs.com/images/cards/cooking.png",
-      "likes": [
-        1,
-        1,
-        1
-      ],
+      "isLiked": false,
       "materials": [
         "plastic",
         "wood",
@@ -51,9 +47,7 @@
       "introduction": "Deze oplossing maakt het mogelijk voor gebruikers om een kussen te kunnen bevestigen met een hamer. ",
       "coverImage": "",
       "weatherExtremeType": "Flood",
-      "likes": [
-        1
-      ],
+      "isLiked": false,
       "materials": [
         "Wood",
         "Plastic"
@@ -101,11 +95,7 @@
           "coverImage": ""
         }
       ],
-      "likes": [
-        1,
-        1,
-        1
-      ],
+      "isLiked": false,
       "numberOfLikes": 122,
       "solutionType": "how-to video",
       "difficulty": "medium",
