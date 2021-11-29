@@ -1,5 +1,5 @@
 <template lang="html">
-  <v-container fluid>
+  <v-container fluid fill-height class='px-0'>
     <v-row>
       <v-col cols="3">
         <Avatar :user="this.comment.user" />

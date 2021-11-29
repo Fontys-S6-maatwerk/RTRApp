@@ -7,13 +7,13 @@
 </template>
 
 <script lang="js">
-import CommentView from "./CommentView";
 import { mapState } from "vuex";
 
   export default  {
     name: 'CommentList',
+    props: ['comments'],
     components:{
-      CommentView
+      CommentView: () => import("./CommentView")
     },
     computed: {
       ...mapState(["comment"])

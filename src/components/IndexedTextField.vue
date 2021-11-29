@@ -6,6 +6,7 @@
       v-model="items[index]"
       :label="label"
       :hide-details="hideDetails"
+      :prepend-icon="prependIcon"
       :append-icon="appendIcon"
       @click:append="clickAppend(index)"
       outlined
@@ -33,9 +34,13 @@ export default {
       type: String,
       default: "auto",
     },
+    prependIcon: {
+      type: String,
+      default: "",
+    },
     appendIcon: {
       type: String,
-      default: "mdi-plus",
+      default: "",
     },
     styleClass: {
       type: String,

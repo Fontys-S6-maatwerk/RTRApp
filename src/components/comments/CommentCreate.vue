@@ -20,11 +20,13 @@
 <script>
 import { mapActions, mapState } from "vuex";
 import CommentContext from "../../data/comment-context";
-import Avatar from "../Avatar";
 
 export default {
   name: "CommentCreate",
-  components: { Avatar },
+  components: {
+    Avatar: () => import('../Avatar')
+  },
+  props: ["user"], //current user
   data() {
     return {
       commentContext: new CommentContext(),
