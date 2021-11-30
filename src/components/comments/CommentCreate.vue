@@ -19,7 +19,6 @@
 
 <script>
 import { mapActions, mapState } from "vuex";
-import CommentContext from "../../data/comment-context";
 
 export default {
   name: "CommentCreate",
@@ -28,7 +27,6 @@ export default {
   },
   data() {
     return {
-      commentContext: new CommentContext(),
       comment: this.createFreshComment(),
     };
   },

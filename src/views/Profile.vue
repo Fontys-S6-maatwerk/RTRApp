@@ -15,7 +15,7 @@
               <locale-switcher></locale-switcher>
             </v-list-item>
             <v-list-item v-for="(item, index) in settings" :key="index" link>
-              <v-list-item-title>{{
+              <v-list-item-title @click="item.action()">{{
                 $t("glossary." + item.title)
               }}</v-list-item-title>
             </v-list-item>
@@ -96,7 +96,12 @@ export default {
       settings: [
         {
           title: "delete_account",
+          action: () => this.deleteUser(this.id),
         },
+        {
+          title: "logout",
+          action: () => this.logoutUser(),
+        }
       ],
     };
   },
@@ -111,8 +116,8 @@ export default {
     ...mapState(["user", "solution"]),
   },
   methods: {
-    ...mapActions("user", ["fetchUser"]),
-    ...mapActions("solution", ["fetchUserSolutions", "toggleSolutionLike", "fetchUserLikedSolutions"]),
+    ...mapActions("user", ["fetchUser", "logoutUser", "deleteUser"]),
+    ...mapActions("solution", ["fetchUserSolutions", "toggleSolutionLike"]),
     editSolution(solutionId) {
       this.$router.push({
         name: "CreateSolution",

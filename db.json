@@ -4,7 +4,7 @@
       "id": "5de9a4a0-5861-437c-bd77-42288e527754",
       "name": "Bevestig kussen met spijkers",
       "introduction": "Deze oplossing maakt het mogelijk voor gebruikers om een kussen te kunnen bevestigen met een hamer. ",
-      "isLiked": true,
+      "isLiked": false,
       "coverImage": "",
       "weatherExtremeType": "Flood",
       "materials": [
@@ -418,21 +418,6 @@
             }
           ]
         }
-      ],
-      "Authentication": [
-        {
-          "id": 1,
-          "email": "hansworst@email.com",
-          "password": "Aa123Bb456"
-        },
-        {
-          "id": 2,
-          "email": "janjanssen@email.com",
-          "password": "Aa123Bb456"
-        },
-        {
-          "id": 2
-        }
       ]
     },
     {
@@ -443,32 +428,44 @@
       "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg",
       "following": [],
       "followers": [],
-      "myComments": [
-        {
-          "id": 4,
-          "email": "peterpan@email.com",
-          "password": "Aa123Bb456"
-        },
-        {
-          "id": 5,
-          "email": "henkhenkerson@email.com",
-          "password": "Aa123Bb456"
-        }
-      ],
-      "Weather": {
-        "WeatherExtremes": [
-          "Tornado",
-          "Smog",
-          "Extreme heat",
-          "Wildfire",
-          "Dust storm",
-          "Flood",
-          "Heavy rainfall",
-          "Hail storm",
-          "Drought",
-          "Blizzard"
-        ]
-      }
+      "myComments": []
+    }
+  ],
+  "Authentication": [
+    {
+      "id": 1,
+      "email": "hansworst@email.com",
+      "firstname": "hans",
+      "lastname": "worst",
+      "password": "Aa123Bb456"
+    },
+    {
+      "id": 2,
+      "email": "janjanssen@email.com",
+      "firstname": "jan",
+      "lastname": "janssen",
+      "password": "Aa456Bb123"
+    },
+    {
+      "id": 3,
+      "email": "johnsnow@email.com",
+      "firstname": "john",
+      "lastname": "snow",
+      "password": "Aa654Bb321"
+    },
+    {
+      "id": 4,
+      "email": "peterpan@email.com",
+      "firstname": "peter",
+      "lastname": "pan",
+      "password": "Bb123Aa456"
+    },
+    {
+      "id": 5,
+      "email": "henkhenkerson@email.com",
+      "firstname": "henk",
+      "lastname": "henkerson",
+      "password": "Aa654Bb321"
     }
   ],
   "Weather": [
