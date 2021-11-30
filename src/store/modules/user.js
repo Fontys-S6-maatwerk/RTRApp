@@ -26,7 +26,9 @@ export const actions = {
     fetchUser({ commit }, id) {
         UserService.getUserById(id)
             .then((response) => {
-                commit("SET_USER", response);
+                //returns array with user
+                let user = response[0];
+                commit("SET_USER", user);
             })
             .catch((error) => {
                 console.log(error);
@@ -69,7 +71,15 @@ export const actions = {
 
     logoutUser({ commit }) {
         commit("SET_CURRENT_USER", {});
-    }
+    },
 
-
+    deleteUser({ commit }, id) {
+        UserService.delete(id)
+            .then(() => {
+                commit("SET_CURRENT_USER", {});
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+    },
 };

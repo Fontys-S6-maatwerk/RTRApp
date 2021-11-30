@@ -32,4 +32,11 @@ export default {
             .post('/Authentication', register)
             .then((response) => response.data);
     },
+
+
+    async delete(id) {
+        await apiClient
+            .delete('/Authentication/' + id)
+            .then((response) => response.data);
+    },
 };

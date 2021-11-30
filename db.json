@@ -466,13 +466,6 @@
       "firstname": "henk",
       "lastname": "henkerson",
       "password": "Aa654Bb321"
-    },
-    {
-      "firstname": "Pieter",
-      "lastname": "Post",
-      "email": "pieter.post@mail.com",
-      "password": "PieterP0st",
-      "id": 6
     }
   ],
   "Weather": [
