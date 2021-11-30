@@ -65,12 +65,11 @@
 </template>
 
 <script>
-import AuthenticationContext from "@/data/authentication-context";
+import { mapActions } from "vuex";
 
 export default {
   data() {
     return {
-      authenticationContext: new AuthenticationContext(),
       valid: true,
       error: "",
       register: {
@@ -106,15 +105,15 @@ export default {
   methods: {
     validate() {
       if (this.$refs.form.validate()) {
-        this.authenticationContext.register(this.register).then((user) => {
-          //todo: save user in store
-          if (user && user.id) {
+        this.registerUser(this.register).then((user) => {
+          if (user) {
             this.$router.push({ name: "Home" });
           }
-          else this.error = this.$t('validation.register_failed');
+          else this.error = this.$t("validation.register_failed");
         });
       }
     },
+    ...mapActions("user", ["registerUser"]),
   },
 };
 </script>
