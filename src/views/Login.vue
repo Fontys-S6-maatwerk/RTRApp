@@ -46,12 +46,11 @@
 </template>
 
 <script>
-import AuthenticationContext from "@/data/authentication-context";
+import { mapActions } from "vuex";
 
 export default {
   data() {
     return {
-      authenticationContext: new AuthenticationContext(),
       valid: true,
       error: "",
       login: {
@@ -74,12 +73,10 @@ export default {
   methods: {
     validate() {
       if (this.$refs.form.validate()) {
-        this.authenticationContext.login(this.login).then((user) => {
-          //todo: save user in store
-          if (user && user.id) {
+        this.loginUser(this.login).then((user) => {
+          if (user) {
             this.$router.push({ name: "Home" });
-          } 
-          else this.error = this.$t('validation.invalid_credentials');
+          } else this.error = this.$t("validation.invalid_credentials");
         });
       }
     },
@@ -89,6 +86,7 @@ export default {
     resetValidation() {
       this.$refs.form.resetValidation();
     },
+    ...mapActions("user", ["loginUser"]),
   },
 };
 </script>

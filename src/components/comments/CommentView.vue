@@ -24,7 +24,7 @@
         </v-row>
       </v-col>
       <v-col cols="3">
-        <span>{{ $d(this.comment.creationDate, "short") }}</span>
+        <span>{{ $d(this.comment.creationDate, "comment") }}</span>
       </v-col>
     </v-row>
   </v-container>
