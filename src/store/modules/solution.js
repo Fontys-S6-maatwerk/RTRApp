@@ -121,10 +121,9 @@ export const actions = {
             });
     },
     toggleSolutionLike({ commit }, { solution }) {
-
+        console.log(solution);
         SolutionService.likeSolution(solution).then(() => {
-            commit("NONE");
-            solution.isLiked = !solution.isLiked;
+            commit("SET_SOLUTION", solution);
         }).catch((error) => {
             console.log(error);
         });

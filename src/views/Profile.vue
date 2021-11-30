@@ -69,7 +69,6 @@
           :solutions="solution.userSolutions"
           v-on:deleteSolution="deleteSolution($event)"
           v-on:editSolution="editSolution($event)"
-          v-on:likeSolution="likeSolution($event)"
           :onProfile="true"
         ></solutions-list>
       </v-col>
@@ -123,19 +122,6 @@ export default {
       this.solutionContext
         .delete(solutionId)
         .then(this.solutions.splice(this.solutions.indexOf(solutionId), 1));
-    },
-    likeSolution(solution) {
-      // if (solution.isLiked) {
-      //     solution.isLiked = false;
-      // } 
-      // else if (!solution.isLiked) {
-      //     solution.isLiked = true;
-      // }
-      this.toggleSolutionLike(solution);
-
-      // this.solutionContext
-      //   .likeSolution(solution)
-      //   .then(console.log('iets doen yeah confirmationus'));
     },
     showSolutions() {
       this.fetchUserSolutions({

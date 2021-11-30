@@ -105,6 +105,7 @@ export default {
       this.$emit("deleteSolution", solutionId);
     },
     likeSolution(solution) {
+      solution.isLiked = !solution.isLiked;
       this.toggleSolutionLike({ solution: solution });
     },
   },
