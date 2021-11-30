@@ -27,6 +27,9 @@
       <v-col cols="12">
         <v-card>
           <v-row justify="space-around">
+            <v-btn @click="showSolutions()" text>
+              {{ $t("glossary.solutions")}}
+            </v-btn>
             <v-btn text>
               {{ $t("common.following") }}
             </v-btn>
@@ -36,7 +39,7 @@
             <v-btn text>
               {{ $t("common.comments") }}
             </v-btn>
-            <v-btn text>
+            <v-btn @click="showLikes()" text>
               {{ $t("common.likes") }}
             </v-btn>
           </v-row>
@@ -109,7 +112,7 @@ export default {
   },
   methods: {
     ...mapActions("user", ["fetchUser"]),
-    ...mapActions("solution", ["fetchUserSolutions", "toggleSolutionLike"]),
+    ...mapActions("solution", ["fetchUserSolutions", "toggleSolutionLike", "fetchUserLikedSolutions"]),
     editSolution(solutionId) {
       this.$router.push({
         name: "CreateSolution",
@@ -133,7 +136,19 @@ export default {
       // this.solutionContext
       //   .likeSolution(solution)
       //   .then(console.log('iets doen yeah confirmationus'));
-    }
+    },
+    showSolutions() {
+      this.fetchUserSolutions({
+        id: this.id,
+        pageNumber: 1
+      });
+    },
+    showLikes() {
+      this.fetchUserLikedSolutions({
+        id: this.id,
+        pageNumber: 1
+      })
+    },
   },
 };
 </script>
