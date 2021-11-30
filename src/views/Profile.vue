@@ -15,7 +15,7 @@
               <locale-switcher></locale-switcher>
             </v-list-item>
             <v-list-item v-for="(item, index) in settings" :key="index" link>
-              <v-list-item-title>{{
+              <v-list-item-title @click="item.action()">{{
                 $t("glossary." + item.title)
               }}</v-list-item-title>
             </v-list-item>
@@ -93,7 +93,12 @@ export default {
       settings: [
         {
           title: "delete_account",
+          action: () => this.deleteUser(this.id),
         },
+        {
+          title: "logout",
+          action: () => this.logoutUser(),
+        }
       ],
     };
   },
@@ -108,8 +113,8 @@ export default {
     ...mapState(["user", "solution"]),
   },
   methods: {
-    ...mapActions("user", ["fetchUser"]),
-    ...mapActions("solution", ["fetchUserSolutions"]),
+    ...mapActions("user", ["fetchUser", "logoutUser", "deleteUser"]),
+    ...mapActions("solution", ["fetchUserSolutions", "toggleSolutionLike"]),
     editSolution(solutionId) {
       this.$router.push({
         name: "CreateSolution",
@@ -122,15 +127,17 @@ export default {
         .then(this.solutions.splice(this.solutions.indexOf(solutionId), 1));
     },
     likeSolution(solution) {
-      if (solution.isLiked) {
-          solution.isLiked = false;
-      } 
-      else if (!solution.isLiked) {
-          solution.isLiked = true;
-      }
-      this.solutionContext
-        .likeSolution(solution)
-        .then(console.log('iets doen yeah confirmationus'));
+      // if (solution.isLiked) {
+      //     solution.isLiked = false;
+      // } 
+      // else if (!solution.isLiked) {
+      //     solution.isLiked = true;
+      // }
+      this.toggleSolutionLike(solution);
+
+      // this.solutionContext
+      //   .likeSolution(solution)
+      //   .then(console.log('iets doen yeah confirmationus'));
     }
   },
 };

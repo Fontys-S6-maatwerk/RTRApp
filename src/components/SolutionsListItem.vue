@@ -49,7 +49,7 @@
           </v-col>
           <v-col align="right">
             <v-btn
-              :color="btnColor"
+              :color="solution.isLiked ? 'green' : 'white'"
               height="50"
               v-on:click="likeSolution(solution)"
             >
@@ -74,11 +74,11 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 export default {
   name: "src-components-solutions-list-item",
   props: {
     solution: {},
-    btnColor: String,
     onProfile: Boolean
   },
   components: {
@@ -91,6 +91,7 @@ export default {
     }
   },
   methods: {
+    ...mapActions("solution", ["toggleSolutionLike"]),
     openSolution(solutionId) {
       this.$router.push({
         name: "Solution",
@@ -103,8 +104,8 @@ export default {
     deleteSolution(solutionId) {
       this.$emit("deleteSolution", solutionId);
     },
-    likeSolution(solutionId) {
-      this.$emit("likeSolution", solutionId);
+    likeSolution(solution) {
+      this.toggleSolutionLike({ solution: solution});
     },
   },
 };

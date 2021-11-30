@@ -53,6 +53,7 @@
         "material": "Material",
         "details": "Details",
         "delete_account": "Delete account",
+        "logout": "Logout",
         "profile": "Profile",
         "language": "Language",
         "firstname": "Firstname",

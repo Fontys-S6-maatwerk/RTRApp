@@ -4,6 +4,7 @@
       "id": "5de9a4a0-5861-437c-bd77-42288e527754",
       "name": "Bevestig kussen met spijkers",
       "introduction": "Deze oplossing maakt het mogelijk voor gebruikers om een kussen te kunnen bevestigen met een hamer. ",
+      "isLiked": false,
       "coverImage": "",
       "weatherExtremeType": "Flood",
       "materials": [
@@ -46,6 +47,7 @@
       "name": "SOlution",
       "introduction": "hjkhjk",
       "coverImage": "",
+      "isLiked": false,
       "weatherExtremeType": "Wildfire",
       "materials": [
         "hjkhjkhj",
@@ -77,6 +79,47 @@
       "uploadDate": 1635687629887,
       "viewCount": 5483,
       "id": "65491819-a5c0-4ba0-b542-0c77cec07a5e"
+    },
+    {
+      "name": "Zand is heel korrelig",
+      "introduction": "Zand is korrelig en grof en blijft zitten tussen je tenen, echt begaaid. Ik haat zand 😂",
+      "coverImage": "",
+      "weatherExtremeType": "Drought",
+      "materials": [
+        "zand",
+        "nog een beetje zand"
+      ],
+      "tools": [
+        "zand schep",
+        "goede zin"
+      ],
+      "user": {
+        "id": "61dd5018-93f2-420f-8211-34c1766f2d54",
+        "firstName": "Jan",
+        "lastName": "Janssen",
+        "email": "JanJanssen@email.com",
+        "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg"
+      },
+      "steps": [
+        {
+          "description": "Schep de zand weg",
+          "coverImage": ""
+        },
+        {
+          "description": "Doee zand",
+          "coverImage": ""
+        }
+      ],
+      "uploadDate": 1638193403487,
+      "viewCount": 0,
+      "impactGoal": "100000000000000000000000",
+      "currentImpact": "1",
+      "numberOfLikes": 0,
+      "solutionType": "how-to",
+      "difficulty": "medium",
+      "SDGType": "Goal 13: Climate Action",
+      "userId": "49b8e447-b3b5-413e-950d-fd63ac50aac5",
+      "id": "lwNao9D"
     }
   ],
   "Comments": [
@@ -375,21 +418,6 @@
             }
           ]
         }
-      ],
-      "Authentication": [
-        {
-          "id": 1,
-          "email": "hansworst@email.com",
-          "password": "Aa123Bb456"
-        },
-        {
-          "id": 2,
-          "email": "janjanssen@email.com",
-          "password": "Aa123Bb456"
-        },
-        {
-          "id": 2
-        }
       ]
     },
     {
@@ -400,32 +428,44 @@
       "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg",
       "following": [],
       "followers": [],
-      "myComments": [
-        {
-          "id": 4,
-          "email": "peterpan@email.com",
-          "password": "Aa123Bb456"
-        },
-        {
-          "id": 5,
-          "email": "henkhenkerson@email.com",
-          "password": "Aa123Bb456"
-        }
-      ],
-      "Weather": {
-        "WeatherExtremes": [
-          "Tornado",
-          "Smog",
-          "Extreme heat",
-          "Wildfire",
-          "Dust storm",
-          "Flood",
-          "Heavy rainfall",
-          "Hail storm",
-          "Drought",
-          "Blizzard"
-        ]
-      }
+      "myComments": []
+    }
+  ],
+  "Authentication": [
+    {
+      "id": 1,
+      "email": "hansworst@email.com",
+      "firstname": "hans",
+      "lastname": "worst",
+      "password": "Aa123Bb456"
+    },
+    {
+      "id": 2,
+      "email": "janjanssen@email.com",
+      "firstname": "jan",
+      "lastname": "janssen",
+      "password": "Aa456Bb123"
+    },
+    {
+      "id": 3,
+      "email": "johnsnow@email.com",
+      "firstname": "john",
+      "lastname": "snow",
+      "password": "Aa654Bb321"
+    },
+    {
+      "id": 4,
+      "email": "peterpan@email.com",
+      "firstname": "peter",
+      "lastname": "pan",
+      "password": "Bb123Aa456"
+    },
+    {
+      "id": 5,
+      "email": "henkhenkerson@email.com",
+      "firstname": "henk",
+      "lastname": "henkerson",
+      "password": "Aa654Bb321"
     }
   ],
   "Weather": [

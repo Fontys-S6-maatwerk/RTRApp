@@ -14,9 +14,7 @@ const routes = [{
         name: 'Profile',
         component: () =>
             import ('../views/Profile.vue'),
-        props: (route) => ({
-            userId: route.params.userId,
-        }),
+        props: true
     },
     {
         path: '/home',
@@ -34,12 +32,12 @@ const routes = [{
             import ('../views/Solution.vue')
     },
     {
-        path: '/create-solution/:usedId',
+        path: '/create-solution/:solutionId?',
         name: 'CreateSolution',
         component: () =>
             import ('../views/CreateSolution.vue'),
         props: (route) => ({
-            solutionId: route.params.userId,
+            solutionId: route.params.solutionId,
         }),
 
     },
@@ -64,9 +62,9 @@ const routes = [{
 ]
 
 const router = new VueRouter({
-  mode: "history",
-  base: process.env.BASE_URL,
-  routes,
+    mode: "history",
+    base: process.env.BASE_URL,
+    routes,
 });
 
 export default router;
