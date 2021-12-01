@@ -33,7 +33,6 @@ export const mutations = {
     ADD_IMPACT(state, impact) {
         state.solution.currentImpact += impact;
     },
-    NONE() {}
 };
 
 export const actions = {
@@ -91,8 +90,6 @@ export const actions = {
             });
     },
     updateSolution({ commit }, { id, solution }) {
-        console.log(id);
-        console.log(solution);
         return SolutionService.putSolution(id, solution)
             .then((response) => {
                 commit("SET_SOLUTION", response);
@@ -121,7 +118,6 @@ export const actions = {
             });
     },
     toggleSolutionLike({ commit }, { solution }) {
-        console.log(solution);
         SolutionService.likeSolution(solution).then(() => {
             commit("SET_SOLUTION", solution);
         }).catch((error) => {

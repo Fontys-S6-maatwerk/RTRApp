@@ -116,7 +116,7 @@ export default {
   },
   methods: {
     ...mapActions("user", ["fetchUser", "logoutUser", "deleteUser"]),
-    ...mapActions("solution", ["fetchUserSolutions", "toggleSolutionLike"]),
+    ...mapActions("solution", ["fetchUserSolutions", "toggleSolutionLike", "fetchUserLikedSolutions"]),
     editSolution(solutionId) {
       this.$router.push({
         name: "CreateSolution",
