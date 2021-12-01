@@ -148,18 +148,9 @@ export default {
       );
     },
     impact(impactNumber) {
-      this.addImpact(impactNumber).then(() => {
+      this.addImpact({id: this.id, impact: impactNumber}).then(() => {
         this.calculateImpactPercentage();
       });
-      // this.solution.currentImpact += Number(impactNumber);
-      // // Stuur de solution & current user naar backend
-      // // this.solutionContext.userImpact(this.solution, currentUser)
-      // // .then(() => {
-      // //  this.calculateImpactPercentage();
-      // // });
-      // this.solutionContext.userImpact(this.solution).then(() => {
-      //   this.calculateImpactPercentage();
-      // });
     },
   },
 };

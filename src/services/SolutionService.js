@@ -54,13 +54,21 @@ export default {
         return await apiClient.delete("/solutions/" + id);
     },
     async addImpact(id, impact) {
-        return await apiClient.patch("/solutions/" + id + "?impact=" + impact);
+        return await apiClient.patch("/solutions/" + id, {
+            params: {
+                impact: impact
+            }
+        });
     },
     async likeSolution(solution) {
         return await apiClient.patch(`/solutions/${solution.id}`, solution);
     },
     async getUserLikedSolutions(userId, pageNumber, pageSize) {
         console.log("TEMP API CALL USER LIKED SOLULTION: ", userId, pageNumber, pageSize);
-        return await apiClient.get("/solutions/?isLiked=true").then((response) => response.data)
+        return await apiClient.get("/solutions", {
+            params: {
+                isLiked: true
+            }
+        }).then((response) => response.data)
     }
 };

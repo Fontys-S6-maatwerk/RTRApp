@@ -12,7 +12,7 @@ export default {
   name: "locale-switcher",
   data() {
     return {
-      languages: () => locales()
+      languages: () => locales(),
     };
   },
 };
