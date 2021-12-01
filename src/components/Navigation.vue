@@ -25,7 +25,7 @@ export default {
           title: "Profile",
           path: {
             name: "Profile",
-            params: { id: "67101394-9459-4eed-a979-7dd838bd8635" },
+            params: { id: this.$store.state.user.currentUser.id },
           },
           icon: "mdi-account-circle",
         },

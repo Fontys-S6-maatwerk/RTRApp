@@ -3,14 +3,14 @@ import UserService from "@/services/UserService.js";
 export const namespaced = true;
 
 export const state = {
-    currentUser: {
-        id: "49b8e447-b3b5-413e-950d-fd63ac50aac5",
-        firstname: "Test",
-        lastname: "User",
-        profileImage: "https://cdn.vuetifyjs.com/images/john.jpg",
-        email: "test.user@gmail.com",
-    },
-    user: {},
+  currentUser: {
+    id: "61dd5018-93f2-420f-8211-34c1766f2d54",
+    firstname: "Jan",
+    lastname: "Janssen",
+    profileImage: "https://cdn.vuetifyjs.com/images/john.jpg",
+    email: "JanJanssen@email.com",
+  },
+  user: {},
 };
 
 export const mutations = {

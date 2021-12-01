@@ -58,5 +58,9 @@ export default {
     },
     async likeSolution(solution) {
         return await apiClient.patch(`/solutions/${solution.id}`, solution);
+    },
+    async getUserLikedSolutions(userId, pageNumber, pageSize) {
+        console.log("TEMP API CALL USER LIKED SOLULTION: ", userId, pageNumber, pageSize);
+        return await apiClient.get("/solutions/?isLiked=true").then((response) => response.data)
     }
 };

@@ -20,6 +20,9 @@ export const mutations = {
     SET_USER_SOLUTIONS(state, solutions) {
         state.userSolutions = solutions;
     },
+    SET_USER_LIKED_SOLUTIONS(state, solutions) {
+        state.userSolutions = solutions;
+    },
     SET_SOLUTION(state, solution) {
         state.solution = solution;
     },
@@ -118,14 +121,22 @@ export const actions = {
             });
     },
     toggleSolutionLike({ commit }, { solution }) {
-
+        console.log(solution);
         SolutionService.likeSolution(solution).then(() => {
-            commit("NONE");
-            solution.isLiked = !solution.isLiked;
+            commit("SET_SOLUTION", solution);
         }).catch((error) => {
             console.log(error);
         });
-    }
+    },
+    fetchUserLikedSolutions({ commit }, { id, pageNumber }) {
+        SolutionService.getUserLikedSolutions(id, pageNumber, state.pageSize)
+            .then((response) => {
+                commit("SET_USER_LIKED_SOLUTIONS", response);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    },
 };
 
 export const getters = {};
