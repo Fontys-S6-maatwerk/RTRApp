@@ -40,12 +40,12 @@ export default {
         content: "",
         solutionId: this.solutionId,
         userId: this.$store.state.user.currentUser.id,
-        creationTime: 0,
+        user: this.$store.state.user.currentUser,
       };
     },
     post() {
       this.createComment(this.comment);
-      this.createFreshComment();
+      this.comment = this.createFreshComment();
     },
   },
 };
