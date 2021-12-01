@@ -27,6 +27,9 @@
       <v-col cols="12">
         <v-card>
           <v-row justify="space-around">
+            <v-btn @click="showSolutions()" text>
+              {{ $t("glossary.solutions")}}
+            </v-btn>
             <v-btn text>
               {{ $t("common.following") }}
             </v-btn>
@@ -36,7 +39,7 @@
             <v-btn text>
               {{ $t("common.comments") }}
             </v-btn>
-            <v-btn text>
+            <v-btn @click="showLikes()" text>
               {{ $t("common.likes") }}
             </v-btn>
           </v-row>
@@ -66,7 +69,6 @@
           :solutions="solution.userSolutions"
           v-on:deleteSolution="deleteSolution($event)"
           v-on:editSolution="editSolution($event)"
-          v-on:likeSolution="likeSolution($event)"
           :onProfile="true"
         ></solutions-list>
       </v-col>
@@ -114,7 +116,7 @@ export default {
   },
   methods: {
     ...mapActions("user", ["fetchUser", "logoutUser", "deleteUser"]),
-    ...mapActions("solution", ["fetchUserSolutions", "toggleSolutionLike"]),
+    ...mapActions("solution", ["fetchUserSolutions", "toggleSolutionLike", "fetchUserLikedSolutions"]),
     editSolution(solutionId) {
       this.$router.push({
         name: "CreateSolution",
@@ -126,19 +128,18 @@ export default {
         .delete(solutionId)
         .then(this.solutions.splice(this.solutions.indexOf(solutionId), 1));
     },
-    likeSolution(solution) {
-      // if (solution.isLiked) {
-      //     solution.isLiked = false;
-      // } 
-      // else if (!solution.isLiked) {
-      //     solution.isLiked = true;
-      // }
-      this.toggleSolutionLike(solution);
-
-      // this.solutionContext
-      //   .likeSolution(solution)
-      //   .then(console.log('iets doen yeah confirmationus'));
-    }
+    showSolutions() {
+      this.fetchUserSolutions({
+        id: this.id,
+        pageNumber: 1
+      });
+    },
+    showLikes() {
+      this.fetchUserLikedSolutions({
+        id: this.id,
+        pageNumber: 1
+      })
+    },
   },
 };
 </script>
