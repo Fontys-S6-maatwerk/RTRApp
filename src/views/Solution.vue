@@ -151,19 +151,10 @@ export default {
           100
       );
     },
-    impact(impactNumber) {
-      this.addImpact(impactNumber).then(() => {
+    impact(impact) {
+      this.addImpact(this.id, impact).then(() => {
         this.calculateImpactPercentage();
       });
-      // this.solution.currentImpact += Number(impactNumber);
-      // // Stuur de solution & current user naar backend
-      // // this.solutionContext.userImpact(this.solution, currentUser)
-      // // .then(() => {
-      // //  this.calculateImpactPercentage();
-      // // });
-      // this.solutionContext.userImpact(this.solution).then(() => {
-      //   this.calculateImpactPercentage();
-      // });
     },
   },
 };
