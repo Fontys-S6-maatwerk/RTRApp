@@ -31,7 +31,7 @@ export const mutations = {
         state.userSolutions.splice(index, 1);
     },
     ADD_IMPACT(state, impact) {
-        state.solution.currentImpact += impact;
+        state.solution.currentImpact += Number(impact);
     },
 };
 

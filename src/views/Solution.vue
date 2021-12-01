@@ -151,8 +151,8 @@ export default {
           100
       );
     },
-    impact(impact) {
-      this.addImpact(this.id, impact).then(() => {
+    impact(impactNumber) {
+      this.addImpact({id: this.id, impact: impactNumber}).then(() => {
         this.calculateImpactPercentage();
       });
     },
