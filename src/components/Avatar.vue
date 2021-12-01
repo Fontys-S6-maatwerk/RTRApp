@@ -26,7 +26,7 @@ export default {
   name: "Avatar",
   props: ["user"],
   data() {
-    return {
+    return {  
     }
   },
   methods:{
