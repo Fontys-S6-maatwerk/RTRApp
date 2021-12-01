@@ -3,7 +3,7 @@
     <v-app-bar flat app>
       <v-toolbar-title>{{ $t("glossary.profile") }}</v-toolbar-title>
       <v-spacer></v-spacer>
-      <div class="text-center">
+      <div class="text-center" v-if="onCurrentUserProfile">
         <v-menu offset-y :close-on-content-click="false">
           <template v-slot:activator="{ on, attrs }">
             <v-btn icon v-bind="attrs" v-on="on">
@@ -28,7 +28,7 @@
         <v-card>
           <v-row justify="space-around">
             <v-btn @click="showSolutions()" text>
-              {{ $t("glossary.solutions")}}
+              {{ $t("glossary.solutions") }}
             </v-btn>
             <v-btn text>
               {{ $t("common.following") }}
@@ -36,10 +36,10 @@
             <v-btn text>
               {{ $t("common.followers") }}
             </v-btn>
-            <v-btn text>
+            <v-btn text v-if="onCurrentUserProfile">
               {{ $t("common.comments") }}
             </v-btn>
-            <v-btn @click="showLikes()" text>
+            <v-btn @click="showLikes()" text v-if="onCurrentUserProfile">
               {{ $t("common.likes") }}
             </v-btn>
           </v-row>
@@ -91,6 +91,7 @@ export default {
   },
   data() {
     return {
+      onCurrentUserProfile: this.isOnCurrentUserProfile(),
       solutionContext: new SolutionContext(),
       settings: [
         {
@@ -100,7 +101,7 @@ export default {
         {
           title: "logout",
           action: () => this.logoutUser(),
-        }
+        },
       ],
     };
   },
@@ -116,7 +117,11 @@ export default {
   },
   methods: {
     ...mapActions("user", ["fetchUser", "logoutUser", "deleteUser"]),
-    ...mapActions("solution", ["fetchUserSolutions", "toggleSolutionLike", "fetchUserLikedSolutions"]),
+    ...mapActions("solution", [
+      "fetchUserSolutions",
+      "toggleSolutionLike",
+      "fetchUserLikedSolutions",
+    ]),
     editSolution(solutionId) {
       this.$router.push({
         name: "CreateSolution",
@@ -131,14 +136,17 @@ export default {
     showSolutions() {
       this.fetchUserSolutions({
         id: this.id,
-        pageNumber: 1
+        pageNumber: 1,
       });
     },
     showLikes() {
       this.fetchUserLikedSolutions({
         id: this.id,
-        pageNumber: 1
-      })
+        pageNumber: 1,
+      });
+    },
+    isOnCurrentUserProfile() {
+      return this.id === this.user.currentUser.id;
     },
   },
 };
