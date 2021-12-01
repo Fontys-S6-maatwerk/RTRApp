@@ -54,7 +54,7 @@ export default {
         return await apiClient.delete("/solutions/" + id);
     },
     async addImpact(id, impact) {
-        return await apiClient.patch("/solutions/" + id + "?impact=" + impact);
+        return await apiClient.patch("/solutions/" + id + "?currentImpact=" + impact);
     },
     async likeSolution(solution) {
         return await apiClient.patch(`/solutions/${solution.id}`, solution);

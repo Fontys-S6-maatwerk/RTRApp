@@ -152,7 +152,7 @@ export default {
       );
     },
     impact(impactNumber) {
-      this.addImpact(impactNumber).then(() => {
+      this.addImpact({id: this.id, impact: impactNumber}).then(() => {
         this.calculateImpactPercentage();
       });
       // this.solution.currentImpact += Number(impactNumber);
