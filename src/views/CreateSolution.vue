@@ -20,7 +20,7 @@
       <v-divider></v-divider>
 
       <v-stepper-step step="4">
-        {{ $t("common.impact")}}
+        {{ $t("common.impact") }}
       </v-stepper-step>
     </v-stepper-header>
 
@@ -46,7 +46,7 @@
 
             <v-container fluid class="category-list pa-0">
               <span
-                v-for="(weatherExtremeType, index) in weatherExtremeTypes"
+                v-for="(weatherExtremeType, index) in weather.weatherExtremes"
                 :key="index"
                 v-on:click="solution.weatherExtremeType = weatherExtremeType"
                 :set="
@@ -204,7 +204,7 @@
             <v-btn color="primary" @click="step++">
               {{ $t("common.continue") }}
             </v-btn>
-            
+
             <v-btn text @click="step--"> {{ $t("common.cancel") }} </v-btn>
           </v-card-actions>
         </v-card>
@@ -213,44 +213,48 @@
         <v-form ref="form" v-model="valid">
           <v-card outlined color="transparent">
             <v-card-text class="px-0">
-              <v-card-title class="justify-center">{{ $t('common.impact_question')}}</v-card-title>
-              <v-text-field type="number"
-              :rules="impactGoalRules"
-              min="0"
-              outlined
-              required
-              :label="$t('common.impact_goal')"
-              v-model="impactGoal"></v-text-field>
-              <v-text-field type="number"
-              :rules="currentImpactRules"
-              min="0"
-              outlined
-              required
-              :label="$t('common.current_impact')"
-              v-model="solution.currentImpact"></v-text-field>            
+              <v-card-title class="justify-center">{{
+                $t("common.impact_question")
+              }}</v-card-title>
+              <v-text-field
+                type="number"
+                :rules="impactGoalRules"
+                min="0"
+                outlined
+                required
+                :label="$t('common.impact_goal')"
+                v-model="impactGoal"
+              ></v-text-field>
+              <v-text-field
+                type="number"
+                :rules="currentImpactRules"
+                min="0"
+                outlined
+                required
+                :label="$t('common.current_impact')"
+                v-model="solution.currentImpact"
+              ></v-text-field>
             </v-card-text>
             <v-card-actions>
               <v-btn :disabled="!valid" color="primary" @click="submit()">
-                  {{ pageState.submitText }}
+                {{ pageState.submitText }}
               </v-btn>
               <v-btn text @click="step--">{{ $t("common.back") }}</v-btn>
             </v-card-actions>
           </v-card>
         </v-form>
-        
       </v-stepper-content>
     </v-stepper-items>
   </v-stepper>
 </template>
 
 <script>
-import WeatherContext from "@/data/weather-context";
-import SolutionContext from "@/data/solution-context";
+import { mapActions, mapState } from "vuex";
 
 export default {
   props: {
     solutionId: {
-      type: Number,
+      type: String,
       required: false,
     },
   },
@@ -262,20 +266,48 @@ export default {
     return {
       valid: false,
       step: 1,
-      weatherExtremeTypes: [],
-      solutionContext: new SolutionContext(),
-      weatherContext: new WeatherContext(),
       impactGoalRules: [
-        value => value >= 0 || this.$t("validation.minimum_value") + " 1" ,
-        value => !!value || this.$t("validation.required"),
+        (value) => value >= 0 || this.$t("validation.minimum_value") + " 1",
+        (value) => !!value || this.$t("validation.required"),
       ],
       currentImpactRules: [
-        v => v >= 0 || this.$t("validation.minimum_value") + " 0" ,
-        v => !!v || this.$t("validation.required"),
-        v => v < (parseInt(this.impactGoal)) || this.$t("validation.impact_goal_greater_than_current_impact"),
+        (v) => v >= 0 || this.$t("validation.minimum_value") + " 0",
+        (v) => !!v || this.$t("validation.required"),
+        (v) =>
+          v < parseInt(this.impactGoal) ||
+          this.$t("validation.impact_goal_greater_than_current_impact"),
       ],
       impactGoal: 0,
-      solution: {
+      solution: this.createFreshSolution(),
+      pageState: {
+        editable: !!this.solutionId,
+        submitText: this.solutionId
+          ? this.$t("common.update_solution")
+          : this.$t("common.add_solution"),
+      },
+    };
+  },
+  computed: {
+    ...mapState(["weather", "user"]),
+  },
+  mounted() {
+    this.fetchWeatherExtremes();
+
+    if (this.solutionId) {
+      this.fetchSolution(this.solutionId).then((response) => {
+        this.solution = response;
+      });
+    }
+  },
+  methods: {
+    ...mapActions("weather", ["fetchWeatherExtremes"]),
+    ...mapActions("solution", [
+      "fetchSolution",
+      "createSolution",
+      "updateSolution",
+    ]),
+    createFreshSolution() {
+      return {
         name: "",
         introduction: "",
         coverImage: "",
@@ -287,36 +319,17 @@ export default {
         viewCount: 0,
         impactGoal: 0,
         currentImpact: 0,
-        //sample data
-        numberOfLikes: 122,
-        solutionType: "how-to video",
-        difficulty: "medium",
-        SDGType: "Goal 13: Climate Action",
-        author: "Jan Janssen",
         isLiked: false,
-      },
-      pageState: {
-        editable: !isNaN(this.solutionId),
-        submitText: this.solutionId
-          ? this.$t("common.update_solution")
-          : this.$t("common.add_solution"),
-      },
-    };
-  },
-  mounted() {
-    this.weatherContext.getWeatherExtremes().then((extremes) => {
-      this.weatherExtremeTypes = extremes;
-    });
-
-    if (this.solutionId) {
-      this.solutionContext.getById(this.solutionId).then((solutions) => {
-        //mock returns array with solution
-        this.solution = solutions[0];
-      });
-    }
-  },
-  methods: {
-    validate(){
+        numberOfLikes: 0,
+        solutionType: "how-to",
+        SDGType: "Goal 13: Climate Action",
+        userId: this.$store.state.user.currentUser.id,
+        user: this.$store.state.user.currentUser,
+        //sample data
+        difficulty: "medium",
+      };
+    },
+    validate() {
       this.$refs.form.validate();
     },
     addItem(item, name) {
@@ -337,26 +350,30 @@ export default {
     },
     submit() {
       this.solution.impactGoal = this.impactGoal;
+
       if (this.pageState.editable) {
-        this.solutionContext.update(this.solution).then((solution) => {
+        this.updateSolution({
+          id: this.solutionId,
+          solution: this.solution,
+        }).then((solution) => {
           this.$router.push({
             name: "Solution",
-            params: { solutionId: solution.id },
+            params: { id: solution.id },
           });
         });
       } else {
-        this.solutionContext.add(this.solution).then((solution) => {
+        this.createSolution(this.solution).then((solution) => {
           this.$router.push({
             name: "Solution",
-            params: { solutionId: solution.id },
+            params: { id: solution.id },
           });
         });
       }
     },
   },
   watch: {
-    impactGoal: 'validate'
-  }
+    impactGoal: "validate",
+  },
 };
 </script>
 

@@ -1,12 +1,13 @@
 <template lang="html">
   <v-list min-height="500px">
-    <v-list-item class="px-0" v-for="comment in comments" :key="comment.id">
-      <comment-view :comment="comment" v-on:delete="remove($event)" />
+    <v-list-item v-for="comment in comment.items" v-bind:key="comment.id">
+      <CommentView :comment="comment" />
     </v-list-item>
   </v-list>
 </template>
 
 <script lang="js">
+import { mapState } from "vuex";
 
   export default  {
     name: 'CommentList',
@@ -14,13 +15,8 @@
     components:{
       CommentView: () => import("./CommentView")
     },
-    methods: {
-      remove(comment) {
-        this.comments.splice(this.comments.indexOf(comment), 1);
-      }
+    computed: {
+      ...mapState(["comment"])
     }
 }
 </script>
-
-<style scoped lang="scss">
-</style>

@@ -3,7 +3,7 @@
       v-if="user.id"
       :to="{
         name: 'Profile',
-        params: { userId: user.id },
+        params: { id: user.id },
       }">
   <v-avatar
       size="64">

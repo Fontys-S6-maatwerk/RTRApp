@@ -3,7 +3,6 @@
     <v-col v-if="solutions" cols="12">
       <v-card class="ma-1" min-width="250px" v-for="solution in solutions" :key="solution.id" >
         <solutions-list-item :onProfile="onProfile" :btnColor="solution.isLiked ? 'green' : 'white'" :solution="solution"
-        v-on:likeSolution="likeSolution($event)"
         v-on:deleteSolution="deleteSolution($event)"
         v-on:editSolution="editSolution($event)"></solutions-list-item>
       </v-card>
@@ -12,6 +11,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 import UserContext from "../data/user-context";
 
 export default {
@@ -27,33 +27,30 @@ export default {
     },
   },
   components: {
-    SolutionsListItem: () => import("@/components/SolutionsListItem.vue")
-  },
+    SolutionsListItem: () => import("@/components/SolutionsListItem.vue"),
+ },
   data() {
     return {
       userContext: new UserContext(),
-      dialog: false
+      dialog: false,
     };
   },
   methods: {
+    ...mapActions("solution", ["deleteSolution"]),
     openSolution(solutionId) {
       this.$router.push({
         name: "Solution",
-        params: { solutionId: solutionId },
+        params: { id: solutionId },
       });
     },
     editSolution(solutionId) {
-      this.$emit("editSolution", solutionId);
-    },
-    deleteSolution(solutionId) {
-      this.$emit("deleteSolution", solutionId);
-    },
-    likeSolution(solutionId) {
-      this.$emit("likeSolution", solutionId);
+      this.$router.push({
+        name: "CreateSolution",
+        params: { solutionId: solutionId },
+      });
     },
   },
-  mounted() {
-  }
+  mounted() {},
 };
 </script>
 
