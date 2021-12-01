@@ -319,12 +319,14 @@ export default {
         viewCount: 0,
         impactGoal: 0,
         currentImpact: 0,
-        //sample data
+        isLiked: false,
         numberOfLikes: 0,
         solutionType: "how-to",
-        difficulty: "medium",
         SDGType: "Goal 13: Climate Action",
         userId: this.$store.state.user.currentUser.id,
+        user: this.$store.state.user.currentUser,
+        //sample data
+        difficulty: "medium",
       };
     },
     validate() {

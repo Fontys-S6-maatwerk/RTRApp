@@ -1,7 +1,10 @@
 <template>
   <v-container fluid class="pa-0">
     <solution-sorter v-on:sort="sort($event)"></solution-sorter>
-    <solutions-list :solutions="solution.feedSolutions"></solutions-list>
+    <solutions-list
+      v-on:likeSolution="likeSolution($event)"
+      :solutions="solution.feedSolutions"
+    ></solutions-list>
   </v-container>
 </template>
 
@@ -27,6 +30,10 @@ export default {
         sortBy: sortBy,
         pageNumber: 1,
       });
+    },
+    likeSolution(solution) {
+      solution.isLiked = !solution.isLiked;
+      this.solutionContext.likeSolution(solution);
     },
     ...mapActions("solution", ["fetchFeedSolutions"]),
   },

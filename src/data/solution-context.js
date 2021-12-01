@@ -128,4 +128,14 @@ export default class SolutionContext extends BaseContext {
       console.error(error);
     }
   }
+
+  async likeSolution(solution) {
+      try {
+          let response = await this.axios.patch(`/${solution.id}`, solution);
+
+          return response;
+      } catch(error) {
+          console.error(error);
+      }
+  }
 }

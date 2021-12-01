@@ -1,5 +1,5 @@
 <template lang="html">
-  <v-container fluid>
+  <v-container fluid fill-height class='px-0'>
     <v-row>
       <v-col cols="3">
         <Avatar :user="this.comment.user" />
@@ -24,7 +24,7 @@
         </v-row>
       </v-col>
       <v-col cols="3">
-        <span>{{ this.comment.creationDate | formatDate("HH:MM") }}</span>
+        <span>{{ $d(this.comment.creationDate, "comment") }}</span>
       </v-col>
     </v-row>
   </v-container>

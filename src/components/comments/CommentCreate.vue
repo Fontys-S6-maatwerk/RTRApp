@@ -18,9 +18,8 @@
 </template>
 
 <script>
+import Avatar from "@/components/Avatar.vue";
 import { mapActions, mapState } from "vuex";
-import CommentContext from "../../data/comment-context";
-import Avatar from "../Avatar";
 
 export default {
   name: "CommentCreate",
@@ -28,7 +27,6 @@ export default {
   props: ["solutionId"],
   data() {
     return {
-      commentContext: new CommentContext(),
       comment: this.createFreshComment(),
     };
   },

@@ -40,6 +40,10 @@ export const dateTimeFormats = {
             hour: 'numeric',
             minute: 'numeric',
             hour12: false
+        },
+        comment: {
+            hour: 'numeric',
+            minute: 'numeric'
         }
     },
     'nl': {
@@ -57,6 +61,10 @@ export const dateTimeFormats = {
             hour: 'numeric',
             minute: 'numeric',
             hour12: false
+        },
+        comment: {
+            hour: 'numeric',
+            minute: 'numeric'
         }
     }
 }
