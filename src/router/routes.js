@@ -32,6 +32,9 @@ const routes = [{
         component: () =>
             import ("../views/Solution.vue"),
         props: true,
+        meta: {
+            requiresAuth: true
+        }
     },
     {
         path: "/create-solution/:solutionId?",
