@@ -34,6 +34,13 @@ export default {
     },
 
 
+    async update(user) {
+        return await apiClient
+            .patch('/Users/' + user.id, user)
+            .then((response) => response.data);
+    },
+
+
     async delete(id) {
         await apiClient
             .delete('/Authentication/' + id)

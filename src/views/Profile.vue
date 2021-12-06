@@ -28,7 +28,7 @@
         <v-card>
           <v-row justify="space-around">
             <v-btn @click="showSolutions()" text>
-              {{ $t("glossary.solutions")}}
+              {{ $t("glossary.solutions") }}
             </v-btn>
             <v-btn text>
               {{ $t("common.following") }}
@@ -94,13 +94,17 @@ export default {
       solutionContext: new SolutionContext(),
       settings: [
         {
+          title: "update_account",
+          action: () => this.$router.push({name: "UpdateProfile" }),
+        },
+        {
           title: "delete_account",
           action: () => this.deleteUser(this.id),
         },
         {
           title: "logout",
           action: () => this.logoutUser(),
-        }
+        },
       ],
     };
   },
@@ -116,7 +120,11 @@ export default {
   },
   methods: {
     ...mapActions("user", ["fetchUser", "logoutUser", "deleteUser"]),
-    ...mapActions("solution", ["fetchUserSolutions", "toggleSolutionLike", "fetchUserLikedSolutions"]),
+    ...mapActions("solution", [
+      "fetchUserSolutions",
+      "toggleSolutionLike",
+      "fetchUserLikedSolutions",
+    ]),
     editSolution(solutionId) {
       this.$router.push({
         name: "CreateSolution",
@@ -131,14 +139,14 @@ export default {
     showSolutions() {
       this.fetchUserSolutions({
         id: this.id,
-        pageNumber: 1
+        pageNumber: 1,
       });
     },
     showLikes() {
       this.fetchUserLikedSolutions({
         id: this.id,
-        pageNumber: 1
-      })
+        pageNumber: 1,
+      });
     },
   },
 };

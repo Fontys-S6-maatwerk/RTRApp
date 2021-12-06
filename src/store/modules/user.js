@@ -4,12 +4,11 @@ export const namespaced = true;
 
 export const state = {
     currentUser: {
-        // id: ''
-        // id: "61dd5018-93f2-420f-8211-34c1766f2d54",
-        // firstname: "Jan",
-        // lastname: "Janssen",
-        // profileImage: "https://cdn.vuetifyjs.com/images/john.jpg",
-        // email: "JanJanssen@email.com",
+        id: "61dd5018-93f2-420f-8211-34c1766f2d54",
+        firstName: "Jan",
+        lastName: "Janssen",
+        profileImage: "https://cdn.vuetifyjs.com/images/john.jpg",
+        email: "janjanssen@email.com",
     },
     user: {},
 };
@@ -61,6 +60,17 @@ export const actions = {
 
     registerUser({ commit }, register) {
         return UserService.register(register)
+            .then((response) => {
+                commit("SET_CURRENT_USER", response);
+                return response;
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    },
+
+    updateUser({ commit }, user) {
+        return UserService.update(user)
             .then((response) => {
                 commit("SET_CURRENT_USER", response);
                 return response;
