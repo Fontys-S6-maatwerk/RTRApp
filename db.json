@@ -94,10 +94,10 @@
         "goede zin"
       ],
       "user": {
-        "id": "61dd5018-93f2-420f-8211-34c1766f2d54",
-        "firstName": "Jan",
-        "lastName": "Janssen",
-        "email": "JanJanssen@email.com",
+        "id": "0de136f7-5d0b-4243-b6af-599e4cb56877",
+        "firstName": "Hans",
+        "lastName": "Worst",
+        "email": "hansworst@email.com",
         "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg"
       },
       "steps": [
@@ -118,7 +118,7 @@
       "solutionType": "how-to",
       "difficulty": "medium",
       "SDGType": "Goal 13: Climate Action",
-      "userId": "49b8e447-b3b5-413e-950d-fd63ac50aac5",
+      "userId": "0de136f7-5d0b-4243-b6af-599e4cb56877",
       "id": "lwNao9D"
     }
   ],

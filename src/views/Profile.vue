@@ -146,7 +146,8 @@ export default {
       });
     },
     isOnCurrentUserProfile() {
-      return this.id === this.user.currentUser.id;
+      console.log('this.id | currentuserid ' + this.id + ' | ' + this.$store.state.user.currentUser.id);
+      return this.id === this.$store.state.user.currentUser.id;
     },
   },
 };
