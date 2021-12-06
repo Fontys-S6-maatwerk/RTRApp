@@ -2,7 +2,7 @@
   "Solutions": [
     {
       "id": "5de9a4a0-5861-437c-bd77-42288e527754",
-      "name": "Bevestig kussen met spijkers",
+      "name": "Bevestig kussen met spijker",
       "introduction": "Deze oplossing maakt het mogelijk voor gebruikers om een kussen te kunnen bevestigen met een hamer. ",
       "isLiked": false,
       "coverImage": "",
@@ -38,8 +38,8 @@
         "email": "JanJanssen@email.com",
         "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg"
       },
-      "impactGoal": 2000,
-      "currentImpact": 500,
+      "impactGoal": "500",
+      "currentImpact": "40",
       "uploadDate": 1634647211973,
       "viewCount": 0
     },
