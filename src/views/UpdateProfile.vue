@@ -76,8 +76,12 @@ export default {
       this.user.profileImage = window.URL.createObjectURL(file);
     },
     update() {
-      this.updateUser(this.user)
-      .then(() => this.$router.push({ name: "Profile" }))
+      this.updateUser(this.user).then(() =>
+        this.$router.push({
+          name: "Profile",
+          params: { id: this.user.id },
+        })
+      );
     },
   },
 };
