@@ -28,7 +28,7 @@
                 <router-link
                   :to="{
                     name: 'Profile',
-                    params: { userId: solution.solution.user.id },
+                    params: { id: solution.solution.user.id },
                   }"
                 >
                   {{
