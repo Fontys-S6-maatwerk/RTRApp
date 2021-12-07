@@ -9,12 +9,18 @@
 </template>
 
 <script>
-import store from '../store'
+import { mapGetters } from "vuex";
+
 export default {
   name: "Navigation",
   data() {
-    return {
-      navItems: [
+    return {};
+  },
+  computed: {
+    ...mapGetters("user", ["getCurrentUserId"]),
+    navItems() {
+      const params = { id: this.getCurrentUserId };
+      return [
         { title: "Home", path: "/home", icon: "mdi-home" },
         {
           title: "Create solution",
@@ -26,12 +32,12 @@ export default {
           title: "Profile",
           path: {
             name: "Profile",
-            params: { id: store.state.user.currentUser.id },
+            params,
           },
           icon: "mdi-account-circle",
         },
-      ],
-    };
+      ];
+    },
   },
 };
 </script>
