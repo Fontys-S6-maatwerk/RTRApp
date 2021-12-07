@@ -152,7 +152,6 @@ export default {
     '$route.params.id'() {
       this.fetchUser(this.id);
       this.showSolutions();
-     console.log(this.isOnCurrentUserProfile);
     }
   }
 };
