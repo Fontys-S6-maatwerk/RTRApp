@@ -110,7 +110,7 @@
       </v-col>
 
       <v-col cols="12">
-        <CommentSection :solutionId="solution.solution.id" :userId="1" />
+        <CommentSection :solutionId="this.id" :userId="1" />
       </v-col>
     </v-row>
   </v-container>
@@ -128,10 +128,6 @@ export default {
   },
   created() {
     this.fetchSolution(this.id);
-    this.fetchSolutionComments({
-      solutionId: this.id,
-      pageNumber: 1,
-    });
   },
   components: {
     Avatar,

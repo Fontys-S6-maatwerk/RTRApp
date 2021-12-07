@@ -18,13 +18,13 @@
 </template>
 
 <script>
+import Avatar from "@/components/Avatar.vue";
 import { mapActions, mapState } from "vuex";
 
 export default {
   name: "CommentCreate",
-  components: {
-    Avatar: () => import('../Avatar')
-  },
+  components: { Avatar },
+  props: ["solutionId"],
   data() {
     return {
       comment: this.createFreshComment(),
@@ -37,16 +37,15 @@ export default {
     ...mapActions("comment", ["createComment"]),
     createFreshComment() {
       return {
-        id: "",
         content: "",
-        solution: this.$route.params.solutionId,
-        author: "",
+        solutionId: this.solutionId,
+        userId: this.$store.state.user.currentUser.id,
+        user: this.$store.state.user.currentUser,
       };
     },
     post() {
-      this.comment.author = this.user.currentUser.id;
       this.createComment(this.comment);
-      this.createFreshComment();
+      this.comment = this.createFreshComment();
     },
   },
 };

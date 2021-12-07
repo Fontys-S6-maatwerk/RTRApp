@@ -82,10 +82,15 @@ export const actions = {
         UserService.delete(id)
             .then(() => {
                 commit("SET_CURRENT_USER", {});
-
             })
             .catch((error) => {
                 console.log(error);
-            })
+            });
+    },
+};
+
+export const getters = {
+    getCurrentUserId: (state) => {
+        return state.currentUser.id;
     },
 };

@@ -4,6 +4,7 @@ import * as user from "@/store/modules/user.js";
 import * as solution from "@/store/modules/solution.js";
 import * as comment from "@/store/modules/comment.js";
 import * as weather from "@/store/modules/weather.js";
+import createPersistedState from 'vuex-persistedstate';
 
 Vue.use(Vuex);
 
@@ -17,4 +18,8 @@ export default new Vuex.Store({
     comment,
     weather,
   },
+  plugins: [createPersistedState({
+    // window.sessionStorage zodat de state wordt verwijderd op window close.
+    storage: window.sessionStorage,
+  })],
 });
