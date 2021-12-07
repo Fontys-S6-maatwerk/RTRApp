@@ -15,9 +15,9 @@
               <locale-switcher></locale-switcher>
             </v-list-item>
             <v-list-item v-for="(item, index) in settings" :key="index" link>
-              <v-list-item-title @click="item.action()">{{
-                $t("glossary." + item.title)
-              }}</v-list-item-title>
+              <v-list-item-title @click="item.action()">
+                {{ item.title }}
+              </v-list-item-title>
             </v-list-item>
           </v-list>
         </v-menu>
@@ -92,18 +92,18 @@ export default {
     return {
       settings: [
         {
-          title: "update_account",
+          title: this.$t("glossary.update_account"),
           action: () => this.$router.push({ name: "UpdateProfile" }),
         },
         {
-          title: "delete_account",
+          title: this.$t("glossary.delete_account"),
           action: () =>
             this.deleteUser(this.id).then(() =>
               this.$router.push({ name: "login" })
             ),
         },
         {
-          title: "logout",
+          title: this.$t("glossary.logout"),
           action: () => this.logoutUser(),
         },
       ],
