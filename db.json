@@ -362,38 +362,38 @@
   ],
   "Authentication": [
     {
-      "id": 1,
+      "id": "0de136f7-5d0b-4243-b6af-599e4cb56877",
       "email": "hansworst@email.com",
-      "firstname": "hans",
-      "lastname": "worst",
+      "firstName": "hans",
+      "lastName": "worst",
       "password": "Aa123Bb456"
     },
     {
       "id": 2,
       "email": "janjanssen@email.com",
-      "firstname": "jan",
-      "lastname": "janssen",
+      "firstName": "jan",
+      "lastName": "janssen",
       "password": "Aa456Bb123"
     },
     {
       "id": 3,
       "email": "johnsnow@email.com",
-      "firstname": "john",
-      "lastname": "snow",
+      "firstName": "john",
+      "lastName": "snow",
       "password": "Aa654Bb321"
     },
     {
       "id": 4,
       "email": "peterpan@email.com",
-      "firstname": "peter",
-      "lastname": "pan",
+      "firstName": "peter",
+      "lastName": "pan",
       "password": "Bb123Aa456"
     },
     {
       "id": 5,
       "email": "henkhenkerson@email.com",
-      "firstname": "henk",
-      "lastname": "henkerson",
+      "firstName": "henk",
+      "lastName": "henkerson",
       "password": "Aa654Bb321"
     }
   ],

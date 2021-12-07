@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import store from '../store'
 export default {
   name: "Navigation",
   data() {
@@ -25,7 +26,7 @@ export default {
           title: "Profile",
           path: {
             name: "Profile",
-            params: { id: this.$store.state.user.currentUser.id },
+            params: { id: store.state.user.currentUser.id },
           },
           icon: "mdi-account-circle",
         },
