@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
-import { localeMessages, dateTimeFormats } from '@/services/i18nconfiguration';
+import { localeMessages, dateTimeFormats } from '@/util/i18nconfiguration';
 
 Vue.use(VueI18n)
 

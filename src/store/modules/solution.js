@@ -103,6 +103,7 @@ export const actions = {
         SolutionService.deleteSolution(solution.id)
             .then(() => {
                 commit("REMOVE_SOLUTION", solution);
+                return solution;
             })
             .catch((error) => {
                 console.log(error);

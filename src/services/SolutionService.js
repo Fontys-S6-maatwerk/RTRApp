@@ -1,13 +1,4 @@
-import axios from "axios";
-
-const apiClient = axios.create({
-    baseURL: process.env.VUE_APP_BASE_URL,
-    withCredentials: false, // This is the default
-    headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-    },
-});
+import apiClient from "@/util/api-client";
 
 export default {
     async getFeedSolutions(userId, sortBy, pageNumber, pageSize) {
@@ -51,10 +42,10 @@ export default {
             .then((response) => response.data);
     },
     async deleteSolution(id) {
-        return await apiClient.delete("/solutions/" + id);
+        return await apiClient.delete("/Solutions/" + id);
     },
     async addImpact(id, impact) {
-        return await apiClient.patch("/solutions/" + id, {
+        return await apiClient.patch("/Solutions/" + id, {
             params: {
                 impact: impact
             }

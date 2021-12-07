@@ -16,19 +16,19 @@
             <v-form ref="form" v-model="valid" lazy-validation>
               <v-text-field
                 prepend-icon="mdi-account"
-                name="firstname"
-                v-model="register.firstname"
+                name="firstName"
+                v-model="register.firstName"
                 :label="$t('glossary.firstname')"
-                type="firstname"
-                :rules="firstnameRules"
+                type="firstName"
+                :rules="firstNameRules"
               ></v-text-field>
               <v-text-field
                 prepend-icon="mdi-account"
-                name="lastname"
-                v-model="register.lastname"
+                name="lastName"
+                v-model="register.lastName"
                 :label="$t('glossary.lastname')"
-                type="lastname"
-                :rules="lastnameRules"
+                type="lastName"
+                :rules="lastNameRules"
               ></v-text-field>
 
               <v-text-field
@@ -73,18 +73,18 @@ export default {
       valid: true,
       error: "",
       register: {
-        firstname: "",
-        lastname: "",
+        firstName: "",
+        lastName: "",
         email: "",
         password: "",
       },
-      firstnameRules: [
+      firstNameRules: [
         (v) => !!v || this.$t("validation.required"),
         (v) =>
           (v && v.length >= 3 && v.length <= 10) ||
           this.$t("validation.must_be_between_characters", { min: 3, max: 10 }),
       ],
-      lastnameRules: [
+      lastNameRules: [
         (v) => !!v || this.$t("validation.required"),
         (v) =>
           (v && v.length >= 3 && v.length <= 10) ||

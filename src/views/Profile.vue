@@ -67,7 +67,7 @@
         </v-card-title>
         <solutions-list
           :solutions="solution.userSolutions"
-          v-on:deleteSolution="deleteSolution($event)"
+          v-on:deleteSolution="deleteSolutionById($event)"
           v-on:editSolution="editSolution($event)"
           :onProfile="true"
         ></solutions-list>
@@ -77,7 +77,6 @@
 </template>
 
 <script>
-import SolutionContext from "@/data/solution-context";
 import { mapActions, mapState } from "vuex";
 
 export default {
@@ -91,7 +90,6 @@ export default {
   },
   data() {
     return {
-      solutionContext: new SolutionContext(),
       settings: [
         {
           title: "update_account",
@@ -119,11 +117,16 @@ export default {
     ...mapState(["user", "solution"]),
   },
   methods: {
-    ...mapActions("user", ["fetchUser", "logoutUser", "deleteUser"]),
+    ...mapActions("user", [
+      "fetchUser",
+      "logoutUser",
+      "deleteUser"
+    ]),
     ...mapActions("solution", [
       "fetchUserSolutions",
       "toggleSolutionLike",
       "fetchUserLikedSolutions",
+      "deleteSolution",
     ]),
     editSolution(solutionId) {
       this.$router.push({
@@ -131,10 +134,9 @@ export default {
         params: { id: solutionId },
       });
     },
-    deleteSolution(solutionId) {
-      this.solutionContext
-        .delete(solutionId)
-        .then(this.solutions.splice(this.solutions.indexOf(solutionId), 1));
+    deleteSolutionById(solutionId) {
+      this.deleteSolution(solutionId)
+        .then(() => this.solutions.splice(this.solutions.indexOf(solutionId), 1));
     },
     showSolutions() {
       this.fetchUserSolutions({

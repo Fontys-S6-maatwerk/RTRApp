@@ -12,7 +12,6 @@
 
 <script>
 import { mapActions } from "vuex";
-import UserContext from "../data/user-context";
 
 export default {
   name: "src-components-solutions-list",
@@ -31,7 +30,6 @@ export default {
  },
   data() {
     return {
-      userContext: new UserContext(),
       dialog: false,
     };
   },
