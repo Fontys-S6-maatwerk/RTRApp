@@ -94,10 +94,10 @@
         "goede zin"
       ],
       "user": {
-        "id": "61dd5018-93f2-420f-8211-34c1766f2d54",
-        "firstName": "Jan",
-        "lastName": "Janssen",
-        "email": "JanJanssen@email.com",
+        "id": "0de136f7-5d0b-4243-b6af-599e4cb56877",
+        "firstName": "Hans",
+        "lastName": "Worst",
+        "email": "hansworst@email.com",
         "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg"
       },
       "steps": [
@@ -118,7 +118,7 @@
       "solutionType": "how-to",
       "difficulty": "medium",
       "SDGType": "Goal 13: Climate Action",
-      "userId": "49b8e447-b3b5-413e-950d-fd63ac50aac5",
+      "userId": "0de136f7-5d0b-4243-b6af-599e4cb56877",
       "id": "lwNao9D"
     }
   ],
@@ -290,77 +290,6 @@
           "author": 1,
           "creationDate": 1637659725857
         }
-      ],
-      "Users": [
-        {
-          "id": 1,
-          "firstName": "Jan",
-          "lastName": "Janssen",
-          "email": "JanJanssen@email.com",
-          "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg",
-          "following": [
-            {
-              "id": 2
-            },
-            {
-              "id": 3
-            }
-          ],
-          "followers": [
-            {
-              "id": 2
-            }
-          ],
-          "myComments": [
-            {
-              "id": 4
-            }
-          ],
-          "mySolutions": [
-            {
-              "id": 1
-            }
-          ],
-          "myLikes": [
-            {
-              "id": 2
-            }
-          ]
-        },
-        {
-          "id": 2,
-          "firstName": "Henk",
-          "lastName": "Henkerson",
-          "email": "henkhenkerson@gmail.comm",
-          "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg",
-          "following": [
-            {
-              "id": 1
-            }
-          ],
-          "followers": [
-            {
-              "id": 1
-            }
-          ],
-          "myComments": [
-            {
-              "id": 1
-            },
-            {
-              "id": 3
-            }
-          ],
-          "mySolutions": [],
-          "myLikes": [
-            {
-              "id": 2
-            }
-          ]
-        },
-        {
-          "id": 2
-        }
       ]
     },
     {
@@ -433,38 +362,38 @@
   ],
   "Authentication": [
     {
-      "id": 1,
+      "id": "0de136f7-5d0b-4243-b6af-599e4cb56877",
       "email": "hansworst@email.com",
-      "firstname": "hans",
-      "lastname": "worst",
+      "firstName": "hans",
+      "lastName": "worst",
       "password": "Aa123Bb456"
     },
     {
       "id": 2,
       "email": "janjanssen@email.com",
-      "firstname": "jan",
-      "lastname": "janssen",
+      "firstName": "jan",
+      "lastName": "janssen",
       "password": "Aa456Bb123"
     },
     {
       "id": 3,
       "email": "johnsnow@email.com",
-      "firstname": "john",
-      "lastname": "snow",
+      "firstName": "john",
+      "lastName": "snow",
       "password": "Aa654Bb321"
     },
     {
       "id": 4,
       "email": "peterpan@email.com",
-      "firstname": "peter",
-      "lastname": "pan",
+      "firstName": "peter",
+      "lastName": "pan",
       "password": "Bb123Aa456"
     },
     {
       "id": 5,
       "email": "henkhenkerson@email.com",
-      "firstname": "henk",
-      "lastname": "henkerson",
+      "firstName": "henk",
+      "lastName": "henkerson",
       "password": "Aa654Bb321"
     }
   ],
