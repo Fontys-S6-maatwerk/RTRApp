@@ -33,7 +33,7 @@
               {{ error }}
             </v-alert>
           </v-card-text>
-          <v-card-actions>
+          <v-card-actions class="px-4">
             <v-card-text>
               <router-link :to="{ name: 'register'}">{{ $t("common.register")}}</router-link>
             </v-card-text>
