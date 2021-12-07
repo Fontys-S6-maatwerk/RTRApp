@@ -271,8 +271,8 @@
     },
     {
       "id": "0de136f7-5d0b-4243-b6af-599e4cb56877",
-      "firstName": "Hans",
-      "lastName": "Worst",
+      "firstName": "hansss",
+      "lastName": "worst",
       "email": "hansworst@email.com",
       "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg",
       "following": [
@@ -361,7 +361,8 @@
         {
           "id": 2
         }
-      ]
+      ],
+      "password": "Aa123Bb456"
     },
     {
       "id": "31fa2467-6a74-483f-9886-8eb5d47c8eba",
@@ -435,7 +436,7 @@
     {
       "id": "0de136f7-5d0b-4243-b6af-599e4cb56877",
       "email": "hansworst@email.com",
-      "firstName": "hans",
+      "firstName": "hansss",
       "lastName": "worst",
       "password": "Aa123Bb456"
     },
