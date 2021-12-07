@@ -94,6 +94,10 @@ export default {
       solutionContext: new SolutionContext(),
       settings: [
         {
+          title: "update_account",
+          action: () => this.$router.push({name: "UpdateProfile" }),
+        },
+        {
           title: "delete_account",
           action: () => this.deleteUser(this.id),
         },

@@ -67,6 +67,15 @@ const routes = [{
             requiresAuth: true
         }
     },
+    {
+        path: "/update-profile",
+        name: "UpdateProfile",
+        component: () =>
+            import ("../views/UpdateProfile.vue"),
+        meta: {
+            requiresAuth: true
+        }
+    },
 ];
 
 export default routes;
