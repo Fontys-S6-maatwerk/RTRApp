@@ -3,7 +3,7 @@
     <v-app-bar flat app>
       <v-toolbar-title>{{ $t("glossary.profile") }}</v-toolbar-title>
       <v-spacer></v-spacer>
-      <div class="text-center">
+      <div class="text-center" v-if="isOnCurrentUserProfile">
         <v-menu offset-y :close-on-content-click="false">
           <template v-slot:activator="{ on, attrs }">
             <v-btn icon v-bind="attrs" v-on="on">
@@ -36,10 +36,10 @@
             <v-btn text>
               {{ $t("common.followers") }}
             </v-btn>
-            <v-btn text>
+            <v-btn text v-if="isOnCurrentUserProfile">
               {{ $t("common.comments") }}
             </v-btn>
-            <v-btn @click="showLikes()" text>
+            <v-btn @click="showLikes()" text v-if="isOnCurrentUserProfile">
               {{ $t("common.likes") }}
             </v-btn>
           </v-row>
@@ -115,6 +115,9 @@ export default {
   },
   computed: {
     ...mapState(["user", "solution"]),
+    isOnCurrentUserProfile() {
+      return this.id === this.$store.state.user.currentUser.id;
+    }
   },
   methods: {
     ...mapActions("user", [
@@ -151,5 +154,11 @@ export default {
       });
     },
   },
+  watch: {
+    '$route.params.id'() {
+      this.fetchUser(this.id);
+      this.showSolutions();
+    }
+  }
 };
 </script>
