@@ -93,11 +93,14 @@ export default {
       settings: [
         {
           title: "update_account",
-          action: () => this.$router.push({name: "UpdateProfile" }),
+          action: () => this.$router.push({ name: "UpdateProfile" }),
         },
         {
           title: "delete_account",
-          action: () => this.deleteUser(this.id),
+          action: () =>
+            this.deleteUser(this.id).then(() =>
+              this.$router.push({ name: "login" })
+            ),
         },
         {
           title: "logout",
@@ -117,14 +120,10 @@ export default {
     ...mapState(["user", "solution"]),
     isOnCurrentUserProfile() {
       return this.id === this.$store.state.user.currentUser.id;
-    }
+    },
   },
   methods: {
-    ...mapActions("user", [
-      "fetchUser",
-      "logoutUser",
-      "deleteUser"
-    ]),
+    ...mapActions("user", ["fetchUser", "logoutUser", "deleteUser"]),
     ...mapActions("solution", [
       "fetchUserSolutions",
       "toggleSolutionLike",
@@ -138,8 +137,9 @@ export default {
       });
     },
     deleteSolutionById(solutionId) {
-      this.deleteSolution(solutionId)
-        .then(() => this.solutions.splice(this.solutions.indexOf(solutionId), 1));
+      this.deleteSolution(solutionId).then(() =>
+        this.solutions.splice(this.solutions.indexOf(solutionId), 1)
+      );
     },
     showSolutions() {
       this.fetchUserSolutions({
@@ -155,10 +155,10 @@ export default {
     },
   },
   watch: {
-    '$route.params.id'() {
+    "$route.params.id"() {
       this.fetchUser(this.id);
       this.showSolutions();
-    }
-  }
+    },
+  },
 };
 </script>
