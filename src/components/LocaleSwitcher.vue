@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { locales } from "@/services/i18nconfiguration";
+import { locales } from "@/util/i18nconfiguration";
 export default {
   // sort locale file entries by keys: https://codeshack.io/json-sorter/
   name: "locale-switcher",
