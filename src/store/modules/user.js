@@ -3,13 +3,7 @@ import UserService from "@/services/UserService.js";
 export const namespaced = true;
 
 export const state = {
-    currentUser: {
-        // id: "61dd5018-93f2-420f-8211-34c1766f2d54",
-        // firstName: "Jan",
-        // lastName: "Janssen",
-        // profileImage: "https://cdn.vuetifyjs.com/images/john.jpg",
-        // email: "janjanssen@email.com",
-    },
+    currentUser: {},
     user: {},
 };
 
