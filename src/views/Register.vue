@@ -53,6 +53,9 @@
             </v-alert>
           </v-card-text>
           <v-card-actions>
+            <v-card-text>
+              <router-link :to="{ name: 'login'}">{{ $t("common.login")}}</router-link>
+            </v-card-text>
             <v-spacer></v-spacer>
             <v-btn class="px-6" color="primary" @click="validate()">{{
               $t("common.register")
