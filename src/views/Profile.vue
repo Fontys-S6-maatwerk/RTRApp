@@ -104,7 +104,10 @@ export default {
         },
         {
           title: this.$t("glossary.logout"),
-          action: () => this.logoutUser(),
+          action: () => {
+            this.logoutUser(); 
+            this.$router.push({ name: "login" });
+          },
         },
       ],
     };
