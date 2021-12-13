@@ -1,39 +1,39 @@
 {
-    "Solutions": [{
+    "Solutions": [
+        {
             "id": "5de9a4a0-5861-437c-bd77-42288e527754",
-            "name": "Bevestig kussen met spijkers",
-            "introduction": "Deze oplossing maakt het mogelijk voor gebruikers om een kussen te kunnen bevestigen met een hamer. ",
+            "name": "Bouw waterdicht dak",
+            "introduction": "Een stevig waterdicht dak bouwen dat elke storm kan weerstaan",
             "isLiked": false,
             "coverImage": "",
-            "weatherExtremeType": "Flood",
+            "weatherExtremeType": "Heavy rainfall",
             "materials": [
-                "Wood",
-                "Plastic"
+                "Houten planken"
             ],
             "tools": [
-                "Spijker",
-                "Hamer",
-                "Kussen"
+                "Spijkers",
+                "Hamer"
             ],
-            "steps": [{
-                    "description": "Zet het kussen tegen een muur",
+            "steps": [
+                {
+                    "description": "leg de planken op het dakframe",
                     "coverImage": ""
                 },
                 {
-                    "description": "Sla de hamers in het kussen",
+                    "description": "sla de planken vast met spijkers",
                     "coverImage": ""
                 }
             ],
             "numberOfLikes": 122,
-            "solutionType": "how-to video",
-            "difficulty": "medium",
+            "solutionType": "how-to",
+            "difficulty": "Hard",
             "SDGType": "Goal 13: Climate Action",
-            "userId": "61dd5018-93f2-420f-8211-34c1766f2d54",
+            "userId": "38eb41ae-8bcb-4b94-ac8e-7bae209efc7e",
             "user": {
-                "id": "61dd5018-93f2-420f-8211-34c1766f2d54",
-                "firstName": "Jan",
-                "lastName": "Janssen",
-                "email": "JanJanssen@email.com",
+                "id": "38eb41ae-8bcb-4b94-ac8e-7bae209efc7e",
+                "firstName": "John",
+                "lastName": "Snow",
+                "email": "johnsnow@email.com",
                 "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg"
             },
             "impactGoal": 2000,
@@ -42,321 +42,91 @@
             "viewCount": 0
         },
         {
-            "name": "SOlution",
-            "introduction": "hjkhjk",
+            "name": "Isoleer je huis beter",
+            "introduction": "Maak uw leefomgeving bestendig tegen extreme hitte",
             "coverImage": "",
-            "isLiked": false,
-            "weatherExtremeType": "Wildfire",
+            "weatherExtremeType": "Extreme heat",
             "materials": [
-                "hjkhjkhj",
-                "hjhjkh"
+                "Isolatie materiaal",
+                "houten planken"
             ],
             "tools": [
-                "ghgjhjg"
+                "hamer",
+                "spijkers"
             ],
-            "steps": [{
-                "description": "guyvfhgfhg",
-                "coverImage": ""
-            }],
-            "numberOfLikes": 122,
-            "solutionType": "how-to video",
-            "difficulty": "medium",
-            "SDGType": "Goal 13: Climate Action",
-            "userId": "61dd5018-93f2-420f-8211-34c1766f2d54",
-            "user": {
-                "id": "61dd5018-93f2-420f-8211-34c1766f2d54",
-                "firstName": "Jan",
-                "lastName": "Janssen",
-                "email": "JanJanssen@email.com",
-                "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg"
-            },
-            "impactGoal": 2000,
-            "currentImpact": 122,
-            "uploadDate": 1635687629887,
-            "viewCount": 5483,
-            "id": "65491819-a5c0-4ba0-b542-0c77cec07a5e"
-        },
-        {
-            "name": "Zand is heel korrelig",
-            "introduction": "Zand is korrelig en grof en blijft zitten tussen je tenen, echt begaaid. Ik haat zand 😂",
-            "coverImage": "",
-            "weatherExtremeType": "Drought",
-            "materials": [
-                "zand",
-                "nog een beetje zand"
-            ],
-            "tools": [
-                "zand schep",
-                "goede zin"
-            ],
-            "user": {
-                "id": "0de136f7-5d0b-4243-b6af-599e4cb56877",
-                "firstName": "Hans",
-                "lastName": "Worst",
-                "email": "hansworst@email.com",
-                "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg"
-            },
-            "steps": [{
-                    "description": "Schep de zand weg",
+            "steps": [
+                {
+                    "description": "Breng het materiaal aan op de muur",
                     "coverImage": ""
                 },
                 {
-                    "description": "Doee zand",
+                    "description": "Bevestig het materiaal met de planken en spijker het vast",
                     "coverImage": ""
                 }
             ],
-            "uploadDate": 1638193403487,
+            "uploadDate": 1638957192619,
             "viewCount": 0,
-            "impactGoal": "100000000000000000000000",
-            "currentImpact": "1",
+            "impactGoal": "400",
+            "currentImpact": "10",
+            "isLiked": false,
             "numberOfLikes": 0,
             "solutionType": "how-to",
-            "difficulty": "medium",
             "SDGType": "Goal 13: Climate Action",
-            "userId": "0de136f7-5d0b-4243-b6af-599e4cb56877",
-            "id": "lwNao9D"
+            "userId": "38eb41ae-8bcb-4b94-ac8e-7bae209efc7e",
+            "user": {
+                "id": "38eb41ae-8bcb-4b94-ac8e-7bae209efc7e",
+                "firstName": "John",
+                "lastName": "Snow",
+                "email": "johnsnow@email.com",
+                "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg"
+            },
+            "difficulty": "medium",
+            "id": "dd06ef74-b81d-43f4-83c2-b62a1977afe6"
         }
     ],
-    "Comments": [{
-            "id": 1,
-            "content": "The BEST Solution EUW.",
-            "author": "61dd5018-93f2-420f-8211-34c1766f2d54",
-            "user": {
-                "id": "61dd5018-93f2-420f-8211-34c1766f2d54",
-                "firstName": "Jan",
-                "lastName": "Janssen",
-                "email": "JanJanssen@email.com",
-                "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg"
-            },
-            "solution": "f68e3854-c01c-4306-9bae-8c5f10139fc0"
-        },
+    "Users": [
         {
-            "id": 2,
-            "content": "The WORST Solution EUW.",
-            "author": "38eb41ae-8bcb-4b94-ac8e-7bae209efc7e",
-            "user": {
-                "id": "61dd5018-93f2-420f-8211-34c1766f2d54",
-                "firstName": "Jan",
-                "lastName": "Janssen",
-                "email": "JanJanssen@email.com",
-                "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg"
-            },
-            "solution": "f68e3854-c01c-4306-9bae-8c5f10139fc0"
-        },
-        {
-            "id": 3,
-            "content": "The very BEST Solution EUW.",
-            "author": "61dd5018-93f2-420f-8211-34c1766f2d54",
-            "user": {
-                "id": "61dd5018-93f2-420f-8211-34c1766f2d54",
-                "firstName": "Jan",
-                "lastName": "Janssen",
-                "email": "JanJanssen@email.com",
-                "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg"
-            },
-            "solution": "5de9a4a0-5861-437c-bd77-42288e527754"
-        },
-        {
-            "id": 4,
-            "content": "The very WORST Solution EUW.",
-            "author": "67101394-9459-4eed-a979-7dd838bd8635",
-            "user": {
-                "id": "61dd5018-93f2-420f-8211-34c1766f2d54",
-                "firstName": "Jan",
-                "lastName": "Janssen",
-                "email": "JanJanssen@email.com",
-                "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg"
-            },
-            "solution": "5de9a4a0-5861-437c-bd77-42288e527754"
-        },
-        {
-            "id": 5,
-            "content": "Very nice",
-            "author": "38eb41ae-8bcb-4b94-ac8e-7bae209efc7e",
-            "user": {
-                "id": "61dd5018-93f2-420f-8211-34c1766f2d54",
-                "firstName": "Jan",
-                "lastName": "Janssen",
-                "email": "JanJanssen@email.com",
-                "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg"
-            },
-            "solution": "5de9a4a0-5861-437c-bd77-42288e527754"
-        },
-        {
-            "id": 6,
-            "content": "It worked great!",
-            "author": "67101394-9459-4eed-a979-7dd838bd8635",
-            "user": {
-                "id": "61dd5018-93f2-420f-8211-34c1766f2d54",
-                "firstName": "Jan",
-                "lastName": "Janssen",
-                "email": "JanJanssen@email.com",
-                "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg"
-            },
-            "solution": "5de9a4a0-5861-437c-bd77-42288e527754"
-        }
-    ],
-    "Users": [{
             "id": "61dd5018-93f2-420f-8211-34c1766f2d54",
-            "firstName": "Jan",
-            "lastName": "Janssen",
-            "email": "JanJanssen@email.com",
-            "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg",
-            "following": [{
-                    "id": 2
-                },
-                {
-                    "id": 3
-                }
-            ],
-            "followers": [{
-                "id": 2
-            }],
-            "myComments": [{
-                "id": 4
-            }],
-            "mySolutions": [{
-                "id": 1
-            }],
-            "myLikes": [{
-                "id": 2
-            }]
-        },
-        {
-            "id": "67101394-9459-4eed-a979-7dd838bd8635",
-            "firstName": "Henk",
-            "lastName": "Henkerson",
-            "email": "henkhenkerson@gmail.comm",
-            "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg",
-            "following": [{
-                "id": 1
-            }],
-            "followers": [{
-                "id": 1
-            }],
-            "myComments": [{
-                    "id": 1
-                },
-                {
-                    "id": 3
-                }
-            ],
-            "mySolutions": [],
-            "myLikes": [{
-                "id": 2
-            }]
+            "email": "jan.willems@email.com",
+            "firstName": "jan",
+            "lastName": "willems",
+            "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg"
         },
         {
             "id": "0de136f7-5d0b-4243-b6af-599e4cb56877",
+            "email": "hans.peters@email.com",
             "firstName": "hans",
-            "lastName": "worst",
-            "email": "hansworst@email.com",
-            "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg",
-            "following": [{
-                    "id": 8,
-                    "content": "The very WORST Solution EUW.",
-                    "solution": "2",
-                    "author": 1,
-                    "creationDate": 1637659725857
-                },
-                {
-                    "id": 9,
-                    "content": "The very BEST Solution EUW",
-                    "solution": "2",
-                    "author": 1,
-                    "creationDate": 1637659725857
-                }
-            ],
-            "password": "Aa123Bb456"
-        },
-        {
-            "id": "31fa2467-6a74-483f-9886-8eb5d47c8eba",
-            "firstName": "Peter",
-            "lastName": "Pan",
-            "email": "peterpan@email.com",
-            "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg",
-            "following": [{
-                    "id": 4,
-                    "firstName": "Peter",
-                    "lastName": "Pan",
-                    "email": "peterpan@email.com",
-                    "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg",
-                    "following": [{
-                        "id": 3
-                    }],
-                    "followers": [{
-                        "id": 3
-                    }],
-                    "myComments": [{
-                        "id": 5
-                    }],
-                    "mySolutions": [],
-                    "myLikes": [{
-                        "id": 2
-                    }]
-                },
-                {
-                    "id": 5,
-                    "firstName": "John",
-                    "lastName": "Snow",
-                    "email": "johnsnow@email.com",
-                    "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg",
-                    "following": [],
-                    "followers": [],
-                    "myComments": [{
-                        "id": 6
-                    }],
-                    "mySolutions": [],
-                    "myLikes": [{
-                        "id": 2
-                    }]
-                }
-            ]
+            "lastName": "peters",
+            "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg"
         },
         {
             "id": "38eb41ae-8bcb-4b94-ac8e-7bae209efc7e",
-            "firstName": "John",
-            "lastName": "Snow",
-            "email": "johnsnow@email.com",
-            "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg",
-            "following": [],
-            "followers": [],
-            "myComments": []
+            "email": "john.snow@email.com",
+            "firstName": "john",
+            "lastName": "snow",
+            "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg"
         }
     ],
-    "Authentication": [{
+    "Authentication": [
+        {
             "id": "0de136f7-5d0b-4243-b6af-599e4cb56877",
-            "email": "hansworst@email.com",
+            "email": "hans.peters@email.com",
             "firstName": "hans",
-            "lastName": "worst",
+            "lastName": "peters",
             "password": "Aa123Bb456"
         },
         {
             "id": 2,
-            "email": "janjanssen@email.com",
+            "email": "jan.willems@email.com",
             "firstName": "jan",
-            "lastName": "janssen",
+            "lastName": "willems",
             "password": "Aa456Bb123"
         },
         {
             "id": 3,
-            "email": "johnsnow@email.com",
+            "email": "john.snow@email.com",
             "firstName": "john",
             "lastName": "snow",
-            "password": "Aa654Bb321"
-        },
-        {
-            "id": 4,
-            "email": "peterpan@email.com",
-            "firstName": "peter",
-            "lastName": "pan",
-            "password": "Bb123Aa456"
-        },
-        {
-            "id": 5,
-            "email": "henkhenkerson@email.com",
-            "firstName": "henk",
-            "lastName": "henkerson",
             "password": "Aa654Bb321"
         }
     ],
