@@ -2,7 +2,7 @@
   <v-container fluid fill-height class='px-0'>
     <v-row>
       <v-col cols="3">
-        <Avatar :user="this.comment.user" />
+        <avatar :user="this.comment.user" />
       </v-col>
       <v-col cols="6">
         <v-row no-gutters>
@@ -31,11 +31,11 @@
 </template>
 
 <script lang="js">
-import Avatar from "../Avatar";
-
 export default  {
   name: 'CommentView',
-  components: {Avatar},
+  components: {
+    Avatar: () => import("@/components/Avatar")
+  },
   props: ['comment'],
 }
 </script>

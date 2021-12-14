@@ -4,12 +4,12 @@
       {{ $t("common.comments") }} ({{ pageResponse.totalElements }})
     </v-card-title>
     <v-card-text>
-      <CommentCreate :solutionId="this.solutionId" />
+      <comment-create :solutionId="this.solutionId" />
       <v-divider class="my-5" />
-      <CommentList />
+      <comment-list />
     </v-card-text>
     <v-card-actions>
-      <PageNavigator
+      <page-navigator
         v-if="pageResponse"
         :totalPages="this.pageResponse.totalPages"
         @switch-page="switchPage"
@@ -19,15 +19,16 @@
 </template>
 
 <script>
-import CommentList from "./CommentList";
-import CommentCreate from "./CommentCreate";
-import PageNavigator from "@/components/PageNavigator.vue";
 import { mapActions, mapState } from "vuex";
 
 export default {
   name: "CommentSection",
   props: ["solutionId", "userId"],
-  components: { CommentCreate, CommentList, PageNavigator },
+  components: {
+    CommentCreate: () => import("./CommentCreate"),
+    CommentList: () => import("./CommentList"),
+    PageNavigator: () => import("@/components/PageNavigator"),
+  },
   computed: {
     ...mapState(["user"]),
   },
@@ -40,20 +41,14 @@ export default {
     this.fetchSolutionComments({
       solutionId: this.solutionId,
       pageNumber: 1,
-    }).then((response) => {
-      console.log(response);
-      this.pageResponse = response;
-    });
+    }).then((response) => (this.pageResponse = response));
   },
   methods: {
     switchPage(page) {
       this.fetchSolutionComments({
         solutionId: this.solutionId,
         pageNumber: page,
-      }).then((response) => {
-        console.log(response);
-        this.pageResponse = response;
-      });
+      }).then((response) => (this.pageResponse = response));
     },
     ...mapActions("comment", ["fetchSolutionComments"]),
   },

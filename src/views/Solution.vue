@@ -24,7 +24,7 @@
           <v-row>
             <v-col cols="6">
               <v-card-title v-if="solution.solution.user">
-                <Avatar :user="solution.solution.user" />
+                <avatar :user="solution.solution.user" />
                 <router-link
                   :to="{
                     name: 'Profile',
@@ -110,16 +110,13 @@
       </v-col>
 
       <v-col cols="12">
-        <CommentSection :solutionId="this.id" :userId="1" />
+        <comment-section :solutionId="this.id" :userId="1" />
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
-import ImpactDialog from "@/components/dialogs/ImpactDialog.vue";
-import CommentSection from "../components/comments/CommentSection";
-import Avatar from "../components/Avatar";
 import { mapActions, mapState } from "vuex";
 
 export default {
@@ -130,9 +127,9 @@ export default {
     this.fetchSolution(this.id);
   },
   components: {
-    Avatar,
-    CommentSection,
-    ImpactDialog,
+    Avatar: () => import("@/components/Avatar"),
+    CommentSection: () => import("@/components/comments/CommentSection"),
+    ImpactDialog: () => import("@/components/dialogs/ImpactDialog"),
   },
   computed: {
     ...mapState(["solution"]),
@@ -141,10 +138,9 @@ export default {
     ...mapActions("solution", ["fetchSolution", "addImpact"]),
     ...mapActions("comment", ["fetchSolutionComments"]),
     calculateImpactPercentage() {
+      let solution = this.solution.solution;
       return Math.floor(
-        (this.solution.solution.currentImpact /
-          this.solution.solution.impactGoal) *
-          100
+        (solution.currentImpact / solution.impactGoal) * 100
       );
     },
     impact(impactNumber) {

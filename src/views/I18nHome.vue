@@ -7,12 +7,10 @@
 </template>
 
 <script>
-import LocaleSwitcher from "../components/LocaleSwitcher";
-
 export default {
   name: "I18nHome",
   components: {
-    LocaleSwitcher
+    LocaleSwitcher: () => import("@/components/LocaleSwitcher"),
   }
 }
 

@@ -5,9 +5,9 @@
         <v-card class="elevation-8">
           <v-card-title>
             <v-app-bar dark color="primary">
-              <v-app-bar-title
-                >Solut {{ $t("common.register") }}</v-app-bar-title
-              >
+              <v-app-bar-title>
+                Solut {{ $t("common.register") }}
+              </v-app-bar-title>
               <v-spacer></v-spacer>
               <v-icon> mdi-earth </v-icon>
             </v-app-bar>
