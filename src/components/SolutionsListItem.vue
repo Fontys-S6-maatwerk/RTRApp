@@ -1,11 +1,9 @@
 <template>
   <div>
     <v-card-title>
-      <v-avatar>
-        <v-img src="https://cdn.vuetifyjs.com/images/cards/cooking.png" />
-      </v-avatar>
+      <Avatar :user="solution.user" />
       <p class="ma-1">
-        {{ solution.author }}
+        {{ solution.user.firstName }}
       </p>
       <v-spacer></v-spacer>
       <p class="ma-1">
@@ -82,6 +80,7 @@ export default {
     onProfile: Boolean,
   },
   components: {
+    Avatar: () => import("@/components/Avatar"),
     DeleteSolutionDialog: () =>
       import("@/components/dialogs/DeleteSolutionDialog"),
   },
