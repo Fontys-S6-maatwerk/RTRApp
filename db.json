@@ -129,13 +129,6 @@
       "firstName": "john",
       "lastName": "snow",
       "password": "Aa654Bb321"
-    },
-    {
-      "firstName": "Jethro",
-      "lastName": "Kolk",
-      "email": "jethrokolk@email.com",
-      "password": "Wachtwoord1",
-      "id": "x54Xej0"
     }
   ],
   "Weather": [
