@@ -69,7 +69,7 @@
           :solutions="solution.userSolutions"
           v-on:deleteSolution="deleteSolutionById($event)"
           v-on:editSolution="editSolution($event)"
-          :onProfile="true"
+          :onProfile="isOnCurrentUserProfile"
         ></solutions-list>
       </v-col>
     </v-row>
