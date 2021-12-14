@@ -1,145 +1,153 @@
 {
-    "Solutions": [
+  "Solutions": [
+    {
+      "id": "5de9a4a0-5861-437c-bd77-42288e527754",
+      "name": "Bouw waterdicht dak",
+      "introduction": "Een stevig waterdicht dak bouwen dat elke storm kan weerstaan",
+      "isLiked": false,
+      "coverImage": "",
+      "weatherExtremeType": "Heavy rainfall",
+      "materials": [
+        "Houten planken"
+      ],
+      "tools": [
+        "Spijkers",
+        "Hamer"
+      ],
+      "steps": [
         {
-            "id": "5de9a4a0-5861-437c-bd77-42288e527754",
-            "name": "Bouw waterdicht dak",
-            "introduction": "Een stevig waterdicht dak bouwen dat elke storm kan weerstaan",
-            "isLiked": false,
-            "coverImage": "",
-            "weatherExtremeType": "Heavy rainfall",
-            "materials": [
-                "Houten planken"
-            ],
-            "tools": [
-                "Spijkers",
-                "Hamer"
-            ],
-            "steps": [
-                {
-                    "description": "leg de planken op het dakframe",
-                    "coverImage": ""
-                },
-                {
-                    "description": "sla de planken vast met spijkers",
-                    "coverImage": ""
-                }
-            ],
-            "numberOfLikes": 122,
-            "solutionType": "how-to",
-            "difficulty": "Hard",
-            "SDGType": "Goal 13: Climate Action",
-            "userId": "38eb41ae-8bcb-4b94-ac8e-7bae209efc7e",
-            "user": {
-                "id": "38eb41ae-8bcb-4b94-ac8e-7bae209efc7e",
-                "firstName": "John",
-                "lastName": "Snow",
-                "email": "johnsnow@email.com",
-                "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg"
-            },
-            "impactGoal": 2000,
-            "currentImpact": 500,
-            "uploadDate": 1634647211973,
-            "viewCount": 0
+          "description": "leg de planken op het dakframe",
+          "coverImage": ""
         },
         {
-            "name": "Isoleer je huis beter",
-            "introduction": "Maak uw leefomgeving bestendig tegen extreme hitte",
-            "coverImage": "",
-            "weatherExtremeType": "Extreme heat",
-            "materials": [
-                "Isolatie materiaal",
-                "houten planken"
-            ],
-            "tools": [
-                "hamer",
-                "spijkers"
-            ],
-            "steps": [
-                {
-                    "description": "Breng het materiaal aan op de muur",
-                    "coverImage": ""
-                },
-                {
-                    "description": "Bevestig het materiaal met de planken en spijker het vast",
-                    "coverImage": ""
-                }
-            ],
-            "uploadDate": 1638957192619,
-            "viewCount": 0,
-            "impactGoal": "400",
-            "currentImpact": "10",
-            "isLiked": false,
-            "numberOfLikes": 0,
-            "solutionType": "how-to",
-            "SDGType": "Goal 13: Climate Action",
-            "userId": "38eb41ae-8bcb-4b94-ac8e-7bae209efc7e",
-            "user": {
-                "id": "38eb41ae-8bcb-4b94-ac8e-7bae209efc7e",
-                "firstName": "John",
-                "lastName": "Snow",
-                "email": "johnsnow@email.com",
-                "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg"
-            },
-            "difficulty": "medium",
-            "id": "dd06ef74-b81d-43f4-83c2-b62a1977afe6"
+          "description": "sla de planken vast met spijkers",
+          "coverImage": ""
         }
-    ],
-    "Users": [
+      ],
+      "numberOfLikes": 122,
+      "solutionType": "how-to",
+      "difficulty": "Hard",
+      "SDGType": "Goal 13: Climate Action",
+      "userId": "38eb41ae-8bcb-4b94-ac8e-7bae209efc7e",
+      "user": {
+        "id": "38eb41ae-8bcb-4b94-ac8e-7bae209efc7e",
+        "firstName": "John",
+        "lastName": "Snow",
+        "email": "johnsnow@email.com",
+        "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg"
+      },
+      "impactGoal": 2000,
+      "currentImpact": 500,
+      "uploadDate": 1634647211973,
+      "viewCount": 0
+    },
+    {
+      "name": "Isoleer je huis beter",
+      "introduction": "Maak uw leefomgeving bestendig tegen extreme hitte",
+      "coverImage": "",
+      "weatherExtremeType": "Extreme heat",
+      "materials": [
+        "Isolatie materiaal",
+        "houten planken"
+      ],
+      "tools": [
+        "hamer",
+        "spijkers"
+      ],
+      "steps": [
         {
-            "id": "61dd5018-93f2-420f-8211-34c1766f2d54",
-            "email": "jan.willems@email.com",
-            "firstName": "jan",
-            "lastName": "willems",
-            "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg"
+          "description": "Breng het materiaal aan op de muur",
+          "coverImage": ""
         },
         {
-            "id": "0de136f7-5d0b-4243-b6af-599e4cb56877",
-            "email": "hans.peters@email.com",
-            "firstName": "hans",
-            "lastName": "peters",
-            "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg"
-        },
-        {
-            "id": "38eb41ae-8bcb-4b94-ac8e-7bae209efc7e",
-            "email": "john.snow@email.com",
-            "firstName": "john",
-            "lastName": "snow",
-            "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg"
+          "description": "Bevestig het materiaal met de planken en spijker het vast",
+          "coverImage": ""
         }
-    ],
-    "Authentication": [
-        {
-            "id": "0de136f7-5d0b-4243-b6af-599e4cb56877",
-            "email": "hans.peters@email.com",
-            "firstName": "hans",
-            "lastName": "peters",
-            "password": "Aa123Bb456"
-        },
-        {
-            "id": 2,
-            "email": "jan.willems@email.com",
-            "firstName": "jan",
-            "lastName": "willems",
-            "password": "Aa456Bb123"
-        },
-        {
-            "id": 3,
-            "email": "john.snow@email.com",
-            "firstName": "john",
-            "lastName": "snow",
-            "password": "Aa654Bb321"
-        }
-    ],
-    "Weather": [
-        "Tornado",
-        "Smog",
-        "Extreme heat",
-        "Wildfire",
-        "Dust storm",
-        "Flood",
-        "Heavy rainfall",
-        "Hail storm",
-        "Drought",
-        "Blizzard"
-    ]
+      ],
+      "uploadDate": 1638957192619,
+      "viewCount": 0,
+      "impactGoal": "400",
+      "currentImpact": "10",
+      "isLiked": true,
+      "numberOfLikes": 0,
+      "solutionType": "how-to",
+      "SDGType": "Goal 13: Climate Action",
+      "userId": "38eb41ae-8bcb-4b94-ac8e-7bae209efc7e",
+      "user": {
+        "id": "38eb41ae-8bcb-4b94-ac8e-7bae209efc7e",
+        "firstName": "John",
+        "lastName": "Snow",
+        "email": "johnsnow@email.com",
+        "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg"
+      },
+      "difficulty": "medium",
+      "id": "dd06ef74-b81d-43f4-83c2-b62a1977afe6"
+    }
+  ],
+  "Users": [
+    {
+      "id": "61dd5018-93f2-420f-8211-34c1766f2d54",
+      "email": "jantje.willems@email.com",
+      "firstName": "jantje",
+      "lastName": "willems",
+      "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg",
+      "password": "Aa456Bb123"
+    },
+    {
+      "id": "0de136f7-5d0b-4243-b6af-599e4cb56877",
+      "email": "hans.peters@email.com",
+      "firstName": "hans",
+      "lastName": "peters",
+      "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg"
+    },
+    {
+      "id": "38eb41ae-8bcb-4b94-ac8e-7bae209efc7e",
+      "email": "john.snow@email.com",
+      "firstName": "john",
+      "lastName": "snow",
+      "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg"
+    }
+  ],
+  "Authentication": [
+    {
+      "id": "0de136f7-5d0b-4243-b6af-599e4cb56877",
+      "email": "hans.peters@email.com",
+      "firstName": "hans",
+      "lastName": "peters",
+      "password": "Aa123Bb456"
+    },
+    {
+      "id": "61dd5018-93f2-420f-8211-34c1766f2d54",
+      "email": "jantje.willems@email.com",
+      "firstName": "jantje",
+      "lastName": "willems",
+      "password": "Aa456Bb123"
+    },
+    {
+      "id": "38eb41ae-8bcb-4b94-ac8e-7bae209efc7e",
+      "email": "john.snow@email.com",
+      "firstName": "john",
+      "lastName": "snow",
+      "password": "Aa654Bb321"
+    },
+    {
+      "firstName": "Jethro",
+      "lastName": "Kolk",
+      "email": "jethrokolk@email.com",
+      "password": "Wachtwoord1",
+      "id": "x54Xej0"
+    }
+  ],
+  "Weather": [
+    "Tornado",
+    "Smog",
+    "Extreme heat",
+    "Wildfire",
+    "Dust storm",
+    "Flood",
+    "Heavy rainfall",
+    "Hail storm",
+    "Drought",
+    "Blizzard"
+  ]
 }
