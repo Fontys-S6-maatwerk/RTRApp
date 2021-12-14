@@ -1,4 +1,8 @@
 const routes = [{
+        path: "/",
+        redirect: "Home"
+    },
+    {
         path: "/i18n",
         name: "I18nHome",
         component: () =>

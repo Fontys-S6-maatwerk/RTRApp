@@ -1,7 +1,7 @@
 <template>
   <v-row>
     <v-col cols="3" sm="2">
-      <Avatar :user="user.currentUser" />
+      <avatar :user="user.currentUser" />
     </v-col>
     <v-col class="mb-4 mr-4">
       <v-row>
@@ -18,12 +18,13 @@
 </template>
 
 <script>
-import Avatar from "@/components/Avatar.vue";
 import { mapActions, mapState } from "vuex";
 
 export default {
   name: "CommentCreate",
-  components: { Avatar },
+  components: { 
+    Avatar: () => import("@/components/Avatar")
+  },
   props: ["solutionId"],
   data() {
     return {

@@ -123,7 +123,11 @@ export default {
     },
   },
   methods: {
-    ...mapActions("user", ["fetchUser", "logoutUser", "deleteUser"]),
+    ...mapActions("user", [
+      "fetchUser", 
+      "logoutUser", 
+      "deleteUser"
+    ]),
     ...mapActions("solution", [
       "fetchUserSolutions",
       "toggleSolutionLike",

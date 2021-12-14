@@ -1,7 +1,7 @@
 <template lang="html">
   <v-list min-height="100px">
     <v-list-item v-for="comment in comment.items" v-bind:key="comment.id">
-      <CommentView :comment="comment" />
+      <comment-view :comment="comment" />
     </v-list-item>
   </v-list>
 </template>
