@@ -54,9 +54,24 @@ export const actions = {
 
     registerUser({ commit }, register) {
         return UserService.register(register)
-            .then((response) => {
-                commit("SET_CURRENT_USER", response);
-                return response;
+            .then((account) => {
+                let createdUser = {
+                        'id': account.id,
+                        'email': account.email,
+                        'firstName': account.firstName,
+                        'lastName': account.lastName,
+                        "profileImage": "https://cdn.vuetifyjs.com/images/john.jpg",
+                        "following": [],
+                        "followers": [],
+                        "myComments": [],
+                        "mySolutions": [],
+                        "myLikes": []
+                    };
+
+                return UserService.registerUser(createdUser).then((user) => {
+                    commit("SET_CURRENT_USER", user);
+                    return user;
+                });
             })
             .catch((error) => {
                 console.log(error);

@@ -24,6 +24,11 @@ export default {
             .then((response) => response.data);
     },
 
+    async registerUser(register) {
+        return await apiClient
+            .post('/Users', register)
+            .then((response) => response.data);
+    },
 
     async update(user) {
         return await apiClient

@@ -84,14 +84,14 @@ export default {
       firstNameRules: [
         (v) => !!v || this.$t("validation.required"),
         (v) =>
-          (v && v.length >= 3 && v.length <= 10) ||
-          this.$t("validation.must_be_between_characters", { min: 3, max: 10 }),
+          (v && v.length >= 1 && v.length <= 40) ||
+          this.$t("validation.must_be_between_characters", { min: 1, max: 40 }),
       ],
       lastNameRules: [
         (v) => !!v || this.$t("validation.required"),
         (v) =>
-          (v && v.length >= 3 && v.length <= 10) ||
-          this.$t("validation.must_be_between_characters", { min: 3, max: 10 }),
+          (v && v.length >= 1 && v.length <= 40) ||
+          this.$t("validation.must_be_between_characters", { min: 1, max: 40 }),
       ],
       emailRules: [
         (v) => !!v || this.$t("validation.required"),
