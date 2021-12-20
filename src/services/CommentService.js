@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const apiClient = axios.create({
-  baseURL: "http://localhost:5004",
+  baseURL: "http://localhost:9092",
   withCredentials: false, // This is the default
   headers: {
     Accept: "application/json",
@@ -14,7 +14,7 @@ export default {
     console.log("TEMP API CALL COMMENTS: ", solutionId, pageNumber, pageSize);
     return await apiClient
       .get(
-        "/comments/solutions/" +
+        "/Comments/solutions/" +
           solutionId +
           "?pageSize=" +
           pageSize +

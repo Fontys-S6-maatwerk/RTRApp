@@ -1,4 +1,5 @@
 import SolutionService from "@/services/SolutionService.js";
+import UserService from "@/services/UserService.js";
 
 export const namespaced = true;
 
@@ -72,8 +73,15 @@ export const actions = {
     fetchSolution({ commit }, id) {
         return SolutionService.getSolutionById(id)
             .then((response) => {
-                commit("SET_SOLUTION", response);
-                return response;
+                response.uploadDate = +new Date(response.uploadDate);
+                return UserService.getUserById(response.authorId).then( (resp) => {
+                    response.user = resp[0];
+                    response.impactGoal = 100;
+                    response.currentImpact = 10;
+                    console.log('resoponse: ', response);
+                    commit("SET_SOLUTION", response);
+                    return response;
+                });
             })
             .catch((error) => {
                 console.log(error);
