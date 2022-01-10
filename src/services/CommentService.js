@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const apiClient = axios.create({
-  baseURL: "http://localhost:9092",
+  baseURL: "http://comment-service:80",
   withCredentials: false, // This is the default
   headers: {
     Accept: "application/json",
