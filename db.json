@@ -28,7 +28,7 @@
       "solutionType": "how-to",
       "difficulty": "Hard",
       "SDGType": "Goal 13: Climate Action",
-      "userId": "38eb41ae-8bcb-4b94-ac8e-7bae209efc7e",
+      "authorId": "38eb41ae-8bcb-4b94-ac8e-7bae209efc7e",
       "user": {
         "id": "38eb41ae-8bcb-4b94-ac8e-7bae209efc7e",
         "firstName": "John",
@@ -72,7 +72,7 @@
       "numberOfLikes": 0,
       "solutionType": "how-to",
       "SDGType": "Goal 13: Climate Action",
-      "userId": "38eb41ae-8bcb-4b94-ac8e-7bae209efc7e",
+      "authorId": "38eb41ae-8bcb-4b94-ac8e-7bae209efc7e",
       "user": {
         "id": "38eb41ae-8bcb-4b94-ac8e-7bae209efc7e",
         "firstName": "John",

@@ -323,7 +323,7 @@ export default {
         numberOfLikes: 0,
         solutionType: "how-to",
         SDGType: "Goal 13: Climate Action",
-        userId: this.$store.state.user.currentUser.id,
+        authorId: this.$store.state.user.currentUser.id,
         user: this.$store.state.user.currentUser,
         //sample data
         difficulty: "medium",

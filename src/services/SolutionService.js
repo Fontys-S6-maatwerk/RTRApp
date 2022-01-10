@@ -1,14 +1,28 @@
 import apiClient from "@/util/api-client";
+import axios from "axios";
+
+const api_Client = axios.create({
+  baseURL: "http://localhost:5000",
+  withCredentials: false, // This is the default
+  headers: {
+    Accept: "application/json",
+    "Content-Type": "application/json",
+  },
+});
 
 export default {
     async getFeedSolutions(userId, sortBy, pageNumber, pageSize) {
         console.log("TEMP API CALL FEED: ", userId, sortBy, pageNumber, pageSize);
-        return await apiClient.get("/Solutions").then((response) => response.data);
+        return await api_Client.get("/api/Solutions").then((response) => response.data);
+        // return await apiClient.get("/Solutions").then((response) => response.data);
     },
     async getSolutionById(id) {
-        return await apiClient
-            .get("/Solutions/" + id)
-            .then((response) => response.data);
+        // return await apiClient
+        //     .get("/Solutions/" + id)
+        //     .then((response) => response.data);
+        return await api_Client
+        .get("/api/Solutions/" + id)
+        .then((response) => response.data);
     },
     async getSearchSolutions(
         query,
@@ -44,9 +58,12 @@ export default {
         }).then((response) => response.data);
     },
     async postSolution(solution) {
-        return await apiClient
-            .post("/Solutions", solution)
+        return await api_Client
+            .post("/api/Solutions/howto", solution)
             .then((response) => response.data);
+        // return await apiClient
+        //     .post("/Solutions", solution)
+        //     .then((response) => response.data);
     },
     async putSolution(id, solution) {
         return await apiClient
@@ -54,7 +71,8 @@ export default {
             .then((response) => response.data);
     },
     async deleteSolution(id) {
-        return await apiClient.delete("/Solutions/" + id);
+        return await api_Client.delete("/api/Solutions/" + id);
+        // return await apiClient.delete("/Solutions/" + id);
     },
     async addImpact(id, impact) {
         return await apiClient.patch("/Solutions/" + id, {

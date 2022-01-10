@@ -14,7 +14,7 @@ export default {
     console.log("TEMP API CALL COMMENTS: ", solutionId, pageNumber, pageSize);
     return await apiClient
       .get(
-        "/comments/solutions/" +
+        "/Comments/solutions/" +
           solutionId +
           "?pageSize=" +
           pageSize +
