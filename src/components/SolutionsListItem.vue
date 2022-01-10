@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card-title>
+    <v-card-title v-if="solution.user">
       <Avatar :user="solution.user" />
       <p class="ma-1">
         {{ solution.user.firstName }}
